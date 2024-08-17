@@ -11,7 +11,7 @@ redirect_from:
 
 I'm a final-year Ph.D. student in Biostatistics at the University of Texas Health Science Center at Houston, working under the guidance of Dr. Ruitao Lin at MD Anderson Cancer Center.
 
-## Research Interests
+## 📚 Research Interests
 
 My research focuses on developing innovative statistical methodologies for clinical trials, with particular emphasis on:
 
