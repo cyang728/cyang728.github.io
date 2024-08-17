@@ -1,8 +1,9 @@
 ---
 title: "On the relative conservativeness of Bayesian logistic regression method in oncology dose‐finding studies"
-collection: Pharmaceutical Statistics
+collection: publications
 excerpt: 'The Bayesian logistic regression method (BLRM) is a widely adopted and flexible design for finding the maximum tolerated dose in oncology phase I studies. However, the BLRM design has been criticized in the literature for being overly conservative due to the use of the overdose control rule. Recently, a discussion paper titled “Improving the performance of Bayesian logistic regression model with overall control in oncology dose-finding studies” in Statistics in Medicine has proposed an overall control rule to address the “excessive conservativeness” of the standard BLRM design. In this short communication, we discuss the relative conservativeness of the standard BLRM design and also suggest a dose-switching rule to further enhance its performance.'
 date: 2024-02-05
+venue: "Pharmaceutical Statistics"
 paperurl: 'https://doi.org/10.1002/pst.2364'
 ---
 
