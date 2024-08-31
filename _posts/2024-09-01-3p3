@@ -1,0 +1,40 @@
+---
+title: 'Rule-based Design for Phase I Clinical Trials'
+date: 2024-09-01
+permalink: /posts/2024/09/3p3/
+tags:
+  - Phase I trial
+---
+
+The primary objective of phase I clinical trials is to identify the maximum tolerated dose (MTD) of a new treatment based on the toxicity outcomes. A phase I clinical trial plays a critical role because it determines the dose level for subsequent studies such as phase II and III trials. Conventionally, phase I and phase II trials are carried out separately.
+
+A primary assumption exists for the Phase I and then Phase II design. Assume both efficacy and toxicity increase monotonically with the dose. Note that if the dose-efficacy curve is not monotonically increasing, then we should carry out the Phase I/II trial instead of the traditional Phase I trial. The phase I/II trial will be discussed in the future.
+
+Now, we will focus on the rule-based design also called algorithm-based and up-and-down design. Rule-based designs apply simple rules to allow for step-up and step-down dosing for the next cohort according to the presence of toxicities seen at the current dose level. Due to the simplicity and transparency, the 3+3 design has prevailed in phase I clinical practice in oncology for decades. Specifically, the 3+3 design has been utilized in more than 95% of published phase 1 trials in the past two decades (Ji & Wang, 2013).
+
+The 3+3 design sequentially accrued and treated in a cohort of size 3. For the first cohort, patients are treated at the lowest dose level which is specified by physicians. The algorithm can be implemented as follows:
+- If no patients experience an adverse event (DLT), then the dose will be escalated to the next dose level.
+- If one out of three patients experiences DLT at the j dose level, then an additional 3 patients are treated at the same dose level.
+  - If one out of six patients develops DLT, then the dose will be escalated to the next level j+1.
+  - If two out of six patients develop DLT, then the dose level j-1 is declared the MTD.
+  - If more than two patients develop DLT, then the dose will be de-escalated to the j-1 dose level.
+- If more than one patients experience DLT, then the dose level is viewed as exceeding the MTD.
+
+"3p3_design.jpeg"
+
+\includegraphics{3p3_design.jpeg}
+
+Advantage:
+It is very simple and can be easily understood by study investigators and clinical researchers.
+It does not require any parametric assumptions on the dose–toxicity curve.
+
+Disadvantage:
+Statistical simulations have shown that the MTD is identified in as few as 30% of clinical trials that utilized a 3+3 design (Hansen et. al., 2014).
+It exposes an unnecessary number of patients to subtherapeutic doses.
+The standard 3+3 design ignores the previous cohort. In other words, it only focuses on the current cohort.
+
+Despite the above disadvantage, the 3+3 design has been dominant in phase I clinical trials for two decades due to its simplicity and ease of implementation. To address the disadvantages, there exist several extensions of the 3+3 design including the rolling-six design, biased-coin design, k-in-a-row design, and its variants. Although most of the aforementioned rule-based designs provide better performance than the standard 3+3 design, they have had limited use in practice.
+
+Reference:
+1. Liu, S., Cai, C., & Ning, J. (2013). Up-and-down designs for phase I clinical trials. Contemporary clinical trials, 36(1), 218–227.
+2. Anne Poli (2020). Reconsidering the 3+3 Dose Escalation in Oncology Studies. https://www.hallorancg.com/2020/03/02/reconsidering-the-33-dose-escalation-in-oncology-studies/
