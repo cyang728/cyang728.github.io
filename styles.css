@@ -396,6 +396,16 @@ footer {
    Responsive
    ============================================ */
 @media (max-width: 768px) {
+  .home-container,
+  .home-container *,
+  .sidebar,
+  .sidebar *,
+  .main-content,
+  .main-content * {
+    position: static !important;
+    z-index: auto !important;
+  }
+
   .home-container {
     flex-direction: column;
     display: block !important;
