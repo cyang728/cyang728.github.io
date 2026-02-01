@@ -3,15 +3,26 @@ project:
   output-dir: docs
 
 website:
-  title: "Cheng-Han Yang"
+  title: ""
   navbar:
+    background: dark
+    foreground: light
+    title: "Cheng-Han Yang"
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - href: research.qmd
+        text: Research
+      - href: publications.qmd
+        text: Publications
+      - href: software.qmd
+        text: Software
+      - href: teaching.qmd
+        text: Teaching
+      - href: blog.qmd
+        text: Blog
 
 format:
   html:
-    theme: cosmo
+    theme:
+      dark: darkly
     css: styles.css
-    toc: true
+    toc: false

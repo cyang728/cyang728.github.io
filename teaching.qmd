@@ -1,0 +1,56 @@
+---
+title: "Teaching"
+---
+
+I am passionate about teaching statistics and helping students develop intuition for statistical thinking. My teaching philosophy emphasizes connecting theoretical concepts to real-world applications, particularly in biomedical research.
+
+---
+
+## Teaching Experience
+
+### National Tsing Hua University, Taiwan
+
+**Graduate Teaching Assistant** (2017–2021)
+
+- **STAT661000 Survival Analysis** (Spring 2020, Spring 2021)
+  - Topics: Kaplan-Meier estimation, Cox proportional hazards model, time-varying covariates, competing risks
+  
+- **STAT519100 Applied Multivariate Analysis** (Spring 2017, Spring 2019)
+  - Topics: PCA, factor analysis, clustering, discriminant analysis, MANOVA
+
+- **STAT541000 Linear Models** (Fall 2018)
+  - Topics: Linear regression theory, ANOVA, mixed effects models, diagnostics
+
+**Undergraduate Teaching Assistant** (2016–2020)
+
+- **ECON303300 Econometrics** (Fall 2019)
+  - Topics: OLS, instrumental variables, panel data, limited dependent variables
+
+- **STAT202000 Statistics** (Fall 2016, Spring 2020)
+  - Topics: Probability, distributions, hypothesis testing, confidence intervals, regression
+
+---
+
+## Teaching Interests
+
+I am prepared to teach courses at both undergraduate and graduate levels:
+
+**Introductory Courses**
+
+- Introduction to Biostatistics
+- Statistical Methods for Public Health
+- Applied Regression Analysis
+
+**Advanced Courses**
+
+- Survival Analysis
+- Longitudinal Data Analysis
+- Bayesian Methods in Biostatistics
+- Clinical Trial Design
+- Statistical Methods for EHR Data
+
+**Specialized Topics**
+
+- Joint Modeling for Longitudinal and Survival Data
+- Causal Inference in Observational Studies
+- Adaptive Clinical Trial Designs

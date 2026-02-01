@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cheng-Han Yang</title>
+<title>Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -72,12 +74,70 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -271,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link active" href="./blog.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -286,78 +346,73 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ymlvc3RhdGlzdGljcw==">biostatistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Blog</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>I write about biostatistics methodology, R programming, and academic life. My goal is to make statistical concepts accessible and share practical insights from my research experience.</p>
 
 
 
 
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="bmV3cyUyQ2Jpb3N0YXRpc3RpY3M=" data-listing-date-sort="1768453200000" data-listing-file-modified-sort="1769926737000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="112">
+<div class="thumbnail"><a href="./posts/2026-01-welcome/index.html" class="no-external">
 
-<div class="home-container">
-<div class="sidebar">
-<p><img src="profile.jpg" class="profile-img" alt="Cheng-Han Yang"></p>
-<h3 class="anchored">
-Cheng-Han Yang
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2026-01-welcome/index.html" class="no-external">Welcome to My Blog</a>
 </h3>
-<p class="title-text">
-Associate Research Scientist<br>Department of Biostatistics<br>Yale School of Public Health
-</p>
-<div class="contact-links">
-<p>
-📍 New Haven, CT
-</p>
-<p>
-✉️ <a href="mailto:cheng-han.yang@yale.edu">Email</a>
-</p>
-<p>
-🐙 <a href="https://github.com/cyang728">GitHub</a>
-</p>
-<p>
-🎓 <a href="https://scholar.google.com/citations?user=SOJu3GAAAAAJ&amp;hl=zh-TW">Google Scholar</a>
-</p>
-<p>
-📋 <a href="https://orcid.org/0000-0002-4161-3140">ORCID</a>
-</p>
-<p>
-📄 <a href="files/ChengHan_Yang_CV.pdf">CV</a>
-</p>
-</div>
-</div>
-<div class="main-content">
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<p>I am an <strong>Associate Research Scientist</strong> in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr.&nbsp;Bhramar Mukherjee</a>. My research focuses on developing statistical methods for analyzing large-scale electronic health records (EHR) data, with particular emphasis on addressing informative visiting and observation processes.</p>
-<p>I received my Ph.D.&nbsp;in Biostatistics from the <a href="https://sph.uth.edu/divisions/biostatistics/">University of Texas Health Science Center at Houston</a> in 2025, where I was advised by <a href="https://faculty.mdanderson.org/profiles/ruitao_lin.html">Dr.&nbsp;Ruitao Lin</a>. My doctoral research focused on Bayesian adaptive designs for early-phase oncology clinical trials.</p>
-</section>
-<section id="research-interests" class="level2">
-<h2 class="anchored" data-anchor-id="research-interests">Research Interests</h2>
-<ul>
-<li>EHR data analysis</li>
-<li>Survival analysis</li>
-<li>Bayesian dose-finding design</li>
-<li>Causal inference</li>
-</ul>
-</section>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<p><strong>Ph.D.&nbsp;in Biostatistics</strong>, University of Texas Health Science Center at Houston, 2025</p>
-<p><strong>M.S. in Statistics</strong>, National Tsing Hua University, Taiwan, 2017</p>
-</section>
-<section id="news" class="level2">
-<h2 class="anchored" data-anchor-id="news">News</h2>
-<ul>
-<li><strong>Jan 2026</strong> — Invited talk at Yale Public Health Data Science and Data Equity Seminar</li>
-<li><strong>Dec 2025</strong> — Paper on dose exploration published in <em>Annals of Applied Statistics</em></li>
-<li><strong>Aug 2025</strong> — Started position as Associate Research Scientist at Yale University</li>
-</ul>
-</section>
-</div>
-</div>
+<div class="listing-categories">
 
+<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
 
+<div class="listing-category" onclick="window.quartoListingCategory('Ymlvc3RhdGlzdGljcw=='); return false;">biostatistics</div>
 
-</main> <!-- /main -->
+</div>
+<div class="delink listing-description"><a href="./posts/2026-01-welcome/index.html" class="no-external">
+Welcome to my blog! I’m excited to share my thoughts on biostatistics methodology, R programming tips, and insights from academic research.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2026-01-welcome/index.html" class="no-external">
+<div class="listing-date">
+Jan 15, 2026
+</div>
+<div class="listing-author">
+Cheng-Han Yang
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

@@ -1,0 +1,79 @@
+---
+title: "Software"
+toc: true
+---
+
+I develop open-source R packages to make statistical methods accessible to applied researchers. All packages are available on GitHub.
+
+---
+
+## DEMOdesign
+
+**Dose Exploration, Monitoring, and Optimization Using Biological and Clinical Outcomes**
+
+An R package implementing the DEMO design—a Bayesian adaptive Phase I/II trial framework tailored for oncology dose-finding, particularly for immunotherapies and targeted therapies. It selects an Optimal Therapeutic Dose (OTD) that maximizes Restricted Mean Survival Time (RMST) while ensuring safety, biological activity, and clinical efficacy across three stages.
+
+### Features
+
+- Three-stage Bayesian adaptive design (Exploration, Monitoring, Optimization)
+- Integrates biomarker, toxicity, response, and survival endpoints
+- BOIN-based exploration with biomarker and toxicity screening
+- RMST-based dose optimization
+
+### Installation
+
+```r
+remotes::install_github("cyang728/DEMOdesign")
+```
+
+### Reference
+
+Yang CH, Thall PF, Lin R. (2025). "Dose exploration, monitoring, and optimization using biological and clinical outcomes." *Annals of Applied Statistics*, 19(4), 2599–2617.
+
+[GitHub Repository](https://github.com/cyang728/DEMOdesign){.btn .btn-primary}
+
+---
+
+## BAR12
+
+**Bayesian Autoregressive Phase 1-2 Design for Cell Therapy Trials with Manufacturing Changes**
+
+An R package implementing the BAR12 design for seamless dose-finding in early-phase cell therapy trials that incorporate mid-trial manufacturing modifications—or *tweaks*—such as changes to cell culture duration, cytokine cocktails, or donor criteria. BAR12 uses a Bayesian autoregressive model with spike-and-slab priors to distinguish between pre- and post-tweak outcome distributions, allowing dynamic borrowing of information while accounting for possible shifts.
+
+### Features
+
+- Handles mid-trial manufacturing process changes
+- Bayesian autoregressive model with spike-and-slab priors
+- Dynamic information borrowing across trial stages
+- Stan-based posterior computation
+
+### Installation
+
+```r
+remotes::install_github("cyang728/BAR12")
+```
+
+[GitHub Repository](https://github.com/cyang728/BAR12){.btn .btn-primary}
+
+---
+
+## MCPModX
+
+**Covariate-Adjusted MCP-Mod for Dose-Response Analysis**
+
+An R package that incorporates covariate adjustment to enhance the robustness and precision of dose-response analyses. The approach leverages g-computation to address non-collapsibility and employs model-assisted estimation to ensure valid inferences, even in the presence of model misspecification.
+
+### Features
+
+- Covariate adjustment in MCP-Mod framework
+- G-computation for non-collapsible endpoints
+- Support for binary endpoints with prognostic scores
+- Model-assisted estimation for robust inference
+
+### Installation
+
+```r
+remotes::install_github("cyang728/MCPModX")
+```
+
+[GitHub Repository](https://github.com/cyang728/MCPModX){.btn .btn-primary}

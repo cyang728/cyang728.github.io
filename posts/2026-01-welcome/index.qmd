@@ -1,0 +1,24 @@
+---
+title: "Welcome to My Blog"
+author: "Cheng-Han Yang"
+date: "2026-01-15"
+categories: [news, biostatistics]
+---
+
+Welcome to my blog! I'm excited to share my thoughts on biostatistics methodology, R programming tips, and insights from academic research.
+
+## What to Expect
+
+In this blog, I plan to write about:
+
+1. **Statistical Methods Explained**: Intuitive explanations of complex statistical concepts, particularly joint modeling, survival analysis, and Bayesian methods.
+
+2. **R Programming**: Tutorials and tips for biostatistical computing, including package development and efficient coding practices.
+
+3. **EHR Data Analysis**: Practical guidance on working with electronic health records data and handling common challenges like informative missingness.
+
+4. **Academic Life**: Reflections on the journey through PhD, postdoc, and the faculty job market.
+
+## Stay Tuned
+
+More posts coming soon! Feel free to reach out if there are topics you'd like me to cover.

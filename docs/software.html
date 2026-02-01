@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cheng-Han Yang</title>
+<title>Software</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -77,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -263,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html"> 
+    <a class="nav-link active" href="./software.html" aria-current="page"> 
 <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
@@ -286,76 +321,120 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#demodesign" id="toc-demodesign" class="nav-link active" data-scroll-target="#demodesign">DEMOdesign</a>
+  <ul class="collapse">
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  </ul></li>
+  <li><a href="#bar12" id="toc-bar12" class="nav-link" data-scroll-target="#bar12">BAR12</a>
+  <ul class="collapse">
+  <li><a href="#features-1" id="toc-features-1" class="nav-link" data-scroll-target="#features-1">Features</a></li>
+  <li><a href="#installation-1" id="toc-installation-1" class="nav-link" data-scroll-target="#installation-1">Installation</a></li>
+  </ul></li>
+  <li><a href="#mcpmodx" id="toc-mcpmodx" class="nav-link" data-scroll-target="#mcpmodx">MCPModX</a>
+  <ul class="collapse">
+  <li><a href="#features-2" id="toc-features-2" class="nav-link" data-scroll-target="#features-2">Features</a></li>
+  <li><a href="#installation-2" id="toc-installation-2" class="nav-link" data-scroll-target="#installation-2">Installation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
 
 
-
-
-
-<div class="home-container">
-<div class="sidebar">
-<p><img src="profile.jpg" class="profile-img" alt="Cheng-Han Yang"></p>
-<h3 class="anchored">
-Cheng-Han Yang
-</h3>
-<p class="title-text">
-Associate Research Scientist<br>Department of Biostatistics<br>Yale School of Public Health
-</p>
-<div class="contact-links">
-<p>
-📍 New Haven, CT
-</p>
-<p>
-✉️ <a href="mailto:cheng-han.yang@yale.edu">Email</a>
-</p>
-<p>
-🐙 <a href="https://github.com/cyang728">GitHub</a>
-</p>
-<p>
-🎓 <a href="https://scholar.google.com/citations?user=SOJu3GAAAAAJ&amp;hl=zh-TW">Google Scholar</a>
-</p>
-<p>
-📋 <a href="https://orcid.org/0000-0002-4161-3140">ORCID</a>
-</p>
-<p>
-📄 <a href="files/ChengHan_Yang_CV.pdf">CV</a>
-</p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Software</h1>
 </div>
-</div>
-<div class="main-content">
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<p>I am an <strong>Associate Research Scientist</strong> in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr.&nbsp;Bhramar Mukherjee</a>. My research focuses on developing statistical methods for analyzing large-scale electronic health records (EHR) data, with particular emphasis on addressing informative visiting and observation processes.</p>
-<p>I received my Ph.D.&nbsp;in Biostatistics from the <a href="https://sph.uth.edu/divisions/biostatistics/">University of Texas Health Science Center at Houston</a> in 2025, where I was advised by <a href="https://faculty.mdanderson.org/profiles/ruitao_lin.html">Dr.&nbsp;Ruitao Lin</a>. My doctoral research focused on Bayesian adaptive designs for early-phase oncology clinical trials.</p>
-</section>
-<section id="research-interests" class="level2">
-<h2 class="anchored" data-anchor-id="research-interests">Research Interests</h2>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>I develop open-source R packages to make statistical methods accessible to applied researchers. All packages are available on GitHub.</p>
+<hr>
+<section id="demodesign" class="level2">
+<h2 class="anchored" data-anchor-id="demodesign">DEMOdesign</h2>
+<p><strong>Dose Exploration, Monitoring, and Optimization Using Biological and Clinical Outcomes</strong></p>
+<p>An R package implementing the DEMO design—a Bayesian adaptive Phase I/II trial framework tailored for oncology dose-finding, particularly for immunotherapies and targeted therapies. It selects an Optimal Therapeutic Dose (OTD) that maximizes Restricted Mean Survival Time (RMST) while ensuring safety, biological activity, and clinical efficacy across three stages.</p>
+<section id="features" class="level3">
+<h3 class="anchored" data-anchor-id="features">Features</h3>
 <ul>
-<li>EHR data analysis</li>
-<li>Survival analysis</li>
-<li>Bayesian dose-finding design</li>
-<li>Causal inference</li>
+<li>Three-stage Bayesian adaptive design (Exploration, Monitoring, Optimization)</li>
+<li>Integrates biomarker, toxicity, response, and survival endpoints</li>
+<li>BOIN-based exploration with biomarker and toxicity screening</li>
+<li>RMST-based dose optimization</li>
 </ul>
 </section>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<p><strong>Ph.D.&nbsp;in Biostatistics</strong>, University of Texas Health Science Center at Houston, 2025</p>
-<p><strong>M.S. in Statistics</strong>, National Tsing Hua University, Taiwan, 2017</p>
+<section id="installation" class="level3">
+<h3 class="anchored" data-anchor-id="installation">Installation</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"cyang728/DEMOdesign"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="news" class="level2">
-<h2 class="anchored" data-anchor-id="news">News</h2>
+<section id="reference" class="level3">
+<h3 class="anchored" data-anchor-id="reference">Reference</h3>
+<p>Yang CH, Thall PF, Lin R. (2025). “Dose exploration, monitoring, and optimization using biological and clinical outcomes.” <em>Annals of Applied Statistics</em>, 19(4), 2599–2617.</p>
+<p><a href="https://github.com/cyang728/DEMOdesign" class="btn btn-primary">GitHub Repository</a></p>
+<hr>
+</section>
+</section>
+<section id="bar12" class="level2">
+<h2 class="anchored" data-anchor-id="bar12">BAR12</h2>
+<p><strong>Bayesian Autoregressive Phase 1-2 Design for Cell Therapy Trials with Manufacturing Changes</strong></p>
+<p>An R package implementing the BAR12 design for seamless dose-finding in early-phase cell therapy trials that incorporate mid-trial manufacturing modifications—or <em>tweaks</em>—such as changes to cell culture duration, cytokine cocktails, or donor criteria. BAR12 uses a Bayesian autoregressive model with spike-and-slab priors to distinguish between pre- and post-tweak outcome distributions, allowing dynamic borrowing of information while accounting for possible shifts.</p>
+<section id="features-1" class="level3">
+<h3 class="anchored" data-anchor-id="features-1">Features</h3>
 <ul>
-<li><strong>Jan 2026</strong> — Invited talk at Yale Public Health Data Science and Data Equity Seminar</li>
-<li><strong>Dec 2025</strong> — Paper on dose exploration published in <em>Annals of Applied Statistics</em></li>
-<li><strong>Aug 2025</strong> — Started position as Associate Research Scientist at Yale University</li>
+<li>Handles mid-trial manufacturing process changes</li>
+<li>Bayesian autoregressive model with spike-and-slab priors</li>
+<li>Dynamic information borrowing across trial stages</li>
+<li>Stan-based posterior computation</li>
 </ul>
 </section>
-</div>
-</div>
+<section id="installation-1" class="level3">
+<h3 class="anchored" data-anchor-id="installation-1">Installation</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"cyang728/BAR12"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><a href="https://github.com/cyang728/BAR12" class="btn btn-primary">GitHub Repository</a></p>
+<hr>
+</section>
+</section>
+<section id="mcpmodx" class="level2">
+<h2 class="anchored" data-anchor-id="mcpmodx">MCPModX</h2>
+<p><strong>Covariate-Adjusted MCP-Mod for Dose-Response Analysis</strong></p>
+<p>An R package that incorporates covariate adjustment to enhance the robustness and precision of dose-response analyses. The approach leverages g-computation to address non-collapsibility and employs model-assisted estimation to ensure valid inferences, even in the presence of model misspecification.</p>
+<section id="features-2" class="level3">
+<h3 class="anchored" data-anchor-id="features-2">Features</h3>
+<ul>
+<li>Covariate adjustment in MCP-Mod framework</li>
+<li>G-computation for non-collapsible endpoints</li>
+<li>Support for binary endpoints with prognostic scores</li>
+<li>Model-assisted estimation for robust inference</li>
+</ul>
+</section>
+<section id="installation-2" class="level3">
+<h3 class="anchored" data-anchor-id="installation-2">Installation</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"cyang728/MCPModX"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><a href="https://github.com/cyang728/MCPModX" class="btn btn-primary">GitHub Repository</a></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

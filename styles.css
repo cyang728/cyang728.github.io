@@ -1,1 +1,451 @@
-/* css styles */
+/* ============================================
+   Dark Academic Theme - MAXIMUM CONTRAST
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+  --accent-cyan: #00e5ff;
+  --accent-blue: #64b5f6;
+  --bg-dark: #0d1117;
+  --bg-darker: #010409;
+  --bg-card: #161b22;
+  --text-white: #ffffff;
+  --text-bright: #f5f5f5;
+  --border-color: #30363d;
+  --font-main: 'Merriweather', Georgia, serif;
+  --font-code: 'Fira Code', monospace;
+}
+
+/* ============================================
+   Body - PURE WHITE TEXT
+   ============================================ */
+body {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-white) !important;
+  font-size: 1.05rem;
+  font-family: var(--font-main) !important;
+}
+
+.quarto-body-content, #quarto-content, main {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-white) !important;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.navbar {
+  background-color: var(--bg-darker) !important;
+  border-bottom: 3px solid var(--accent-cyan) !important;
+}
+
+.navbar-brand, .navbar-title {
+  font-weight: 700 !important;
+  color: var(--accent-cyan) !important;
+  font-size: 1.4rem !important;
+  font-family: var(--font-main) !important;
+}
+
+.navbar-brand:hover {
+  color: var(--accent-blue) !important;
+}
+
+.nav-link {
+  color: var(--text-white) !important;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  font-family: var(--font-main) !important;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-cyan) !important;
+}
+
+/* ============================================
+   Home Page Layout
+   ============================================ */
+.home-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  gap: 3rem;
+}
+
+.sidebar {
+  flex: 0 0 240px;
+  max-width: 240px;
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-cyan);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-white) !important;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-main) !important;
+}
+
+.sidebar .title-text {
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-main) !important;
+}
+
+.contact-links {
+  font-size: 1.05rem;
+  line-height: 2.3;
+  font-family: var(--font-main) !important;
+}
+
+.contact-links p {
+  margin: 0.3rem 0;
+  color: var(--text-white) !important;
+}
+
+.contact-links a {
+  color: var(--accent-cyan) !important;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.contact-links a:hover {
+  color: var(--accent-blue) !important;
+  text-decoration: underline;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  border-left: 1px solid var(--border-color);
+  padding-left: 3rem;
+}
+
+/* ============================================
+   Typography - MAXIMUM BRIGHTNESS
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-white) !important;
+  font-family: var(--font-main) !important;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  border-bottom: 3px solid var(--accent-cyan);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+h2:not(:first-of-type) {
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent-cyan) !important;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+p {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--text-white) !important;
+  font-family: var(--font-main) !important;
+}
+
+strong, b {
+  color: var(--text-white) !important;
+  font-weight: 700;
+}
+
+ol li strong {
+  color: #ffcc00 !important;
+  font-weight: 700;
+}
+
+a {
+  color: var(--accent-cyan) !important;
+  font-weight: 400;
+}
+
+a:hover {
+  color: var(--accent-blue) !important;
+}
+
+/* Lists - PURE WHITE */
+ul, ol {
+  color: var(--text-white) !important;
+  font-family: var(--font-main) !important;
+}
+
+ul li, ol li {
+  margin-bottom: 0.6rem;
+  color: var(--text-white) !important;
+  font-size: 1.05rem;
+}
+
+ul li::marker {
+  color: var(--accent-cyan);
+}
+
+/* ============================================
+   Research Page - CARD SECTIONS
+   ============================================ */
+.research-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 5px solid var(--accent-cyan);
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  margin: 2rem 0;
+}
+
+.research-section h3 {
+  margin-top: 0 !important;
+  font-size: 1.6rem !important;
+  color: var(--accent-cyan) !important;
+  margin-bottom: 1rem;
+}
+
+.research-section h4 {
+  font-size: 1.2rem;
+  color: var(--text-white) !important;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.research-section p {
+  color: var(--text-white) !important;
+}
+
+.research-section li {
+  color: var(--text-white) !important;
+}
+
+.section-number {
+  display: inline-block;
+  background-color: var(--accent-cyan);
+  color: var(--bg-dark);
+  font-weight: 900;
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 0.8rem;
+  font-family: var(--font-main) !important;
+}
+
+/* Publication reference box */
+.pub-ref {
+  background-color: rgba(0, 229, 255, 0.15);
+  border-left: 4px solid var(--accent-cyan);
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.pub-ref p {
+  margin: 0;
+  color: var(--text-white) !important;
+  font-size: 1rem;
+}
+
+/* Horizontal rules */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2.5rem 0;
+}
+
+/* ============================================
+   Blockquotes
+   ============================================ */
+blockquote {
+  border-left: 4px solid var(--accent-cyan);
+  background-color: rgba(0, 229, 255, 0.12);
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+blockquote p {
+  margin: 0;
+  color: var(--text-white) !important;
+  font-size: 1rem;
+}
+
+/* ============================================
+   Code blocks - HIGH CONTRAST
+   ============================================ */
+pre {
+  background-color: #000000 !important;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+pre code {
+  color: #00ff88 !important;
+  background-color: transparent !important;
+  font-family: var(--font-code) !important;
+}
+
+code {
+  background-color: #1a1a2e !important;
+  color: #00ff88 !important;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-family: var(--font-code) !important;
+}
+
+/* ============================================
+   Blog listing
+   ============================================ */
+.quarto-listing-default .listing-title,
+.listing-title a {
+  color: var(--accent-cyan) !important;
+  font-weight: 700;
+  font-family: var(--font-main) !important;
+}
+
+.quarto-listing-default .listing-description,
+.listing-description {
+  color: var(--text-white) !important;
+  font-family: var(--font-main) !important;
+}
+
+.quarto-listing-default .listing-date,
+.listing-date {
+  color: #aaaaaa !important;
+  font-family: var(--font-main) !important;
+}
+
+.listing-author {
+  color: #aaaaaa !important;
+  font-family: var(--font-main) !important;
+}
+
+.quarto-listing-category .listing-category {
+  background-color: var(--bg-card) !important;
+  color: var(--text-white) !important;
+  border: 1px solid var(--border-color) !important;
+  font-family: var(--font-main) !important;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-primary, .btn {
+  background-color: var(--accent-cyan) !important;
+  border-color: var(--accent-cyan) !important;
+  color: #000000 !important;
+  font-weight: 700;
+  font-family: var(--font-main) !important;
+}
+
+.btn-primary:hover, .btn:hover {
+  background-color: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+}
+
+/* ============================================
+   Hide sidebars
+   ============================================ */
+#quarto-margin-sidebar, #quarto-sidebar {
+  display: none !important;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+footer {
+  background-color: var(--bg-darker) !important;
+  border-top: 1px solid var(--border-color);
+  color: #aaaaaa !important;
+  font-family: var(--font-main) !important;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-img {
+    margin: 0 auto 1.5rem auto;
+  }
+  
+  .main-content {
+    border-left: none;
+    border-top: 1px solid var(--border-color);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+  
+  .research-section {
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================
+   Software page code fix
+   ============================================ */
+.sourceCode {
+  background-color: #000000 !important;
+}
+
+.sourceCode pre {
+  background-color: #000000 !important;
+}
+
+.sourceCode code {
+  color: #00ff88 !important;
+}
+
+/* 先把所有 code 變白 */
+pre code, 
+pre code span {
+  color: #ffffff !important;
+}
+
+/* 再覆蓋特定語法顏色 */
+pre code span.st { color: #ffa500 !important; }  /* string - 橙色 */
+pre code span.dv { color: #ff6b6b !important; }  /* number - 紅色 */
+pre code span.fu { color: #40ffff !important; }  /* function - 青色 */
+pre code span.co { color: #888888 !important; }  /* comment - 灰色 */
+pre code span.kw { color: #ff79c6 !important; }  /* keyword - 粉色 */
