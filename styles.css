@@ -1,5 +1,5 @@
 /* ============================================
-   Dark Academic Theme - DUAL MODE
+   Dark Academic Theme
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap');
@@ -18,18 +18,18 @@
 }
 
 /* ============================================
-   Body - Default Dark Mode
+   Body
    ============================================ */
 body {
-  background-color: var(--bg-dark);
-  color: var(--text-white);
+  background-color: var(--bg-dark) !important;
+  color: var(--text-white) !important;
   font-size: 1.05rem;
   font-family: var(--font-main);
 }
 
 .quarto-body-content, #quarto-content, main {
-  background-color: var(--bg-dark);
-  color: var(--text-white);
+  background-color: var(--bg-dark) !important;
+  color: var(--text-white) !important;
 }
 
 /* ============================================
@@ -93,7 +93,7 @@ body {
 .sidebar h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-white) !important;
   margin-bottom: 0.5rem;
   font-family: var(--font-main);
 }
@@ -114,17 +114,17 @@ body {
 
 .contact-links p {
   margin: 0.3rem 0;
-  color: var(--text-white);
+  color: var(--text-white) !important;
 }
 
 .contact-links a {
-  color: var(--accent-cyan);
+  color: var(--accent-cyan) !important;
   text-decoration: none;
   font-weight: 400;
 }
 
 .contact-links a:hover {
-  color: var(--accent-blue);
+  color: var(--accent-blue) !important;
   text-decoration: underline;
 }
 
@@ -139,7 +139,7 @@ body {
    Typography
    ============================================ */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-family: var(--font-main);
 }
 
@@ -164,7 +164,7 @@ h2:not(:first-of-type) {
 h3 {
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--accent-cyan);
+  color: var(--accent-cyan) !important;
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
 }
@@ -172,12 +172,12 @@ h3 {
 p {
   font-size: 1.08rem;
   line-height: 1.9;
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-family: var(--font-main);
 }
 
 strong, b {
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-weight: 700;
 }
 
@@ -187,23 +187,23 @@ ol li strong {
 }
 
 a {
-  color: var(--accent-cyan);
+  color: var(--accent-cyan) !important;
   font-weight: 400;
 }
 
 a:hover {
-  color: var(--accent-blue);
+  color: var(--accent-blue) !important;
 }
 
 /* Lists */
 ul, ol {
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-family: var(--font-main);
 }
 
 ul li, ol li {
   margin-bottom: 0.6rem;
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-size: 1.05rem;
 }
 
@@ -215,7 +215,7 @@ ul li::marker {
    Research Page - CARD SECTIONS
    ============================================ */
 .research-section {
-  background: var(--bg-card);
+  background: var(--bg-card) !important;
   border: 1px solid var(--border-color);
   border-left: 5px solid var(--accent-cyan);
   border-radius: 10px;
@@ -232,18 +232,18 @@ ul li::marker {
 
 .research-section h4 {
   font-size: 1.2rem;
-  color: var(--text-white);
+  color: var(--text-white) !important;
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
   font-weight: 700;
 }
 
 .research-section p {
-  color: var(--text-white);
+  color: var(--text-white) !important;
 }
 
 .research-section li {
-  color: var(--text-white);
+  color: var(--text-white) !important;
 }
 
 .section-number {
@@ -263,7 +263,7 @@ ul li::marker {
 
 /* Publication reference box */
 .pub-ref {
-  background-color: rgba(0, 229, 255, 0.15);
+  background-color: rgba(0, 229, 255, 0.15) !important;
   border-left: 4px solid var(--accent-cyan);
   padding: 1.2rem 1.5rem;
   margin: 1.5rem 0;
@@ -272,7 +272,7 @@ ul li::marker {
 
 .pub-ref p {
   margin: 0;
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-size: 1rem;
 }
 
@@ -288,7 +288,7 @@ hr {
    ============================================ */
 blockquote {
   border-left: 4px solid var(--accent-cyan);
-  background-color: rgba(0, 229, 255, 0.12);
+  background-color: rgba(0, 229, 255, 0.12) !important;
   padding: 1.2rem 1.5rem;
   margin: 1.5rem 0;
   border-radius: 0 8px 8px 0;
@@ -296,7 +296,7 @@ blockquote {
 
 blockquote p {
   margin: 0;
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-size: 1rem;
 }
 
@@ -360,24 +360,24 @@ pre code span.kw { color: #ff79c6 !important; }
 
 .quarto-listing-default .listing-description,
 .listing-description {
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-family: var(--font-main);
 }
 
 .quarto-listing-default .listing-date,
 .listing-date {
-  color: #aaaaaa;
+  color: #aaaaaa !important;
   font-family: var(--font-main);
 }
 
 .listing-author {
-  color: #aaaaaa;
+  color: #aaaaaa !important;
   font-family: var(--font-main);
 }
 
 .quarto-listing-category .listing-category {
-  background-color: var(--bg-card);
-  color: var(--text-white);
+  background-color: var(--bg-card) !important;
+  color: var(--text-white) !important;
   border: 1px solid var(--border-color);
   font-family: var(--font-main);
 }
@@ -399,9 +399,13 @@ pre code span.kw { color: #ff79c6 !important; }
 }
 
 /* ============================================
-   Hide sidebars
+   Hide sidebars and toggle
    ============================================ */
 #quarto-margin-sidebar, #quarto-sidebar {
+  display: none !important;
+}
+
+#quarto-color-scheme-toggle {
   display: none !important;
 }
 
@@ -409,179 +413,24 @@ pre code span.kw { color: #ff79c6 !important; }
    Footer
    ============================================ */
 footer {
-  background-color: var(--bg-darker);
+  background-color: var(--bg-darker) !important;
   border-top: 1px solid var(--border-color);
-  color: #aaaaaa;
+  color: #aaaaaa !important;
   font-family: var(--font-main);
-}
-
-/* ============================================
-   LIGHT MODE
-   ============================================ */
-[data-bs-theme="light"] body,
-body.quarto-light {
-  background-color: #ffffff !important;
-  color: #333333 !important;
-}
-
-[data-bs-theme="light"] .quarto-body-content,
-[data-bs-theme="light"] #quarto-content,
-[data-bs-theme="light"] main,
-body.quarto-light .quarto-body-content,
-body.quarto-light #quarto-content,
-body.quarto-light main {
-  background-color: #ffffff !important;
-  color: #333333 !important;
-}
-
-[data-bs-theme="light"] .navbar,
-body.quarto-light .navbar {
-  background-color: #f8f9fa !important;
-  border-bottom: 3px solid #0097a7 !important;
-}
-
-[data-bs-theme="light"] .nav-link,
-body.quarto-light .nav-link {
-  color: #333333 !important;
-}
-
-[data-bs-theme="light"] .nav-link:hover,
-[data-bs-theme="light"] .nav-link.active,
-body.quarto-light .nav-link:hover,
-body.quarto-light .nav-link.active {
-  color: #0097a7 !important;
-}
-
-[data-bs-theme="light"] h1,
-[data-bs-theme="light"] h2,
-[data-bs-theme="light"] h4,
-[data-bs-theme="light"] h5,
-[data-bs-theme="light"] h6,
-body.quarto-light h1,
-body.quarto-light h2,
-body.quarto-light h4,
-body.quarto-light h5,
-body.quarto-light h6 {
-  color: #222222 !important;
-}
-
-[data-bs-theme="light"] h3,
-body.quarto-light h3 {
-  color: #0097a7 !important;
-}
-
-[data-bs-theme="light"] p,
-[data-bs-theme="light"] li,
-[data-bs-theme="light"] .contact-links p,
-body.quarto-light p,
-body.quarto-light li,
-body.quarto-light .contact-links p {
-  color: #333333 !important;
-}
-
-[data-bs-theme="light"] .sidebar h3,
-body.quarto-light .sidebar h3 {
-  color: #222222 !important;
-}
-
-[data-bs-theme="light"] .sidebar .title-text,
-body.quarto-light .sidebar .title-text {
-  color: #666666 !important;
-}
-
-[data-bs-theme="light"] a,
-[data-bs-theme="light"] .contact-links a,
-body.quarto-light a,
-body.quarto-light .contact-links a {
-  color: #0097a7 !important;
-}
-
-[data-bs-theme="light"] .research-section,
-body.quarto-light .research-section {
-  background: #f5f5f5 !important;
-  border-color: #dddddd !important;
-  border-left: 5px solid #0097a7 !important;
-}
-
-[data-bs-theme="light"] .research-section h3,
-body.quarto-light .research-section h3 {
-  color: #0097a7 !important;
-}
-
-[data-bs-theme="light"] .research-section h4,
-[data-bs-theme="light"] .research-section p,
-[data-bs-theme="light"] .research-section li,
-body.quarto-light .research-section h4,
-body.quarto-light .research-section p,
-body.quarto-light .research-section li {
-  color: #333333 !important;
-}
-
-[data-bs-theme="light"] .pub-ref,
-body.quarto-light .pub-ref {
-  background-color: rgba(0, 151, 167, 0.1) !important;
-  border-left-color: #0097a7 !important;
-}
-
-[data-bs-theme="light"] .pub-ref p,
-body.quarto-light .pub-ref p {
-  color: #333333 !important;
-}
-
-[data-bs-theme="light"] .main-content,
-body.quarto-light .main-content {
-  border-left-color: #dddddd !important;
-}
-
-[data-bs-theme="light"] .section-number,
-body.quarto-light .section-number {
-  background-color: #0097a7 !important;
-  color: #ffffff !important;
-}
-
-[data-bs-theme="light"] blockquote,
-body.quarto-light blockquote {
-  background-color: rgba(0, 151, 167, 0.08) !important;
-  border-left-color: #0097a7 !important;
-}
-
-[data-bs-theme="light"] blockquote p,
-body.quarto-light blockquote p {
-  color: #333333 !important;
-}
-
-[data-bs-theme="light"] .profile-img,
-body.quarto-light .profile-img {
-  border-color: #0097a7 !important;
-  box-shadow: 0 0 20px rgba(0, 151, 167, 0.3) !important;
-}
-
-[data-bs-theme="light"] hr,
-body.quarto-light hr {
-  border-top-color: #dddddd !important;
-}
-
-[data-bs-theme="light"] footer,
-body.quarto-light footer {
-  background-color: #f8f9fa !important;
-  border-top-color: #dddddd !important;
-  color: #666666 !important;
-}
-
-[data-bs-theme="light"] .listing-description,
-body.quarto-light .listing-description {
-  color: #333333 !important;
-}
-
-[data-bs-theme="light"] .listing-title a,
-body.quarto-light .listing-title a {
-  color: #0097a7 !important;
 }
 
 /* ============================================
    Responsive
    ============================================ */
 @media (max-width: 768px) {
+  body,
+  .quarto-body-content,
+  #quarto-content,
+  main {
+    background-color: var(--bg-dark) !important;
+    color: var(--text-white) !important;
+  }
+
   .home-container,
   .home-container *,
   .sidebar,
@@ -590,6 +439,7 @@ body.quarto-light .listing-title a {
   .main-content * {
     position: static !important;
     z-index: auto !important;
+    background-color: transparent !important;
   }
 
   .home-container {
@@ -624,13 +474,10 @@ body.quarto-light .listing-title a {
   
   .research-section {
     padding: 1.5rem;
+    background: var(--bg-card) !important;
   }
   
   .navbar, .navbar * {
     position: relative !important;
   }
-}
-
-#quarto-color-scheme-toggle {
-  display: none !important;
 }
