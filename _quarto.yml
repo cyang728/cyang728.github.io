@@ -1,8 +1,9 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "cd cyang728.github.io"
+  title: "Cheng-Han Yang"
   navbar:
     left:
       - href: index.qmd
@@ -11,11 +12,6 @@ website:
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
     css: styles.css
     toc: true
-
-
-
