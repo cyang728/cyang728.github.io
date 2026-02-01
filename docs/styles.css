@@ -398,9 +398,11 @@ footer {
 @media (max-width: 768px) {
   .home-container {
     flex-direction: column;
+    position: relative;
   }
   
   .sidebar {
+    position: static !important;
     max-width: 100%;
     text-align: center;
     margin-bottom: 2rem;
