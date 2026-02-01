@@ -631,8 +631,40 @@ body.quarto-light .listing-title a {
   }
 }
 
+/* ============================================
+   LIGHT MODE - 強制覆蓋
+   ============================================ */
 html[data-bs-theme="light"],
-html[data-bs-theme="light"] body {
+html[data-bs-theme="light"] body,
+html[data-bs-theme="light"] .quarto-body-content,
+html[data-bs-theme="light"] #quarto-content,
+html[data-bs-theme="light"] main,
+html[data-bs-theme="light"] main.content {
   background-color: #ffffff !important;
   color: #333333 !important;
+}
+
+html[data-bs-theme="light"] .navbar {
+  background-color: #f8f9fa !important;
+}
+
+html[data-bs-theme="light"] h1,
+html[data-bs-theme="light"] h2,
+html[data-bs-theme="light"] h4,
+html[data-bs-theme="light"] h5,
+html[data-bs-theme="light"] h6 {
+  color: #222222 !important;
+}
+
+html[data-bs-theme="light"] h3 {
+  color: #0097a7 !important;
+}
+
+html[data-bs-theme="light"] p,
+html[data-bs-theme="light"] li {
+  color: #333333 !important;
+}
+
+html[data-bs-theme="light"] .research-section {
+  background: #f5f5f5 !important;
 }
