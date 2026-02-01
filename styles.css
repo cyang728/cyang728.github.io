@@ -468,3 +468,18 @@ pre code span.dv { color: #ff6b6b !important; }  /* number - 紅色 */
 pre code span.fu { color: #40ffff !important; }  /* function - 青色 */
 pre code span.co { color: #888888 !important; }  /* comment - 灰色 */
 pre code span.kw { color: #ff79c6 !important; }  /* keyword - 粉色 */
+
+/* 手機版強制覆蓋 */
+@media (max-width: 768px) {
+  body, html {
+    overflow-x: hidden;
+  }
+  
+  * {
+    position: static !important;
+  }
+  
+  .navbar, .navbar * {
+    position: relative !important;
+  }
+}
