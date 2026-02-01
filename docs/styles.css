@@ -1,5 +1,5 @@
 /* ============================================
-   Dark Academic Theme - MAXIMUM CONTRAST
+   Dark Academic Theme - DUAL MODE
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap');
@@ -18,18 +18,18 @@
 }
 
 /* ============================================
-   Body - PURE WHITE TEXT
+   Body - Default Dark Mode
    ============================================ */
 body {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-white) !important;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
   font-size: 1.05rem;
-  font-family: var(--font-main) !important;
+  font-family: var(--font-main);
 }
 
 .quarto-body-content, #quarto-content, main {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-white) !important;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
 }
 
 /* ============================================
@@ -93,9 +93,9 @@ body {
 .sidebar h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-white) !important;
+  color: var(--text-white);
   margin-bottom: 0.5rem;
-  font-family: var(--font-main) !important;
+  font-family: var(--font-main);
 }
 
 .sidebar .title-text {
@@ -103,28 +103,28 @@ body {
   color: #b0b0b0;
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  font-family: var(--font-main) !important;
+  font-family: var(--font-main);
 }
 
 .contact-links {
   font-size: 1.05rem;
   line-height: 2.3;
-  font-family: var(--font-main) !important;
+  font-family: var(--font-main);
 }
 
 .contact-links p {
   margin: 0.3rem 0;
-  color: var(--text-white) !important;
+  color: var(--text-white);
 }
 
 .contact-links a {
-  color: var(--accent-cyan) !important;
+  color: var(--accent-cyan);
   text-decoration: none;
   font-weight: 400;
 }
 
 .contact-links a:hover {
-  color: var(--accent-blue) !important;
+  color: var(--accent-blue);
   text-decoration: underline;
 }
 
@@ -136,11 +136,11 @@ body {
 }
 
 /* ============================================
-   Typography - MAXIMUM BRIGHTNESS
+   Typography
    ============================================ */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--text-white) !important;
-  font-family: var(--font-main) !important;
+  color: var(--text-white);
+  font-family: var(--font-main);
 }
 
 h1 {
@@ -164,7 +164,7 @@ h2:not(:first-of-type) {
 h3 {
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--accent-cyan) !important;
+  color: var(--accent-cyan);
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
 }
@@ -172,12 +172,12 @@ h3 {
 p {
   font-size: 1.08rem;
   line-height: 1.9;
-  color: var(--text-white) !important;
-  font-family: var(--font-main) !important;
+  color: var(--text-white);
+  font-family: var(--font-main);
 }
 
 strong, b {
-  color: var(--text-white) !important;
+  color: var(--text-white);
   font-weight: 700;
 }
 
@@ -187,23 +187,23 @@ ol li strong {
 }
 
 a {
-  color: var(--accent-cyan) !important;
+  color: var(--accent-cyan);
   font-weight: 400;
 }
 
 a:hover {
-  color: var(--accent-blue) !important;
+  color: var(--accent-blue);
 }
 
-/* Lists - PURE WHITE */
+/* Lists */
 ul, ol {
-  color: var(--text-white) !important;
-  font-family: var(--font-main) !important;
+  color: var(--text-white);
+  font-family: var(--font-main);
 }
 
 ul li, ol li {
   margin-bottom: 0.6rem;
-  color: var(--text-white) !important;
+  color: var(--text-white);
   font-size: 1.05rem;
 }
 
@@ -232,18 +232,18 @@ ul li::marker {
 
 .research-section h4 {
   font-size: 1.2rem;
-  color: var(--text-white) !important;
+  color: var(--text-white);
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
   font-weight: 700;
 }
 
 .research-section p {
-  color: var(--text-white) !important;
+  color: var(--text-white);
 }
 
 .research-section li {
-  color: var(--text-white) !important;
+  color: var(--text-white);
 }
 
 .section-number {
@@ -258,7 +258,7 @@ ul li::marker {
   text-align: center;
   border-radius: 50%;
   margin-right: 0.8rem;
-  font-family: var(--font-main) !important;
+  font-family: var(--font-main);
 }
 
 /* Publication reference box */
@@ -272,7 +272,7 @@ ul li::marker {
 
 .pub-ref p {
   margin: 0;
-  color: var(--text-white) !important;
+  color: var(--text-white);
   font-size: 1rem;
 }
 
@@ -296,12 +296,12 @@ blockquote {
 
 blockquote p {
   margin: 0;
-  color: var(--text-white) !important;
+  color: var(--text-white);
   font-size: 1rem;
 }
 
 /* ============================================
-   Code blocks - HIGH CONTRAST
+   Code blocks
    ============================================ */
 pre {
   background-color: #000000 !important;
@@ -325,6 +325,29 @@ code {
   font-family: var(--font-code) !important;
 }
 
+pre code, 
+pre code span {
+  color: #ffffff !important;
+}
+
+pre code span.st { color: #ffa500 !important; }
+pre code span.dv { color: #ff6b6b !important; }
+pre code span.fu { color: #40ffff !important; }
+pre code span.co { color: #888888 !important; }
+pre code span.kw { color: #ff79c6 !important; }
+
+.sourceCode {
+  background-color: #000000 !important;
+}
+
+.sourceCode pre {
+  background-color: #000000 !important;
+}
+
+.sourceCode code {
+  color: #00ff88 !important;
+}
+
 /* ============================================
    Blog listing
    ============================================ */
@@ -332,31 +355,31 @@ code {
 .listing-title a {
   color: var(--accent-cyan) !important;
   font-weight: 700;
-  font-family: var(--font-main) !important;
+  font-family: var(--font-main);
 }
 
 .quarto-listing-default .listing-description,
 .listing-description {
-  color: var(--text-white) !important;
-  font-family: var(--font-main) !important;
+  color: var(--text-white);
+  font-family: var(--font-main);
 }
 
 .quarto-listing-default .listing-date,
 .listing-date {
-  color: #aaaaaa !important;
-  font-family: var(--font-main) !important;
+  color: #aaaaaa;
+  font-family: var(--font-main);
 }
 
 .listing-author {
-  color: #aaaaaa !important;
-  font-family: var(--font-main) !important;
+  color: #aaaaaa;
+  font-family: var(--font-main);
 }
 
 .quarto-listing-category .listing-category {
-  background-color: var(--bg-card) !important;
-  color: var(--text-white) !important;
-  border: 1px solid var(--border-color) !important;
-  font-family: var(--font-main) !important;
+  background-color: var(--bg-card);
+  color: var(--text-white);
+  border: 1px solid var(--border-color);
+  font-family: var(--font-main);
 }
 
 /* ============================================
@@ -367,7 +390,7 @@ code {
   border-color: var(--accent-cyan) !important;
   color: #000000 !important;
   font-weight: 700;
-  font-family: var(--font-main) !important;
+  font-family: var(--font-main);
 }
 
 .btn-primary:hover, .btn:hover {
@@ -386,10 +409,173 @@ code {
    Footer
    ============================================ */
 footer {
-  background-color: var(--bg-darker) !important;
+  background-color: var(--bg-darker);
   border-top: 1px solid var(--border-color);
-  color: #aaaaaa !important;
-  font-family: var(--font-main) !important;
+  color: #aaaaaa;
+  font-family: var(--font-main);
+}
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+[data-bs-theme="light"] body,
+body.quarto-light {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+[data-bs-theme="light"] .quarto-body-content,
+[data-bs-theme="light"] #quarto-content,
+[data-bs-theme="light"] main,
+body.quarto-light .quarto-body-content,
+body.quarto-light #quarto-content,
+body.quarto-light main {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+[data-bs-theme="light"] .navbar,
+body.quarto-light .navbar {
+  background-color: #f8f9fa !important;
+  border-bottom: 3px solid #0097a7 !important;
+}
+
+[data-bs-theme="light"] .nav-link,
+body.quarto-light .nav-link {
+  color: #333333 !important;
+}
+
+[data-bs-theme="light"] .nav-link:hover,
+[data-bs-theme="light"] .nav-link.active,
+body.quarto-light .nav-link:hover,
+body.quarto-light .nav-link.active {
+  color: #0097a7 !important;
+}
+
+[data-bs-theme="light"] h1,
+[data-bs-theme="light"] h2,
+[data-bs-theme="light"] h4,
+[data-bs-theme="light"] h5,
+[data-bs-theme="light"] h6,
+body.quarto-light h1,
+body.quarto-light h2,
+body.quarto-light h4,
+body.quarto-light h5,
+body.quarto-light h6 {
+  color: #222222 !important;
+}
+
+[data-bs-theme="light"] h3,
+body.quarto-light h3 {
+  color: #0097a7 !important;
+}
+
+[data-bs-theme="light"] p,
+[data-bs-theme="light"] li,
+[data-bs-theme="light"] .contact-links p,
+body.quarto-light p,
+body.quarto-light li,
+body.quarto-light .contact-links p {
+  color: #333333 !important;
+}
+
+[data-bs-theme="light"] .sidebar h3,
+body.quarto-light .sidebar h3 {
+  color: #222222 !important;
+}
+
+[data-bs-theme="light"] .sidebar .title-text,
+body.quarto-light .sidebar .title-text {
+  color: #666666 !important;
+}
+
+[data-bs-theme="light"] a,
+[data-bs-theme="light"] .contact-links a,
+body.quarto-light a,
+body.quarto-light .contact-links a {
+  color: #0097a7 !important;
+}
+
+[data-bs-theme="light"] .research-section,
+body.quarto-light .research-section {
+  background: #f5f5f5 !important;
+  border-color: #dddddd !important;
+  border-left: 5px solid #0097a7 !important;
+}
+
+[data-bs-theme="light"] .research-section h3,
+body.quarto-light .research-section h3 {
+  color: #0097a7 !important;
+}
+
+[data-bs-theme="light"] .research-section h4,
+[data-bs-theme="light"] .research-section p,
+[data-bs-theme="light"] .research-section li,
+body.quarto-light .research-section h4,
+body.quarto-light .research-section p,
+body.quarto-light .research-section li {
+  color: #333333 !important;
+}
+
+[data-bs-theme="light"] .pub-ref,
+body.quarto-light .pub-ref {
+  background-color: rgba(0, 151, 167, 0.1) !important;
+  border-left-color: #0097a7 !important;
+}
+
+[data-bs-theme="light"] .pub-ref p,
+body.quarto-light .pub-ref p {
+  color: #333333 !important;
+}
+
+[data-bs-theme="light"] .main-content,
+body.quarto-light .main-content {
+  border-left-color: #dddddd !important;
+}
+
+[data-bs-theme="light"] .section-number,
+body.quarto-light .section-number {
+  background-color: #0097a7 !important;
+  color: #ffffff !important;
+}
+
+[data-bs-theme="light"] blockquote,
+body.quarto-light blockquote {
+  background-color: rgba(0, 151, 167, 0.08) !important;
+  border-left-color: #0097a7 !important;
+}
+
+[data-bs-theme="light"] blockquote p,
+body.quarto-light blockquote p {
+  color: #333333 !important;
+}
+
+[data-bs-theme="light"] .profile-img,
+body.quarto-light .profile-img {
+  border-color: #0097a7 !important;
+  box-shadow: 0 0 20px rgba(0, 151, 167, 0.3) !important;
+}
+
+[data-bs-theme="light"] hr,
+body.quarto-light hr {
+  border-top-color: #dddddd !important;
+}
+
+[data-bs-theme="light"] footer,
+body.quarto-light footer {
+  background-color: #f8f9fa !important;
+  border-top-color: #dddddd !important;
+  color: #666666 !important;
+}
+
+[data-bs-theme="light"] .listing-description,
+body.quarto-light .listing-description {
+  color: #333333 !important;
+}
+
+[data-bs-theme="light"] .listing-title a,
+body.quarto-light .listing-title a {
+  color: #0097a7 !important;
 }
 
 /* ============================================
@@ -438,45 +624,6 @@ footer {
   
   .research-section {
     padding: 1.5rem;
-  }
-}
-
-/* ============================================
-   Software page code fix
-   ============================================ */
-.sourceCode {
-  background-color: #000000 !important;
-}
-
-.sourceCode pre {
-  background-color: #000000 !important;
-}
-
-.sourceCode code {
-  color: #00ff88 !important;
-}
-
-/* 先把所有 code 變白 */
-pre code, 
-pre code span {
-  color: #ffffff !important;
-}
-
-/* 再覆蓋特定語法顏色 */
-pre code span.st { color: #ffa500 !important; }  /* string - 橙色 */
-pre code span.dv { color: #ff6b6b !important; }  /* number - 紅色 */
-pre code span.fu { color: #40ffff !important; }  /* function - 青色 */
-pre code span.co { color: #888888 !important; }  /* comment - 灰色 */
-pre code span.kw { color: #ff79c6 !important; }  /* keyword - 粉色 */
-
-/* 手機版強制覆蓋 */
-@media (max-width: 768px) {
-  body, html {
-    overflow-x: hidden;
-  }
-  
-  * {
-    position: static !important;
   }
   
   .navbar, .navbar * {
