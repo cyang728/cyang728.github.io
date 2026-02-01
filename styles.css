@@ -631,36 +631,6 @@ body.quarto-light .listing-title a {
   }
 }
 
-/* ============================================
-   LIGHT MODE - 最高優先級
-   ============================================ */
-html[data-bs-theme="light"] {
-  --bs-body-bg: #ffffff !important;
-  --bs-body-color: #333333 !important;
-}
-
-html[data-bs-theme="light"] body {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-  color: #333333 !important;
-}
-
-html[data-bs-theme="light"] #quarto-content {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-}
-
-html[data-bs-theme="light"] .quarto-body-content {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-}
-
-html[data-bs-theme="light"] main {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-}
-
-html[data-bs-theme="light"] .content {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
+#quarto-color-scheme-toggle {
+  display: none !important;
 }
