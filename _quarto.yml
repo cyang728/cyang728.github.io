@@ -4,9 +4,10 @@ project:
 
 website:
   title: ""
+  site-url: https://cyang728.github.io
   navbar:
-    background: dark
-    foreground: light
+    background: light
+    foreground: dark
     title: "Cheng-Han Yang"
     left:
       - href: research.qmd
@@ -22,6 +23,6 @@ website:
 
 format:
   html:
-    theme: darkly
+    theme: cosmo
     css: styles.css
     toc: false

@@ -1,48 +1,49 @@
 /* ============================================
-   Dark Academic Theme - MAXIMUM CONTRAST
+   Light Academic Theme
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap');
 
 :root {
-  --accent-cyan: #00e5ff;
-  --accent-blue: #64b5f6;
-  --bg-dark: #0d1117;
-  --bg-darker: #010409;
-  --bg-card: #161b22;
-  --text-white: #ffffff;
-  --text-bright: #f5f5f5;
-  --border-color: #30363d;
+  --accent-blue: #2780e3;
+  --accent-blue-hover: #1a5bb5;
+  --bg-light: #ffffff;
+  --bg-gray: #f8f9fa;
+  --bg-card: #f8f9fa;
+  --text-dark: #333333;
+  --text-gray: #666666;
+  --border-color: #dee2e6;
   --font-main: 'Merriweather', Georgia, serif;
   --font-code: 'Fira Code', monospace;
 }
 
 /* ============================================
-   Body - Default Dark Mode
+   Body
    ============================================ */
 body {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-white) !important;
+  background-color: var(--bg-light) !important;
+  color: var(--text-dark) !important;
   font-size: 1.05rem;
   font-family: var(--font-main) !important;
 }
 
 .quarto-body-content, #quarto-content, main {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-white) !important;
+  background-color: var(--bg-light) !important;
+  color: var(--text-dark) !important;
 }
 
 /* ============================================
    Navigation
    ============================================ */
 .navbar {
-  background-color: var(--bg-darker) !important;
-  border-bottom: 3px solid var(--accent-cyan) !important;
+  background-color: var(--bg-light) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .navbar-brand, .navbar-title {
   font-weight: 700 !important;
-  color: var(--accent-cyan) !important;
+  color: var(--text-dark) !important;
   font-size: 1.4rem !important;
   font-family: var(--font-main) !important;
 }
@@ -52,14 +53,14 @@ body {
 }
 
 .nav-link {
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   font-weight: 400 !important;
   font-size: 1rem !important;
   font-family: var(--font-main) !important;
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--accent-cyan) !important;
+  color: var(--accent-blue) !important;
 }
 
 /* ============================================
@@ -84,8 +85,8 @@ body {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--accent-cyan);
-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+  border: 4px solid var(--accent-blue);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   display: block;
   margin-bottom: 1.5rem;
 }
@@ -93,14 +94,14 @@ body {
 .sidebar h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   margin-bottom: 0.5rem;
   font-family: var(--font-main) !important;
 }
 
 .sidebar .title-text {
   font-size: 1rem;
-  color: #b0b0b0;
+  color: var(--text-gray);
   line-height: 1.7;
   margin-bottom: 1.5rem;
   font-family: var(--font-main) !important;
@@ -114,17 +115,17 @@ body {
 
 .contact-links p {
   margin: 0.3rem 0;
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
 }
 
 .contact-links a {
-  color: var(--accent-cyan) !important;
+  color: var(--accent-blue) !important;
   text-decoration: none;
   font-weight: 400;
 }
 
 .contact-links a:hover {
-  color: var(--accent-blue) !important;
+  color: var(--accent-blue-hover) !important;
   text-decoration: underline;
 }
 
@@ -139,7 +140,7 @@ body {
    Typography
    ============================================ */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   font-family: var(--font-main) !important;
 }
 
@@ -151,7 +152,7 @@ h1 {
 h2 {
   font-size: 1.7rem;
   font-weight: 700;
-  border-bottom: 3px solid var(--accent-cyan);
+  border-bottom: 2px solid var(--accent-blue);
   padding-bottom: 0.5rem;
   margin-top: 0;
   margin-bottom: 1.2rem;
@@ -164,7 +165,7 @@ h2:not(:first-of-type) {
 h3 {
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--accent-cyan) !important;
+  color: var(--accent-blue) !important;
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
 }
@@ -172,43 +173,43 @@ h3 {
 p {
   font-size: 1.08rem;
   line-height: 1.9;
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   font-family: var(--font-main) !important;
 }
 
 strong, b {
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   font-weight: 700;
 }
 
 ol li strong {
-  color: #ffcc00 !important;
+  color: var(--accent-blue) !important;
   font-weight: 700;
 }
 
 a {
-  color: var(--accent-cyan) !important;
+  color: var(--accent-blue) !important;
   font-weight: 400;
 }
 
 a:hover {
-  color: var(--accent-blue) !important;
+  color: var(--accent-blue-hover) !important;
 }
 
 /* Lists */
 ul, ol {
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   font-family: var(--font-main) !important;
 }
 
 ul li, ol li {
   margin-bottom: 0.6rem;
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   font-size: 1.05rem;
 }
 
 ul li::marker {
-  color: var(--accent-cyan);
+  color: var(--accent-blue);
 }
 
 /* ============================================
@@ -217,8 +218,8 @@ ul li::marker {
 .research-section {
   background: var(--bg-card) !important;
   border: 1px solid var(--border-color);
-  border-left: 5px solid var(--accent-cyan);
-  border-radius: 10px;
+  border-left: 4px solid var(--accent-blue);
+  border-radius: 8px;
   padding: 2rem 2.5rem;
   margin: 2rem 0;
 }
@@ -226,30 +227,30 @@ ul li::marker {
 .research-section h3 {
   margin-top: 0 !important;
   font-size: 1.6rem !important;
-  color: var(--accent-cyan) !important;
+  color: var(--accent-blue) !important;
   margin-bottom: 1rem;
 }
 
 .research-section h4 {
   font-size: 1.2rem;
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
   font-weight: 700;
 }
 
 .research-section p {
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
 }
 
 .research-section li {
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
 }
 
 .section-number {
   display: inline-block;
-  background-color: var(--accent-cyan);
-  color: var(--bg-dark);
+  background-color: var(--accent-blue);
+  color: white;
   font-weight: 900;
   font-size: 1.1rem;
   width: 36px;
@@ -263,8 +264,8 @@ ul li::marker {
 
 /* Publication reference box */
 .pub-ref {
-  background-color: rgba(0, 229, 255, 0.15) !important;
-  border-left: 4px solid var(--accent-cyan);
+  background-color: rgba(39, 128, 227, 0.08) !important;
+  border-left: 3px solid var(--accent-blue);
   padding: 1.2rem 1.5rem;
   margin: 1.5rem 0;
   border-radius: 0 8px 8px 0;
@@ -272,7 +273,7 @@ ul li::marker {
 
 .pub-ref p {
   margin: 0;
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   font-size: 1rem;
 }
 
@@ -287,8 +288,8 @@ hr {
    Blockquotes
    ============================================ */
 blockquote {
-  border-left: 4px solid var(--accent-cyan);
-  background-color: rgba(0, 229, 255, 0.12) !important;
+  border-left: 3px solid var(--border-color);
+  background-color: var(--bg-gray) !important;
   padding: 1.2rem 1.5rem;
   margin: 1.5rem 0;
   border-radius: 0 8px 8px 0;
@@ -296,7 +297,7 @@ blockquote {
 
 blockquote p {
   margin: 0;
-  color: var(--text-white) !important;
+  color: var(--text-gray) !important;
   font-size: 1rem;
 }
 
@@ -304,21 +305,21 @@ blockquote p {
    Code blocks
    ============================================ */
 pre {
-  background-color: #000000 !important;
+  background-color: #f5f5f5 !important;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1rem;
 }
 
 pre code {
-  color: #00ff88 !important;
+  color: #333 !important;
   background-color: transparent !important;
   font-family: var(--font-code) !important;
 }
 
 code {
-  background-color: #1a1a2e !important;
-  color: #00ff88 !important;
+  background-color: #f0f0f0 !important;
+  color: #c7254e !important;
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-weight: 500;
@@ -327,25 +328,25 @@ code {
 
 pre code, 
 pre code span {
-  color: #ffffff !important;
+  color: #333 !important;
 }
 
-pre code span.st { color: #ffa500 !important; }
-pre code span.dv { color: #ff6b6b !important; }
-pre code span.fu { color: #40ffff !important; }
-pre code span.co { color: #888888 !important; }
-pre code span.kw { color: #ff79c6 !important; }
+pre code span.st { color: #d14 !important; }
+pre code span.dv { color: #099 !important; }
+pre code span.fu { color: #900 !important; }
+pre code span.co { color: #998 !important; }
+pre code span.kw { color: #000 !important; font-weight: bold; }
 
 .sourceCode {
-  background-color: #000000 !important;
+  background-color: #f5f5f5 !important;
 }
 
 .sourceCode pre {
-  background-color: #000000 !important;
+  background-color: #f5f5f5 !important;
 }
 
 .sourceCode code {
-  color: #00ff88 !important;
+  color: #333 !important;
 }
 
 /* ============================================
@@ -353,31 +354,31 @@ pre code span.kw { color: #ff79c6 !important; }
    ============================================ */
 .quarto-listing-default .listing-title,
 .listing-title a {
-  color: var(--accent-cyan) !important;
+  color: var(--accent-blue) !important;
   font-weight: 700;
   font-family: var(--font-main) !important;
 }
 
 .quarto-listing-default .listing-description,
 .listing-description {
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   font-family: var(--font-main) !important;
 }
 
 .quarto-listing-default .listing-date,
 .listing-date {
-  color: #aaaaaa !important;
+  color: var(--text-gray) !important;
   font-family: var(--font-main) !important;
 }
 
 .listing-author {
-  color: #aaaaaa !important;
+  color: var(--text-gray) !important;
   font-family: var(--font-main) !important;
 }
 
 .quarto-listing-category .listing-category {
   background-color: var(--bg-card) !important;
-  color: var(--text-white) !important;
+  color: var(--text-dark) !important;
   border: 1px solid var(--border-color) !important;
   font-family: var(--font-main) !important;
 }
@@ -386,16 +387,16 @@ pre code span.kw { color: #ff79c6 !important; }
    Buttons
    ============================================ */
 .btn-primary, .btn {
-  background-color: var(--accent-cyan) !important;
-  border-color: var(--accent-cyan) !important;
-  color: #000000 !important;
+  background-color: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+  color: white !important;
   font-weight: 700;
   font-family: var(--font-main) !important;
 }
 
 .btn-primary:hover, .btn:hover {
-  background-color: var(--accent-blue) !important;
-  border-color: var(--accent-blue) !important;
+  background-color: var(--accent-blue-hover) !important;
+  border-color: var(--accent-blue-hover) !important;
 }
 
 /* ============================================
@@ -413,9 +414,9 @@ pre code span.kw { color: #ff79c6 !important; }
    Footer
    ============================================ */
 footer {
-  background-color: var(--bg-darker) !important;
+  background-color: var(--bg-gray) !important;
   border-top: 1px solid var(--border-color);
-  color: #aaaaaa !important;
+  color: var(--text-gray) !important;
   font-family: var(--font-main) !important;
 }
 
@@ -427,8 +428,8 @@ footer {
   .quarto-body-content,
   #quarto-content,
   main {
-    background-color: var(--bg-dark) !important;
-    color: var(--text-white) !important;
+    background-color: var(--bg-light) !important;
+    color: var(--text-dark) !important;
   }
 
   .home-container,
