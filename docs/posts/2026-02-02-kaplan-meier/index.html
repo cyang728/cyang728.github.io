@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Cheng-Han Yang">
+<meta name="dcterms.date" content="2026-02-03">
+<meta name="description" content="A comprehensive introduction to the Kaplan-Meier estimator, the most fundamental tool in survival analysis for handling censored data.">
 
-<title>Blog</title>
+<title>Survival Analysis: Understanding the Kaplan-Meier Estimator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-502fe9a1b5cb34595aa1fc88590b042f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-502fe9a1b5cb34595aa1fc88590b042f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -130,17 +102,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Cheng-Han Yang</span>
     </a>
   </div>
@@ -151,23 +123,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link" href="../../publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html"> 
+    <a class="nav-link" href="../../software.html"> 
 <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -181,21 +153,42 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ymlvc3RhdGlzdGljcw==">biostatistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3Vydml2YWwlMjBBbmFseXNpcw==">Survival Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VHV0b3JpYWw=">Tutorial <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
+<h1 class="title">Survival Analysis: Understanding the Kaplan-Meier Estimator</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Survival Analysis</div>
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Tutorial</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    A comprehensive introduction to the Kaplan-Meier estimator, the most fundamental tool in survival analysis for handling censored data.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Cheng-Han Yang </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 3, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -205,82 +198,293 @@ window.Quarto = {
 </header>
 
 
-<p>I write about biostatistics methodology, R programming, and academic life. My goal is to make statistical concepts accessible and share practical insights from my research experience.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="U3Vydml2YWwlMjBBbmFseXNpcyUyQ1N0YXRpc3RpY3MlMkNUdXRvcmlhbA==" data-listing-date-sort="1770094800000" data-listing-file-modified-sort="1770093817038" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="936">
-<div class="thumbnail"><a href="./posts/2026-02-02-kaplan-meier/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/2026-02-02-kaplan-meier/km_curve.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-02-02-kaplan-meier/index.html" class="no-external">Survival Analysis: Understanding the Kaplan-Meier Estimator</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3Vydml2YWwlMjBBbmFseXNpcw=='); return false;">Survival Analysis</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VHV0b3JpYWw='); return false;">Tutorial</div>
-
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Survival analysis is a branch of statistics that deals with analyzing the time until an event of interest occurs. The <strong>Kaplan-Meier (KM) estimator</strong> is one of the most fundamental and widely used tools in this field. In this post, I’ll walk through the motivation, mathematics, and intuition behind this elegant method.</p>
+</section>
+<section id="the-challenge-censored-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-challenge-censored-data">The Challenge: Censored Data</h2>
+<p>Our goal is to estimate the <strong>survival function</strong>: <span class="math display">\[
+S(t) = P(T &gt; t)
+\]</span> which tracks the probability of remaining event-free over time.</p>
+<p>The main difficulty arises from <strong>right-censoring</strong>: we often lose track of subjects before they experience the event (e.g., due to study termination or withdrawal).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="delink listing-description"><a href="./posts/2026-02-02-kaplan-meier/index.html" class="no-external">
-<p>A comprehensive introduction to the Kaplan-Meier estimator, the most fundamental tool in survival analysis for handling censored data.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-02-02-kaplan-meier/index.html" class="no-external">
-<div class="listing-date">
-Feb 3, 2026
-</div>
-<div class="listing-author">
-Cheng-Han Yang
-</div>
-</a>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Censoring is Information, Not Failure
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="bmV3cyUyQ2Jpb3N0YXRpc3RpY3M=" data-listing-date-sort="1768453200000" data-listing-file-modified-sort="1769926737000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="112">
-<div class="thumbnail"><a href="./posts/2026-01-welcome/index.html" class="no-external">
+<div class="callout-body-container callout-body">
+<p>A censored observation is not a failure. It provides the invaluable information that the subject survived <em>at least until</em> their censoring time. Methods that simply ignore this partial information will incorrectly bias survival estimates downward.</p>
+</div>
+</div>
+<p>Therefore, a valid method must use information from <strong>both</strong> events and censored observations.</p>
+</section>
+<section id="the-flaw-in-the-naive-approach" class="level2">
+<h2 class="anchored" data-anchor-id="the-flaw-in-the-naive-approach">The Flaw in the Naive Approach</h2>
+<p>Consider a survival dataset with times in months: <span class="math display">\[
+6,\ 7,\ 9^+,\ 10,\ 12^+,\ 15 \quad(\text{+ indicates censoring})
+\]</span></p>
+<section id="a-naive-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="a-naive-calculation">A Naive Calculation</h3>
+<p>What’s the survival probability past 11 months, <span class="math inline">\(S(11)\)</span>? A simple empirical proportion would be: <span class="math display">\[
+\widehat{S}_{\text{naive}}(11) = \frac{\text{Number of subjects observed beyond 11 months}}{\text{Total number of subjects}} = \frac{2}{6} \approx 0.333
+\]</span> (This only counts the subjects at times <span class="math inline">\(12^+\)</span> and <span class="math inline">\(15\)</span>.)</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is <strong>wrong</strong> because it mishandles censored data. The subject censored at 9 months is known to have survived for at least 9 months. This naive method effectively treats them as if they failed to survive past 11 months, which is incorrect.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="notation" class="level2">
+<h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<p>For subject <span class="math inline">\(i = 1, \dots, n\)</span>:</p>
+<ul>
+<li><span class="math inline">\(T_i\)</span>: true event time (possibly unobserved)</li>
+<li><span class="math inline">\(C_i\)</span>: censoring time</li>
+<li><span class="math inline">\(Y_i = \min(T_i, C_i)\)</span>: observed time</li>
+<li><span class="math inline">\(\delta_i = \mathbf{1}(T_i \le C_i)\)</span>: event indicator</li>
+</ul>
+<p>Let <span class="math inline">\(t_{(1)} &lt; \cdots &lt; t_{(J)}\)</span> be the <strong>distinct event times</strong>. At each <span class="math inline">\(t_{(j)}\)</span>:</p>
+<ul>
+<li><span class="math inline">\(n_j = \#\{\text{at risk just before } t_{(j)}\}\)</span></li>
+<li><span class="math inline">\(d_j = \#\{\text{events at } t_{(j)}\} = \#\{i: \delta_i = 1, Y_i = t_{(j)}\}\)</span></li>
+<li><span class="math inline">\(c_j = \#\{\text{censored during the interval } [t_{(j)}, t_{(j+1)})\}\)</span></li>
+</ul>
+<p>We take <span class="math inline">\(S(t) = \Pr(T &gt; t)\)</span> (right-continuous) and <span class="math inline">\(S(t^-) = \Pr(T \ge t)\)</span> (left limit).</p>
+</section>
+<section id="the-kaplan-meier-estimator" class="level2">
+<h2 class="anchored" data-anchor-id="the-kaplan-meier-estimator">The Kaplan-Meier Estimator</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Assuming <strong>noninformative censoring</strong> (<span class="math inline">\(T \perp C\)</span>), the survival function can be estimated by: <span class="math display">\[
+\boxed{\widehat{S}(t) = \prod_{j: t_{(j)} \le t} \left(1 - \frac{d_j}{n_j}\right)}
+\]</span></p>
+</div>
+</div>
+<section id="key-properties" class="level3">
+<h3 class="anchored" data-anchor-id="key-properties">Key Properties</h3>
+<ul>
+<li>The KM estimator <strong>drops only at event times</strong></li>
+<li>Censored observations reduce later risk sets but do not cause drops</li>
+<li>It produces a characteristic <strong>step-function</strong> plot</li>
+<li>The most critical assumption is <strong>noninformative censoring</strong></li>
+<li>The curve’s precision decreases as the number of subjects at risk diminishes over time</li>
+</ul>
+</section>
+</section>
+<section id="worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example">Worked Example</h2>
+<p>Let’s apply the KM estimator to our example data: <span class="math inline">\(6, 7, 9^+, 10, 12^+, 15\)</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Time <span class="math inline">\(t_{(j)}\)</span></th>
+<th style="text-align: center;">At risk <span class="math inline">\(n_j\)</span></th>
+<th style="text-align: center;">Events <span class="math inline">\(d_j\)</span></th>
+<th style="text-align: center;">Censored</th>
+<th style="text-align: center;"><span class="math inline">\(1 - \frac{d_j}{n_j}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\widehat{S}(t)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">1.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.833</td>
+<td style="text-align: center;"><strong>0.833</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.800</td>
+<td style="text-align: center;"><strong>0.667</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.667</td>
+<td style="text-align: center;"><strong>0.444</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;"><strong>0.000</strong></td>
+</tr>
+</tbody>
+</table>
+<p>At <span class="math inline">\(t = 11\)</span>: <span class="math display">\[
+\widehat{S}_{\text{KM}}(11) = \left(1 - \frac{1}{6}\right)\left(1 - \frac{1}{5}\right)\left(1 - \frac{1}{3}\right) = \frac{4}{9} \approx \mathbf{0.444}
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Naive Method Underestimates Survival
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Naive:</strong> 0.333 vs <strong>KM:</strong> 0.444</p>
+<p>The KM estimator correctly accounts for the censored observations and provides a higher (and more accurate) survival estimate.</p>
+</div>
+</div>
+</section>
+<section id="mathematical-derivation-km-as-nonparametric-mle" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-derivation-km-as-nonparametric-mle">Mathematical Derivation: KM as Nonparametric MLE</h2>
+<section id="the-likelihood-function" class="level3">
+<h3 class="anchored" data-anchor-id="the-likelihood-function">The Likelihood Function</h3>
+<p>Assuming <strong>independent censoring</strong> (<span class="math inline">\(T \perp C\)</span>), the likelihood for each subject is:</p>
+<p><span class="math display">\[
+L(S \mid \text{Data}) \propto \prod_{i=1}^n P(T = t_i)^{\delta_i} P(T_i &gt; t)^{1-\delta_i}
+\]</span></p>
+<p>This can be rewritten as: <span class="math display">\[
+L(S \mid \text{Data}) = \prod_{i=1}^n \{S(t_i^-) - S(t_i)\}^{\delta_i} S(t_i)^{1-\delta_i}
+\]</span></p>
+<p>Since all failure mass concentrates on the observed event times <span class="math inline">\(\{t_{(j)}\}_{j=1}^J\)</span>, grouping by event times gives:</p>
+<p><span class="math display">\[
+\boxed{L(S \mid \text{Data}) \propto \prod_{j=1}^J \big\{S(t_{(j)}^-) - S(t_{(j)})\big\}^{d_j} \times S(t_{(j)})^{c_j}}
+\]</span></p>
+</section>
+<section id="jump-and-survival-ratio" class="level3">
+<h3 class="anchored" data-anchor-id="jump-and-survival-ratio">Jump and Survival Ratio</h3>
+<p>At each <span class="math inline">\(t_{(j)}\)</span>, define the <strong>jump</strong>: <span class="math display">\[
+\Delta S_j := S(t_{(j)}^-) - S(t_{(j)})
+\]</span></p>
+<p>For a subject at risk at <span class="math inline">\(t_{(j)}\)</span> (i.e., <span class="math inline">\(T \ge t_{(j)}\)</span>):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(\text{fail at } t_{(j)} \mid \text{at risk at } t_{(j)}) &amp;= \frac{\Delta S_j}{S(t_{(j)}^-)} = \lambda_j \\
+\Pr(\text{survive past } t_{(j)} \mid \text{at risk at } t_{(j)}) &amp;= \frac{S(t_{(j)})}{S(t_{(j)}^-)} = 1 - \lambda_j
+\end{aligned}
+\]</span></p>
+</section>
+<section id="the-key-ratio-identity" class="level3">
+<h3 class="anchored" data-anchor-id="the-key-ratio-identity">The Key Ratio Identity</h3>
+<p>For each <span class="math inline">\(j\)</span>: <span class="math display">\[
+S(t_{(j)}) = (1 - \lambda_j) S(t_{(j)}^-)
+\]</span></p>
+<p><strong>Reason:</strong> “At risk at <span class="math inline">\(t_{(j)}\)</span> and not failing at <span class="math inline">\(t_{(j)}\)</span>” is exactly “surviving to the next event time <span class="math inline">\(t_{(j+1)}\)</span>”.</p>
+</section>
+<section id="recursion-and-telescoping" class="level3">
+<h3 class="anchored" data-anchor-id="recursion-and-telescoping">Recursion and Telescoping</h3>
+<p>Rearranging gives: <span class="math display">\[
+\Pr(T \ge t_{(j+1)}) = \Pr(T \ge t_{(j)})(1 - \lambda_j)
+\]</span></p>
+<p>Iterating for <span class="math inline">\(l = 1, \ldots, j\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+S(t_{(j)}^-) &amp;= \Pr(T \ge t_{(j)}) = \Pr(T \ge t_{(1)}) \prod_{l=1}^{j-1}(1 - \lambda_l) \\
+S(t_{(j)}) &amp;= \Pr(T &gt; t_{(j)}) = \Pr(T \ge t_{(1)}) \prod_{l=1}^j (1 - \lambda_l)
+\end{aligned}
+\]</span></p>
+</section>
+<section id="product-limit-form" class="level3">
+<h3 class="anchored" data-anchor-id="product-limit-form">Product-Limit Form</h3>
+<p>Without left truncation, <span class="math inline">\(\Pr(T \ge t_{(1)}) = 1\)</span>. If <span class="math inline">\(t_{(j)} \le t &lt; t_{(j+1)}\)</span>:</p>
+<p><span class="math display">\[
+\boxed{S(t) = \Pr(T &gt; t) = \prod_{t_{(j)} \le t}(1 - \lambda_j)}
+\]</span></p>
+</section>
+<section id="maximizing-the-likelihood" class="level3">
+<h3 class="anchored" data-anchor-id="maximizing-the-likelihood">Maximizing the Likelihood</h3>
+<p>The likelihood can be rewritten as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+L(S \mid \text{Data}) &amp;\propto \prod_{j=1}^J \big\{S(t_{(j)}^-) - S(t_{(j)})\big\}^{d_j} \times S(t_{(j)})^{c_j} \\
+&amp;= \prod_{j=1}^J \lambda_j^{d_j} \prod_{k=1}^{j-1} (1-\lambda_k)^{d_j} \times \prod_{k=1}^j (1-\lambda_k)^{c_j} \\
+&amp;= \prod_{j=1}^J \lambda_j^{d_j} (1-\lambda_j)^{n_j - d_j}
+\end{aligned}
+\]</span></p>
+<p>Taking the log-likelihood for each <span class="math inline">\(\lambda_j\)</span>: <span class="math display">\[
+\ell_j(\lambda_j) = d_j \log \lambda_j + (n_j - d_j) \log(1 - \lambda_j)
+\]</span></p>
+<p>Setting the derivative to zero: <span class="math display">\[
+\boxed{\widehat{\lambda}_j = \frac{d_j}{n_j}}
+\]</span></p>
+<p>Therefore: <span class="math display">\[
+\widehat{S}(t) = \prod_{t_{(j)} \le t} \left(1 - \frac{d_j}{n_j}\right)
+\]</span></p>
+<p>This is the <strong>Kaplan-Meier (product-limit) estimator</strong>, and we have shown it is the <strong>nonparametric maximum likelihood estimator</strong> for the survival function under independent censoring.</p>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The Kaplan-Meier estimator is:</p>
+<ol type="1">
+<li><strong>Intuitive</strong>: It multiplies conditional survival probabilities at each event time</li>
+<li><strong>Principled</strong>: It is the nonparametric MLE under independent censoring</li>
+<li><strong>Practical</strong>: It correctly handles censored observations</li>
+<li><strong>Visual</strong>: The step-function plot provides an immediate understanding of survival patterns</li>
+</ol>
+<p>Understanding the KM estimator is essential for anyone working with time-to-event data in clinical trials, reliability engineering, or any field where survival analysis is applied.</p>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-01-welcome/index.html" class="no-external">Welcome to My Blog</a>
-</h3>
-<div class="listing-categories">
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ymlvc3RhdGlzdGljcw=='); return false;">biostatistics</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2026-01-welcome/index.html" class="no-external">
-Welcome to my blog! I’m excited to share my thoughts on biostatistics methodology, R programming tips, and insights from academic research.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-01-welcome/index.html" class="no-external">
-<div class="listing-date">
-Jan 15, 2026
-</div>
-<div class="listing-author">
-Cheng-Han Yang
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

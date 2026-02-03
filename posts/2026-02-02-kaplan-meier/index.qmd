@@ -1,0 +1,220 @@
+---
+title: "Survival Analysis: Understanding the Kaplan-Meier Estimator"
+author: "Cheng-Han Yang"
+date: "2026-02-03"
+categories: [Survival Analysis, Statistics, Tutorial]
+image: "km_curve.png"
+description: "A comprehensive introduction to the Kaplan-Meier estimator, the most fundamental tool in survival analysis for handling censored data."
+---
+
+## Introduction
+
+Survival analysis is a branch of statistics that deals with analyzing the time until an event of interest occurs. The **Kaplan-Meier (KM) estimator** is one of the most fundamental and widely used tools in this field. In this post, I'll walk through the motivation, mathematics, and intuition behind this elegant method.
+
+## The Challenge: Censored Data
+
+Our goal is to estimate the **survival function**:
+$$
+S(t) = P(T > t)
+$$
+which tracks the probability of remaining event-free over time.
+
+The main difficulty arises from **right-censoring**: we often lose track of subjects before they experience the event (e.g., due to study termination or withdrawal).
+
+::: {.callout-important}
+## Censoring is Information, Not Failure
+A censored observation is not a failure. It provides the invaluable information that the subject survived *at least until* their censoring time. Methods that simply ignore this partial information will incorrectly bias survival estimates downward.
+:::
+
+Therefore, a valid method must use information from **both** events and censored observations.
+
+## The Flaw in the Naive Approach
+
+Consider a survival dataset with times in months:
+$$
+6,\ 7,\ 9^+,\ 10,\ 12^+,\ 15 \quad(\text{+ indicates censoring})
+$$
+
+### A Naive Calculation
+
+What's the survival probability past 11 months, $S(11)$? A simple empirical proportion would be:
+$$
+\widehat{S}_{\text{naive}}(11) = \frac{\text{Number of subjects observed beyond 11 months}}{\text{Total number of subjects}} = \frac{2}{6} \approx 0.333
+$$
+(This only counts the subjects at times $12^+$ and $15$.)
+
+::: {.callout-warning}
+## Problem
+This is **wrong** because it mishandles censored data. The subject censored at 9 months is known to have survived for at least 9 months. This naive method effectively treats them as if they failed to survive past 11 months, which is incorrect.
+:::
+
+## Notation
+
+For subject $i = 1, \dots, n$:
+
+- $T_i$: true event time (possibly unobserved)
+- $C_i$: censoring time
+- $Y_i = \min(T_i, C_i)$: observed time
+- $\delta_i = \mathbf{1}(T_i \le C_i)$: event indicator
+
+Let $t_{(1)} < \cdots < t_{(J)}$ be the **distinct event times**. At each $t_{(j)}$:
+
+- $n_j = \#\{\text{at risk just before } t_{(j)}\}$
+- $d_j = \#\{\text{events at } t_{(j)}\} = \#\{i: \delta_i = 1, Y_i = t_{(j)}\}$
+- $c_j = \#\{\text{censored during the interval } [t_{(j)}, t_{(j+1)})\}$
+
+We take $S(t) = \Pr(T > t)$ (right-continuous) and $S(t^-) = \Pr(T \ge t)$ (left limit).
+
+## The Kaplan-Meier Estimator
+
+::: {.callout-note}
+## Definition
+Assuming **noninformative censoring** ($T \perp C$), the survival function can be estimated by:
+$$
+\boxed{\widehat{S}(t) = \prod_{j: t_{(j)} \le t} \left(1 - \frac{d_j}{n_j}\right)}
+$$
+:::
+
+### Key Properties
+
+- The KM estimator **drops only at event times**
+- Censored observations reduce later risk sets but do not cause drops
+- It produces a characteristic **step-function** plot
+- The most critical assumption is **noninformative censoring**
+- The curve's precision decreases as the number of subjects at risk diminishes over time
+
+## Worked Example
+
+Let's apply the KM estimator to our example data: $6, 7, 9^+, 10, 12^+, 15$
+
+| Time $t_{(j)}$ | At risk $n_j$ | Events $d_j$ | Censored | $1 - \frac{d_j}{n_j}$ | $\widehat{S}(t)$ |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 6 | 0 | 0 | -- | 1.000 |
+| **6** | 6 | 1 | 0 | 0.833 | **0.833** |
+| **7** | 5 | 1 | 0 | 0.800 | **0.667** |
+| 9 | 4 | 0 | 1 | -- | 0.667 |
+| **10** | 3 | 1 | 0 | 0.667 | **0.444** |
+| 12 | 2 | 0 | 1 | -- | 0.444 |
+| **15** | 1 | 1 | 0 | 0.000 | **0.000** |
+
+At $t = 11$:
+$$
+\widehat{S}_{\text{KM}}(11) = \left(1 - \frac{1}{6}\right)\left(1 - \frac{1}{5}\right)\left(1 - \frac{1}{3}\right) = \frac{4}{9} \approx \mathbf{0.444}
+$$
+
+::: {.callout-tip}
+## Naive Method Underestimates Survival
+**Naive:** 0.333 vs **KM:** 0.444
+
+The KM estimator correctly accounts for the censored observations and provides a higher (and more accurate) survival estimate.
+:::
+
+## Mathematical Derivation: KM as Nonparametric MLE
+
+### The Likelihood Function
+
+Assuming **independent censoring** ($T \perp C$), the likelihood for each subject is:
+
+$$
+L(S \mid \text{Data}) \propto \prod_{i=1}^n P(T = t_i)^{\delta_i} P(T_i > t)^{1-\delta_i}
+$$
+
+This can be rewritten as:
+$$
+L(S \mid \text{Data}) = \prod_{i=1}^n \{S(t_i^-) - S(t_i)\}^{\delta_i} S(t_i)^{1-\delta_i}
+$$
+
+Since all failure mass concentrates on the observed event times $\{t_{(j)}\}_{j=1}^J$, grouping by event times gives:
+
+$$
+\boxed{L(S \mid \text{Data}) \propto \prod_{j=1}^J \big\{S(t_{(j)}^-) - S(t_{(j)})\big\}^{d_j} \times S(t_{(j)})^{c_j}}
+$$
+
+### Jump and Survival Ratio
+
+At each $t_{(j)}$, define the **jump**:
+$$
+\Delta S_j := S(t_{(j)}^-) - S(t_{(j)})
+$$
+
+For a subject at risk at $t_{(j)}$ (i.e., $T \ge t_{(j)}$):
+
+$$
+\begin{aligned}
+\Pr(\text{fail at } t_{(j)} \mid \text{at risk at } t_{(j)}) &= \frac{\Delta S_j}{S(t_{(j)}^-)} = \lambda_j \\
+\Pr(\text{survive past } t_{(j)} \mid \text{at risk at } t_{(j)}) &= \frac{S(t_{(j)})}{S(t_{(j)}^-)} = 1 - \lambda_j
+\end{aligned}
+$$
+
+### The Key Ratio Identity
+
+For each $j$:
+$$
+S(t_{(j)}) = (1 - \lambda_j) S(t_{(j)}^-)
+$$
+
+**Reason:** "At risk at $t_{(j)}$ and not failing at $t_{(j)}$" is exactly "surviving to the next event time $t_{(j+1)}$".
+
+### Recursion and Telescoping
+
+Rearranging gives:
+$$
+\Pr(T \ge t_{(j+1)}) = \Pr(T \ge t_{(j)})(1 - \lambda_j)
+$$
+
+Iterating for $l = 1, \ldots, j$:
+
+$$
+\begin{aligned}
+S(t_{(j)}^-) &= \Pr(T \ge t_{(j)}) = \Pr(T \ge t_{(1)}) \prod_{l=1}^{j-1}(1 - \lambda_l) \\
+S(t_{(j)}) &= \Pr(T > t_{(j)}) = \Pr(T \ge t_{(1)}) \prod_{l=1}^j (1 - \lambda_l)
+\end{aligned}
+$$
+
+### Product-Limit Form
+
+Without left truncation, $\Pr(T \ge t_{(1)}) = 1$. If $t_{(j)} \le t < t_{(j+1)}$:
+
+$$
+\boxed{S(t) = \Pr(T > t) = \prod_{t_{(j)} \le t}(1 - \lambda_j)}
+$$
+
+### Maximizing the Likelihood
+
+The likelihood can be rewritten as:
+
+$$
+\begin{aligned}
+L(S \mid \text{Data}) &\propto \prod_{j=1}^J \big\{S(t_{(j)}^-) - S(t_{(j)})\big\}^{d_j} \times S(t_{(j)})^{c_j} \\
+&= \prod_{j=1}^J \lambda_j^{d_j} \prod_{k=1}^{j-1} (1-\lambda_k)^{d_j} \times \prod_{k=1}^j (1-\lambda_k)^{c_j} \\
+&= \prod_{j=1}^J \lambda_j^{d_j} (1-\lambda_j)^{n_j - d_j}
+\end{aligned}
+$$
+
+Taking the log-likelihood for each $\lambda_j$:
+$$
+\ell_j(\lambda_j) = d_j \log \lambda_j + (n_j - d_j) \log(1 - \lambda_j)
+$$
+
+Setting the derivative to zero:
+$$
+\boxed{\widehat{\lambda}_j = \frac{d_j}{n_j}}
+$$
+
+Therefore:
+$$
+\widehat{S}(t) = \prod_{t_{(j)} \le t} \left(1 - \frac{d_j}{n_j}\right)
+$$
+
+This is the **Kaplan-Meier (product-limit) estimator**, and we have shown it is the **nonparametric maximum likelihood estimator** for the survival function under independent censoring.
+
+## Summary
+
+The Kaplan-Meier estimator is:
+
+1. **Intuitive**: It multiplies conditional survival probabilities at each event time
+2. **Principled**: It is the nonparametric MLE under independent censoring
+3. **Practical**: It correctly handles censored observations
+4. **Visual**: The step-function plot provides an immediate understanding of survival patterns
+
+Understanding the KM estimator is essential for anyone working with time-to-event data in clinical trials, reliability engineering, or any field where survival analysis is applied.
