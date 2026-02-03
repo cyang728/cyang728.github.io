@@ -11,8 +11,9 @@ My research develops statistical methodology for clinical trials and healthcare 
 
 My current research at Yale focuses on developing statistical methods for analyzing large-scale **electronic health records (EHR)** data.
 
-- **Informative Presence**
-- **Informative Observation**
+- **Informative Presence ** arises when the process governing the availability of patient data—i.e., whether patients are present or absent—is related to the patient’s health condition.
+
+- **Informative Observation (IO),** conditional on a visit, the decision to measure and record an outcome is not random; it may be driven by the patient's underlying condition or clinical decision-making, rendering the observation indicator informative.
 
 I develop methods that properly account for these clinically informed biases to enable correct estimation of associations from EHR data.
 
