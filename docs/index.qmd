@@ -1,0 +1,178 @@
+---
+pagetitle: "Cheng-Han Yang"
+toc: false
+page-layout: full
+---
+
+::: {.home}
+
+<!-- ===================== HERO ===================== -->
+<section class="hero bleed">
+<div class="wrap">
+<div class="hero-grid">
+
+<div class="hero-text">
+<div class="hero-eyebrow">Biostatistics · Yale School of Public Health</div>
+<h1 class="hero-name">Cheng-Han Yang</h1>
+<p class="hero-role">Associate Research Scientist, Department of Biostatistics <span class="at">·</span> Yale University</p>
+<p class="hero-lede">I build statistical methods that let electronic health records tell the truth about <em>who seeks care</em> and <em>what gets measured</em>.</p>
+
+<div class="chips">
+<a class="chip" href="mailto:cheng-han.yang@yale.edu">Email</a>
+<a class="chip" href="files/ChengHan_Yang_CV.pdf">CV (PDF)</a>
+<a class="chip" href="https://scholar.google.com/citations?user=SOJu3GAAAAAJ&hl=zh-TW">Google Scholar</a>
+<a class="chip" href="https://github.com/cyang728">GitHub</a>
+<a class="chip" href="https://orcid.org/0000-0002-4161-3140">ORCID</a>
+</div>
+</div>
+
+<div class="portrait-wrap">
+<img src="profile.jpg" class="portrait" alt="Portrait of Cheng-Han Yang">
+</div>
+
+</div>
+
+<!-- signature: sparse, irregular observation-time axis -->
+<svg class="axis" viewBox="0 0 1180 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<line x1="0" y1="24" x2="1180" y2="24" stroke="currentColor" stroke-width="1"/>
+<g stroke="currentColor" stroke-width="1.5">
+<line x1="14"   y1="24" x2="14"   y2="8"/>
+<line x1="46"   y1="24" x2="46"   y2="16"/>
+<line x1="93"   y1="24" x2="93"   y2="4"/>
+<line x1="128"  y1="24" x2="128"  y2="14"/>
+<line x1="205"  y1="24" x2="205"  y2="10"/>
+<line x1="236"  y1="24" x2="236"  y2="18"/>
+<line x1="331"  y1="24" x2="331"  y2="6"/>
+<line x1="392"  y1="24" x2="392"  y2="15"/>
+<line x1="470"  y1="24" x2="470"  y2="9"/>
+<line x1="592"  y1="24" x2="592"  y2="3"/>
+<line x1="631"  y1="24" x2="631"  y2="17"/>
+<line x1="704"  y1="24" x2="704"  y2="11"/>
+<line x1="815"  y1="24" x2="815"  y2="7"/>
+<line x1="858"  y1="24" x2="858"  y2="16"/>
+<line x1="946"  y1="24" x2="946"  y2="5"/>
+<line x1="1032" y1="24" x2="1032" y2="13"/>
+<line x1="1067" y1="24" x2="1067" y2="19"/>
+<line x1="1150" y1="24" x2="1150" y2="8"/>
+</g>
+</svg>
+
+</div>
+</section>
+
+<!-- ===================== BODY: main + rail ===================== -->
+<section class="body bleed">
+<div class="wrap">
+<div class="cols">
+
+<div class="main">
+
+<div class="prose">
+<span class="kicker">About</span>
+<p>I am an Associate Research Scientist in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at the <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr. Bhramar Mukherjee</a>. My research develops semiparametric and causal methods for large-scale electronic health records (EHR), where the times a patient is seen, and the moments a biomarker is recorded, are themselves informative about health.</p>
+<p>I received my Ph.D. in Biostatistics from <a href="https://sph.uth.edu/divisions/biostatistics/">UTHealth Houston</a> in 2025, advised by <a href="https://faculty.mdanderson.org/profiles/ruitao_lin.html">Dr. Ruitao Lin</a>, with a thesis on Bayesian adaptive designs for early-phase oncology trials. My work spans two connected programs: modeling informative visit and observation processes in EHR, and adaptive dose-finding for modern cancer therapeutics.</p>
+</div>
+
+<span class="kicker" style="margin-top:2.2rem;">Research focus</span>
+<div class="themes">
+
+<div class="theme">
+<h3>Informative presence &amp; observation in EHR</h3>
+<p>Semiparametric joint models that correct the biases arising when clinical contact and measurement depend on a patient's underlying condition.</p>
+</div>
+
+<div class="theme">
+<h3>Adaptive dose-finding design</h3>
+<p>Seamless phase I–II designs that use biological mediators and survival endpoints to optimize dose for targeted therapies and immunotherapies.</p>
+</div>
+
+<div class="theme">
+<h3>Causal inference from observational data</h3>
+<p>Estimands and estimators for treatment effects under irregular follow-up, including dynamic regimes in real-world cohorts.</p>
+</div>
+
+<div class="theme">
+<h3>Variable screening &amp; treatment regimes</h3>
+<p>Model-free screening for high-dimensional survival data that stays valid without assuming an outcome model or a form for the regime.</p>
+</div>
+
+</div>
+</div>
+
+<aside class="rail">
+
+<div class="rail-block">
+<div class="rail-h">At a glance</div>
+<div class="fact"><span class="k">Position</span><span class="v">Assoc. Research Scientist<span class="sub">Yale School of Public Health</span></span></div>
+<div class="fact"><span class="k">Ph.D.</span><span class="v">Biostatistics, 2025<span class="sub">UTHealth Houston</span></span></div>
+<div class="fact"><span class="k">M.S.</span><span class="v">Statistics, 2017<span class="sub">National Tsing Hua University</span></span></div>
+<div class="fact"><span class="k">Based in</span><span class="v">New Haven, CT</span></div>
+</div>
+
+<div class="rail-block">
+<div class="rail-h">News</div>
+<ul class="news">
+<li><span class="date">Jan 2026</span><span class="what">Invited talk at the Yale Public Health Data Science &amp; Data Equity Seminar.</span></li>
+<li><span class="date">Dec 2025</span><span class="what">Paper on dose exploration published in <em>Annals of Applied Statistics</em>.</span></li>
+<li><span class="date">Aug 2025</span><span class="what">Joined Yale University as an Associate Research Scientist.</span></li>
+</ul>
+</div>
+
+</aside>
+
+</div>
+</div>
+</section>
+
+<!-- ===================== SELECTED PUBLICATIONS ===================== -->
+<section class="pubs bleed">
+<div class="wrap">
+<span class="kicker">Selected publications</span>
+<h2>Peer-reviewed methodology</h2>
+<p class="sublede">First-author work in statistical methodology. A full list, including collaborative and working papers, is on the <a href="publications.qmd">Publications</a> page.</p>
+
+<ol class="publist">
+
+<li class="pub">
+<span class="num">01</span>
+<div>
+<div class="t">A model-free variable screening method for optimal treatment regimes with high-dimensional survival data</div>
+<div class="meta"><span class="venue">Biometrika</span> · 2024 · 111(4), 1369–1386 · with Y-J. Cheng</div>
+<div class="links"><a href="https://doi.org/10.1093/biomet/asae022">Paper ↗</a></div>
+</div>
+</li>
+
+<li class="pub">
+<span class="num">02</span>
+<div>
+<div class="t">Dose exploration, monitoring, and optimization using biological and clinical outcomes</div>
+<div class="meta"><span class="venue">Annals of Applied Statistics</span> · 2025 · 19(4), 2599–2617 · with P.F. Thall, R. Lin</div>
+<div class="links"><a href="https://doi.org/10.1214/25-AOAS2099">Paper ↗</a> <a href="https://github.com/ruitaolin/DEMO">Code ↗</a></div>
+</div>
+</li>
+
+<li class="pub">
+<span class="num">03</span>
+<div>
+<div class="t">REDOMA: Bayesian random-effects dose-optimization meta-analysis using spike-and-slab priors</div>
+<div class="meta"><span class="venue">Statistics in Medicine</span> · 2024 · 43(18), 3484–3502 · with E. Kwiatkowski, J.J. Lee, R. Lin</div>
+<div class="links"><a href="https://doi.org/10.1002/sim.10107">Paper ↗</a></div>
+</div>
+</li>
+
+<li class="pub">
+<span class="num">04</span>
+<div>
+<div class="t">On the relative conservativeness of the Bayesian logistic regression method in oncology dose-finding studies</div>
+<div class="meta"><span class="venue">Pharmaceutical Statistics</span> · 2024 · 23(4), 585–594 · with G. Cheng, R. Lin</div>
+<div class="links"><a href="https://doi.org/10.1002/pst.2364">Paper ↗</a></div>
+</div>
+</li>
+
+</ol>
+
+<p class="allpubs"><a href="publications.qmd">All publications &amp; talks →</a></p>
+</div>
+</section>
+
+:::
