@@ -1,482 +1,584 @@
-/* ============================================
-   Light Academic Theme
-   ============================================ */
+/* ============================================================
+   Cheng-Han Yang — personal site
+   Identity: Yale-blue institutional. Newsreader (serif display)
+   + Public Sans (body) + IBM Plex Mono (metadata/labels).
+   Full-bleed bands, 1180px inner width, main + rail grid.
+   ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --accent-blue: #2780e3;
-  --accent-blue-hover: #1a5bb5;
-  --bg-light: #ffffff;
-  --bg-gray: #f8f9fa;
-  --bg-card: #f8f9fa;
-  --text-dark: #333333;
-  --text-gray: #666666;
-  --border-color: #dee2e6;
-  --font-main: 'Merriweather', Georgia, serif;
-  --font-code: 'Fira Code', monospace;
+  --yale:        #00356b;   /* Yale Blue, single brand color   */
+  --yale-hover:  #0f4d92;   /* lighter working blue for hover  */
+  --yale-deep:   #002247;   /* hero navy                        */
+  --ink:         #16202d;   /* body + headings                  */
+  --muted:       #57636f;   /* secondary text, metadata         */
+  --faint:       #7a8592;   /* tertiary                         */
+  --paper:       #ffffff;
+  --band:        #f2f5f9;   /* full-width alt section band       */
+  --band-line:   #e2e8ef;   /* hairline                          */
+  --tick:        rgba(0, 53, 107, 0.28); /* observation-axis mark */
+
+  --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans:  'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono:  'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --inner: 1180px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
 }
 
-/* ============================================
-   Body
-   ============================================ */
+/* ------------------------------------------------------------
+   Base
+   ------------------------------------------------------------ */
+html { scroll-behavior: smooth; }
+
 body {
-  background-color: var(--bg-light) !important;
-  color: var(--text-dark) !important;
-  font-size: 1.05rem;
-  font-family: var(--font-main) !important;
-}
-
-.quarto-body-content, #quarto-content, main {
-  background-color: var(--bg-light) !important;
-  color: var(--text-dark) !important;
-}
-
-/* ============================================
-   Navigation
-   ============================================ */
-.navbar {
-  background-color: var(--bg-light) !important;
-  border-bottom: 1px solid var(--border-color) !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.navbar-brand, .navbar-title {
-  font-weight: 700 !important;
-  color: var(--text-dark) !important;
-  font-size: 1.4rem !important;
-  font-family: var(--font-main) !important;
-}
-
-.navbar-brand:hover {
-  color: var(--accent-blue) !important;
-}
-
-.nav-link {
-  color: var(--text-dark) !important;
-  font-weight: 400 !important;
-  font-size: 1rem !important;
-  font-family: var(--font-main) !important;
-}
-
-.nav-link:hover, .nav-link.active {
-  color: var(--accent-blue) !important;
-}
-
-/* ============================================
-   Home Page Layout
-   ============================================ */
-.home-container {
-  display: flex;
-  flex-direction: row;
-  max-width: 1100px;
-  margin: 2.5rem auto;
-  padding: 0 1.5rem;
-  gap: 3rem;
-}
-
-.sidebar {
-  flex: 0 0 240px;
-  max-width: 240px;
-}
-
-.profile-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--accent-blue);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  display: block;
-  margin-bottom: 1.5rem;
-}
-
-.sidebar h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-dark) !important;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-main) !important;
-}
-
-.sidebar .title-text {
-  font-size: 1rem;
-  color: var(--text-gray);
+  background-color: var(--paper) !important;
+  color: var(--ink) !important;
+  font-family: var(--sans) !important;
+  font-size: 1.0625rem;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
-  font-family: var(--font-main) !important;
+  -webkit-font-smoothing: antialiased;
 }
 
-.contact-links {
-  font-size: 1.05rem;
-  line-height: 2.3;
-  font-family: var(--font-main) !important;
+.quarto-body-content, #quarto-content, main, main.content {
+  background-color: var(--paper) !important;
+  color: var(--ink) !important;
 }
 
-.contact-links p {
-  margin: 0.3rem 0;
-  color: var(--text-dark) !important;
+/* Let content pages use the full width; kill the narrow center column.
+   Quarto cosmo constrains .content / the page column — widen it and
+   center within our inner width. */
+#quarto-content > * { max-width: none; }
+main.content, div.page-columns, .page-columns .content {
+  max-width: none !important;
 }
 
-.contact-links a {
-  color: var(--accent-blue) !important;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-.contact-links a:hover {
-  color: var(--accent-blue-hover) !important;
-  text-decoration: underline;
-}
-
-.main-content {
-  flex: 1;
-  min-width: 0;
-  border-left: 1px solid var(--border-color);
-  padding-left: 3rem;
-}
-
-/* ============================================
-   Typography
-   ============================================ */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-dark) !important;
-  font-family: var(--font-main) !important;
-}
-
-h1 {
-  font-size: 2.2rem;
-  font-weight: 900;
-}
-
-h2 {
-  font-size: 1.7rem;
-  font-weight: 700;
-  border-bottom: 2px solid var(--accent-blue);
-  padding-bottom: 0.5rem;
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-}
-
-h2:not(:first-of-type) {
-  margin-top: 2.5rem;
-}
-
-h3 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--accent-blue) !important;
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
-}
-
-p {
-  font-size: 1.08rem;
-  line-height: 1.9;
-  color: var(--text-dark) !important;
-  font-family: var(--font-main) !important;
-}
-
-strong, b {
-  color: var(--text-dark) !important;
-  font-weight: 700;
-}
-
-ol li strong {
-  color: var(--accent-blue) !important;
-  font-weight: 700;
-}
+p { color: var(--ink); }
+strong, b { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
 
 a {
-  color: var(--accent-blue) !important;
-  font-weight: 400;
+  color: var(--yale) !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .15s ease, border-color .15s ease;
+}
+a:hover { color: var(--yale-hover) !important; }
+
+::selection { background: rgba(0, 53, 107, 0.14); }
+
+/* ------------------------------------------------------------
+   Typography
+   ------------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif) !important;
+  color: var(--ink) !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
 }
 
-a:hover {
-  color: var(--accent-blue-hover) !important;
+h1 { font-size: clamp(2rem, 3.4vw, 2.5rem); font-weight: 600; margin-bottom: 1rem; }
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2.6rem 0 1rem;
+  padding: 0;
+  border: 0;                    /* remove templated underline bars */
+}
+h3 {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--ink) !important;
+  margin: 1.6rem 0 .6rem;
+}
+h4 {
+  font-family: var(--sans) !important;
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--ink) !important;
+  margin: 1.3rem 0 .5rem;
 }
 
-/* Lists */
-ul, ol {
-  color: var(--text-dark) !important;
-  font-family: var(--font-main) !important;
+/* Mono kicker/eyebrow — the signature metadata device */
+.kicker {
+  display: inline-block;
+  font-family: var(--mono) !important;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--yale) !important;
+  margin-bottom: .55rem;
 }
 
-ul li, ol li {
-  margin-bottom: 0.6rem;
-  color: var(--text-dark) !important;
-  font-size: 1.05rem;
+ul, ol { color: var(--ink); }
+li { margin-bottom: .4rem; }
+ul li::marker { color: var(--yale); }
+ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em; }
+
+/* ------------------------------------------------------------
+   Navbar
+   ------------------------------------------------------------ */
+.navbar {
+  background-color: rgba(255,255,255,0.92) !important;
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--band-line) !important;
+  box-shadow: none !important;
+  padding-top: .55rem;
+  padding-bottom: .55rem;
+}
+.navbar > .container-fluid,
+.navbar > .container {
+  max-width: var(--inner);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  width: 100%;
+}
+.navbar-brand, .navbar-title {
+  font-family: var(--serif) !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: var(--ink) !important;
+  letter-spacing: -0.01em;
+}
+.navbar-brand:hover { color: var(--yale) !important; }
+.navbar .nav-link {
+  font-family: var(--mono) !important;
+  font-size: .78rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted) !important;
+  padding-inline: .7rem !important;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--yale) !important;
 }
 
-ul li::marker {
-  color: var(--accent-blue);
+/* ============================================================
+   HOME PAGE  (scoped under .home to avoid leaking to content)
+   ============================================================ */
+.home { font-family: var(--sans); }
+
+/* full-bleed helper */
+.home .bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+.home .wrap {
+  max-width: var(--inner);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-/* ============================================
-   Research Page - CARD SECTIONS
-   ============================================ */
-.research-section {
-  background: var(--bg-card) !important;
-  border: 1px solid var(--border-color);
-  border-left: 4px solid var(--accent-blue);
-  border-radius: 8px;
-  padding: 2rem 2.5rem;
-  margin: 2rem 0;
-}
+/* remove Quarto's default top spacing on the home title area */
+.home .quarto-title, .home header#title-block-header { display: none; }
 
-.research-section h3 {
-  margin-top: 0 !important;
-  font-size: 1.6rem !important;
-  color: var(--accent-blue) !important;
+/* ---- Hero ---- */
+.home .hero { padding: clamp(2.2rem, 5vw, 3.6rem) 0 0; }
+.home .hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+.home .hero-eyebrow {
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--yale);
   margin-bottom: 1rem;
 }
-
-.research-section h4 {
-  font-size: 1.2rem;
-  color: var(--text-dark) !important;
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
-  font-weight: 700;
+.home .hero-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 5.4vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 .5rem;
 }
-
-.research-section p {
-  color: var(--text-dark) !important;
-}
-
-.research-section li {
-  color: var(--text-dark) !important;
-}
-
-.section-number {
-  display: inline-block;
-  background-color: var(--accent-blue);
-  color: white;
-  font-weight: 900;
-  font-size: 1.1rem;
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-  text-align: center;
-  border-radius: 50%;
-  margin-right: 0.8rem;
-  font-family: var(--font-main) !important;
-}
-
-/* Publication reference box */
-.pub-ref {
-  background-color: rgba(39, 128, 227, 0.08) !important;
-  border-left: 3px solid var(--accent-blue);
-  padding: 1.2rem 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 0 8px 8px 0;
-}
-
-.pub-ref p {
-  margin: 0;
-  color: var(--text-dark) !important;
-  font-size: 1rem;
-}
-
-/* Horizontal rules */
-hr {
-  border: none;
-  border-top: 1px solid var(--border-color);
-  margin: 2.5rem 0;
-}
-
-/* ============================================
-   Blockquotes
-   ============================================ */
-blockquote {
-  border-left: 3px solid var(--border-color);
-  background-color: var(--bg-gray) !important;
-  padding: 1.2rem 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 0 8px 8px 0;
-}
-
-blockquote p {
-  margin: 0;
-  color: var(--text-gray) !important;
-  font-size: 1rem;
-}
-
-/* ============================================
-   Code blocks
-   ============================================ */
-pre {
-  background-color: #f5f5f5 !important;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-pre code {
-  color: #333 !important;
-  background-color: transparent !important;
-  font-family: var(--font-code) !important;
-}
-
-code {
-  background-color: #f0f0f0 !important;
-  color: #c7254e !important;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+.home .hero-role {
+  font-family: var(--sans);
+  font-size: 1.02rem;
   font-weight: 500;
-  font-family: var(--font-code) !important;
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+  line-height: 1.5;
+}
+.home .hero-role .at { color: var(--yale); font-weight: 600; }
+.home .hero-lede {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 34ch;
+  margin-bottom: 1.6rem;
+}
+.home .hero-lede em { color: var(--yale); font-style: italic; }
+
+/* contact chips */
+.home .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.home .chip {
+  font-family: var(--mono);
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: var(--yale) !important;
+  border: 1px solid var(--band-line);
+  border-radius: 999px;
+  padding: .34rem .8rem;
+  background: var(--paper);
+  transition: all .15s ease;
+  white-space: nowrap;
+}
+.home .chip:hover {
+  border-color: var(--yale);
+  background: var(--yale);
+  color: #fff !important;
 }
 
-pre code, 
-pre code span {
-  color: #333 !important;
+/* portrait */
+.home .portrait-wrap { display: flex; justify-content: center; }
+.home .portrait {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 1px 0 var(--band-line), 0 18px 40px -22px rgba(0,34,71,0.55);
 }
 
-pre code span.st { color: #d14 !important; }
-pre code span.dv { color: #099 !important; }
-pre code span.fu { color: #900 !important; }
-pre code span.co { color: #998 !important; }
-pre code span.kw { color: #000 !important; font-weight: bold; }
-
-.sourceCode {
-  background-color: #f5f5f5 !important;
+/* ---- signature: sparse observation-axis divider ---- */
+.home .axis {
+  margin: clamp(2.2rem, 4vw, 3.4rem) 0 0;
+  height: 26px;
+  width: 100%;
+  color: var(--tick);
 }
 
-.sourceCode pre {
-  background-color: #f5f5f5 !important;
+/* ---- Body grid: main + rail ---- */
+.home .body { padding: clamp(2rem, 4vw, 3rem) 0 clamp(2.5rem, 5vw, 4rem); }
+.home .cols {
+  display: grid;
+  grid-template-columns: 1.75fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
 }
+.home .cols h2:first-child { margin-top: 0; }
+.home .prose p { margin-bottom: 1.05rem; max-width: 62ch; }
 
-.sourceCode code {
-  color: #333 !important;
+/* research themes — quiet, no cards, hairline separators */
+.home .themes { margin-top: .4rem; }
+.home .theme {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--band-line);
 }
+.home .theme:last-child { border-bottom: 1px solid var(--band-line); }
+.home .theme h3 { margin: 0 0 .3rem; font-size: 1.1rem; }
+.home .theme p { margin: 0; color: var(--muted); font-size: .97rem; max-width: 60ch; }
 
-/* ============================================
-   Blog listing
-   ============================================ */
-.quarto-listing-default .listing-title,
-.listing-title a {
-  color: var(--accent-blue) !important;
+/* right rail */
+.home .rail { position: sticky; top: 5rem; }
+.home .rail-block { margin-bottom: 2.1rem; }
+.home .rail-h {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--yale);
+  padding-bottom: .55rem;
+  margin-bottom: .85rem;
+  border-bottom: 1px solid var(--band-line);
+}
+.home .fact { margin-bottom: .85rem; line-height: 1.4; }
+.home .fact .k {
+  display: block;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: .12rem;
+}
+.home .fact .v { font-size: .95rem; color: var(--ink); }
+.home .fact .v .sub { display:block; color: var(--muted); font-size: .88rem; }
+
+/* news feed */
+.home .news { list-style: none; padding: 0; margin: 0; }
+.home .news li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .7rem;
+  padding: .55rem 0;
+  border-top: 1px dotted var(--band-line);
+  font-size: .93rem;
+}
+.home .news li:first-child { border-top: 0; }
+.home .news .date {
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--yale);
+  letter-spacing: .02em;
+  white-space: nowrap;
+  padding-top: .12rem;
+}
+.home .news .what { color: var(--ink); }
+
+/* ---- Selected publications band ---- */
+.home .pubs.bleed { background: var(--band); }
+.home .pubs .wrap { padding-top: clamp(2.4rem, 5vw, 3.6rem); padding-bottom: clamp(2.4rem, 5vw, 3.6rem); }
+.home .pubs h2 { margin-top: 0; }
+.home .pubs .sublede { color: var(--muted); margin: -.3rem 0 1.6rem; font-size: .97rem; }
+.home .publist { list-style: none; padding: 0; margin: 0; }
+.home .pub {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--band-line);
+  align-items: baseline;
+}
+.home .pub:last-child { border-bottom: 1px solid var(--band-line); }
+.home .pub .num {
+  font-family: var(--mono);
+  font-size: .8rem;
+  color: var(--faint);
+}
+.home .pub .t {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: .28rem;
+}
+.home .pub .meta {
+  font-size: .9rem;
+  color: var(--muted);
+}
+.home .pub .venue {
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: .04em;
+  color: var(--yale);
+  text-transform: uppercase;
+}
+.home .pub .links { margin-top: .35rem; display: flex; gap: .9rem; }
+.home .pub .links a {
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: .03em;
+  border-bottom: 1px solid transparent;
+}
+.home .pub .links a:hover { border-bottom-color: var(--yale-hover); }
+.home .allpubs {
+  margin-top: 1.6rem;
+  font-family: var(--mono);
+  font-size: .8rem;
+  letter-spacing: .04em;
+}
+.home .allpubs a { border-bottom: 1px solid var(--band-line); padding-bottom: 1px; }
+.home .allpubs a:hover { border-bottom-color: var(--yale); }
+
+/* ============================================================
+   CONTENT PAGES (research / software / teaching / publications)
+   Reworked: lighter, wider, mono kickers instead of heavy cards.
+   ============================================================ */
+
+/* widen + center the content column */
+main.content, .quarto-title-block + *, #quarto-content .content {
+  max-width: 920px;
+  margin-inline: auto;
+}
+.quarto-title-block { max-width: 920px; margin-inline: auto; }
+.quarto-title .title { font-family: var(--serif) !important; font-weight: 600; }
+
+/* research areas: was .research-section (fat card). Now: airy block
+   with a hairline top rule and mono kicker. */
+.research-section {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 1px solid var(--band-line) !important;
+  border-radius: 0 !important;
+  padding: 1.8rem 0 .4rem !important;
+  margin: 0 !important;
+}
+.research-section:first-of-type { border-top: 0 !important; }
+.research-section h3 {
+  font-family: var(--serif) !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  margin: 0 0 .9rem !important;
+}
+.research-section h4 {
+  font-family: var(--sans) !important;
+  font-size: 1rem;
   font-weight: 700;
-  font-family: var(--font-main) !important;
+  color: var(--ink) !important;
+  margin: 1.4rem 0 .5rem;
+}
+.research-section p, .research-section li { color: var(--ink) !important; }
+
+/* the 01/02 circles are gone from markup; neutralize the class too */
+.section-number { display: none !important; }
+
+/* publication reference: was a big tinted box. Now compact hairline. */
+.pub-ref {
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 2px solid var(--yale) !important;
+  border-radius: 0 !important;
+  padding: .3rem 0 .3rem 1rem !important;
+  margin: 1rem 0 1.2rem !important;
+}
+.pub-ref p { color: var(--muted) !important; font-size: .92rem; margin: 0; }
+.pub-ref strong { color: var(--ink) !important; }
+.pub-ref a { font-family: var(--mono); font-size: .8rem; }
+
+/* two-column feature lists on wide screens for scannability */
+@media (min-width: 900px) {
+  .research-section > ul { columns: 2; column-gap: 2.5rem; }
+  .research-section > ul > li { break-inside: avoid; }
 }
 
-.quarto-listing-default .listing-description,
-.listing-description {
-  color: var(--text-dark) !important;
-  font-family: var(--font-main) !important;
+/* ------------------------------------------------------------
+   Blockquotes
+   ------------------------------------------------------------ */
+blockquote {
+  border-left: 2px solid var(--yale);
+  background: transparent !important;
+  padding: .3rem 0 .3rem 1.2rem;
+  margin: 1.4rem 0;
+  color: var(--muted);
+  font-style: italic;
 }
+blockquote p { color: var(--muted) !important; }
 
-.quarto-listing-default .listing-date,
-.listing-date {
-  color: var(--text-gray) !important;
-  font-family: var(--font-main) !important;
+/* ------------------------------------------------------------
+   Code
+   ------------------------------------------------------------ */
+pre {
+  background: #f7f9fb !important;
+  border: 1px solid var(--band-line);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
 }
-
-.listing-author {
-  color: var(--text-gray) !important;
-  font-family: var(--font-main) !important;
+pre code, pre code span { color: #1d2733 !important; font-family: var(--mono) !important; font-size: .86rem; }
+code {
+  background: #eef2f6 !important;
+  color: var(--yale) !important;
+  padding: .12rem .4rem;
+  border-radius: 4px;
+  font-family: var(--mono) !important;
+  font-size: .86em;
 }
+pre code { background: transparent !important; padding: 0; }
+pre code span.st { color: #0a6b4f !important; }
+pre code span.dv { color: #005b8f !important; }
+pre code span.fu { color: #7a2530 !important; }
+pre code span.co { color: #8a95a1 !important; font-style: italic; }
+pre code span.kw { color: #16202d !important; font-weight: 600; }
 
-.quarto-listing-category .listing-category {
-  background-color: var(--bg-card) !important;
-  color: var(--text-dark) !important;
-  border: 1px solid var(--border-color) !important;
-  font-family: var(--font-main) !important;
-}
-
-/* ============================================
+/* ------------------------------------------------------------
    Buttons
-   ============================================ */
+   ------------------------------------------------------------ */
 .btn-primary, .btn {
-  background-color: var(--accent-blue) !important;
-  border-color: var(--accent-blue) !important;
-  color: white !important;
-  font-weight: 700;
-  font-family: var(--font-main) !important;
+  background: var(--yale) !important;
+  border: 1px solid var(--yale) !important;
+  color: #fff !important;
+  font-family: var(--mono) !important;
+  font-size: .78rem !important;
+  font-weight: 500;
+  letter-spacing: .04em;
+  border-radius: 6px;
+  padding: .5rem 1rem;
 }
-
 .btn-primary:hover, .btn:hover {
-  background-color: var(--accent-blue-hover) !important;
-  border-color: var(--accent-blue-hover) !important;
+  background: var(--yale-hover) !important;
+  border-color: var(--yale-hover) !important;
 }
 
-/* ============================================
-   Hide sidebars and toggle
-   ============================================ */
-#quarto-margin-sidebar, #quarto-sidebar {
-  display: none !important;
+/* ------------------------------------------------------------
+   Blog listing
+   ------------------------------------------------------------ */
+.listing-title, .listing-title a {
+  font-family: var(--serif) !important;
+  color: var(--ink) !important;
+  font-weight: 600;
+}
+.listing-title a:hover { color: var(--yale) !important; }
+.listing-description { color: var(--muted) !important; }
+.listing-date, .listing-author {
+  font-family: var(--mono) !important;
+  font-size: .8rem !important;
+  color: var(--faint) !important;
+}
+.quarto-listing-category .listing-category {
+  font-family: var(--mono) !important;
+  font-size: .72rem !important;
+  letter-spacing: .04em;
+  background: transparent !important;
+  color: var(--muted) !important;
+  border: 1px solid var(--band-line) !important;
+  border-radius: 999px;
+}
+.quarto-listing-category .listing-category:hover {
+  color: var(--yale) !important;
+  border-color: var(--yale) !important;
 }
 
-#quarto-color-scheme-toggle {
-  display: none !important;
-}
+/* ------------------------------------------------------------
+   Hide default sidebars + theme toggle
+   ------------------------------------------------------------ */
+#quarto-margin-sidebar, #quarto-sidebar { display: none !important; }
+#quarto-color-scheme-toggle { display: none !important; }
 
-/* ============================================
+/* ------------------------------------------------------------
    Footer
-   ============================================ */
-footer {
-  background-color: var(--bg-gray) !important;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-gray) !important;
-  font-family: var(--font-main) !important;
+   ------------------------------------------------------------ */
+.nav-footer, footer {
+  background: var(--paper) !important;
+  border-top: 1px solid var(--band-line);
+  color: var(--muted) !important;
+  font-family: var(--mono) !important;
+  font-size: .78rem;
+  letter-spacing: .02em;
+}
+.nav-footer a, footer a { color: var(--yale) !important; }
+
+/* ------------------------------------------------------------
+   Reduced motion
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
 }
 
-/* ============================================
+/* ------------------------------------------------------------
    Responsive
-   ============================================ */
-@media (max-width: 768px) {
-  body,
-  .quarto-body-content,
-  #quarto-content,
-  main {
-    background-color: var(--bg-light) !important;
-    color: var(--text-dark) !important;
-  }
-
-  .home-container,
-  .home-container *,
-  .sidebar,
-  .sidebar *,
-  .main-content,
-  .main-content * {
-    position: static !important;
-    z-index: auto !important;
-  }
-
-  .home-container {
-    flex-direction: column;
-    display: block !important;
-  }
-  
-  .sidebar {
-    position: static !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    text-align: center;
-    margin-bottom: 2rem;
-    float: none !important;
-  }
-  
-  .profile-img {
-    position: static !important;
-    margin: 0 auto 1.5rem auto;
-  }
-  
-  .main-content {
-    position: static !important;
-    display: block !important;
-    width: 100% !important;
-    border-left: none;
-    border-top: 1px solid var(--border-color);
-    padding-left: 0;
-    padding-top: 2rem;
-  }
-  
-  .research-section {
-    padding: 1.5rem;
-  }
-  
-  .navbar, .navbar * {
-    position: relative !important;
-  }
+   ------------------------------------------------------------ */
+@media (max-width: 860px) {
+  .home .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .home .portrait-wrap { order: -1; justify-content: flex-start; }
+  .home .portrait { max-width: 240px; }
+  .home .cols { grid-template-columns: 1fr; gap: 2.4rem; }
+  .home .rail { position: static; }
+  .home .pub { grid-template-columns: 1.8rem 1fr; gap: .7rem; }
+  .research-section > ul { columns: 1 !important; }
+}
+@media (max-width: 520px) {
+  body { font-size: 1rem; }
+  .home .hero-name { font-size: clamp(2.2rem, 11vw, 3rem); }
+  .navbar .nav-link { padding-inline: .5rem !important; font-size: .72rem !important; }
 }
