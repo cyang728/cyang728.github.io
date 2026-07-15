@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Cheng-Han Yang"
+  site-url: https://cyang728.github.io
+  navbar:
+    background: light
+    foreground: dark
+    title: "Cheng-Han Yang"
+    left:
+      - href: research.qmd
+        text: Research
+      - href: publications.qmd
+        text: Publications
+      - href: software.qmd
+        text: Software
+      - href: teaching.qmd
+        text: Teaching
+      - href: blog.qmd
+        text: Blog
+  page-footer:
+    left: "© 2026 Cheng-Han Yang"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: false
+    grid:
+      body-width: 1180px
