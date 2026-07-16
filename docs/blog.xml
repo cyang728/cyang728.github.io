@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Cheng-Han Yang</title>
+<link>https://cyang728.github.io/blog.html</link>
+<atom:link href="https://cyang728.github.io/blog.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Tue, 03 Feb 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Survival Analysis: Understanding the Kaplan-Meier Estimator</title>
+  <dc:creator>Cheng-Han Yang</dc:creator>
+  <link>https://cyang728.github.io/posts/2026-02-02-kaplan-meier/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Survival analysis is a branch of statistics that deals with analyzing the time until an event of interest occurs. The <strong>Kaplan-Meier (KM) estimator</strong> is one of the most fundamental and widely used tools in this field. In this post, I’ll walk through the motivation, mathematics, and intuition behind this elegant method.</p>
+</section>
+<section id="the-challenge-censored-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-challenge-censored-data">The Challenge: Censored Data</h2>
+<p>Our goal is to estimate the <strong>survival function</strong>: <img src="https://latex.codecogs.com/png.latex?%0AS(t)%20=%20P(T%20%3E%20t)%0A"> which tracks the probability of remaining event-free over time.</p>
+<p>The main difficulty arises from <strong>right-censoring</strong>: we often lose track of subjects before they experience the event (e.g., due to study termination or withdrawal).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Censoring is Information, Not Failure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A censored observation is not a failure. It provides the invaluable information that the subject survived <em>at least until</em> their censoring time. Methods that simply ignore this partial information will incorrectly bias survival estimates downward.</p>
+</div>
+</div>
+<p>Therefore, a valid method must use information from <strong>both</strong> events and censored observations.</p>
+</section>
+<section id="the-flaw-in-the-naive-approach" class="level2">
+<h2 class="anchored" data-anchor-id="the-flaw-in-the-naive-approach">The Flaw in the Naive Approach</h2>
+<p>Consider a survival dataset with times in months: <img src="https://latex.codecogs.com/png.latex?%0A6,%5C%207,%5C%209%5E+,%5C%2010,%5C%2012%5E+,%5C%2015%20%5Cquad(%5Ctext%7B+%20indicates%20censoring%7D)%0A"></p>
+<section id="a-naive-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="a-naive-calculation">A Naive Calculation</h3>
+<p>What’s the survival probability past 11 months, <img src="https://latex.codecogs.com/png.latex?S(11)">? A simple empirical proportion would be: <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidehat%7BS%7D_%7B%5Ctext%7Bnaive%7D%7D(11)%20=%20%5Cfrac%7B%5Ctext%7BNumber%20of%20subjects%20observed%20beyond%2011%20months%7D%7D%7B%5Ctext%7BTotal%20number%20of%20subjects%7D%7D%20=%20%5Cfrac%7B2%7D%7B6%7D%20%5Capprox%200.333%0A"> (This only counts the subjects at times <img src="https://latex.codecogs.com/png.latex?12%5E+"> and <img src="https://latex.codecogs.com/png.latex?15">.)</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is <strong>wrong</strong> because it mishandles censored data. The subject censored at 9 months is known to have survived for at least 9 months. This naive method effectively treats them as if they failed to survive past 11 months, which is incorrect.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="notation" class="level2">
+<h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<p>For subject <img src="https://latex.codecogs.com/png.latex?i%20=%201,%20%5Cdots,%20n">:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?T_i">: true event time (possibly unobserved)</li>
+<li><img src="https://latex.codecogs.com/png.latex?C_i">: censoring time</li>
+<li><img src="https://latex.codecogs.com/png.latex?Y_i%20=%20%5Cmin(T_i,%20C_i)">: observed time</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cdelta_i%20=%20%5Cmathbf%7B1%7D(T_i%20%5Cle%20C_i)">: event indicator</li>
+</ul>
+<p>Let <img src="https://latex.codecogs.com/png.latex?t_%7B(1)%7D%20%3C%20%5Ccdots%20%3C%20t_%7B(J)%7D"> be the <strong>distinct event times</strong>. At each <img src="https://latex.codecogs.com/png.latex?t_%7B(j)%7D">:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?n_j%20=%20%5C#%5C%7B%5Ctext%7Bat%20risk%20just%20before%20%7D%20t_%7B(j)%7D%5C%7D"></li>
+<li><img src="https://latex.codecogs.com/png.latex?d_j%20=%20%5C#%5C%7B%5Ctext%7Bevents%20at%20%7D%20t_%7B(j)%7D%5C%7D%20=%20%5C#%5C%7Bi:%20%5Cdelta_i%20=%201,%20Y_i%20=%20t_%7B(j)%7D%5C%7D"></li>
+<li><img src="https://latex.codecogs.com/png.latex?c_j%20=%20%5C#%5C%7B%5Ctext%7Bcensored%20during%20the%20interval%20%7D%20%5Bt_%7B(j)%7D,%20t_%7B(j+1)%7D)%5C%7D"></li>
+</ul>
+<p>We take <img src="https://latex.codecogs.com/png.latex?S(t)%20=%20%5CPr(T%20%3E%20t)"> (right-continuous) and <img src="https://latex.codecogs.com/png.latex?S(t%5E-)%20=%20%5CPr(T%20%5Cge%20t)"> (left limit).</p>
+</section>
+<section id="the-kaplan-meier-estimator" class="level2">
+<h2 class="anchored" data-anchor-id="the-kaplan-meier-estimator">The Kaplan-Meier Estimator</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Assuming <strong>noninformative censoring</strong> (<img src="https://latex.codecogs.com/png.latex?T%20%5Cperp%20C">), the survival function can be estimated by: <img src="https://latex.codecogs.com/png.latex?%0A%5Cboxed%7B%5Cwidehat%7BS%7D(t)%20=%20%5Cprod_%7Bj:%20t_%7B(j)%7D%20%5Cle%20t%7D%20%5Cleft(1%20-%20%5Cfrac%7Bd_j%7D%7Bn_j%7D%5Cright)%7D%0A"></p>
+</div>
+</div>
+<section id="key-properties" class="level3">
+<h3 class="anchored" data-anchor-id="key-properties">Key Properties</h3>
+<ul>
+<li>The KM estimator <strong>drops only at event times</strong></li>
+<li>Censored observations reduce later risk sets but do not cause drops</li>
+<li>It produces a characteristic <strong>step-function</strong> plot</li>
+<li>The most critical assumption is <strong>noninformative censoring</strong></li>
+<li>The curve’s precision decreases as the number of subjects at risk diminishes over time</li>
+</ul>
+</section>
+</section>
+<section id="worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example">Worked Example</h2>
+<p>Let’s apply the KM estimator to our example data: <img src="https://latex.codecogs.com/png.latex?6,%207,%209%5E+,%2010,%2012%5E+,%2015"></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Time <img src="https://latex.codecogs.com/png.latex?t_%7B(j)%7D"></th>
+<th style="text-align: center;">At risk <img src="https://latex.codecogs.com/png.latex?n_j"></th>
+<th style="text-align: center;">Events <img src="https://latex.codecogs.com/png.latex?d_j"></th>
+<th style="text-align: center;">Censored</th>
+<th style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?1%20-%20%5Cfrac%7Bd_j%7D%7Bn_j%7D"></th>
+<th style="text-align: center;"><img src="https://latex.codecogs.com/png.latex?%5Cwidehat%7BS%7D(t)"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">1.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.833</td>
+<td style="text-align: center;"><strong>0.833</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.800</td>
+<td style="text-align: center;"><strong>0.667</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.667</td>
+<td style="text-align: center;"><strong>0.444</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;"><strong>0.000</strong></td>
+</tr>
+</tbody>
+</table>
+<p>At <img src="https://latex.codecogs.com/png.latex?t%20=%2011">: <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidehat%7BS%7D_%7B%5Ctext%7BKM%7D%7D(11)%20=%20%5Cleft(1%20-%20%5Cfrac%7B1%7D%7B6%7D%5Cright)%5Cleft(1%20-%20%5Cfrac%7B1%7D%7B5%7D%5Cright)%5Cleft(1%20-%20%5Cfrac%7B1%7D%7B3%7D%5Cright)%20=%20%5Cfrac%7B4%7D%7B9%7D%20%5Capprox%20%5Cmathbf%7B0.444%7D%0A"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Naive Method Underestimates Survival
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Naive:</strong> 0.333 vs <strong>KM:</strong> 0.444</p>
+<p>The KM estimator correctly accounts for the censored observations and provides a higher (and more accurate) survival estimate.</p>
+</div>
+</div>
+</section>
+<section id="mathematical-derivation-km-as-nonparametric-mle" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-derivation-km-as-nonparametric-mle">Mathematical Derivation: KM as Nonparametric MLE</h2>
+<section id="the-likelihood-function" class="level3">
+<h3 class="anchored" data-anchor-id="the-likelihood-function">The Likelihood Function</h3>
+<p>Assuming <strong>independent censoring</strong> (<img src="https://latex.codecogs.com/png.latex?T%20%5Cperp%20C">), the likelihood for each subject is:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AL(S%20%5Cmid%20%5Ctext%7BData%7D)%20%5Cpropto%20%5Cprod_%7Bi=1%7D%5En%20P(T%20=%20t_i)%5E%7B%5Cdelta_i%7D%20P(T_i%20%3E%20t)%5E%7B1-%5Cdelta_i%7D%0A"></p>
+<p>This can be rewritten as: <img src="https://latex.codecogs.com/png.latex?%0AL(S%20%5Cmid%20%5Ctext%7BData%7D)%20=%20%5Cprod_%7Bi=1%7D%5En%20%5C%7BS(t_i%5E-)%20-%20S(t_i)%5C%7D%5E%7B%5Cdelta_i%7D%20S(t_i)%5E%7B1-%5Cdelta_i%7D%0A"></p>
+<p>Since all failure mass concentrates on the observed event times <img src="https://latex.codecogs.com/png.latex?%5C%7Bt_%7B(j)%7D%5C%7D_%7Bj=1%7D%5EJ">, grouping by event times gives:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cboxed%7BL(S%20%5Cmid%20%5Ctext%7BData%7D)%20%5Cpropto%20%5Cprod_%7Bj=1%7D%5EJ%20%5Cbig%5C%7BS(t_%7B(j)%7D%5E-)%20-%20S(t_%7B(j)%7D)%5Cbig%5C%7D%5E%7Bd_j%7D%20%5Ctimes%20S(t_%7B(j)%7D)%5E%7Bc_j%7D%7D%0A"></p>
+</section>
+<section id="jump-and-survival-ratio" class="level3">
+<h3 class="anchored" data-anchor-id="jump-and-survival-ratio">Jump and Survival Ratio</h3>
+<p>At each <img src="https://latex.codecogs.com/png.latex?t_%7B(j)%7D">, define the <strong>jump</strong>: <img src="https://latex.codecogs.com/png.latex?%0A%5CDelta%20S_j%20:=%20S(t_%7B(j)%7D%5E-)%20-%20S(t_%7B(j)%7D)%0A"></p>
+<p>For a subject at risk at <img src="https://latex.codecogs.com/png.latex?t_%7B(j)%7D"> (i.e., <img src="https://latex.codecogs.com/png.latex?T%20%5Cge%20t_%7B(j)%7D">):</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5CPr(%5Ctext%7Bfail%20at%20%7D%20t_%7B(j)%7D%20%5Cmid%20%5Ctext%7Bat%20risk%20at%20%7D%20t_%7B(j)%7D)%20&amp;=%20%5Cfrac%7B%5CDelta%20S_j%7D%7BS(t_%7B(j)%7D%5E-)%7D%20=%20%5Clambda_j%20%5C%5C%0A%5CPr(%5Ctext%7Bsurvive%20past%20%7D%20t_%7B(j)%7D%20%5Cmid%20%5Ctext%7Bat%20risk%20at%20%7D%20t_%7B(j)%7D)%20&amp;=%20%5Cfrac%7BS(t_%7B(j)%7D)%7D%7BS(t_%7B(j)%7D%5E-)%7D%20=%201%20-%20%5Clambda_j%0A%5Cend%7Baligned%7D%0A"></p>
+</section>
+<section id="the-key-ratio-identity" class="level3">
+<h3 class="anchored" data-anchor-id="the-key-ratio-identity">The Key Ratio Identity</h3>
+<p>For each <img src="https://latex.codecogs.com/png.latex?j">: <img src="https://latex.codecogs.com/png.latex?%0AS(t_%7B(j)%7D)%20=%20(1%20-%20%5Clambda_j)%20S(t_%7B(j)%7D%5E-)%0A"></p>
+<p><strong>Reason:</strong> “At risk at <img src="https://latex.codecogs.com/png.latex?t_%7B(j)%7D"> and not failing at <img src="https://latex.codecogs.com/png.latex?t_%7B(j)%7D">” is exactly “surviving to the next event time <img src="https://latex.codecogs.com/png.latex?t_%7B(j+1)%7D">”.</p>
+</section>
+<section id="recursion-and-telescoping" class="level3">
+<h3 class="anchored" data-anchor-id="recursion-and-telescoping">Recursion and Telescoping</h3>
+<p>Rearranging gives: <img src="https://latex.codecogs.com/png.latex?%0A%5CPr(T%20%5Cge%20t_%7B(j+1)%7D)%20=%20%5CPr(T%20%5Cge%20t_%7B(j)%7D)(1%20-%20%5Clambda_j)%0A"></p>
+<p>Iterating for <img src="https://latex.codecogs.com/png.latex?l%20=%201,%20%5Cldots,%20j">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0AS(t_%7B(j)%7D%5E-)%20&amp;=%20%5CPr(T%20%5Cge%20t_%7B(j)%7D)%20=%20%5CPr(T%20%5Cge%20t_%7B(1)%7D)%20%5Cprod_%7Bl=1%7D%5E%7Bj-1%7D(1%20-%20%5Clambda_l)%20%5C%5C%0AS(t_%7B(j)%7D)%20&amp;=%20%5CPr(T%20%3E%20t_%7B(j)%7D)%20=%20%5CPr(T%20%5Cge%20t_%7B(1)%7D)%20%5Cprod_%7Bl=1%7D%5Ej%20(1%20-%20%5Clambda_l)%0A%5Cend%7Baligned%7D%0A"></p>
+</section>
+<section id="product-limit-form" class="level3">
+<h3 class="anchored" data-anchor-id="product-limit-form">Product-Limit Form</h3>
+<p>Without left truncation, <img src="https://latex.codecogs.com/png.latex?%5CPr(T%20%5Cge%20t_%7B(1)%7D)%20=%201">. If <img src="https://latex.codecogs.com/png.latex?t_%7B(j)%7D%20%5Cle%20t%20%3C%20t_%7B(j+1)%7D">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cboxed%7BS(t)%20=%20%5CPr(T%20%3E%20t)%20=%20%5Cprod_%7Bt_%7B(j)%7D%20%5Cle%20t%7D(1%20-%20%5Clambda_j)%7D%0A"></p>
+</section>
+<section id="maximizing-the-likelihood" class="level3">
+<h3 class="anchored" data-anchor-id="maximizing-the-likelihood">Maximizing the Likelihood</h3>
+<p>The likelihood can be rewritten as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0AL(S%20%5Cmid%20%5Ctext%7BData%7D)%20&amp;%5Cpropto%20%5Cprod_%7Bj=1%7D%5EJ%20%5Cbig%5C%7BS(t_%7B(j)%7D%5E-)%20-%20S(t_%7B(j)%7D)%5Cbig%5C%7D%5E%7Bd_j%7D%20%5Ctimes%20S(t_%7B(j)%7D)%5E%7Bc_j%7D%20%5C%5C%0A&amp;=%20%5Cprod_%7Bj=1%7D%5EJ%20%5Clambda_j%5E%7Bd_j%7D%20%5Cprod_%7Bk=1%7D%5E%7Bj-1%7D%20(1-%5Clambda_k)%5E%7Bd_j%7D%20%5Ctimes%20%5Cprod_%7Bk=1%7D%5Ej%20(1-%5Clambda_k)%5E%7Bc_j%7D%20%5C%5C%0A&amp;=%20%5Cprod_%7Bj=1%7D%5EJ%20%5Clambda_j%5E%7Bd_j%7D%20(1-%5Clambda_j)%5E%7Bn_j%20-%20d_j%7D%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Taking the log-likelihood for each <img src="https://latex.codecogs.com/png.latex?%5Clambda_j">: <img src="https://latex.codecogs.com/png.latex?%0A%5Cell_j(%5Clambda_j)%20=%20d_j%20%5Clog%20%5Clambda_j%20+%20(n_j%20-%20d_j)%20%5Clog(1%20-%20%5Clambda_j)%0A"></p>
+<p>Setting the derivative to zero: <img src="https://latex.codecogs.com/png.latex?%0A%5Cboxed%7B%5Cwidehat%7B%5Clambda%7D_j%20=%20%5Cfrac%7Bd_j%7D%7Bn_j%7D%7D%0A"></p>
+<p>Therefore: <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidehat%7BS%7D(t)%20=%20%5Cprod_%7Bt_%7B(j)%7D%20%5Cle%20t%7D%20%5Cleft(1%20-%20%5Cfrac%7Bd_j%7D%7Bn_j%7D%5Cright)%0A"></p>
+<p>This is the <strong>Kaplan-Meier (product-limit) estimator</strong>, and we have shown it is the <strong>nonparametric maximum likelihood estimator</strong> for the survival function under independent censoring.</p>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The Kaplan-Meier estimator is:</p>
+<ol type="1">
+<li><strong>Intuitive</strong>: It multiplies conditional survival probabilities at each event time</li>
+<li><strong>Principled</strong>: It is the nonparametric MLE under independent censoring</li>
+<li><strong>Practical</strong>: It correctly handles censored observations</li>
+<li><strong>Visual</strong>: The step-function plot provides an immediate understanding of survival patterns</li>
+</ol>
+<p>Understanding the KM estimator is essential for anyone working with time-to-event data in clinical trials, reliability engineering, or any field where survival analysis is applied.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Survival Analysis</category>
+  <category>Statistics</category>
+  <category>Tutorial</category>
+  <guid>https://cyang728.github.io/posts/2026-02-02-kaplan-meier/</guid>
+  <pubDate>Tue, 03 Feb 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://cyang728.github.io/posts/2026-02-02-kaplan-meier/km_curve.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Welcome to My Blog</title>
+  <dc:creator>Cheng-Han Yang</dc:creator>
+  <link>https://cyang728.github.io/posts/2026-01-welcome/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Welcome to my blog! I’m excited to share my thoughts on biostatistics methodology, R programming tips, and insights from academic research.</p>
+<section id="what-to-expect" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-expect">What to Expect</h2>
+<p>In this blog, I plan to write about:</p>
+<ol type="1">
+<li><p><strong>Statistical Methods Explained</strong>: Intuitive explanations of complex statistical concepts, particularly joint modeling, survival analysis, and Bayesian methods.</p></li>
+<li><p><strong>R Programming</strong>: Tutorials and tips for biostatistical computing, including package development and efficient coding practices.</p></li>
+<li><p><strong>EHR Data Analysis</strong>: Practical guidance on working with electronic health records data and handling common challenges like informative missingness.</p></li>
+<li><p><strong>Academic Life</strong>: Reflections on the journey through PhD, postdoc, and the faculty job market.</p></li>
+</ol>
+</section>
+<section id="stay-tuned" class="level2">
+<h2 class="anchored" data-anchor-id="stay-tuned">Stay Tuned</h2>
+<p>More posts coming soon! Feel free to reach out if there are topics you’d like me to cover.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <category>biostatistics</category>
+  <guid>https://cyang728.github.io/posts/2026-01-welcome/</guid>
+  <pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
