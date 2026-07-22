@@ -32,3 +32,6 @@ format:
     body-classes: fullcontent
     grid:
       body-width: 1180px
+    include-in-header:
+      text: |
+        <script data-goatcounter="https://cyang728.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
