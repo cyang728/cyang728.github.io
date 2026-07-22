@@ -1,42 +1,166 @@
 ---
 title: "Publications"
-toc: true
+toc: false
 ---
 
-## Methodology Papers
+```{=html}
+<div class="pubs-page">
 
-1. **Yang CH**, Thall PF, Lin R. (2025). "Dose exploration, monitoring, and optimization using biological and clinical outcomes." *The Annals of Applied Statistics*, 19(4), 2599–2617.
+<div class="pub-group">
+<div class="pub-group-kicker">Peer-reviewed · Methodology</div>
+<h2 class="anchored">Methodology Papers</h2>
+<div class="publist2">
 
-2. **Yang CH**, Cheng G, Lin R. (2024). "On the relative conservativeness of Bayesian logistic regression method in oncology dose-finding studies." *Pharmaceutical Statistics*, 23(4), 585–594.
+<div class="pub-item"><div class="n">1</div><div class="body">
+<div class="ttl">Meta-analysis of median survival times with inverse-variance weighting</div>
+<div class="auth">S. McGrath, <span class="me">C-H. Yang</span>, J. Kimmelman, O. Ozturk, R. Steele, A. Benedetti</div>
+<div class="src"><em>Statistics in Medicine</em>, 2026 · 45(8–9), e70533</div>
+</div></div>
 
-3. **Yang CH**, Cheng YJ. (2024). "A model-free variable screening method for optimal treatment regimes with high-dimensional survival data." *Biometrika*, 111(4), 1369–1386.
+<div class="pub-item"><div class="n">2</div><div class="body">
+<div class="ttl">BAR12: Bayesian autoregressive phase 1–2 design for cell therapy trials with manufacturing changes</div>
+<div class="auth"><span class="me">C-H. Yang</span>, P.F. Thall, D. Marin, S.Y. Belay, R. Lin</div>
+<div class="src"><em>Statistics in Medicine</em>, 2026 · 45(8–9), e70551</div>
+<div class="links"><a href="https://doi.org/10.1002/sim.70551">Paper ↗</a> <a href="https://github.com/cyang728/BAR12">Code ↗</a></div>
+</div></div>
 
-4. **Yang CH**, Kwiatkowski E, Lee JJ, Lin R. (2024). "REDOMA: Bayesian random-effects dose-optimization meta-analysis using spike-and-slab priors." *Statistics in Medicine*, 43(18), 3484–3502.
+<div class="pub-item"><div class="n">3</div><div class="body">
+<div class="ttl">Dose exploration, monitoring, and optimization using biological and clinical outcomes</div>
+<div class="auth"><span class="me">C-H. Yang</span>, P.F. Thall, R. Lin</div>
+<div class="src"><em>The Annals of Applied Statistics</em>, 2025 · 19(4), 2599–2617</div>
+<div class="links"><a href="https://doi.org/10.1214/25-AOAS2099">Paper ↗</a> <a href="https://github.com/ruitaolin/DEMO">Code ↗</a></div>
+</div></div>
 
----
+<div class="pub-item"><div class="n">4</div><div class="body">
+<div class="ttl">On the relative conservativeness of the Bayesian logistic regression method in oncology dose-finding studies</div>
+<div class="auth"><span class="me">C-H. Yang</span>, G. Cheng, R. Lin</div>
+<div class="src"><em>Pharmaceutical Statistics</em>, 2024 · 23(4), 585–594</div>
+<div class="links"><a href="https://doi.org/10.1002/pst.2364">Paper ↗</a></div>
+</div></div>
 
-## Collaborative Papers
+<div class="pub-item"><div class="n">5</div><div class="body">
+<div class="ttl">A model-free variable screening method for optimal treatment regimes with high-dimensional survival data</div>
+<div class="auth"><span class="me">C-H. Yang</span>, Y-J. Cheng</div>
+<div class="src"><em>Biometrika</em>, 2024 · 111(4), 1369–1386</div>
+<div class="links"><a href="https://doi.org/10.1093/biomet/asae022">Paper ↗</a></div>
+</div></div>
 
-5. Yeboa DN, Whitfield BT, Lin R, Ejezie CL, Swanson TA, Beckham TH, Wang C, De B, Perni S, Tom MC, Li J, McGovern SL, Harrison R, Majd NK, Puduvalli VK, Aaroe AE, Loghin M, O'Brien BJ, Patel AD, Patel CB, Wefel JS, Altintas Taslicay C, Gule-Monroe M, Paulino AC, McAleer MF, Grosshans DR, Ghia AJ, Jiang W, Chung C, Maor M, **Yang CH**, Gubbiotti MA, Kamiya-Matsuoka C, Ballester LY, Weathers SP, Huse JT. (2026). "Prospective phase II clinical trial of molecular glioblastoma (historical grade 2 and 3 IDH wildtype gliomas) preliminary novel exploratory analyses." *Journal of Neuro-Oncology*, 176(1), 1–11.
+<div class="pub-item"><div class="n">6</div><div class="body">
+<div class="ttl">REDOMA: Bayesian random-effects dose-optimization meta-analysis using spike-and-slab priors</div>
+<div class="auth"><span class="me">C-H. Yang</span>, E. Kwiatkowski, J.J. Lee, R. Lin</div>
+<div class="src"><em>Statistics in Medicine</em>, 2024 · 43(18), 3484–3502</div>
+<div class="links"><a href="https://doi.org/10.1002/sim.10107">Paper ↗</a></div>
+</div></div>
 
-6. Moody KM, Swartz MC, Gresham Z, Askins M, Cahalan L, Geistkemper C, Heaton A, Lin R, Melo M, Rajan A, Smith M, Tewari P, Williams K, **Yang CH**, Robert R. (2025). "A Virtual Wellness Program to Enhance Well-being for Pediatric Oncology Staff during the COVID-19 Pandemic." *Advances in Cancer Education and Quality Improvement*, 1(1), a18.
+</div>
+</div>
 
----
+<div class="pub-group">
+<div class="pub-group-kicker">Peer-reviewed · Collaborative</div>
+<h2 class="anchored">Collaborative Papers</h2>
+<div class="publist2">
 
-## Working Papers
+<div class="pub-item"><div class="n">7</div><div class="body">
+<div class="ttl">Prospective phase II clinical trial of molecular glioblastoma (historical grade 2 and 3 IDH-wildtype gliomas): preliminary novel exploratory analyses</div>
+<div class="auth">D.N. Yeboa, B.T. Whitfield, R. Lin, … <span class="me">C-H. Yang</span>, … J.T. Huse</div>
+<div class="src"><em>Journal of Neuro-Oncology</em>, 2026 · 176(1), 1–11</div>
+</div></div>
 
-7. **Yang CH**, Shi X, Mukherjee B. "A Joint Modeling Approach for Longitudinal EHR Data with Informative Visiting and Observation Processes." *In preparation*.
+<div class="pub-item"><div class="n">8</div><div class="body">
+<div class="ttl">A virtual wellness program to enhance well-being for pediatric oncology staff during the COVID-19 pandemic</div>
+<div class="auth">K.M. Moody, M.C. Swartz, Z. Gresham, … <span class="me">C-H. Yang</span>, R. Robert</div>
+<div class="src"><em>Advances in Cancer Education and Quality Improvement</em>, 2025 · 1(1), a18</div>
+<div class="links"><a href="https://doi.org/10.52519/ACEQI.25.1.1.a18">DOI ↗</a></div>
+</div></div>
 
----
+</div>
+</div>
 
-## Conference Presentations
+<div class="pub-group">
+<div class="pub-group-kicker">Preprints · Under review</div>
+<h2 class="anchored">Preprints &amp; Under Review</h2>
+<div class="pub-note"><em>*</em> Equal contribution.</div>
+<div class="publist2">
 
-### Invited Talks
+<div class="pub-item"><div class="n">9</div><div class="body">
+<div class="ttl">Prediction-based inference in electronic health record (EHR)-linked biobanks</div>
+<div class="auth">X. Chen, <span class="me">C-H. Yang</span>, Z. Wu, B. Mukherjee</div>
+<div class="src"><em>Statistics in Medicine</em> <span class="tag">Submitted</span> · 2026 · arXiv 2603.14356</div>
+<div class="links"><a href="https://arxiv.org/abs/2603.14356">arXiv ↗</a></div>
+</div></div>
 
-- **Yang CH**. "A Joint Modeling Approach for Longitudinal EHR Data with Informative Visiting and Observation Processes." *Yale Public Health Data Science and Data Equity Seminar*, New Haven, CT, January 2026.
+<div class="pub-item"><div class="n">10</div><div class="body">
+<div class="ttl">Analyzing longitudinal outcomes from electronic health records: a joint modeling approach to handle informative visits and observations</div>
+<div class="auth">J. Du<em>*</em>, <span class="me">C-H. Yang<em>*</em></span>, X. Shi, B. Mukherjee</div>
+<div class="src"><em>JASA</em> <span class="tag">Revised &amp; resubmitted</span> · 2026</div>
+</div></div>
 
-### Poster Presentations
+<div class="pub-item"><div class="n">11</div><div class="body">
+<div class="ttl">Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes</div>
+<div class="auth"><span class="me">C-H. Yang</span>, X. Shi, B. Mukherjee</div>
+<div class="src"><em>Biometrics</em> <span class="tag">Revised &amp; resubmitted</span> · 2026</div>
+<div class="links"><a href="https://arxiv.org/abs/2602.15374">arXiv ↗</a></div>
+</div></div>
 
-- **Yang CH**, Thall PF, Lin R. "Dose-Finding Design Guided by Early Biological Mediators and Clinical Outcomes." *ASA Biopharmaceutical Section Regulatory-Industry Statistics Workshop*, Rockville, MD, September 2025.
+<div class="pub-item"><div class="n">12</div><div class="body">
+<div class="ttl">Assessing statistical practices of existing AI models for lung cancer detection, prognosis, and risk prediction: a cross-sectional meta-research study</div>
+<div class="auth">Y. Hou, T. Ward, <span class="me">C-H. Yang</span>, E. Jernigan, G. Caturegli, D. Boffa, B. Mukherjee</div>
+<div class="src">2025 · medRxiv 2025.12.23.25342849</div>
+<div class="links"><a href="https://doi.org/10.64898/2025.12.23.25342849v1">medRxiv ↗</a></div>
+</div></div>
 
-- **Yang CH**, Thall PF, Lin R. "Mediator-Supported Design for Exploring and Optimizing Doses in Phase I-II Trials." *Statistics in Pharmaceuticals (SIP) Conference*, Storrs, CT, August 2025.
+</div>
+</div>
+
+<div class="pub-group">
+<div class="pub-group-kicker">In preparation</div>
+<h2 class="anchored">Working Papers</h2>
+<div class="publist2">
+
+<div class="pub-item"><div class="n">1</div><div class="body">
+<div class="ttl">MCP-ModX: multiple comparison procedure and modeling with model-assisted covariate adjustment under missing outcomes</div>
+<div class="auth"><span class="me">C-H. Yang</span>, R. Lin</div>
+<div class="src">In preparation · 2026</div>
+</div></div>
+
+<div class="pub-item"><div class="n">2</div><div class="body">
+<div class="ttl">A test for missing at random in longitudinal biomarkers from EHR using visits without measurement</div>
+<div class="auth"><span class="me">C-H. Yang</span>, S. McGrath, R.D. Shah, X. Shi, B. Mukherjee</div>
+<div class="src">In preparation · 2026</div>
+</div></div>
+
+<div class="pub-item"><div class="n">3</div><div class="body">
+<div class="ttl">Who seeks care, and what gets measured? Understanding the distinct mechanisms behind visit and observation processes in multi-center EHR</div>
+<div class="auth"><span class="me">C-H. Yang</span>, M. Salvatore, H. Lu, Z. Zhu, P. Tennant, X. Shi, F. Li, B. Mukherjee</div>
+<div class="src">In preparation · 2026</div>
+</div></div>
+
+</div>
+</div>
+
+<div class="pub-group">
+<div class="pub-group-kicker">Software</div>
+<h2 class="anchored">Software</h2>
+<div class="publist2">
+<div class="pub-item"><div class="n">R</div><div class="body">
+<div class="ttl">CIMEHR: Gaussian clinically informative visiting and observation processes in EHR data</div>
+<div class="auth"><span class="me">C-H. Yang</span>, Y. Hou · R package v0.1.0 · 2026</div>
+<div class="links"><a href="https://github.com/cyang728">GitHub ↗</a></div>
+</div></div>
+</div>
+</div>
+
+<div class="pub-group">
+<div class="pub-group-kicker">Talks · Posters</div>
+<h2 class="anchored">Selected Presentations</h2>
+<ul class="talk-list">
+<li><strong>Oral</strong> — Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes. <span class="where">Joint Statistical Meetings, Boston, MA.</span> <span class="when">Aug 2026</span></li>
+<li><strong>Invited seminar</strong> — A joint modeling approach for longitudinal EHR data with informative visiting and observation processes. <span class="where">Penn Medicine, University of Pennsylvania, Philadelphia, PA.</span> <span class="when">Mar 2026</span></li>
+<li><strong>Invited seminar</strong> — A joint modeling approach for longitudinal EHR data with informative visiting and observation processes. <span class="where">Yale Public Health Data Science &amp; Data Equity Seminar, New Haven, CT.</span> <span class="when">Jan 2026</span></li>
+<li><strong>Poster</strong> — Dose-finding design guided by early biological mediators and clinical outcomes. <span class="where">ASA Biopharmaceutical Section Regulatory-Industry Statistics Workshop, Rockville, MD.</span> <span class="when">Sep 2025</span></li>
+<li><strong>Poster</strong> — Mediator-supported design for exploring and optimizing doses in phase I–II trials. <span class="where">Statistics in Pharmaceuticals Conference, Storrs, CT.</span> <span class="when">Aug 2025</span></li>
+</ul>
+</div>
+
+</div>
+```

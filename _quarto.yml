@@ -9,7 +9,7 @@ website:
     background: light
     foreground: dark
     title: "Cheng-Han Yang"
-    left:
+    right:
       - href: research.qmd
         text: Research
       - href: publications.qmd
@@ -29,5 +29,6 @@ format:
     theme: cosmo
     css: styles.css
     toc: false
+    body-classes: fullcontent
     grid:
       body-width: 1180px

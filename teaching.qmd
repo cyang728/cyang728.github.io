@@ -1,56 +1,70 @@
 ---
 title: "Teaching"
+toc: false
 ---
 
-I am passionate about teaching statistics and helping students develop intuition for statistical thinking. My teaching philosophy emphasizes connecting theoretical concepts to real-world applications, particularly in biomedical research.
+```{=html}
+<p>I am passionate about teaching statistics and helping students develop intuition for statistical thinking. My teaching philosophy emphasizes connecting theoretical concepts to real-world applications, particularly in biomedical research.</p>
+<hr>
+<section id="teaching-experience" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-experience">Teaching Experience</h2>
+<section id="big-data-summer-immersion-at-yale-bdsy" class="level3">
+<h3 class="anchored" data-anchor-id="big-data-summer-immersion-at-yale-bdsy">Big Data Summer Immersion at Yale (BDSY)</h3>
+<p><span class="role">EHR Data Analysis Group Lead</span> · Summer 2026 · <a href="https://www.bdsy.org/2026">bdsy.org/2026</a></p>
+<ul>
+<li>Led undergraduate trainees in a mentored research project on electronic health record data analysis.</li>
+<li>Guided project design, EHR data structure, cohort definition, missingness mechanisms, and final presentation.</li>
+</ul>
+</section>
+<section id="national-tsing-hua-university-taiwan" class="level3">
+<h3 class="anchored" data-anchor-id="national-tsing-hua-university-taiwan">National Tsing Hua University, Taiwan</h3>
+<p><span class="role">Graduate Teaching Assistant</span> · 2017–2021</p>
+<ul>
+<li><strong>STAT661000 Survival Analysis</strong> (Spring 2020, Spring 2021)
+<ul>
+<li>Topics: Kaplan-Meier estimation, Cox proportional hazards model, time-varying covariates, competing risks</li>
+</ul></li>
+<li><strong>STAT519100 Applied Multivariate Analysis</strong> (Spring 2017, Spring 2019)
+<ul>
+<li>Topics: PCA, factor analysis, clustering, discriminant analysis, MANOVA</li>
+</ul></li>
+<li><strong>STAT541000 Linear Models</strong> (Fall 2018)
+<ul>
+<li>Topics: Linear regression theory, ANOVA, mixed effects models, diagnostics</li>
+</ul></li>
+</ul>
+<p><span class="role">Undergraduate Teaching Assistant</span> · 2016–2020</p>
+<ul>
+<li><strong>ECON303300 Econometrics</strong> (Fall 2019)
+<ul>
+<li>Topics: OLS, instrumental variables, panel data, limited dependent variables</li>
+</ul></li>
+<li><strong>STAT202000 Statistics</strong> (Fall 2016, Spring 2020)
+<ul>
+<li>Topics: Probability, distributions, hypothesis testing, confidence intervals, regression</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="teaching-interests" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-interests">Teaching Interests</h2>
+<p>I am prepared to teach courses at both undergraduate and graduate levels:</p>
+<p><strong>Advanced Courses</strong></p>
+<ul>
+<li>Survival Analysis</li>
+<li>Longitudinal Data Analysis</li>
+<li>Bayesian Methods in Biostatistics</li>
+<li>Clinical Trial Design</li>
+<li>Statistical Methods for EHR Data</li>
+</ul>
+<p><strong>Specialized Topics</strong></p>
+<ul>
+<li>Joint Modeling for Longitudinal and Survival Data</li>
+<li>Causal Inference in Observational Studies</li>
+<li>Adaptive Clinical Trial Designs</li>
+</ul>
 
----
 
-## Teaching Experience
-
-### National Tsing Hua University, Taiwan
-
-**Graduate Teaching Assistant** (2017–2021)
-
-- **STAT661000 Survival Analysis** (Spring 2020, Spring 2021)
-  - Topics: Kaplan-Meier estimation, Cox proportional hazards model, time-varying covariates, competing risks
-  
-- **STAT519100 Applied Multivariate Analysis** (Spring 2017, Spring 2019)
-  - Topics: PCA, factor analysis, clustering, discriminant analysis, MANOVA
-
-- **STAT541000 Linear Models** (Fall 2018)
-  - Topics: Linear regression theory, ANOVA, mixed effects models, diagnostics
-
-**Undergraduate Teaching Assistant** (2016–2020)
-
-- **ECON303300 Econometrics** (Fall 2019)
-  - Topics: OLS, instrumental variables, panel data, limited dependent variables
-
-- **STAT202000 Statistics** (Fall 2016, Spring 2020)
-  - Topics: Probability, distributions, hypothesis testing, confidence intervals, regression
-
----
-
-## Teaching Interests
-
-I am prepared to teach courses at both undergraduate and graduate levels:
-
-**Introductory Courses**
-
-- Introduction to Biostatistics
-- Statistical Methods for Public Health
-- Applied Regression Analysis
-
-**Advanced Courses**
-
-- Survival Analysis
-- Longitudinal Data Analysis
-- Bayesian Methods in Biostatistics
-- Clinical Trial Design
-- Statistical Methods for EHR Data
-
-**Specialized Topics**
-
-- Joint Modeling for Longitudinal and Survival Data
-- Causal Inference in Observational Studies
-- Adaptive Clinical Trial Designs
+</section>
+```
