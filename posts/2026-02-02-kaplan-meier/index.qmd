@@ -3,7 +3,7 @@ title: "Survival Analysis: Understanding the Kaplan-Meier Estimator"
 author: "Cheng-Han Yang"
 date: "2026-02-03"
 categories: [Survival Analysis, Statistics, Tutorial]
-image: "km_curve.png"
+image: "KM_curve.png"
 description: "A comprehensive introduction to the Kaplan-Meier estimator, the most fundamental tool in survival analysis for handling censored data."
 ---
 
