@@ -71,7 +71,7 @@ The rule has two ingredients: a safety constraint and a target criterion.
 **1. Escalation with overdose control (EWOC).** A dose is *admissible* only if its posterior over-dosing probability is below a pre-specified threshold $\eta$:
 
 $$
-\mathcal{F} = \{\, j : \pi_j^{O} < \eta \,\}.
+\mathcal{A} = \{\, j : \pi_j^{O} < \eta \,\}.
 $$
 
 The traditional threshold is $\eta = 0.25$.
@@ -79,14 +79,14 @@ The traditional threshold is $\eta = 0.25$.
 **2. Target criterion.** Among the admissible doses, select the one that maximizes the target probability:
 
 $$
-j^\ast = \operatorname*{arg\,max}_{j \, \in \, \mathcal{F}} \; \pi_j^{T}.
+j^\ast = \operatorname*{arg\,max}_{j \, \in \, \mathcal{A}} \; \pi_j^{T}.
 $$
 
 If the current dose level is $j_{\text{cur}}$, the design moves **one level** toward $j^\ast$: escalate if $j^\ast > j_{\text{cur}}$, stay if $j^\ast = j_{\text{cur}}$, and de-escalate if $j^\ast < j_{\text{cur}}$.
 
 ::: {.callout-important}
 ## EWOC constrains every candidate dose, not only escalation
-The admissible set $\mathcal{F}$ is formed **first**, and $j^\ast$ is chosen inside it. EWOC is a global constraint on dose selection, applied regardless of whether the move is up, down, or a stay. If the current dose itself violates EWOC, it is removed from $\mathcal{F}$ and the design is forced downward. This is the standard Neuenschwander, Branson, and Gsponer (2008) formulation. Treating EWOC as a check that fires only when escalating gives a different, and less safe, algorithm.
+The admissible set $\mathcal{A}$ is formed **first**, and $j^\ast$ is chosen inside it. EWOC is a global constraint on dose selection, applied regardless of whether the move is up, down, or a stay. If the current dose itself violates EWOC, it is removed from $\mathcal{A}$ and the design is forced downward. This is the standard Neuenschwander, Branson, and Gsponer (2008) formulation. Treating EWOC as a check that fires only when escalating gives a different, and less safe, algorithm.
 :::
 
 ::: {.callout-note}
@@ -123,14 +123,14 @@ Putting the pieces together, the trial runs one cohort at a time. Escalation, st
 1. Enroll $m$ patients at the current dose and record the number of DLTs.
 2. Refit the posterior of $(\log\alpha, \log\beta)$ using **all** data accumulated so far, not just the current cohort.
 3. At every dose $j$, compute the three interval probabilities $\pi_j^{U}$, $\pi_j^{T}$, $\pi_j^{O}$.
-4. Form the admissible set $\mathcal{F} = \{\, j : \pi_j^{O} < \eta \,\}$ (EWOC).
+4. Form the admissible set $\mathcal{A} = \{\, j : \pi_j^{O} < \eta \,\}$ (EWOC).
 5. Check the stopping rules, in this order:
 
-    a. **Too toxic.** If $\mathcal{F}$ is empty (every dose has $\pi_j^{O} \ge \eta$), stop with **no MTD**.
+    a. **Too toxic.** If $\mathcal{A}$ is empty (every dose has $\pi_j^{O} \ge \eta$), stop with **no MTD**.
     b. **Declare the MTD.** Otherwise, if the current dose is admissible, its $\pi^{T} \ge p^\ast$, its $\pi^{T}$ is the largest among the doses treated so far, and at least $n_{\min}$ patients have been treated at it, stop and declare the current dose the **MTD**.
     c. **Out of patients.** Otherwise, if the total enrolled has reached $N_{\max}$, stop with **no MTD** (inconclusive).
 
-6. If nothing stopped, set the working target $j^\ast = \arg\max_{j \in \mathcal{F}} \pi_j^{T}$ and move **one level** toward it: escalate (current $+\,1$) if $j^\ast > \text{current}$, stay if $j^\ast = \text{current}$, de-escalate (current $-\,1$) if $j^\ast < \text{current}$. Then begin the next cohort.
+6. If nothing stopped, set the working target $j^\ast = \arg\max_{j \in \mathcal{A}} \pi_j^{T}$ and move **one level** toward it: escalate (current $+\,1$) if $j^\ast > \text{current}$, stay if $j^\ast = \text{current}$, de-escalate (current $-\,1$) if $j^\ast < \text{current}$. Then begin the next cohort.
 
 In one sentence: it stops the instant one of the three checks in step 5 fires, and otherwise it always moves exactly one level as in step 6.
 
