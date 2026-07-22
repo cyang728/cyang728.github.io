@@ -133,7 +133,7 @@ Take the repository doses $(10, 25, 50, 100, 200, 400, 800)$, reference $d^\ast 
 
 Given these data, the posterior interval probabilities at each dose are:
 
-|           | Interval    | 10    | 25    | 50    | 100   | 200   | 400   | 800   |
+| Probablity| Interval    | 10    | 25    | 50    | 100   | 200   | 400   | 800   |
 |:----------|:------------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 | $\pi^{U}$ | underdosing | 0.913 | 0.811 | 0.658 | 0.409 | 0.236 | 0.157 | 0.113 |
 | $\pi^{T}$ | target      | 0.065 | 0.121 | 0.178 | 0.214 | 0.162 | 0.122 | 0.095 |
