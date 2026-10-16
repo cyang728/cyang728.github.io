@@ -1,0 +1,706 @@
+---
+title: "Selection Bias and Weighting: From a Trial to a Target Population"
+author: "Cheng-Han Yang"
+date: "2026-10-16"
+categories: [Causal Inference, Selection Bias, Generalizability, Weighting, Tutorial]
+description: "An intuitive and mathematical guide to internal and external validity, generalizability, transportability, Bayes' rule, normalized IPW, entropy balancing, and calibration weights."
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+<!-- This styling applies only to this blog post. -->
+<style>
+table {
+  width: auto !important;
+  max-width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+</style>
+
+## Introduction: A correct trial result can answer the wrong question
+
+Suppose a randomized trial shows that a treatment improves weight loss over 12 weeks. The investigators compare treatment and control groups, and randomization makes the comparison credible **among the people who entered the trial**. Can a clinician use that number to describe the treatment effect among *all patients who would have been eligible*?
+
+Not necessarily. Participants may differ from nonparticipants in characteristics that modify the treatment effect. Randomization protects the treatment comparison within the trial; it does not make the participants representative of every population to which we might apply the treatment.
+
+This is why **internal validity** and **external validity** are different questions. It is also why the choice of a target population must come *before* the choice of a weighting method.
+
+In this tutorial, we will use one hypothetical 12-week weight-loss trial to connect these ideas to **generalizability**, **transportability**, **selection bias**, **Bayes' rule**, **normalized inverse probability weighting (IPW)**, **entropy balancing**, and other **calibration weights**. The main goal is to understand what each method identifies, what information it needs, and when it can fail. The theoretical framework follows the literature on generalizing trial results, including [Dahabreh et al. (2020)](https://doi.org/10.1002/sim.8426), [Dahabreh et al. (2021)](https://doi.org/10.1093/aje/kwaa270), and the review by [Degtiar and Rose (2023)](https://doi.org/10.1146/annurev-statistics-042522-103837).
+
+## The running example: A trial that enrolls younger patients more often
+
+Imagine **100 eligible patients**, of whom **50 enter a randomized trial**. Let $X=0$ denote age younger than 50 years and $X=1$ denote age 50 years or older. Among all eligible patients, half are younger. Among trial participants, however, 80% are younger.
+
+The treatment is randomly assigned *after enrollment*. Let $A=1$ denote assignment to the new treatment (shown in **blue** in the figures) and $A=0$ denote control (**green**). The outcome $Y$ is the **percentage of baseline body weight lost by week 12**, with larger values indicating greater weight loss. The causal effect is measured as a **difference in percentage points**, not a percentage change in the treatment effect.
+
+| Age group $X$ | Eligible patients | Trial participants | Assumed age-specific treatment effect |
+|:--|--:|--:|--:|
+| Younger ($X=0$) | 50 | 40 | 2 percentage points |
+| Older ($X=1$) | 50 | 10 | 6 percentage points |
+| **Total** | **100** | **50** | — |
+
+The counts and causal effects are **illustrative**, not findings from a real trial. For now, assume all randomized participants have observed 12-week outcomes and that the age-specific causal effects are the same in the trial and the populations to which we wish to extend its results. We will revisit this assumption later.
+
+Let $Y(1)$ and $Y(0)$ be the potential 12-week outcomes under treatment and control. Let $S=1$ indicate trial participation and $S=0$ indicate nonparticipation *among the 100 eligible patients*. We use $E_1$ for expectations among trial participants and $E_T$ for expectations among **all eligible patients**, including trial participants.
+
+The **trial-participant average treatment effect (ATE)** is
+
+$$
+\psi_1=E_1\{Y(1)-Y(0)\}.
+$$
+
+In our example,
+
+$$
+\psi_1=0.80(2)+0.20(6)=\boxed{2.8\text{ percentage points}}.
+$$
+
+The **eligible-population ATE** is a different estimand:
+
+$$
+\psi_T=E_T\{Y(1)-Y(0)\}
+=0.50(2)+0.50(6)
+=\boxed{4.0\text{ percentage points}}.
+$$
+
+Both are correct *population quantities under the hypothetical setup*. They are not two competing estimates of the same parameter. The 2.8-point effect describes trial participants; the 4.0-point effect describes the full eligible population. An actual trial would estimate these quantities with sampling uncertainty.
+
+## Internal validity versus external validity
+
+![**Internal and external validity in the same trial.** The left panel concerns whether randomization and the analysis identify the treatment effect among trial participants ($\psi_1$). The right panel concerns the effect among all eligible patients ($\psi_T$). Blue and green identify treatment and control; orange and purple identify younger ($X=0$) and older ($X=1$) age groups. Bars, rather than person-icon counts, give the hypothetical age proportions. ATEs are in percentage points of 12-week weight loss.](internal_external_validity.png){#fig-validity width="100%" fig-alt="Two panels compare trial internal validity and target external validity. Randomized treatment is blue and control is green. The trial's ATE is 2.8 percentage points; the target eligible-population ATE is 4.0. Orange shows younger than 50 years and purple shows 50 or older; target and trial age percentages are 50/50 and 80/20, respectively."}
+
+**Internal validity** asks whether the treatment comparison identifies the causal effect for the trial participants. Randomization addresses confounding of treatment assignment, but losses to follow-up, treatment deviations, and outcome measurement can still threaten that comparison.
+
+**External validity** asks whether a trial result can be applied to a *specified population beyond the participants*. For our eligible population, that means asking about $\psi_T$, not simply reporting $\psi_1$.
+
+Why do the two ATEs differ? Because **age modifies the treatment effect**, and the distribution of age differs between the trial and the eligible population. The problem is not necessarily that the trial comparison is biased. Rather, a valid effect for one population is being used as though it represented another.
+
+::: {.callout-important}
+## Two distinct questions
+
+**Internal validity:** Did we identify the correct treatment effect for the people studied?
+
+**External validity:** Does that treatment effect apply to the population for which we want to make a decision?
+
+An internally valid randomized trial does not, by itself, establish external validity. See also [Rothwell (2005)](https://doi.org/10.1016/S0140-6736(04)17670-8).
+:::
+
+## Generalizability and transportability: How are they different?
+
+Both terms concern **external validity**. The distinction is principally the relationship between the **source population** (where the effect is learned) and the **target population** (where the effect is wanted).
+
+In the terminology used here:
+
+- **Generalizability** refers to extending an effect from trial participants to a broader population that **contains those participants**—in our example, all 100 eligible patients.
+- **Transportability** refers to extending an effect from trial participants to a **different population** not containing the original trial sample as its defining subset—for example, patients in another healthcare system.
+
+These conventions are common, but they are **not universal definitions**. Some papers use the terms more broadly or interchangeably. More importantly, a **nested or nonnested data design** is about *how the samples were collected*; it is not itself a definition of generalizability or transportability. [Dahabreh et al. (2021)](https://doi.org/10.1093/aje/kwaa270) describe both designs and show why their sampling information matters.
+
+### Extend the same trial to a second population
+
+For generalizability, our target remains the full eligible population, with 50% younger and 50% older patients; its ATE is $\psi_T=4.0$.
+
+For transportability, imagine a **separate external population**, with 20% younger and 80% older patients. Let $E_E$ denote expectation in this external population and define
+
+$$
+\psi_E=E_E\{Y(1)-Y(0)\}.
+$$
+
+**If** the same age-specific effects of 2 and 6 percentage points hold in this external population, then
+
+$$
+\psi_E=0.20(2)+0.80(6)=\boxed{5.2\text{ percentage points}}.
+$$
+
+![**Generalizability versus transportability.** On the left, the trial participants belong to the eligible population whose ATE is the target ($\psi_T$). On the right, the same trial is used to learn about a separate external population ($\psi_E$). The only difference assumed in this illustration is the distribution of $X$, the age-group indicator: orange is younger than 50 years, and purple is age 50 or older. The numerical effects also assume that age-specific causal effects apply across populations.](generalizability_transportability.png){#fig-general-transport width="100%" fig-alt="Generalizability panel shows trial sample nested in eligible population, with younger and older age proportions 80/20 in trial and 50/50 eligible. Transportability panel shows trial sample separate from external target with age mix 20/80. The respective population ATEs are 4.0 and 5.2 percentage points."}
+
+**The two figures answer different questions.** Figure @fig-validity contrasts the validity of the *within-trial comparison* with its relevance *outside the trial*. Figure @fig-general-transport starts from an internally valid trial and compares **two different destinations for the inference**: the original eligible population and a separate external population.
+
+### One mathematical formula covers both tasks
+
+Define the **conditional average treatment effect in the trial**:
+
+$$
+\tau(x)=E_1\{Y(1)-Y(0)\mid X=x\}.
+$$
+
+For any target population $k$ whose covariate distribution is $f_k(x)$, the target ATE can be written as
+
+$$
+\boxed{\psi_k=\int \tau(x)f_k(x)\,dx,}\qquad k\in\{T,E\},
+$$
+
+**provided** the trial's conditional treatment effect $\tau(x)$ also holds in that target population. Here and below, an integral becomes a sum when $X$ is discrete, as it is for our two age groups.
+
+The formula does not change between generalizability and transportability. **The target distribution $f_k(x)$ changes**, and we must justify whether the conditional treatment effect learned in the trial is applicable to that target. These are identification questions, not choices between two fundamentally different weighting algorithms.
+
+Our example makes the role of effect modification clear. If younger and older patients both had the same treatment effect, changing their relative frequencies would not change the ATE. Merely observing different covariate distributions does **not** establish an external-validity problem: the covariates must be relevant to the effect or to assumptions supporting identification.
+
+## Two mechanisms of selection bias
+
+Not every use of *selection bias* refers to the same mechanism. [Lu et al. (2022)](https://doi.org/10.1097/EDE.0000000000001516) classify selection bias into **Type 1** (restriction on a collider or its descendant) and **Type 2** (restriction on an effect-measure modifier). These labels are unrelated to Type I and Type II errors in hypothesis testing.
+
+**Type 2: Changing which treatment effect is being averaged.** Our trial preferentially enrolls younger patients, and age modifies the treatment effect. The true participant ATE ($2.8$) therefore differs from the true eligible-population ATE ($4.0$). This difference reflects **the populations' different age distributions** even if the treatment comparison within the trial is unbiased.
+
+**Type 1: Distorting the comparison through collider selection.** Now modify the same trial: let $R=1$ indicate that a randomized participant's outcome is observed at week 12. Suppose treatment assignment $A$ and the participant's achieved outcome $Y$ both affect follow-up. The illustrative causal structure includes
+
+$$
+A\longrightarrow R\longleftarrow Y,
+\qquad A\longrightarrow Y.
+$$
+
+Restricting analysis to $R=1$ conditions on the collider $R$. Even if $A$ was originally randomized, the treatment comparison among those with observed outcomes may be distorted. In this scenario, the follow-up process can threaten **internal validity**. This graph illustrates one mechanism; collider bias can have other structures, and not every loss-to-follow-up process has this graph.
+
+In our primary numerical example, **all trial outcomes are observed**. This keeps the subsequent calculations focused on external validity. Adjusting weights to match the target age distribution will not, on its own, correct informative missing outcomes. In particular, if observation depends on an outcome that remains unobserved after conditioning on measured information, ordinary missing-at-random IPW or baseline entropy balancing does not automatically identify the missing outcomes.
+
+## Before weighting: What information identifies the target effect?
+
+The population formula $\psi_k=\int\tau(x)f_k(x)\,dx$ reveals what must be learned.
+
+First, we need **the trial-specific conditional causal effect**, $\tau(x)$. With consistency, randomization, treatment positivity, and adequate outcome observation, it is identified from trial data using the appropriate treatment-arm conditional means.
+
+Second, we need **the target-population distribution**, $f_k(x)$, or sufficient information about it. The trial alone reveals that 20% of *participants* are older; it cannot tell us whether 50% of *all eligible patients* or 80% of a *different external population* are older.
+
+Third, we need a **conditional treatment-effect transportability assumption**: within levels of the measured covariates needed to account for effect modification, the causal effect in the trial equals the causal effect in the target. For example, generalizability requires
+
+$$
+E_T\{Y(1)-Y(0)\mid X=x\}
+=E_1\{Y(1)-Y(0)\mid X=x\}
+$$
+
+for relevant $x$. The external population requires an analogous equality with $E_E$. The target must also have **covariate overlap** with trial participants: $f_1(x)>0$ wherever $f_k(x)>0$.
+
+These are **identification assumptions**. They are conceptually separate from the later choice of IPW, entropy balancing, or a different calibration distance. In particular, target covariate moments cannot establish the cross-population effect assumption merely by being precisely measured.
+
+## Bayes' rule: Where do inverse selection weights come from?
+
+We now focus on **all 100 eligible patients** as the target population. Our trial contains 50 of these patients, so the age distribution observed in the trial differs from the age distribution we want to represent. Bayes' rule explains how the two distributions are related.
+
+We use the following notation:
+
+- $f_1(x)$: the distribution of age group $X$ **among trial participants** ($S=1$);
+- $f_T(x)$: the distribution of $X$ **among all eligible patients**, our target population;
+- $\pi(x)=P(S=1\mid X=x)$: the probability of participating for an eligible patient with age group $x$; and
+- $p=P(S=1)$: the overall participation probability among eligible patients.
+
+Because $X$ has two categories in our example, $f_1(x)$ and $f_T(x)$ are ordinary probabilities. With continuous covariates, the same arguments use probability densities. The subscript $T$ always refers to **all eligible patients**, while the subscript $1$ refers to **trial participants**.
+
+### Step 1. Describe one event in two ways
+
+Consider the event that an eligible patient **belongs to age group $x$ and enters the trial**. There are two equivalent ways to calculate its probability.
+
+We can begin with trial participation. The probability of entering the trial is $p$. Among those who entered, the probability of age group $x$ is $f_1(x)$. Multiplying gives
+
+$$
+P(X=x,S=1)=P(S=1)P(X=x\mid S=1)=p f_1(x).
+$$
+
+Or we can begin with age group $x$. The probability of belonging to that age group among eligible patients is $f_T(x)$. An eligible patient in that age group participates with probability $\pi(x)$. This gives
+
+$$
+P(X=x,S=1)=P(X=x)P(S=1\mid X=x)=f_T(x)\pi(x).
+$$
+
+**Both expressions refer to exactly the same event**, so they must be equal:
+
+$$
+\underbrace{p f_1(x)}_{\substack{\text{Enter the trial,}\\\text{then consider age}}}
+=
+\underbrace{f_T(x)\pi(x)}_{\substack{\text{Consider age,}\\\text{then enter the trial}}}.
+$$
+
+Solving for the target distribution gives
+
+$$
+\boxed{
+ f_T(x)=\frac{p}{\pi(x)}f_1(x).
+}
+$$
+
+This equation is the practical role of Bayes' rule: it tells us how the age distribution among trial participants must be reweighted to recover the age distribution among all eligible patients. The corresponding **target-to-source density ratio** is
+
+$$
+\boxed{
+ r_T(x)=\frac{f_T(x)}{f_1(x)}=\frac{p}{\pi(x)}.
+}
+$$
+
+A small participation probability $\pi(x)$ produces a larger relative weight. In our example, older patients enter the trial less often than younger patients, so their trial observations must represent more eligible patients.
+
+### Step 2. Obtain the same identity by marginalization
+
+The same relationship can be derived without starting from Bayes' rule. This is useful because it shows that **marginalization and Bayes' rule are consistent descriptions of the same distribution**, not competing methods.
+
+Every eligible patient either participates ($S=1$) or does not ($S=0$). Let $f_0(x)$ be the age-group distribution among **eligible nonparticipants**. To find the age distribution among *all* eligible patients, average the two group-specific distributions according to their group sizes:
+
+$$
+\begin{aligned}
+f_T(x)
+&=P(X=x,S=1)+P(X=x,S=0)\\
+&=p f_1(x)+(1-p)f_0(x).
+\end{aligned}
+$$
+
+For example, 40 of the 50 participants and 10 of the 50 nonparticipants are younger than 50. Therefore $f_1(0)=40/50=0.80$ and $f_0(0)=10/50=0.20$. Since $p=50/100=0.50$, marginalization yields
+
+$$
+f_T(0)=0.50(0.80)+0.50(0.20)=0.50,
+$$
+
+which agrees with the 50 younger patients among the 100 eligible patients.
+
+How does this lead back to inverse selection weights? Rewrite only the **nonparticipant contribution** to the marginal distribution. Using the definition of conditional probability,
+
+$$
+\begin{aligned}
+(1-p)f_0(x)
+&=P(X=x,S=0)\\
+&=P(S=0\mid X=x)f_T(x)\\
+&=\{1-\pi(x)\}f_T(x).
+\end{aligned}
+$$
+
+Substitute this into the marginalization identity:
+
+$$
+\begin{aligned}
+f_T(x)
+&=p f_1(x)+\{1-\pi(x)\}f_T(x),\\
+\pi(x)f_T(x)&=p f_1(x),\\
+f_T(x)&=\frac{p}{\pi(x)}f_1(x).
+\end{aligned}
+$$
+
+We have arrived at **the same equation as in Step 1**. Marginalization adds the participant and nonparticipant contributions; Bayes' rule expresses the same joint probability in a different order. Neither identity, by itself, tells us the unknown participation probabilities or the target distribution—we need data or assumptions for those quantities.
+
+### Step 3. Compute the weights for our trial
+
+Our eligible cohort provides
+
+$$
+p=\frac{50}{100}=0.5,\qquad
+\pi(0)=\frac{40}{50}=0.8,\qquad
+\pi(1)=\frac{10}{50}=0.2.
+$$
+
+Consequently,
+
+$$
+r_T(0)=\frac{0.5}{0.8}=0.625,\qquad
+r_T(1)=\frac{0.5}{0.2}=2.5.
+$$
+
+Thus an older participant must receive **four times the relative weight** of a younger participant. This follows from the observed age imbalance, not from fitting a model for trial participation.
+
+## Normalized IPW: Why divide by the sum of the weights?
+
+Because $f_T(x)=r_T(x)f_1(x)$, any integrable function $g(X)$ satisfies
+
+$$
+E_T\{g(X)\}
+=E_1\{r_T(X)g(X)\}
+=pE_1\left\{\frac{g(X)}{\pi(X)}\right\}.
+$$
+
+Taking $g(X)=1$ yields
+
+$$
+1=pE_1\left\{\frac{1}{\pi(X)}\right\}.
+$$
+
+Dividing the first equality by the second removes the unknown constant $p$:
+
+$$
+\boxed{
+E_T\{g(X)\}
+=\frac{E_1\{g(X)/\pi(X)\}}
+{E_1\{1/\pi(X)\}}.
+}
+$$
+
+This is the **population identity** behind normalized IPW. To construct sample weights for $n$ trial participants, set $a_i=1/\widehat\pi(X_i)$ and define
+
+$$
+\boxed{
+w_i=\frac{a_i}{\sum_{j=1}^n a_j},\qquad
+\sum_{i=1}^n w_i=1.
+}
+$$
+
+The corresponding normalized weighted mean of $g(X)$ is $\sum_i w_i g(X_i)$. These are **Hájek-type** normalized weights; a Horvitz--Thompson design-based estimator instead uses the known population-size denominator when it is available. With known inclusion probabilities, the latter can be design-unbiased while a ratio estimator is generally not exactly unbiased in finite samples. Normalization is often useful for numerical stability, but it does not repair a misspecified selection mechanism.
+
+For a causal ATE, weighting must also account for **treatment assignment**. If $e(x)=P(A=1\mid X=x,S=1)$ is the trial randomization probability, then randomization identifies
+
+$$
+\tau(x)=E_1\left[\left.
+\frac{AY}{e(X)}-\frac{(1-A)Y}{1-e(X)}
+\right|X=x\right].
+$$
+
+Accordingly, one IPW sample estimator of the target ATE is
+
+$$
+\widehat\psi_{T,\mathrm{IPW}}
+=\sum_{i=1}^n w_i\left\{
+\frac{A_iY_i}{e(X_i)}-
+\frac{(1-A_i)Y_i}{1-e(X_i)}
+\right\}.
+$$
+
+This expression combines **population reweighting** with the trial's randomized treatment probabilities; it is not the naive weighted average $\sum_iw_iY_i$. An alternative is to estimate the conditional treatment effect $\widehat\tau(x)$ and average it using target weights. Which estimator is appropriate, and how uncertainty is calculated, depends on the design and nuisance models.
+
+### Worked example: The age weights recover the eligible distribution
+
+| Age group | Trial count | $1/\pi(x)$ | Normalized weight per participant | Total weighted mass |
+|:--|--:|--:|--:|--:|
+| Younger ($X=0$) | 40 | 1.25 | 0.0125 | 0.50 |
+| Older ($X=1$) | 10 | 5.00 | 0.0500 | 0.50 |
+
+For example, the 40 younger participants together receive $40(0.0125)=0.5$ of the total weight. The 10 older participants also receive $10(0.05)=0.5$. The weighted trial thus has the same age composition as the eligible population.
+
+Now apply these weights to the **assumed true conditional treatment effects**, $\tau(0)=2$ and $\tau(1)=6$:
+
+$$
+\begin{aligned}
+\psi_T
+&=\underbrace{40(0.0125)}_{0.50}(2)
++\underbrace{10(0.05)}_{0.50}(6)\\
+&=\boxed{4.0\text{ percentage points}}.
+\end{aligned}
+$$
+
+This is **standardization by weighting**. It is not a claim that weighting the observed outcomes $Y_i$ alone estimates an ATE: in real trials, we must first identify or estimate the conditional treatment contrast $\tau(x)$, or use appropriately treatment-adjusted weighted estimators for both randomized arms.
+
+::: {.callout-note}
+## What normalization does not guarantee
+
+$\sum_iw_i=1$ is an arithmetic property. It does **not** establish that the weights target the correct population, that relevant effect modifiers were measured, that source and target populations overlap, or that missing outcomes are ignorable.
+:::
+
+## Entropy balancing: What if we know only target-population summaries?
+
+Suppose we no longer have the individual records for all 100 eligible patients. Instead, a reliable registry tells us that **50% are older**, while the trial itself contains 20% older participants. We know the target age proportion, but cannot directly fit $\pi(x)$ from trial data alone.
+
+**Entropy balancing** finds sample weights that reproduce the target covariate moments without first fitting a participation-probability model. This idea originates in the covariate-balancing formulation of [Hainmueller (2012)](https://doi.org/10.1093/pan/mpr025). Extensions for causal generalization and trial transport are studied, for example, by [Josey et al. (2021)](https://doi.org/10.1002/sim.9031) and [Chen et al. (2023)](https://doi.org/10.1111/biom.13825); their estimators and assumptions are not identical to the simple illustrative optimization below.
+
+### Step 1. State exactly what should match
+
+First choose the covariate information to balance. Write $h(X)$ for a vector of **functions of the baseline covariates**. For example, its entries could be covariate values, their squares, or interaction terms. These functions are chosen before estimating the weights.
+
+Define the corresponding **target-population moments** by
+
+$$
+\boxed{
+b_T=E_T\{h(X)\}.
+}
+$$
+
+Here, $b_T$ is a **vector of target averages**: each entry is the mean of one component of $h(X)$ among **all eligible patients**. It is information about the target population, not a treatment effect and not an estimated weight. If the target moments are estimated from data rather than known exactly, we use their estimates in the balance constraints.
+
+In our example, $X=1$ indicates an older patient. We choose just one function, $h(X)=X$, so the vector reduces to a single number:
+
+$$
+\boxed{
+b_T=E_T(X)=P_T(X=1)=\frac{50}{100}=0.50.
+}
+$$
+
+By comparison, the proportion of older people in the trial is $10/50=0.20$. We want weights that change this **weighted trial proportion** from 0.20 to 0.50.
+
+For the $n=50$ trial participants, let $w_i$ be the weight attached to participant $i$. We require these weights to be nonnegative and to sum to one. The balance constraints are
+
+$$
+\boxed{
+\sum_{i=1}^{n}w_i=1,\qquad
+\sum_{i=1}^{n}w_i h(X_i)=b_T,\qquad w_i\geq0.
+}
+$$
+
+Because $h(X)=X$ here, the second equation says simply that the total weight assigned to the 10 older participants must be 0.50. These equations specify **what the weights must reproduce**, but they do not yet tell us which weights to choose.
+
+### Step 2. Which of the possible balancing weights should we choose?
+
+When there are more observations than moment constraints, many sets of weights may satisfy the equations. Entropy balancing uses a **Kullback--Leibler (KL) divergence** objective, $D_{\mathrm{KL}}(w\|q)$, to select weights close to a set of **base weights** $q_i>0$, where $\sum_iq_i=1$; typically $q_i=1/n$. The reverse direction, $D_{\mathrm{KL}}(q\|w)$, defines a different optimization problem.
+
+$$
+\boxed{
+\begin{aligned}
+\min_{\boldsymbol w}\quad &
+\sum_{i=1}^{n}w_i\log\frac{w_i}{q_i}\\
+\text{subject to}\quad &
+\sum_iw_i=1,\quad
+\sum_iw_i h(X_i)=b_T,\quad
+w_i\geq0.
+\end{aligned}
+}
+$$
+
+The **constraints** say *what must match the target*. The **KL objective** says *how to choose among the feasible weights*. It minimizes the difference between the calibrated and base weights—not an observable KL distance to the unknown full target distribution.
+
+### Step 3. Why are entropy weights exponential?
+
+The exponential form is **not an additional modeling assumption**. It comes directly from minimizing KL divergence under the constraints established above. We can see this by solving the optimization problem one step at a time.
+
+**First, put the constraints into a Lagrangian.** Let $\eta$ be a scalar multiplier for the condition that the weights sum to one. Let $\lambda$ be a vector of multipliers, with one entry for each component of $h(X)$, for the moment balance conditions. The Lagrangian is
+
+$$
+\begin{aligned}
+\mathcal L(\boldsymbol w,\eta,\lambda)
+={}&\sum_{i=1}^n w_i\log\frac{w_i}{q_i}\\
+&+\eta\left(\sum_{i=1}^n w_i-1\right)\\
+&-\lambda^\top\left(\sum_{i=1}^n w_i h(X_i)-b_T\right).
+\end{aligned}
+$$
+
+The first term is the KL objective. The second and third terms enforce normalization and moment balance. We use the minus sign before $\lambda$ only as a convention; it determines the sign of the final multiplier.
+
+**Second, differentiate with respect to each weight.** For an interior solution, $w_i>0$, we have
+
+$$
+\frac{\partial}{\partial w_i}
+\left\{w_i\log\frac{w_i}{q_i}\right\}
+=\log\frac{w_i}{q_i}+1.
+$$
+
+The other two terms contribute $\eta$ and $-\lambda^\top h(X_i)$, respectively. Setting the derivative of the Lagrangian to zero therefore gives
+
+$$
+\log\frac{w_i}{q_i}+1+\eta-\lambda^\top h(X_i)=0.
+$$
+
+**Third, solve this equation for $w_i$.** Move the remaining terms to the right, then exponentiate:
+
+$$
+\begin{aligned}
+\log\frac{w_i}{q_i}
+&=\lambda^\top h(X_i)-1-\eta,\\
+\frac{w_i}{q_i}
+&=\exp\{\lambda^\top h(X_i)\}\exp(-1-\eta),\\
+w_i
+&=q_i\exp\{\lambda^\top h(X_i)\}\exp(-1-\eta).
+\end{aligned}
+$$
+
+The factor $\exp(-1-\eta)$ is **the same for every participant**. Its only role is to make the weights sum to one.
+
+**Fourth, determine that common factor using normalization.** Sum the last expression over all $n$ participants:
+
+$$
+1=\sum_{i=1}^n w_i
+=\exp(-1-\eta)\sum_{i=1}^n q_i\exp\{\lambda^\top h(X_i)\}.
+$$
+
+It follows that
+
+$$
+\exp(-1-\eta)
+=\frac{1}{\displaystyle\sum_{j=1}^n
+q_j\exp\{\lambda^\top h(X_j)\}}.
+$$
+
+Substituting back yields the **normalized exponential tilting weights**:
+
+$$
+\boxed{
+w_i(\lambda)=
+\frac{q_i\exp\{\lambda^\top h(X_i)\}}
+{\displaystyle\sum_{j=1}^n q_j\exp\{\lambda^\top h(X_j)\}}.
+}
+$$
+
+Only $\lambda$ remains unknown. We find it by requiring the weighted covariate moments to equal $b_T$:
+
+$$
+\sum_{i=1}^n w_i(\lambda)h(X_i)=b_T.
+$$
+
+**Finally, connect the algebra to our age-group example.** Here $q_i=1/50$, $h(X_i)=X_i$, and $b_T=0.50$. There are 40 participants with $X_i=0$ and 10 with $X_i=1$. Substituting these counts into the exponential formula gives
+
+$$
+w_i(\lambda)=\frac{\exp(\lambda X_i)}{40+10\exp(\lambda)}.
+$$
+
+Since only older participants have $X_i=1$, their total weight must satisfy
+
+$$
+\frac{10\exp(\lambda)}{40+10\exp(\lambda)}=0.50.
+$$
+
+Rearranging gives $\exp(\lambda)=4$, or $\lambda=\log 4$. Hence an older participant has **four times the weight** of a younger participant. In the next step, we check that these are exactly the normalized IPW weights obtained earlier.
+
+This derivation assumes an interior optimum. For nonnegative moment balance to be feasible, $b_T$ must lie in the convex hull of the observed $h(X_i)$ values. A finite, strictly positive exponential solution requires suitable interior feasibility; boundary targets may lead to weights approaching zero or no finite multiplier.
+
+### Step 4. Does entropy balancing reproduce our IPW weights?
+
+Yes, in this particular example. Equal base weights and one binary age moment imply a total weight of 0.50 for each age group. Therefore each younger participant receives $0.50/40=0.0125$ and each older participant receives $0.50/10=0.05$—exactly the normalized IPW weights above.
+
+This agreement is **specific to the example**. One binary moment completely specifies the distribution of a binary variable. With continuous or multivariate covariates, matching selected moments need not recover the full target distribution, so different calibration methods can produce different weights.
+
+## Entropy balancing and density-ratio estimation: Are they equivalent?
+
+This is the key distinction between **identification** and **optimization**.
+
+The *true* target-to-source density ratio is
+
+$$
+r_T(x)=\frac{f_T(x)}{f_1(x)}.
+$$
+
+It automatically satisfies
+
+$$
+E_1\{r_T(X)\}=1,
+\qquad
+E_1\{r_T(X)h(X)\}=b_T.
+$$
+
+Entropy balancing enforces **the chosen moment equations** rather than estimating $f_T$ and $f_1$ separately. At the population level, minimizing $E_1\{r(X)\log r(X)\}$ under these constraints gives
+
+$$
+\boxed{
+r_{\mathrm{EB}}(x)=
+\frac{\exp\{\lambda^\top h(x)\}}
+{E_1[\exp\{\lambda^\top h(X)\}]}.
+}
+$$
+
+This is the **information projection (I-projection)** of the source distribution onto the set of distributions satisfying the target moments. It equals the *true* $r_T(x)$ when that density ratio belongs to the chosen exponential-tilting family and the relevant identification and regularity conditions hold. **Exact balance of a few moments alone is not proof of density-ratio recovery.**
+
+### When can moment balance still be sufficient?
+
+Suppose the conditional treatment effect is linear in the balanced functions:
+
+$$
+\tau(x)=\beta_0+\beta^\top h(x).
+$$
+
+For any population-level weighting function $r(x)$ satisfying $E_1\{r(X)\}=1$ and $E_1\{r(X)h(X)\}=b_T$,
+
+$$
+\begin{aligned}
+E_1\{r(X)\tau(X)\}
+&=\beta_0+\beta^\top b_T\\
+&=E_T\{\tau(X)\}=\psi_T.
+\end{aligned}
+$$
+
+Thus a complete density ratio is **sufficient but not always necessary** for a particular target ATE. Correct target moments plus an appropriate conditional treatment-effect structure can also suffice. In practice, sampling variation and nuisance estimation remain relevant to inference. This mathematical observation is not a universal double-robustness claim.
+
+### Be careful: A different target requires a different density ratio
+
+Our Bayes derivation used the **entire eligible population** as the target. If the target changes, so does the correct ratio:
+
+| Target population | Density ratio relative to trial participants |
+|:--|:--|
+| **All eligible patients**, including participants | $r_T(x)=\dfrac{f_T(x)}{f_1(x)}=\dfrac{p}{\pi(x)}$ |
+| **Eligible nonparticipants only** | $r_0(x)=\dfrac{f_0(x)}{f_1(x)}=\dfrac{p}{1-p}\dfrac{1-\pi(x)}{\pi(x)}$ |
+| **Separate external population** | $r_E(x)=\dfrac{f_E(x)}{f_1(x)}$ |
+
+The familiar **inverse odds of participation** $\{1-\pi(x)\}/\pi(x)$ applies to the **nonparticipant** target, up to a constant. It is not the same ratio as $1/\pi(x)$ for the full eligible population.
+
+For the separate external population in Figure @fig-general-transport, the age-specific ratios are $r_E(0)=0.20/0.80=0.25$ and $r_E(1)=0.80/0.20=4.00$. These would reweight the trial age composition to **20% younger and 80% older**, yielding the external-population ATE of $5.2$ percentage points under the stated treatment-effect transportability assumption. They are not the ratios used for the eligible-population ATE of $4.0$.
+
+For example, if the eligible-population participation model were logistic,
+
+$$
+\operatorname{logit}\{\pi(x)\}=\alpha+\gamma^\top h(x),
+$$
+
+then the inverse odds $\{1-\pi(x)\}/\pi(x)=\exp\{-\alpha-\gamma^\top h(x)\}$ has an exponential form. In contrast, the full eligible-population inverse probability $1/\pi(x)=1+\exp\{-\alpha-\gamma^\top h(x)\}$ is **not generally** a single exponential tilting function. One should not claim that logistic participation, entropy balancing, and every density-ratio estimand are automatically equivalent.
+
+## Beyond entropy balancing: What changes with another distance?
+
+Entropy balancing is part of **calibration weighting**, a broader framework developed in survey sampling, including [Deville and Särndal (1992)](https://doi.org/10.1080/01621459.1992.10475217). We keep the *same* base weights and *same* balance constraints, but replace the KL objective by another convex distance:
+
+$$
+\min_{\boldsymbol w}\quad
+\sum_{i=1}^n q_iG\!\left(\frac{w_i}{q_i}\right),
+\qquad
+\text{subject to the same balance constraints.}
+$$
+
+Let $u_i=w_i/q_i$. For an interior optimum, the Lagrangian condition is $G'(u_i)=t_i$, where $t_i$ is a fitted linear combination of the balance functions and the normalization multiplier. Inverting $G'$ gives the corresponding weight multiplier:
+
+| Calibration distance | $G(u)$, up to irrelevant affine terms | $u_i=(G')^{-1}(t_i)$ |
+|:--|:--|:--|
+| **KL (entropy)** | $u\log u-u+1$ | $\exp(t_i)$ |
+| **Reverse KL** | $-\log u+u-1$ | $1/(1-t_i)$ |
+| **Chi-square** | $(u-1)^2/2$ | $1+t_i$ |
+| **Squared Hellinger** | $(\sqrt u-1)^2$ | $1/(1-t_i)^2$ |
+
+The first two rows correspond to **forward KL** $D_{\mathrm{KL}}(w\|q)$ and **reverse KL** $D_{\mathrm{KL}}(q\|w)$ in the directions specified here. The dual index $t_i$ is **fitted separately for each distance**, so these formulas do not mean the methods use the same numerical $t_i$. Reverse KL and Hellinger require positive denominators; unmodified chi-square calibration can produce negative weights unless nonnegativity is imposed. Reverse-KL optimization with uniform base weights and moment constraints is closely related to **empirical likelihood**, as developed by [Qin and Lawless (1994)](https://doi.org/10.1214/aos/1176325370).
+
+What happens in our example? All these strictly convex separable objectives, with uniform base weights and exact balance of one binary age indicator, yield the **same weights for individual participants** because the balance condition uniquely determines each age group's total weight and symmetry determines weights within each group. The choice of distance matters more when numerous individuals can satisfy the same constraints in different ways. In such settings, methods can differ in weight dispersion, finite-sample stability, and efficiency; there is **no universally best distance**.
+
+The word **doubly robust** also needs care. [Zhao and Percival (2017)](https://doi.org/10.1515/jci-2016-0010) establish double robustness for a specific observational-treatment entropy-balancing estimator under specified outcome and propensity models. [Josey et al. (2021)](https://doi.org/10.1002/sim.9031) establish related results for a distinct trial-transport setting. Those results do not imply that arbitrary KL-calibrated weights are doubly robust for every target and missingness mechanism.
+
+## Do selection-bias methods always require external data?
+
+**No separate individual-level external dataset is always required. But a distinct population estimand generally requires some reliable information about that population—or stronger identifying assumptions.** What matters is the information available for the target, not whether someone has labeled a file *external data*.
+
+| Available information | What it supports | Separate target person-level data? |
+|:--|:--|:--|
+| Trial embedded in a cohort with baseline $X$ and enrollment indicator for **every eligible patient** | Estimate participation probabilities or eligible-population moments | **No**; the cohort already contains target information |
+| Trial plus a representative individual-level sample from another population | Estimate target moments or density ratios, or apply outcome standardization | **Yes**, here a second individual-level source is available |
+| Trial plus reliable published **target moments** (such as 50% aged 50 or older) | Calibrate to moments, if they are sufficient under the outcome or ratio model | **No**; summary information may suffice |
+| Probability sample with **known inclusion probabilities** | Use design-based inclusion weighting | **Not necessarily** |
+| Trial participants **only**, with unknown participation mechanism and no target information | Does not generally identify a distinct target-population ATE | **More target information or stronger assumptions needed** |
+
+The same 50-person trial could be compatible with a target population that is 50% older—or one that is 80% older. From the trial alone, those targets are indistinguishable, even though they imply $4.0$ and $5.2$ percentage-point ATEs in our example. **An optimization objective cannot tell us which target distribution is correct.**
+
+We should also distinguish external-validity selection from **missing outcomes within the trial**. If the postrandomization observation indicator $R$ depends on the unobserved outcome even after conditioning on recorded variables (an MNAR situation), importing target age proportions does not identify those missing outcomes. That problem requires its own identification strategy, additional assumptions, additional data, or an appropriately defined sensitivity analysis.
+
+## How should we choose a method?
+
+The right method depends first on **what we want to estimate** and **which data are available**. It does not depend first on whether KL divergence or another distance function is mathematically attractive. Reviews by [Dahabreh et al. (2020)](https://doi.org/10.1002/sim.8426) and [Degtiar and Rose (2023)](https://doi.org/10.1146/annurev-statistics-042522-103837) describe three broad approaches to extending trial results: **outcome standardization**, **weighting**, and **augmented methods** that combine the two. Entropy balancing belongs to the weighting family because it constructs weights to match target covariate information.
+
+### Step 1. Decide which population's effect matters
+
+Our example has three different quantities: $\psi_1=2.8$ for trial participants, $\psi_T=4.0$ for all eligible patients, and $\psi_E=5.2$ for the separate external population. Before choosing an estimator, specify which of these is the target. An internally valid trial comparison estimates an effect for participants; a generalizability or transportability analysis requires additional information to extend that effect to another population.
+
+Also ask whether the required **effect modifiers** are measured in the trial and in the target information, whether the relevant age groups are represented in the trial, and whether conditional treatment effects can reasonably be applied to the target population. If these identification conditions fail, changing the weight formula will not solve the problem.
+
+### Step 2. Use the information that is actually available
+
+**If baseline covariates are observed for every eligible patient**, as in our original 100-person cohort, we can estimate participation probabilities and use inverse probability weighting. We could instead estimate the treatment effect separately for younger and older trial participants and **standardize** those effects to the eligible age distribution: $0.50(2)+0.50(6)=4.0$. Both approaches target $\psi_T$, but they use different models.
+
+**If only target summary information is available**, such as the registry report that 50% of eligible patients are older, **entropy balancing** is a natural way to reproduce that proportion in the weighted trial. In this example, one age-group moment describes the entire distribution of $X$. With more complex covariates, matching a small set of moments may be insufficient; [Chen et al. (2023)](https://doi.org/10.1111/biom.13825) study entropy balancing when target summary information is available under explicit modeling conditions.
+
+**If we have individual-level covariates from a separate external population**, we can standardize a model fitted in the trial to those target patients or use a target-to-trial density ratio to construct weights. Here the target would be $\psi_E$, and the age proportions would be 20% younger and 80% older—not the proportions used for $\psi_T$.
+
+**If we have only trial participants**, and do not know the target distribution or participation mechanism, the data generally do not identify a different population's ATE. No choice of calibration distance can reveal whether the relevant target population is 50% or 80% older.
+
+### Step 3. Choose how to estimate the target effect
+
+**Outcome standardization** is useful when the conditional treatment effects can be modeled reliably across the relevant covariate values. **Weighting** is useful when the target covariate distribution or suitable participation probabilities can be estimated reliably and there is adequate overlap. **Augmented estimators** combine outcome and weighting components; certain estimators have double-robustness properties under their stated assumptions, but this is not automatic for every combination.
+
+If calibration is appropriate, the next choice is the **distance function**: KL, reverse KL, chi-square, or another option. All may enforce the same balance constraints. Choose among them by examining whether the constraints are feasible, whether weights become extreme or negative, and how stable the resulting estimate is. In our example with younger and older patients, the different calibration distances give identical weights; choosing a different distance does not improve the already exact age balance.
+
+Before interpreting a result, examine covariate overlap, achieved balance, the distribution of weights, and uncertainty from estimated models or target moments. The effective sample size $1/\sum_i w_i^2$ provides a description of weight concentration when weights sum to one, but it does not verify the causal assumptions. If important effect modifiers are absent or outcomes are missing not at random, address those identification problems directly rather than expecting weighting alone to repair them.
+
+## Summary: What each step contributes
+
+The key lesson is that **a valid estimate must always be tied to a clearly specified population and estimand**. Randomization can establish internal validity for trial participants without guaranteeing that their ATE equals the ATE among all eligible patients or in another healthcare system.
+
+Generalizability and transportability use the **same underlying standardization idea** when conditional effects can be carried across populations: average the conditional trial effect over the covariate distribution of the chosen target. They differ in **which population is targeted** and in what information and assumptions justify the extension. Nested versus nonnested sampling designs are a separate consideration.
+
+Bayes' rule connects participation probabilities and the **target-to-source density ratio**; marginalization produces the same identity. Normalized IPW converts inverse participation probabilities into weights that sum to one. Entropy balancing instead chooses weights that match specified target moments while minimizing **KL divergence from base weights**. Other calibration distances can choose different weights under the same balance constraints.
+
+Finally, **balancing is not identification**. A weighting estimator is useful only after the target, source, available information, covariate overlap, and relevant causal assumptions have been established.
+
+## References
+
+- Chen, R., Chen, G., & Yu, M. (2023). Entropy balancing for causal generalization with target sample summary information. *Biometrics*, 79(4), 3179–3190. [https://doi.org/10.1111/biom.13825](https://doi.org/10.1111/biom.13825)
+- Dahabreh, I. J., Robertson, S. E., Steingrimsson, J. A., Stuart, E. A., & Hernán, M. A. (2020). Extending inferences from a randomized trial to a new target population. *Statistics in Medicine*, 39(14), 1999–2014. [https://doi.org/10.1002/sim.8426](https://doi.org/10.1002/sim.8426)
+- Dahabreh, I. J., Haneuse, S. J.-P. A., Robins, J. M., Robertson, S. E., Buchanan, A. L., Stuart, E. A., & Hernán, M. A. (2021). Study designs for extending causal inferences from a randomized trial to a target population. *American Journal of Epidemiology*, 190(8), 1632–1642. [https://doi.org/10.1093/aje/kwaa270](https://doi.org/10.1093/aje/kwaa270)
+- Degtiar, I., & Rose, S. (2023). A review of generalizability and transportability. *Annual Review of Statistics and Its Application*, 10, 501–524. [https://doi.org/10.1146/annurev-statistics-042522-103837](https://doi.org/10.1146/annurev-statistics-042522-103837)
+- Deville, J.-C., & Särndal, C.-E. (1992). Calibration estimators in survey sampling. *Journal of the American Statistical Association*, 87(418), 376–382. [https://doi.org/10.1080/01621459.1992.10475217](https://doi.org/10.1080/01621459.1992.10475217)
+- Hainmueller, J. (2012). Entropy balancing for causal effects: A multivariate reweighting method to produce balanced samples in observational studies. *Political Analysis*, 20(1), 25–46. [https://doi.org/10.1093/pan/mpr025](https://doi.org/10.1093/pan/mpr025)
+- Josey, K. P., Berkowitz, S. A., Ghosh, D., & Raghavan, S. (2021). Transporting experimental results with entropy balancing. *Statistics in Medicine*, 40(19), 4310–4326. [https://doi.org/10.1002/sim.9031](https://doi.org/10.1002/sim.9031)
+- Lu, H., Cole, S. R., Howe, C. J., & Westreich, D. (2022). Toward a clearer definition of selection bias when estimating causal effects. *Epidemiology*, 33(5), 699–706. [https://doi.org/10.1097/EDE.0000000000001516](https://doi.org/10.1097/EDE.0000000000001516)
+- Qin, J., & Lawless, J. (1994). Empirical likelihood and general estimating equations. *The Annals of Statistics*, 22(1), 300–325. [https://doi.org/10.1214/aos/1176325370](https://doi.org/10.1214/aos/1176325370)
+- Rothwell, P. M. (2005). External validity of randomised controlled trials: “To whom do the results of this trial apply?” *The Lancet*, 365(9453), 82–93. [https://doi.org/10.1016/S0140-6736(04)17670-8](https://doi.org/10.1016/S0140-6736(04)17670-8)
+- Zhao, Q., & Percival, D. (2017). Entropy balancing is doubly robust. *Journal of Causal Inference*, 5(1), 20160010. [https://doi.org/10.1515/jci-2016-0010](https://doi.org/10.1515/jci-2016-0010)
