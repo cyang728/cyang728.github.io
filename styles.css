@@ -17,7 +17,7 @@
   --paper:       #ffffff;
   --band:        #f2f5f9;   /* full-width alt section band       */
   --band-line:   #e2e8ef;   /* hairline                          */
-  --tick:        rgba(0, 53, 107, 0.28); /* observation-axis mark */
+  --tick:        rgba(0, 53, 107, 0.28); /* hero divider line */
 
   --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
   --sans:  'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -294,7 +294,7 @@ ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em;
   box-shadow: 0 1px 0 var(--band-line), 0 18px 40px -22px rgba(0,34,71,0.55);
 }
 
-/* ---- signature: sparse observation-axis divider ---- */
+/* ---- hairline between the hero and the body ---- */
 .home .axis {
   margin: clamp(2.2rem, 4vw, 3.4rem) 0 0;
   height: 26px;
@@ -577,8 +577,15 @@ main.content, .quarto-title-block + *, #quarto-content .content {
 .fig-plot .ctx { stroke: #7d8794; }
 .fig-plot .em { stroke: var(--accent); }
 .fig-plot .wash { fill: var(--accent); fill-opacity: .12; }
-.fig-plot .sq { fill: #7d8794; }
-.fig-plot .diamond { fill: var(--accent); }
+.fig-plot .band { fill: var(--accent); fill-opacity: .14; }
+.fig-plot .whisker {
+  stroke: #7d8794;
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.fig-plot .bar { fill: var(--accent); }
+.fig-plot .bar-ctx { fill: #7d8794; }
 /* markers: filled, with a 2px surface ring painted under the fill */
 .fig-plot .dot, .fig-plot .dot-ctx {
   stroke: #fff;
@@ -634,9 +641,13 @@ main.content, .quarto-title-block + *, #quarto-content .content {
   border-radius: 50%;
   background: var(--accent);
 }
-.key-sq::before, .key-diamond::before { left: 5px; top: 2px; width: 10px; height: 10px; }
-.key-sq::before { background: #7d8794; }
-.key-diamond::before { background: var(--accent); transform: rotate(45deg) scale(.86); }
+.key-dot.key-ctx::before { background: #7d8794; }
+.key-band { background: color-mix(in srgb, var(--accent) 14%, transparent); border-radius: 3px; }
+.key-est::before, .key-est::after { content: ""; position: absolute; background: #7d8794; }
+.key-est::before { z-index: 1; left: 5px; top: 2px; width: 10px; height: 10px; border-radius: 50%; }
+.key-est::after { left: 9px; top: -2px; width: 2px; height: 18px; border-radius: 1px; }
+.key-bar::before { left: 7px; top: 1px; width: 6px; height: 13px; border-radius: 2px 2px 0 0; background: var(--accent); }
+.key-bar.key-ctx::before { background: #7d8794; }
 
 @media (max-width: 820px) {
   .research-grid { grid-template-columns: 1fr; }

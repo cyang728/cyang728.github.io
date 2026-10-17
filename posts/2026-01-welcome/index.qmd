@@ -1,6 +1,6 @@
 ---
 title: "Welcome to My Blog"
-author: "Cheng-Han Yang"
+author-meta: "Cheng-Han Yang"
 date: "2026-01-15"
 categories: [news, biostatistics]
 ---
