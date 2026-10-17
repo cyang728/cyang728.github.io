@@ -4,6 +4,7 @@ author: "Cheng-Han Yang"
 date: "2026-10-16"
 categories: [Causal Inference, Selection Bias, Generalizability, Weighting, Tutorial]
 image: "internal_external_validity.png"
+image-alt: "Internal and external validity in the same trial."
 description: "An intuitive and mathematical guide to internal and external validity, generalizability, transportability, Bayes' rule, normalized IPW, entropy balancing, and calibration weights."
 format:
   html:
@@ -610,7 +611,7 @@ $$
 \operatorname{logit}\{\pi(x)\}=\alpha+\gamma^\top h(x),
 $$
 
-then the inverse odds $\{1-\pi(x)\}/\pi(x)=\exp\{-\alpha-\gamma^\top h(x)\}$ has an exponential form. In contrast, the full eligible-population inverse probability $1/\pi(x)=1+\exp\{-\alpha-\gamma^\top h(x)\}$ is **not generally** a single exponential tilting function. One should not claim that logistic participation, entropy balancing, and every density-ratio estimand are automatically equivalent.
+then the inverse odds $\{1-\pi(x)\}/\pi(x) =$ $\exp\{-\alpha-\gamma^\top h(x)\}$ has an exponential form. In contrast, the full eligible-population inverse probability $1/\pi(x)=1+\exp\{-\alpha-\gamma^\top h(x)\}$ is **not generally** a single exponential tilting function. One should not claim that logistic participation, entropy balancing, and every density-ratio estimand are automatically equivalent.
 
 ## Beyond entropy balancing: What changes with another distance?
 

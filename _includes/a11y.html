@@ -10,9 +10,21 @@
   }
   document.addEventListener('DOMContentLoaded', function () {
     label(document.querySelector('#quarto-header nav.navbar'), 'Site');
-    label(document.getElementById('TOC'), 'Contents');
-    label(document.getElementById('TOC-body'), 'Contents (top of article)');
+    label(document.getElementById('TOC'), 'Table of contents');
+    label(document.getElementById('TOC-body'), 'Table of contents (top of the post)');
     labelSearch();
+    // Blog listing: Quarto leaves empty links around thumbnails and subtitles
+    // (focusable, but with no name); the topic tags only respond to a mouse.
+    document.querySelectorAll('.quarto-post a').forEach(function (a) {
+      if (!a.textContent.trim() && !a.querySelector('img')) a.remove();
+    });
+    document.querySelectorAll('.listing-category[onclick]').forEach(function (c) {
+      c.setAttribute('role', 'button');
+      c.setAttribute('tabindex', '0');
+      c.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.click(); }
+      });
+    });
     var search = document.getElementById('quarto-search');
     if (search) new MutationObserver(labelSearch).observe(search, { childList: true, subtree: true });
   });

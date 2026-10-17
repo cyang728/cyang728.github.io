@@ -1,9 +1,7 @@
-# Every post uses the article template: serif reading column, table of
-# contents in the margin (and at the top on small screens), figures that
-# open full size.
+# Every post: a readable text column with the table of contents in the
+# margin (and at the top of the post on small screens); figures open full size.
 body-classes: article
 toc: true
 toc-location: right-body
-toc-title: "Contents"
 toc-depth: 2
 lightbox: true
