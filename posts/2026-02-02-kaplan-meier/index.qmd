@@ -1,6 +1,6 @@
 ---
 title: "Survival Analysis: Understanding the Kaplan-Meier Estimator"
-author: "Cheng-Han Yang"
+author-meta: "Cheng-Han Yang"
 date: "2026-02-03"
 categories: [Survival Analysis, Statistics, Tutorial]
 image: "KM_curve.png"

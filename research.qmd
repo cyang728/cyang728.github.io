@@ -45,18 +45,19 @@ J. Du<em>*</em>, <strong>C-H. Yang<em>*</em></strong>, X. Shi, B. Mukherjee. (20
 <span class="area-num">02</span>
 </div>
 <section id="adaptive-dose-finding-design" class="level2">
-<h2 class="anchored" data-anchor-id="adaptive-dose-finding-design">Adaptive Dose-Finding Design</h2>
+<h2 class="anchored" data-anchor-id="adaptive-dose-finding-design">Early-Phase Clinical Trial Design and Analysis</h2>
 <figure class="area-fig">
-<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-dose"><title id="fig-dose">Dose exploration, monitoring, and optimization using biological and clinical outcomes; Bayesian autoregressive phase 1–2 design for cell therapy trials with manufacturing changes</title><rect class="wash" x="100" y="26" width="24" height="110" rx="4"/><line class="axis" x1="46" y1="136" x2="178" y2="136"/><text class="tick" x="56" y="152" text-anchor="middle">1</text><text class="tick" x="84" y="152" text-anchor="middle">2</text><text class="tick" x="112" y="152" text-anchor="middle">3</text><text class="tick" x="140" y="152" text-anchor="middle">4</text><text class="tick" x="168" y="152" text-anchor="middle">5</text><text x="112.0" y="176" text-anchor="middle">dose</text><text transform="translate(26 85.0) rotate(-90)" text-anchor="middle">RMST</text><text class="panel" x="16" y="16">DEMO</text><polyline class="em" points="56,105.4 84,79.9 112,52.4 140,68.7 168,87"/><circle class="dot" cx="56" cy="105.4" r="5.2"/><circle class="dot" cx="84" cy="79.9" r="5.2"/><circle class="dot" cx="112" cy="52.4" r="5.2"/><circle class="dot" cx="140" cy="68.7" r="5.2"/><circle class="dot" cx="168" cy="87" r="5.2"/><text x="112" y="41.4" text-anchor="middle">OTD</text><line class="axis" x1="246" y1="136" x2="378" y2="136"/><text class="tick" x="256" y="152" text-anchor="middle">1</text><text class="tick" x="284" y="152" text-anchor="middle">2</text><text class="tick" x="312" y="152" text-anchor="middle">3</text><text class="tick" x="340" y="152" text-anchor="middle">4</text><text class="tick" x="368" y="152" text-anchor="middle">5</text><text x="312.0" y="176" text-anchor="middle">dose</text><text transform="translate(226 85.0) rotate(-90)" text-anchor="middle">outcome</text><text class="panel" x="216" y="16">BAR12</text><polyline class="ctx" points="256,121.7 284,108.5 312,94.2 340,84 368,77.9"/><circle class="dot-ctx" cx="256" cy="121.7" r="5.2"/><circle class="dot-ctx" cx="284" cy="108.5" r="5.2"/><circle class="dot-ctx" cx="312" cy="94.2" r="5.2"/><circle class="dot-ctx" cx="340" cy="84" r="5.2"/><circle class="dot-ctx" cx="368" cy="77.9" r="5.2"/><polyline class="em" points="256,109.5 284,90.1 312,72.8 340,63.6 368,59.5"/><circle class="dot" cx="256" cy="109.5" r="5.2"/><circle class="dot" cx="284" cy="90.1" r="5.2"/><circle class="dot" cx="312" cy="72.8" r="5.2"/><circle class="dot" cx="340" cy="63.6" r="5.2"/><circle class="dot" cx="368" cy="59.5" r="5.2"/></svg></div>
+<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-dose"><title id="fig-dose">Optimal Therapeutic Dose and maximum tolerated dose</title><rect class="wash" x="162" y="18" width="24" height="122" rx="4"/><line class="axis" x1="48" y1="140" x2="300" y2="140"/><path class="ctx" d="M62,133.5 C71.3,132.4 99.3,130 118,127 C136.7,124 155.3,120.7 174,115.6 C192.7,110.4 211.3,104.4 230,96 C248.7,87.6 276.7,70.2 286,65.1"/><path class="em" d="M62,104.2 C71.3,97.9 99.3,76.5 118,66.7 C136.7,56.9 155.3,49.9 174,45.5 C192.7,41.2 211.3,41.7 230,40.7 C248.7,39.6 276.7,39.3 286,39"/><circle class="dot-ctx" cx="230" cy="96" r="5.2"/><circle class="dot" cx="174" cy="45.5" r="5.2"/><text x="174" y="33.5" text-anchor="middle">OTD</text><text x="239" y="115">MTD</text><text x="295" y="43.5">efficacy</text><text x="295" y="69.6">toxicity</text><text class="tick" x="62" y="156" text-anchor="middle">1</text><text class="tick" x="118" y="156" text-anchor="middle">2</text><text class="tick" x="174" y="156" text-anchor="middle">3</text><text class="tick" x="230" y="156" text-anchor="middle">4</text><text class="tick" x="286" y="156" text-anchor="middle">5</text><text x="174" y="177" text-anchor="middle">dose</text></svg></div>
 <ul class="fig-key">
+<li><span class="key key-line"></span>efficacy</li>
+<li><span class="key key-line key-ctx"></span>toxicity</li>
 <li><span class="key key-otd"></span>Optimal Therapeutic Dose (OTD)</li>
-<li><span class="key key-line key-ctx"></span>pre-tweak</li>
-<li><span class="key key-line"></span>post-tweak</li>
-<li class="key-note">RMST: restricted mean survival time</li>
+<li><span class="key key-dot key-ctx"></span>maximum tolerated dose (MTD)</li>
 </ul>
 </figure>
 <p>Seamless phase I–II designs for modern oncology that use biological mediators and survival endpoints to optimize dose for targeted therapies and immunotherapies.</p>
 <p>This includes the <strong>DEMO</strong> design — a three-stage framework for dose exploration, monitoring, and optimization that selects a dose maximizing restricted mean survival time — and an analysis of the relative conservativeness of the <strong>Bayesian logistic regression method</strong>, with a dose-switching rule that improves performance while maintaining safety.</p>
+<p><strong>MCP-ModX</strong> adds covariate adjustment to the MCP-Mod framework through g-computation, giving valid and more precise dose-response inference even under model misspecification.</p>
 <div class="pub-ref">
 <p>
 <strong>C-H. Yang</strong>, P.F. Thall, R. Lin. (2025). Dose exploration, monitoring, and optimization using biological and clinical outcomes. <em>Annals of Applied Statistics</em>, 19(4), 2599–2617.
@@ -67,35 +68,18 @@ J. Du<em>*</em>, <strong>C-H. Yang<em>*</em></strong>, X. Shi, B. Mukherjee. (20
 </div>
 <div class="pub-ref">
 <p>
+<strong>C-H. Yang</strong>, P.F. Thall, D. Marin, S.Y. Belay, R. Lin. (2026). BAR12: Bayesian autoregressive phase 1–2 design for cell therapy trials with manufacturing changes. <em>Statistics in Medicine</em>, 45(8–9), e70551.
+</p>
+<div class="links">
+<a href="https://doi.org/10.1002/sim.70551">Paper ↗</a> <a href="https://github.com/cyang728/BAR12">Code ↗</a>
+</div>
+</div>
+<div class="pub-ref">
+<p>
 <strong>C-H. Yang</strong>, G. Cheng, R. Lin. (2024). On the relative conservativeness of the Bayesian logistic regression method in oncology dose-finding studies. <em>Pharmaceutical Statistics</em>, 23(4), 585–594.
 </p>
 <div class="links">
 <a href="https://doi.org/10.1002/pst.2364">Paper ↗</a>
-</div>
-</div>
-</section>
-</div>
-<div class="research-section a3">
-<div class="area-head">
-<span class="area-num">03</span>
-</div>
-<section id="clinical-trial-methodology" class="level2">
-<h2 class="anchored" data-anchor-id="clinical-trial-methodology">Clinical Trial Methodology</h2>
-<figure class="area-fig">
-<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-trials"><title id="fig-trials">Bayesian random-effects dose-optimization meta-analysis</title><line class="axis" x1="120" y1="148" x2="380" y2="148"/><line class="axis" x1="257.8" y1="12" x2="257.8" y2="138"/><line class="ctx" x1="166.8" y1="22" x2="291.6" y2="22"/><rect class="sq" x="225.2" y="18" width="7.9" height="7.9"/><text x="8" y="22" dominant-baseline="central">study 1</text><line class="ctx" x1="218.8" y1="42" x2="307.2" y2="42"/><rect class="sq" x="257.4" y="36.4" width="11.2" height="11.2"/><text x="8" y="42" dominant-baseline="central">study 2</text><line class="ctx" x1="177.2" y1="62" x2="312.4" y2="62"/><rect class="sq" x="241.1" y="58.3" width="7.3" height="7.3"/><text x="8" y="62" dominant-baseline="central">study 3</text><line class="ctx" x1="242.2" y1="82" x2="320.2" y2="82"/><rect class="sq" x="274.9" y="75.7" width="12.7" height="12.7"/><text x="8" y="82" dominant-baseline="central">study 4</text><line class="ctx" x1="205.8" y1="102" x2="299.4" y2="102"/><rect class="sq" x="247.3" y="96.7" width="10.6" height="10.6"/><text x="8" y="102" dominant-baseline="central">study 5</text><polygon class="diamond" points="234.4,128 257.8,121 281.2,128 257.8,135"/><text class="panel" x="8" y="128" dominant-baseline="central">meta-analysis</text><text x="380" y="172" text-anchor="end">efficacy</text></svg></div>
-<ul class="fig-key">
-<li><span class="key key-sq"></span>small studies</li>
-<li><span class="key key-diamond"></span>meta-analysis</li>
-</ul>
-</figure>
-<p>Meta-analytic and model-assisted methods that synthesize evidence and sharpen inference across early-phase trials.</p>
-<p><strong>REDOMA</strong> performs random-effects dose-optimization meta-analysis with spike-and-slab priors, allowing plateau or non-monotonic dose-efficacy curves across small studies. <strong>MCP-ModX</strong> adds covariate adjustment to the MCP-Mod framework through g-computation, giving valid and more precise dose-response inference even under model misspecification.</p>
-<div class="pub-ref">
-<p>
-<strong>C-H. Yang</strong>, E. Kwiatkowski, J.J. Lee, R. Lin. (2024). REDOMA: Bayesian random-effects dose-optimization meta-analysis using spike-and-slab priors. <em>Statistics in Medicine</em>, 43(18), 3484–3502.
-</p>
-<div class="links">
-<a href="https://doi.org/10.1002/sim.10107">Paper ↗</a>
 </div>
 </div>
 <div class="pub-ref">
@@ -108,6 +92,37 @@ J. Du<em>*</em>, <strong>C-H. Yang<em>*</em></strong>, X. Shi, B. Mukherjee. (20
 </div>
 </section>
 </div>
+<div class="research-section a3">
+<div class="area-head">
+<span class="area-num">03</span>
+</div>
+<section id="clinical-trial-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="clinical-trial-methodology">Meta-Analysis</h2>
+<figure class="area-fig">
+<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-trials"><title id="fig-trials">Bayesian random-effects dose-optimization meta-analysis</title><rect class="wash" x="221.2" y="14" width="36" height="126" rx="4"/><line class="axis" x1="48" y1="140" x2="372" y2="140"/><path class="band" d="M64,106.1 C73.7,101.7 102.9,87.6 122.4,79.5 C141.9,71.4 161.3,63.1 180.8,57.4 C200.3,51.7 219.7,48.1 239.2,45.6 C258.7,43.1 278.1,43.6 297.6,42.7 C317.1,41.7 346.3,40.2 356,39.7 L356,60.3 C346.3,59.9 317.1,57.9 297.6,57.4 C278.1,56.9 258.7,55.4 239.2,57.4 C219.7,59.4 200.3,63.1 180.8,69.2 C161.3,75.3 141.9,84.7 122.4,94.3 C102.9,103.9 73.7,121.3 64,126.7 Z"/><line class="whisker" x1="51" y1="129.7" x2="51" y2="91.3"/><line class="whisker" x1="109.4" y1="113.5" x2="109.4" y2="75.1"/><line class="whisker" x1="167.8" y1="76.6" x2="167.8" y2="38.2"/><line class="whisker" x1="226.2" y1="75.1" x2="226.2" y2="36.8"/><line class="whisker" x1="122.4" y1="94.3" x2="122.4" y2="61.8"/><line class="whisker" x1="180.8" y1="86.9" x2="180.8" y2="54.5"/><line class="whisker" x1="297.6" y1="72.2" x2="297.6" y2="39.7"/><line class="whisker" x1="252.2" y1="63.3" x2="252.2" y2="27.9"/><line class="whisker" x1="310.6" y1="60.3" x2="310.6" y2="25"/><line class="whisker" x1="369" y1="70.7" x2="369" y2="35.3"/><circle class="dot-ctx" cx="51" cy="110.5" r="4.4"/><circle class="dot-ctx" cx="109.4" cy="94.3" r="4.4"/><circle class="dot-ctx" cx="167.8" cy="57.4" r="4.4"/><circle class="dot-ctx" cx="226.2" cy="55.9" r="4.4"/><circle class="dot-ctx" cx="122.4" cy="78.1" r="4.4"/><circle class="dot-ctx" cx="180.8" cy="70.7" r="4.4"/><circle class="dot-ctx" cx="297.6" cy="55.9" r="4.4"/><circle class="dot-ctx" cx="252.2" cy="45.6" r="4.4"/><circle class="dot-ctx" cx="310.6" cy="42.7" r="4.4"/><circle class="dot-ctx" cx="369" cy="53" r="4.4"/><path class="em" d="M64,116.4 C73.7,111.5 102.9,95.8 122.4,86.9 C141.9,78.1 161.3,69.2 180.8,63.3 C200.3,57.4 219.7,53.7 239.2,51.5 C258.7,49.3 278.1,50.3 297.6,50 C317.1,49.8 346.3,50 356,50"/><circle class="dot" cx="239.2" cy="51.5" r="5.2"/><text x="239.2" y="22" text-anchor="middle">OBD</text><text class="tick" x="64" y="156" text-anchor="middle">1</text><text class="tick" x="122.4" y="156" text-anchor="middle">2</text><text class="tick" x="180.8" y="156" text-anchor="middle">3</text><text class="tick" x="239.2" y="156" text-anchor="middle">4</text><text class="tick" x="297.6" y="156" text-anchor="middle">5</text><text class="tick" x="356" y="156" text-anchor="middle">6</text><text x="210" y="177" text-anchor="middle">dose</text><text transform="translate(20 81.0) rotate(-90)" text-anchor="middle">efficacy</text></svg></div>
+<ul class="fig-key">
+<li><span class="key key-est"></span>small studies</li>
+<li><span class="key key-line key-band"></span>meta-analysis</li>
+<li><span class="key key-otd"></span>optimal biological dose (OBD)</li>
+</ul>
+</figure>
+<p>Meta-analytic methods that synthesize evidence and sharpen inference across early-phase trials.</p>
+<p><strong>REDOMA</strong> performs random-effects dose-optimization meta-analysis with spike-and-slab priors, allowing plateau or non-monotonic dose-efficacy curves across small studies.</p>
+<div class="pub-ref">
+<p>
+<strong>C-H. Yang</strong>, E. Kwiatkowski, J.J. Lee, R. Lin. (2024). REDOMA: Bayesian random-effects dose-optimization meta-analysis using spike-and-slab priors. <em>Statistics in Medicine</em>, 43(18), 3484–3502.
+</p>
+<div class="links">
+<a href="https://doi.org/10.1002/sim.10107">Paper ↗</a>
+</div>
+</div>
+<div class="pub-ref">
+<p>
+S. McGrath, <strong>C-H. Yang</strong>, J. Kimmelman, O. Ozturk, R. Steele, A. Benedetti. (2026). Meta-analysis of median survival times with inverse-variance weighting. <em>Statistics in Medicine</em>, 45(8–9), e70533.
+</p>
+</div>
+</section>
+</div>
 <div class="research-section a4">
 <div class="area-head">
 <span class="area-num">04</span>
@@ -115,10 +130,10 @@ J. Du<em>*</em>, <strong>C-H. Yang<em>*</em></strong>, X. Shi, B. Mukherjee. (20
 <section id="optimal-treatment-regime" class="level2">
 <h2 class="anchored" data-anchor-id="optimal-treatment-regime">Optimal Treatment Regime</h2>
 <figure class="area-fig">
-<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-otr"><title id="fig-otr">Optimal treatment regimes with high-dimensional survival data</title><line class="axis" x1="34" y1="136" x2="196" y2="136"/><line class="axis" x1="34" y1="28" x2="34" y2="136"/><polyline class="ctx" points="34,34 51.5,34 51.5,55.9 74.9,55.9 74.9,76.3 99.7,76.3 99.7,93.7 124.5,93.7 124.5,108.3 150.8,108.3 150.8,118.5 180,118.5"/><polyline class="em" points="34,34 51.5,34 51.5,44.2 74.9,44.2 74.9,54.4 99.7,54.4 99.7,64.6 124.5,64.6 124.5,74.8 150.8,74.8 150.8,83.5 180,83.5"/><text x="186" y="88">A</text><text x="186" y="123">B</text><text class="panel" x="34" y="16">subgroup 1</text><text x="196" y="160" text-anchor="end">time</text><line class="axis" x1="226" y1="136" x2="388" y2="136"/><line class="axis" x1="226" y1="28" x2="226" y2="136"/><polyline class="ctx" points="226,34 243.5,34 243.5,44.2 266.9,44.2 266.9,52.9 291.7,52.9 291.7,63.1 316.5,63.1 316.5,71.9 342.8,71.9 342.8,79.2 372,79.2"/><polyline class="em" points="226,34 243.5,34 243.5,57.3 266.9,57.3 266.9,79.2 291.7,79.2 291.7,98.1 316.5,98.1 316.5,112.7 342.8,112.7 342.8,122.9 372,122.9"/><text x="378" y="127.4">A</text><text x="378" y="83.7">B</text><text class="panel" x="226" y="16">subgroup 2</text><text x="388" y="160" text-anchor="end">time</text><text transform="translate(16 85.0) rotate(-90)" text-anchor="middle">survival</text></svg></div>
+<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-otr"><title id="fig-otr">A model-free variable screening method for optimal treatment regimes with high-dimensional survival data</title><line class="axis" x1="24" y1="140" x2="384" y2="140"/><path class="bar-ctx" d="M25.3,140 V125 Q25.3,123.6 26.7,123.6 H27.3 Q28.7,123.6 28.7,125 V140 Z"/><path class="bar-ctx" d="M31.3,140 V130.5 Q31.3,129.1 32.7,129.1 H33.3 Q34.7,129.1 34.7,130.5 V140 Z"/><path class="bar-ctx" d="M37.3,140 V129.9 Q37.3,128.5 38.7,128.5 H39.3 Q40.7,128.5 40.7,129.9 V140 Z"/><path class="bar-ctx" d="M43.3,140 V123.3 Q43.3,121.9 44.7,121.9 H45.3 Q46.7,121.9 46.7,123.3 V140 Z"/><path class="bar-ctx" d="M49.3,140 V117.7 Q49.3,116.3 50.7,116.3 H51.3 Q52.7,116.3 52.7,117.7 V140 Z"/><path class="bar-ctx" d="M55.3,140 V134.2 Q55.3,132.8 56.7,132.8 H57.3 Q58.7,132.8 58.7,134.2 V140 Z"/><path class="bar" d="M61.3,140 V54 Q61.3,52.6 62.7,52.6 H63.3 Q64.7,52.6 64.7,54 V140 Z"/><path class="bar-ctx" d="M67.3,140 V118.1 Q67.3,116.7 68.7,116.7 H69.3 Q70.7,116.7 70.7,118.1 V140 Z"/><path class="bar-ctx" d="M73.3,140 V131.6 Q73.3,130.2 74.7,130.2 H75.3 Q76.7,130.2 76.7,131.6 V140 Z"/><path class="bar-ctx" d="M79.3,140 V129.9 Q79.3,128.5 80.7,128.5 H81.3 Q82.7,128.5 82.7,129.9 V140 Z"/><path class="bar-ctx" d="M85.3,140 V129.8 Q85.3,128.4 86.7,128.4 H87.3 Q88.7,128.4 88.7,129.8 V140 Z"/><path class="bar-ctx" d="M91.3,140 V121.7 Q91.3,120.3 92.7,120.3 H93.3 Q94.7,120.3 94.7,121.7 V140 Z"/><path class="bar-ctx" d="M97.3,140 V119.3 Q97.3,117.9 98.7,117.9 H99.3 Q100.7,117.9 100.7,119.3 V140 Z"/><path class="bar-ctx" d="M103.3,140 V121.5 Q103.3,120.1 104.7,120.1 H105.3 Q106.7,120.1 106.7,121.5 V140 Z"/><path class="bar-ctx" d="M109.3,140 V135.7 Q109.3,134.3 110.7,134.3 H111.3 Q112.7,134.3 112.7,135.7 V140 Z"/><path class="bar-ctx" d="M115.3,140 V135.9 Q115.3,134.5 116.7,134.5 H117.3 Q118.7,134.5 118.7,135.9 V140 Z"/><path class="bar-ctx" d="M121.3,140 V128.1 Q121.3,126.7 122.7,126.7 H123.3 Q124.7,126.7 124.7,128.1 V140 Z"/><path class="bar-ctx" d="M127.3,140 V122.7 Q127.3,121.3 128.7,121.3 H129.3 Q130.7,121.3 130.7,122.7 V140 Z"/><path class="bar-ctx" d="M133.3,140 V125.3 Q133.3,123.9 134.7,123.9 H135.3 Q136.7,123.9 136.7,125.3 V140 Z"/><path class="bar-ctx" d="M139.3,140 V131.9 Q139.3,130.5 140.7,130.5 H141.3 Q142.7,130.5 142.7,131.9 V140 Z"/><path class="bar-ctx" d="M145.3,140 V136 Q145.3,134.6 146.7,134.6 H147.3 Q148.7,134.6 148.7,136 V140 Z"/><path class="bar" d="M151.3,140 V64.6 Q151.3,63.2 152.7,63.2 H153.3 Q154.7,63.2 154.7,64.6 V140 Z"/><path class="bar-ctx" d="M157.3,140 V133.2 Q157.3,131.8 158.7,131.8 H159.3 Q160.7,131.8 160.7,133.2 V140 Z"/><path class="bar-ctx" d="M163.3,140 V119.3 Q163.3,117.9 164.7,117.9 H165.3 Q166.7,117.9 166.7,119.3 V140 Z"/><path class="bar-ctx" d="M169.3,140 V125.9 Q169.3,124.5 170.7,124.5 H171.3 Q172.7,124.5 172.7,125.9 V140 Z"/><path class="bar-ctx" d="M175.3,140 V127.8 Q175.3,126.4 176.7,126.4 H177.3 Q178.7,126.4 178.7,127.8 V140 Z"/><path class="bar-ctx" d="M181.3,140 V118.2 Q181.3,116.8 182.7,116.8 H183.3 Q184.7,116.8 184.7,118.2 V140 Z"/><path class="bar-ctx" d="M187.3,140 V125.8 Q187.3,124.4 188.7,124.4 H189.3 Q190.7,124.4 190.7,125.8 V140 Z"/><path class="bar-ctx" d="M193.3,140 V121.1 Q193.3,119.7 194.7,119.7 H195.3 Q196.7,119.7 196.7,121.1 V140 Z"/><path class="bar-ctx" d="M199.3,140 V127.5 Q199.3,126.1 200.7,126.1 H201.3 Q202.7,126.1 202.7,127.5 V140 Z"/><path class="bar-ctx" d="M205.3,140 V128.2 Q205.3,126.8 206.7,126.8 H207.3 Q208.7,126.8 208.7,128.2 V140 Z"/><path class="bar-ctx" d="M211.3,140 V128.8 Q211.3,127.4 212.7,127.4 H213.3 Q214.7,127.4 214.7,128.8 V140 Z"/><path class="bar-ctx" d="M217.3,140 V120.9 Q217.3,119.5 218.7,119.5 H219.3 Q220.7,119.5 220.7,120.9 V140 Z"/><path class="bar-ctx" d="M223.3,140 V133.6 Q223.3,132.2 224.7,132.2 H225.3 Q226.7,132.2 226.7,133.6 V140 Z"/><path class="bar-ctx" d="M229.3,140 V120.6 Q229.3,119.2 230.7,119.2 H231.3 Q232.7,119.2 232.7,120.6 V140 Z"/><path class="bar-ctx" d="M235.3,140 V122.5 Q235.3,121.1 236.7,121.1 H237.3 Q238.7,121.1 238.7,122.5 V140 Z"/><path class="bar-ctx" d="M241.3,140 V124.4 Q241.3,123 242.7,123 H243.3 Q244.7,123 244.7,124.4 V140 Z"/><path class="bar-ctx" d="M247.3,140 V134.2 Q247.3,132.8 248.7,132.8 H249.3 Q250.7,132.8 250.7,134.2 V140 Z"/><path class="bar" d="M253.3,140 V47.3 Q253.3,45.9 254.7,45.9 H255.3 Q256.7,45.9 256.7,47.3 V140 Z"/><path class="bar-ctx" d="M259.3,140 V119.2 Q259.3,117.8 260.7,117.8 H261.3 Q262.7,117.8 262.7,119.2 V140 Z"/><path class="bar-ctx" d="M265.3,140 V124.7 Q265.3,123.3 266.7,123.3 H267.3 Q268.7,123.3 268.7,124.7 V140 Z"/><path class="bar-ctx" d="M271.3,140 V128.4 Q271.3,127 272.7,127 H273.3 Q274.7,127 274.7,128.4 V140 Z"/><path class="bar-ctx" d="M277.3,140 V135.6 Q277.3,134.2 278.7,134.2 H279.3 Q280.7,134.2 280.7,135.6 V140 Z"/><path class="bar-ctx" d="M283.3,140 V119.8 Q283.3,118.4 284.7,118.4 H285.3 Q286.7,118.4 286.7,119.8 V140 Z"/><path class="bar-ctx" d="M289.3,140 V133.4 Q289.3,132 290.7,132 H291.3 Q292.7,132 292.7,133.4 V140 Z"/><path class="bar-ctx" d="M295.3,140 V127.2 Q295.3,125.8 296.7,125.8 H297.3 Q298.7,125.8 298.7,127.2 V140 Z"/><path class="bar-ctx" d="M301.3,140 V128.5 Q301.3,127.1 302.7,127.1 H303.3 Q304.7,127.1 304.7,128.5 V140 Z"/><path class="bar-ctx" d="M307.3,140 V132.1 Q307.3,130.7 308.7,130.7 H309.3 Q310.7,130.7 310.7,132.1 V140 Z"/><path class="bar-ctx" d="M313.3,140 V133 Q313.3,131.6 314.7,131.6 H315.3 Q316.7,131.6 316.7,133 V140 Z"/><path class="bar" d="M319.3,140 V72.5 Q319.3,71.1 320.7,71.1 H321.3 Q322.7,71.1 322.7,72.5 V140 Z"/><path class="bar-ctx" d="M325.3,140 V131 Q325.3,129.6 326.7,129.6 H327.3 Q328.7,129.6 328.7,131 V140 Z"/><path class="bar-ctx" d="M331.3,140 V121 Q331.3,119.6 332.7,119.6 H333.3 Q334.7,119.6 334.7,121 V140 Z"/><path class="bar-ctx" d="M337.3,140 V131.7 Q337.3,130.3 338.7,130.3 H339.3 Q340.7,130.3 340.7,131.7 V140 Z"/><path class="bar-ctx" d="M343.3,140 V125.2 Q343.3,123.8 344.7,123.8 H345.3 Q346.7,123.8 346.7,125.2 V140 Z"/><path class="bar-ctx" d="M349.3,140 V124.9 Q349.3,123.5 350.7,123.5 H351.3 Q352.7,123.5 352.7,124.9 V140 Z"/><path class="bar-ctx" d="M355.3,140 V119.8 Q355.3,118.4 356.7,118.4 H357.3 Q358.7,118.4 358.7,119.8 V140 Z"/><path class="bar-ctx" d="M361.3,140 V124.1 Q361.3,122.7 362.7,122.7 H363.3 Q364.7,122.7 364.7,124.1 V140 Z"/><path class="bar-ctx" d="M367.3,140 V130 Q367.3,128.6 368.7,128.6 H369.3 Q370.7,128.6 370.7,130 V140 Z"/><path class="bar-ctx" d="M373.3,140 V135.9 Q373.3,134.5 374.7,134.5 H375.3 Q376.7,134.5 376.7,135.9 V140 Z"/><path class="bar-ctx" d="M379.3,140 V126.5 Q379.3,125.1 380.7,125.1 H381.3 Q382.7,125.1 382.7,126.5 V140 Z"/><text x="24" y="16">weighted Kolmogorov–Smirnov statistic</text><text x="384" y="162" text-anchor="end">variables</text></svg></div>
 <ul class="fig-key">
-<li><span class="key key-line"></span>treatment A</li>
-<li><span class="key key-line key-ctx"></span>treatment B</li>
+<li><span class="key key-bar"></span>active variables</li>
+<li><span class="key key-bar key-ctx"></span>inactive variables</li>
 </ul>
 </figure>
 <p>Model-free methods for individualized treatment decisions in precision medicine.</p>

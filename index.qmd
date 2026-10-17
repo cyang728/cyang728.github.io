@@ -33,17 +33,6 @@ toc: false
 
 <svg class="axis" viewbox="0 0 1180 26" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <line x1="0" y1="24" x2="1180" y2="24" stroke="currentColor" stroke-width="1"></line>
-<g stroke="currentColor" stroke-width="1.5">
-<line x1="14" y1="24" x2="14" y2="8"></line><line x1="46" y1="24" x2="46" y2="16"></line>
-<line x1="93" y1="24" x2="93" y2="4"></line><line x1="128" y1="24" x2="128" y2="14"></line>
-<line x1="205" y1="24" x2="205" y2="10"></line><line x1="236" y1="24" x2="236" y2="18"></line>
-<line x1="331" y1="24" x2="331" y2="6"></line><line x1="392" y1="24" x2="392" y2="15"></line>
-<line x1="470" y1="24" x2="470" y2="9"></line><line x1="592" y1="24" x2="592" y2="3"></line>
-<line x1="631" y1="24" x2="631" y2="17"></line><line x1="704" y1="24" x2="704" y2="11"></line>
-<line x1="815" y1="24" x2="815" y2="7"></line><line x1="858" y1="24" x2="858" y2="16"></line>
-<line x1="946" y1="24" x2="946" y2="5"></line><line x1="1032" y1="24" x2="1032" y2="13"></line>
-<line x1="1067" y1="24" x2="1067" y2="19"></line><line x1="1150" y1="24" x2="1150" y2="8"></line>
-</g>
 </svg>
 
 </div></section>

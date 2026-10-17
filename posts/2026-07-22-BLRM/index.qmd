@@ -1,6 +1,6 @@
 ---
 title: "The Bayesian Logistic Regression Model (BLRM) for Phase I Dose-Finding"
-author: "Cheng-Han Yang"
+author-meta: "Cheng-Han Yang"
 date: "2026-07-22"
 categories: [Clinical Trials, Bayesian Methods, Dose-Finding, Tutorial]
 image: "blrm_intervals.png"
