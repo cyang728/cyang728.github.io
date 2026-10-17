@@ -561,13 +561,12 @@ main.content, .quarto-title-block + *, #quarto-content .content {
 }
 .fig-plot .panel { font-weight: 600; fill: var(--ink); }
 .fig-plot .tick { font-variant-numeric: tabular-nums; }
-.fig-plot .axis, .fig-plot .drop, .fig-plot .bracket {
+.fig-plot .axis, .fig-plot .drop {
   fill: none;
+  stroke: #aab3bd;
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
-.fig-plot .axis, .fig-plot .drop { stroke: #aab3bd; }
-.fig-plot .bracket { stroke: var(--faint); }
 .fig-plot .ctx, .fig-plot .em {
   fill: none;
   stroke-width: 2;
@@ -578,6 +577,8 @@ main.content, .quarto-title-block + *, #quarto-content .content {
 .fig-plot .ctx { stroke: #7d8794; }
 .fig-plot .em { stroke: var(--accent); }
 .fig-plot .wash { fill: var(--accent); fill-opacity: .12; }
+.fig-plot .sq { fill: #7d8794; }
+.fig-plot .diamond { fill: var(--accent); }
 /* markers: filled, with a 2px surface ring painted under the fill */
 .fig-plot .dot, .fig-plot .dot-ctx {
   stroke: #fff;
@@ -627,13 +628,15 @@ main.content, .quarto-title-block + *, #quarto-content .content {
   background: var(--accent);
 }
 .key-line.key-ctx::before { background: #7d8794; }
-.key-band { background: color-mix(in srgb, var(--accent) 12%, transparent); border-radius: 3px; }
 .key-otd { background: color-mix(in srgb, var(--accent) 12%, transparent); border-radius: 4px; }
 .key-otd::before {
   left: 5px; top: 2px; width: 10px; height: 10px;
   border-radius: 50%;
   background: var(--accent);
 }
+.key-sq::before, .key-diamond::before { left: 5px; top: 2px; width: 10px; height: 10px; }
+.key-sq::before { background: #7d8794; }
+.key-diamond::before { background: var(--accent); transform: rotate(45deg) scale(.86); }
 
 @media (max-width: 820px) {
   .research-grid { grid-template-columns: 1fr; }

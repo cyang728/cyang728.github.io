@@ -56,7 +56,7 @@ toc: false
 
 <div class="prose">
 <h2 class="kicker">About</h2>
-<p>I am an Associate Research Scientist (Research Faculty) in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at the <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr. Bhramar Mukherjee</a>. My work bridges <span class="hl-ehr">EHR-derived real-world evidence</span> and <span class="hl-dose">early-phase drug development</span>, with methodological contributions in causal inference, survival and longitudinal data analysis, covariate adjustment, and Bayesian dose optimization.</p>
+<p>I am an Associate Research Scientist (Research Faculty) in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at the <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr. Bhramar Mukherjee</a>. My research interests lie in <span class="hl-ehr">methodology development for electronic health record (EHR) data</span>, <span class="hl-dose">early-phase clinical trial design</span>, causal inference, and survival analysis.</p>
 <p>My first-author methodology has appeared in <em>Biometrika</em>, the <em>Annals of Applied Statistics</em>, and <em>Statistics in Medicine</em>, with related work revised and resubmitted at the <em>Journal of the American Statistical Association</em> and <em>Biometrics</em>. My current EHR research spans <em>All of Us</em>, the UK Biobank, Yale New Haven Health, the Michigan Genomics Initiative, and Epic Cosmos.</p>
 </div>
 
@@ -89,7 +89,8 @@ toc: false
 <div class="rail-block">
 <div class="rail-h">At a glance</div>
 <div class="fact"><span class="k">Position</span><span class="v">Associate Research Scientist (Research Faculty)<span class="sub">Yale School of Public Health</span></span></div>
-<div class="fact"><span class="k">Ph.D.</span><span class="v">Biostatistics &amp; Data Science, 2025<span class="sub">UTHealth Houston (MD Anderson)</span></span></div>
+<div class="fact"><span class="k">Ph.D.</span><span class="v">Biostatistics &amp; Data Science, 2025<span class="sub">UTHealth Houston (MD Anderson)</span><span class="sub">Advisor: Ruitao Lin</span></span></div>
+<div class="fact"><span class="k">M.S.</span><span class="v">Statistics, 2017<span class="sub">National Tsing Hua University</span><span class="sub">Advisor: Yu-Jen Cheng</span></span></div>
 <div class="fact"><span class="k">Based in</span><span class="v">New Haven, CT</span></div>
 </div>
 

@@ -6,6 +6,7 @@ listing:
   type: default
   categories: true
   feed: true
+  fields: [image, date, title, subtitle, categories, description]
 ---
 
-I write about biostatistics methodology, R programming, and academic life. My goal is to make statistical concepts accessible and share practical insights from my research experience.
+This blog covers biostatistics methodology, R programming, and academic life. My goal is to make statistical concepts accessible and share practical insights from my research experience.

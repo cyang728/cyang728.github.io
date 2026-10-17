@@ -63,7 +63,7 @@ toc: false
 <div class="pub-item"><div class="n">7</div><div class="body">
 <div class="ttl">Assessing statistical practices of existing AI models for lung cancer detection, prognosis, and risk prediction: a cross-sectional meta-research study</div>
 <div class="auth">Y. Hou, T. Ward, <span class="me">C-H. Yang</span>, E. Jernigan, G. Caturegli, D. Boffa, B. Mukherjee</div>
-<div class="src"><em>NEJM AI</em> <span class="tag">Accepted</span> · 2026 · medRxiv 2025.12.23.25342849</div>
+<div class="src"><em>New England Journal of Medicine Artificial Intelligence</em> <span class="tag">Accepted</span> · 2026 · medRxiv 2025.12.23.25342849</div>
 <div class="links"><a href="https://doi.org/10.64898/2025.12.23.25342849v1">medRxiv ↗</a></div>
 </div></div>
 

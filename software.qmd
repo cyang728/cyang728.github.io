@@ -4,7 +4,7 @@ toc: false
 ---
 
 ```{=html}
-<p>I develop open-source R packages to make statistical methods accessible to applied researchers. All packages are available on GitHub.</p>
+<p>We develop open-source R packages to make statistical methods accessible to applied researchers. All packages are available on GitHub.</p>
 <section id="cimehr" class="level2">
 <h2 class="anchored" data-anchor-id="cimehr">CIMEHR</h2>
 <p><strong>Gaussian Clinically Informative Visiting and Observation Processes in EHR Data</strong></p>
