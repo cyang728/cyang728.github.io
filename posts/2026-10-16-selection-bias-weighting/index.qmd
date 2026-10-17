@@ -3,6 +3,7 @@ title: "Selection Bias and Weighting: From a Trial to a Target Population"
 author: "Cheng-Han Yang"
 date: "2026-10-16"
 categories: [Causal Inference, Selection Bias, Generalizability, Weighting, Tutorial]
+image: "internal_external_validity.png"
 description: "An intuitive and mathematical guide to internal and external validity, generalizability, transportability, Bayes' rule, normalized IPW, entropy balancing, and calibration weights."
 format:
   html:

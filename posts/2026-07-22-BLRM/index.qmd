@@ -147,7 +147,7 @@ Now apply the rule.
 
 This example illustrates two points. First, dose 100 can be deemed inadmissible even though it has not yet been administered, because EWOC is based on the posterior dose–toxicity curve rather than on dose-specific observed counts alone. Second, admissibility is reassessed after every cohort, so a dose that is inadmissible at one interim analysis may become admissible later.
 
-![The interim analysis after the first cohort (0 DLTs of 3 at dose 10). Left: the posterior dose–toxicity curve, with the target interval shaded and a 95% credible band. Right: the three posterior interval probabilities at each dose, the EWOC feasibility bound $\eta = 0.25$, and the admissible dose level that maximizes the target probability ($j^\ast$).](blrm_intervals.png)
+![The interim analysis after the first cohort (0 DLTs of 3 at dose 10). Left: the posterior dose–toxicity curve, with the target interval shaded and a 95% credible band. Right: the three posterior interval probabilities at each dose, the EWOC feasibility bound $\eta = 0.25$, and the admissible dose level that maximizes the target probability ($j^\ast$).](blrm_intervals.png){fig-alt="Two panels. Left: the posterior dose-toxicity curve across the seven doses, with a 95% credible band and the target toxicity interval shaded. Right: bars for the posterior underdosing, target, and overdosing probabilities at each dose, with a horizontal line at the EWOC bound of 0.25."}
 
 ## Benefits and drawbacks
 
