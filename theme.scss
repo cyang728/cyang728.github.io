@@ -1,0 +1,605 @@
+/*-- scss:defaults --*/
+// ============================================================
+// Cheng-Han Yang — Modern Scientific Editorial theme
+// Layered on Quarto's cosmo theme. One accent (Yale Blue), warm neutrals.
+//   Newsreader     headlines, article reading text, publication titles
+//   Public Sans    interface, secondary text, captions, tables
+//   IBM Plex Mono  labels, dates and years, status tags, code
+// ============================================================
+
+$web-font-path: false; // cosmo would otherwise import Source Sans Pro
+
+$primary: #00356b;
+$body-bg: #ffffff;
+$body-color: #14181f;
+$link-color: #00356b;
+$link-hover-color: #0f4d92;
+$link-decoration: none;
+
+$font-family-sans-serif: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$font-family-monospace: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+$headings-font-family: "Newsreader", "Iowan Old Style", Georgia, serif;
+$headings-font-weight: 500;
+$headings-color: #14181f;
+$font-size-base: 1.0625rem;
+$line-height-base: 1.6;
+
+$navbar-bg: #ffffff;
+$navbar-fg: #475060;
+$navbar-hl: #14181f;
+$footer-bg: #ffffff;
+$footer-fg: #475060;
+
+$border-color: #e4e0d6;
+$table-border-color: #e4e0d6;
+$code-color: #14181f;
+$code-bg: #f6f4ee;
+$code-block-bg: #f6f4ee;
+
+$callout-color-note: #00356b;
+$callout-color-tip: #2f6b4f;
+$callout-color-important: #8a3a48;
+$callout-color-warning: #7a5418;
+$callout-color-caution: #7a5418;
+
+/*-- scss:rules --*/
+
+// ---- Tokens --------------------------------------------------
+// Every text colour clears WCAG AA (>= 5.19:1) on both paper and paper-2.
+:root {
+  --paper: #ffffff;
+  --paper-2: #f6f4ee;
+  --ink: #14181f;
+  --ink-2: #475060;
+  --ink-3: #5f6774;
+  --rule: #e4e0d6;
+  --accent: #00356b;
+  --accent-hover: #0f4d92;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --container: 1200px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --page-max: calc(var(--container) + 2 * var(--gutter));
+}
+
+// ---- Base ----------------------------------------------------
+body {
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { letter-spacing: -0.012em; text-wrap: balance; }
+::selection { background: rgba(0, 53, 107, 0.14); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+// Prose links are underlined: link blue is only 1.46:1 against body ink,
+// so colour alone cannot mark a link (WCAG 1.4.1). Zero specificity, so
+// components can restyle their own links without !important.
+:where(#quarto-document-content) :where(p, li, dd, td, figcaption, .callout-body) a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: rgba(0, 53, 107, 0.4);
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+  &:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+}
+:where(#quarto-document-content) :is(h1, h2, h3, h4) a { text-decoration: none; }
+
+// The metadata voice: labels, dates, years, status. IBM Plex Mono.
+.label, .split-side h2, .news h2, .area-body h3.label {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.mono-date {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+// ---- Navbar --------------------------------------------------
+.navbar {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: none;
+  padding-block: 0.6rem;
+}
+.navbar > .navbar-container {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.navbar-brand .navbar-title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.navbar .nav-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  transition: color 0.15s ease, box-shadow 0.15s ease;
+  &:hover { color: var(--ink); }
+  &.active { color: var(--ink); box-shadow: inset 0 -2px 0 var(--accent); }
+}
+
+// ---- Footer --------------------------------------------------
+footer.footer { border-top: 1px solid var(--rule); background: var(--paper); }
+footer.footer .nav-footer {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: 1.75rem var(--gutter) 2.25rem;
+  align-items: baseline;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  p { margin: 0; }
+  a { color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.2em; }
+  a:hover { color: var(--accent); text-decoration-color: currentColor; }
+}
+.nav-footer-left { text-align: left; }
+.nav-footer-right { text-align: right; }
+
+// ============================================================
+// LAYOUT for custom pages (home, research, publications, software,
+// teaching, blog). custom-main.lua supplies the <main> element.
+// ============================================================
+.page-layout-custom #quarto-document-content {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.page-layout-custom main > p { max-width: 68ch; }
+
+// full-bleed background band without 100vw (no horizontal scrollbar)
+.band {
+  background: var(--paper-2);
+  box-shadow: 0 0 0 100vmax var(--paper-2);
+  clip-path: inset(0 -100vmax);
+}
+
+// Page head: title + standfirst
+.page-head {
+  padding-block: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.25rem);
+  h1 { margin: 0; font-size: clamp(2.4rem, 4.6vw, 3.5rem); font-weight: 500; letter-spacing: -0.022em; line-height: 1.05; }
+  p { max-width: 50ch; margin: 0.8rem 0 0; font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.4; color: var(--ink-2); }
+}
+
+// Editorial split: label column + content column, hairline above
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  column-gap: 2.5rem;
+  padding-block: clamp(2.25rem, 4.5vw, 3.5rem);
+  border-top: 1px solid var(--rule);
+  &.band { border-top: 0; }
+  > .split-side { padding-top: 0.2rem; }
+  > .split-side p { margin: 0.75rem 0 0; font-size: 0.875rem; }
+}
+.more { font-weight: 500; }
+.more::after { content: " →"; }
+
+// Restrained research illustrations (images/research/*.svg)
+.illus { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+
+// ============================================================
+// HOME
+// ============================================================
+.masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  column-gap: 2.5rem;
+  align-items: end;
+  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
+  h1 {
+    margin: 0.6rem 0 0;
+    font-size: clamp(2.75rem, 6vw, 4.6rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+  }
+}
+.masthead-dek p {
+  max-width: 24ch;
+  margin: 1.1rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.4vw, 1.95rem);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--ink-2);
+  em { color: var(--accent); }
+}
+.masthead-role p { margin: 1.25rem 0 0; font-size: 1rem; color: var(--ink-2); }
+.masthead-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.4rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  li { margin: 0; }
+  a { font-weight: 500; }
+}
+.masthead-portrait {
+  p { margin: 0; }
+  img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-left: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+}
+
+// Signature motif: a rug plot of irregular visit times in an EHR.
+// Short marks are visits; tall marks are visits with a measurement.
+.rug { display: block; width: 100%; height: 34px; margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+.rug line { vector-effect: non-scaling-stroke; }
+.rug .axis { stroke: var(--ink); stroke-width: 1; }
+.rug .visit { stroke: #b9b3a6; stroke-width: 1.5; }
+.rug .obs { stroke: var(--accent); stroke-width: 1.5; }
+.rug-caption { margin: 0.45rem 0 0; font-size: 0.75rem; color: var(--ink-3); }
+
+// Research threads: figure, number, title, one line
+.threads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem 2.5rem;
+}
+.thread {
+  border-top: 1px solid var(--ink);
+  padding-top: 1rem;
+  .illus { max-width: 300px; margin-bottom: 0.9rem; }
+  p { margin: 0; }
+  h3 { margin: 0.3rem 0 0.4rem; font-size: 1.3rem; font-weight: 500; line-height: 1.2; }
+  h3 a { color: var(--ink); background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size 0.2s ease, color 0.15s ease; }
+  h3 a:hover { color: var(--accent); background-size: 100% 1px; }
+  .thread-text p { font-size: 0.975rem; color: var(--ink-2); }
+}
+.thread-num { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; }
+
+// About + facts + news
+.about p { max-width: 64ch; }
+.facts { margin-top: 1.1rem; }
+.facts .facts-h { display: block; margin-bottom: 0.6rem; font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+.facts p { margin: 0 0 0.85rem; line-height: 1.4; }
+.facts .k { display: block; font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.facts .v { display: block; margin-top: 0.1rem; font-size: 0.9375rem; color: var(--ink); }
+.news ul { list-style: none; margin: 0; padding: 0; }
+.news li {
+  display: grid;
+  grid-template-columns: 5.25rem minmax(0, 1fr);
+  gap: 1rem;
+  margin: 0;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.975rem;
+  &:first-child { border-top: 0; padding-top: 0; }
+}
+.news .date { @extend .mono-date; padding-top: 0.15rem; }
+.about-news { grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr); }
+.about-news > .news { padding-left: 2rem; border-left: 1px solid var(--rule); }
+.about-news > .news h2 { margin-bottom: 0.9rem; }
+
+// ============================================================
+// LISTS: publications, talks, posts
+// ============================================================
+.publist { list-style: none; margin: 0; padding: 0; }
+.pub {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  column-gap: 1.25rem;
+  margin: 0;
+  padding: 1.05rem 0;
+  border-top: 1px solid var(--rule);
+  &:first-child { border-top: 0; padding-top: 0.2rem; }
+}
+.pub-year { @extend .mono-date; padding-top: 0.25rem; }
+.pub-title { margin: 0; font-family: var(--serif); font-size: 1.1875rem; font-weight: 500; line-height: 1.3; color: var(--ink); }
+.pub-authors { margin: 0.3rem 0 0; font-size: 0.9375rem; color: var(--ink-2); }
+.pub-authors .me { font-weight: 600; color: var(--ink); }
+.pub-venue { margin: 0.1rem 0 0; font-size: 0.9375rem; color: var(--ink-2); }
+.pub-venue em { color: var(--ink); }
+.pub-status, .talk-kind {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.pub-status { margin-left: 0.4rem; }
+.pub-venue > .pub-status:first-child { margin-left: 0; }
+.pub-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; margin: 0.35rem 0 0; font-size: 0.875rem; font-weight: 500; }
+.pub-links a::after { content: " ↗"; font-size: 0.8em; }
+.pub-note { font-size: 0.8125rem; color: var(--ink-3); }
+
+.talks ul { list-style: none; margin: 0; padding: 0; }
+.talks li {
+  display: grid;
+  grid-template-columns: 5.25rem minmax(0, 1fr);
+  column-gap: 1.25rem;
+  margin: 0;
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--rule);
+  &:first-child { border-top: 0; padding-top: 0.2rem; }
+}
+.talks .when { @extend .mono-date; padding-top: 0.2rem; }
+.talk-kind { display: block; }
+.talk-title { display: block; margin-top: 0.15rem; font-family: var(--serif); font-size: 1.125rem; line-height: 1.3; }
+.talk-where { display: block; margin-top: 0.15rem; font-size: 0.9375rem; color: var(--ink-2); }
+
+.postlist { list-style: none; margin: 0; padding: 0; }
+.post-item {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr) auto;
+  column-gap: 1.5rem;
+  margin: 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--rule);
+  &:first-child { border-top: 0; padding-top: 0.2rem; }
+}
+.post-date { @extend .mono-date; padding-top: 0.3rem; }
+.post-title { margin: 0; padding: 0; border: 0; font-family: var(--serif); font-size: 1.4rem; font-weight: 500; line-height: 1.22; }
+.post-title a { color: var(--ink); }
+.post-title a:hover { color: var(--accent); }
+// titles in lists are already links: no hover anchor icon beside them
+.post-title .anchorjs-link, .thread h3 .anchorjs-link { display: none; }
+.post-dek { margin: 0.35rem 0 0; max-width: 62ch; font-family: var(--serif); font-size: 1.0625rem; line-height: 1.45; color: var(--ink-2); }
+.post-meta { margin: 0.5rem 0 0; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.02em; color: var(--ink-3); }
+.post-thumb {
+  width: 180px;
+  img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: contain; background: var(--paper); border: 1px solid var(--rule); border-radius: 2px; }
+}
+
+// Blog category filter (drives Quarto's own listing filter)
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.75rem;
+  button {
+    margin: 0;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+    &:hover { border-color: var(--accent); color: var(--accent); }
+    &.active, &[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #fff; }
+  }
+}
+.listing-no-matching { color: var(--ink-3); }
+
+// ============================================================
+// RESEARCH
+// ============================================================
+.area {
+  > .split-side .illus { max-width: 300px; margin-top: 0.9rem; }
+  .area-num { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--accent); }
+}
+.area-body {
+  h2 { margin: 0 0 0.9rem; font-size: clamp(1.6rem, 2.6vw, 2.05rem); font-weight: 500; line-height: 1.15; border: 0; padding: 0; }
+  > p, > ul { max-width: 68ch; }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: 0.45rem; }
+  h3.label { margin: 2rem 0 0.85rem; }
+}
+
+// ============================================================
+// SOFTWARE
+// ============================================================
+.pkg-index ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; }
+.pkg-index li { margin: 0; padding: 0.85rem 0; border-top: 1px solid var(--rule); }
+.pkg-index a { font-family: var(--mono); font-size: 1rem; font-weight: 500; }
+.pkg-index .pkg-desc { display: block; margin-top: 0.15rem; font-size: 0.9375rem; color: var(--ink-2); }
+.pkg {
+  > .split-side h2 { font-size: 1.35rem; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--ink); }
+  > .split-side > p { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+  .repo p { margin: 0.9rem 0 0; font-size: 0.9375rem; font-weight: 500; }
+  .repo a::after { content: " ↗"; font-size: 0.8em; }
+}
+.pkg-body {
+  > p:first-child { margin: 0 0 0.75rem; font-family: var(--serif); font-size: 1.3rem; line-height: 1.3; color: var(--ink); }
+  > p { max-width: 68ch; }
+  h3 { margin: 1.75rem 0 0.6rem; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+  ul { columns: 2; column-gap: 2.5rem; padding-left: 1.2rem; }
+  li { break-inside: avoid; margin-bottom: 0.35rem; }
+  div.sourceCode { max-width: 68ch; }
+}
+
+// ============================================================
+// TEACHING
+// ============================================================
+.entry { padding-bottom: 1.75rem; }
+.entry + .entry { padding-top: 1.75rem; border-top: 1px solid var(--rule); }
+.entry h3 { margin: 0 0 0.35rem; font-size: 1.35rem; font-weight: 500; }
+.entry h3 + p { font-size: 0.875rem; color: var(--ink-2); }
+.entry .role { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.entry > p { margin: 1rem 0 0.4rem; }
+.entry > p:first-of-type { margin-top: 0.2rem; }
+.entry ul { padding-left: 1.2rem; margin-bottom: 0.25rem; }
+.entry li { margin-bottom: 0.35rem; }
+.entry li ul { margin-top: 0.2rem; }
+.entry li li { font-size: 0.9375rem; color: var(--ink-2); list-style: none; margin-left: -1.2rem; }
+.interests-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; margin-top: 1rem; }
+.interests-cols ul { padding-left: 1.2rem; }
+
+// ============================================================
+// ARTICLE (blog posts): Quarto's native grid, serif reading text,
+// TOC in the margin. body-classes: article (posts/_metadata.yml)
+// ============================================================
+.article {
+  #title-block-header { margin-block: clamp(1.5rem, 4vw, 3rem) 2.25rem; }
+  .quarto-title { display: flex; flex-direction: column; }
+  .quarto-title .title { margin: 0; font-size: clamp(2rem, 3.7vw, 2.85rem); font-weight: 500; line-height: 1.07; letter-spacing: -0.022em; }
+  .quarto-title .quarto-categories { order: -1; display: flex; flex-wrap: wrap; margin: 0 0 1rem; padding: 0; }
+  .quarto-title .quarto-categories .quarto-category {
+    margin: 0; padding: 0; border: 0; background: none; opacity: 1;
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    a, & { color: var(--accent); }
+  }
+  .quarto-title .quarto-categories .quarto-category + .quarto-category::before { content: "·"; margin: 0 0.55em; color: var(--ink-3); }
+  .description { margin: 1rem 0 0; font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.42rem); line-height: 1.42; color: var(--ink-2); p { margin: 0; } }
+  #title-block-header.quarto-title-block.default .quarto-title-meta {
+    display: flex; flex-wrap: wrap; gap: 0 1.25rem;
+    margin-top: 1.5rem; padding-top: 0.85rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3);
+  }
+  .quarto-title-meta-heading { display: none; }
+  .quarto-title-meta-contents p { margin: 0; color: var(--ink-2); }
+
+  // reading text
+  main.content > section :is(p, li),
+  main.content > :is(ul, ol) > li,
+  main.content > p {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    line-height: 1.62;
+    overflow-wrap: break-word;
+  }
+  main.content h2 { margin: 3rem 0 1rem; font-size: 1.85rem; font-weight: 500; line-height: 1.15; border: 0; padding: 0; }
+  main.content h3 { margin: 2.25rem 0 0.75rem; font-family: var(--sans); font-size: 1.0625rem; font-weight: 700; letter-spacing: 0; }
+  main.content strong { font-weight: 600; }
+  main.content .anchorjs-link { color: var(--ink-3); }
+
+  // figures: captions in the interface voice; images open full size (lightbox)
+  figure { margin-block: 2rem; }
+  figure img { cursor: zoom-in; }
+  figcaption, .figure-caption { margin-top: 0.65rem; font-family: var(--sans); font-size: 0.875rem; line-height: 1.5; color: var(--ink-2); }
+
+  // references at the end of a post: compact, hanging indent
+  #references ~ p, #references + ul li, section#references li, section#references p {
+    font-family: var(--sans); font-size: 0.9375rem; line-height: 1.5;
+  }
+  section#references p { padding-left: 1.5rem; text-indent: -1.5rem; }
+
+  // TOC in the right margin (desktop) ...
+  #TOC {
+    font-family: var(--sans);
+    #toc-title { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.75rem; }
+    .nav-link { font-size: 0.8125rem; line-height: 1.35; color: var(--ink-3); padding: 0.3rem 0 0.3rem 0.8rem; border-left: 1px solid var(--rule); transition: color 0.15s ease; }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link.active { color: var(--ink); border-left: 2px solid var(--accent); padding-left: calc(0.8rem - 1px); }
+  }
+  // ... and at the top of the article on smaller screens
+  #TOC-body {
+    margin: 0 0 2.5rem; padding: 1rem 1.15rem; background: var(--paper-2); font-family: var(--sans);
+    a { text-decoration: none; }
+    #toc-title, h2 { margin: 0 0 0.5rem; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+    ul { margin: 0; padding-left: 1.1rem; }
+    li { margin: 0.2rem 0; font-size: 0.9375rem; line-height: 1.4; }
+  }
+}
+.post-end { margin: 3.5rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9375rem; font-weight: 500; }
+
+// Wide tables and equations scroll inside the column, never widening the
+// page. Edge shadows appear only on a side that has more content to reveal
+// (the paper-coloured covers scroll with the content; the shadows do not).
+@mixin scroll-cue {
+  background:
+    linear-gradient(to right, var(--paper) 30%, rgba(255, 255, 255, 0)) left center / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--paper) 30%, rgba(255, 255, 255, 0)) right center / 2.5rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgba(20, 24, 31, 0.16), transparent) left center / 0.8rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(20, 24, 31, 0.16), transparent) right center / 0.8rem 100% no-repeat scroll;
+}
+
+// Tables: wrapped in a labelled scroll region by table-scroll.lua
+.table-scroll { overflow-x: auto; margin: 1.75rem 0; @include scroll-cue; }
+.table-scroll > table { margin: 0; --bs-table-bg: transparent; }
+#quarto-document-content table {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums lining-nums;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  thead th { font-size: 0.8125rem; font-weight: 600; color: var(--ink-2); border-bottom: 1px solid var(--ink); }
+  td, th { padding: 0.55rem 0.75rem; }
+}
+
+// Display equations scroll inside the column instead of widening the page
+mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; padding-block: 0.15rem; @include scroll-cue; }
+
+// Callouts: one editorial voice — a rule and a label, no tinted icon boxes.
+div.callout.callout-style-default {
+  margin: 2rem 0;
+  border: 0;
+  border-left: 3px solid var(--callout-color, var(--accent));
+  border-radius: 0;
+  background: var(--paper-2);
+  > div.callout-header { opacity: 1; padding: 0.9rem 1.15rem 0; border: 0; background: transparent; } // Quarto dims titles to 85%
+  .callout-icon-container { display: none; }
+  .callout-title-container { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--callout-color, var(--accent)); }
+  .callout-body-container { padding: 0.35rem 1.15rem 0.95rem; }
+  .callout-body-container p { font-size: 1.0625rem; }
+}
+div.callout-note { --callout-color: #00356b; }
+div.callout-tip { --callout-color: #2f6b4f; }
+div.callout-important { --callout-color: #8a3a48; }
+div.callout-warning, div.callout-caution { --callout-color: #7a5418; }
+
+// Code
+div.sourceCode, pre.sourceCode { border: 1px solid var(--rule); border-radius: 3px; }
+pre code, code { font-family: var(--mono); }
+:not(pre) > code { font-size: 0.86em; padding: 0.1rem 0.35rem; border-radius: 3px; }
+
+// ============================================================
+// RESPONSIVE
+// ============================================================
+@media (max-width: 991.98px) {
+  .split, .about-news { grid-template-columns: minmax(0, 1fr); row-gap: 1.1rem; }
+  .about-news > .news { padding-left: 0; border-left: 0; }
+  .masthead { grid-template-columns: minmax(0, 1fr) 200px; }
+  .area > .split-side .illus { max-width: 360px; }
+}
+// The margin TOC shows from 768px up; below that Quarto hides every TOC,
+// so long tutorials keep the in-body copy there instead.
+@media (min-width: 768px) {
+  .article #TOC-body { display: none; }
+}
+@media (max-width: 767.98px) {
+  .article #TOC-body { display: block; }
+  .post-item { grid-template-columns: minmax(0, 1fr); row-gap: 0.25rem; }
+  .post-thumb { display: none; }
+  .pkg-index ul, .interests-cols { grid-template-columns: minmax(0, 1fr); }
+  .pkg-body ul { columns: 1; }
+}
+@media (max-width: 575.98px) {
+  .masthead { grid-template-columns: minmax(0, 1fr); }
+  .masthead-portrait { order: -1; }
+  .masthead-portrait img { max-width: 132px; margin-left: 0; }
+  .threads { grid-template-columns: minmax(0, 1fr); }
+  .thread .illus { max-width: 260px; }
+  .pub, .talks li { grid-template-columns: minmax(0, 1fr); row-gap: 0.15rem; }
+  .news li { grid-template-columns: 4.75rem minmax(0, 1fr); }
+  footer.footer .nav-footer { flex-direction: column; gap: 0.75rem; }
+  .nav-footer-right { text-align: left; }
+  .article main.content > section :is(p, li), .article main.content > p { font-size: 1.125rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}

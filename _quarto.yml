@@ -1,10 +1,18 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - profile.jpg   # original portrait stays published at its old URL
+  post-render: _scripts/blog-only-listings.ts
 
 website:
   title: "Cheng-Han Yang"
+  description: "Cheng-Han Yang is an Associate Research Scientist (Research Faculty) in Biostatistics at the Yale School of Public Health, developing statistical methods for electronic health records and clinical trials."
   site-url: https://cyang728.github.io
+  favicon: images/favicon.svg
+  image: images/social-card.png
+  open-graph: true
+  twitter-card: true
   navbar:
     background: light
     foreground: dark
@@ -21,17 +29,26 @@ website:
       - href: blog.qmd
         text: Blog
   page-footer:
-    left: "© 2026 Cheng-Han Yang"
-    right: "Built with Quarto"
+    left: "© 2026 Cheng-Han Yang · Department of Biostatistics, Yale School of Public Health"
+    right: "[Email](mailto:cheng-han.yang@yale.edu) · [CV](/files/ChengHan_Yang_CV.pdf) · [Google Scholar](https://scholar.google.com/citations?user=SOJu3GAAAAAJ&hl=zh-TW) · [GitHub](https://github.com/cyang728) · [ORCID](https://orcid.org/0000-0002-4161-3140) · Built with Quarto"
+
+filters:
+  - _filters/table-scroll.lua
+  - _filters/custom-main.lua
+  - _filters/post-end.lua
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: [cosmo, theme.scss]
     toc: false
-    body-classes: fullcontent
     grid:
-      body-width: 1180px
+      body-width: 640px
+      margin-width: 250px
+      gutter-width: 1.25rem
     include-in-header:
       text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,20,400..500&family=Public+Sans:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
         <script data-goatcounter="https://cyang728.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    include-after-body: _includes/a11y.html

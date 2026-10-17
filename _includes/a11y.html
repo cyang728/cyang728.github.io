@@ -1,0 +1,20 @@
+<script>
+// Accessible names for Quarto's built-in widgets: the navbar and the two
+// tables of contents are landmarks that need distinct labels, and the
+// search control renders as an unlabelled button/combobox.
+(function () {
+  function label(el, text) { if (el && !el.getAttribute('aria-label')) el.setAttribute('aria-label', text); }
+  function labelSearch() {
+    label(document.querySelector('.aa-DetachedSearchButton'), 'Search');
+    label(document.querySelector('.aa-Autocomplete'), 'Search');
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    label(document.querySelector('#quarto-header nav.navbar'), 'Site');
+    label(document.getElementById('TOC'), 'Contents');
+    label(document.getElementById('TOC-body'), 'Contents (top of article)');
+    labelSearch();
+    var search = document.getElementById('quarto-search');
+    if (search) new MutationObserver(labelSearch).observe(search, { childList: true, subtree: true });
+  });
+})();
+</script>
