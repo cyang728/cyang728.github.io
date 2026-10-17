@@ -13,7 +13,7 @@ toc: false
 <div class="hero-text">
 <div class="hero-eyebrow">Biostatistics · Yale School of Public Health</div>
 <h1 class="hero-name">Cheng-Han Yang</h1>
-<p class="hero-role">Associate Research Scientist (Research Faculty), Department of Biostatistics · Yale University</p>
+<p class="hero-role">Associate Research Scientist (Research&nbsp;Faculty)<br>Department of Biostatistics · Yale&nbsp;University</p>
 <p class="hero-lede">Statistical methods for <em>electronic health records</em> and <em>clinical trials</em>.</p>
 
 <div class="chips">
@@ -57,12 +57,12 @@ toc: false
 <p>Joint models that correct the biases from informative visiting and observation in large-scale EHR data.</p>
 </div>
 <div class="theme a2">
-<h3 class="anchored">Adaptive Dose-Finding Design</h3>
+<h3 class="anchored">Early-Phase Clinical Trial Design and Analysis</h3>
 <p>Seamless phase I–II designs that use biological mediators and survival endpoints to optimize dose.</p>
 </div>
 <div class="theme a3">
-<h3 class="anchored">Clinical Trial Methodology</h3>
-<p>Meta-analytic and covariate-adjusted methods that sharpen inference across early-phase trials.</p>
+<h3 class="anchored">Meta-Analysis</h3>
+<p>Meta-analytic methods that sharpen inference across early-phase trials.</p>
 </div>
 <div class="theme a4">
 <h3 class="anchored">Optimal Treatment Regime</h3>
