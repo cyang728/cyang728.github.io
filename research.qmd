@@ -1,107 +1,122 @@
 ---
-title: "Research"
-toc: false
+pagetitle: "Research"
+description: "My research develops statistical methodology for clinical trials and healthcare data, organized around four connected areas."
+hide-description: true
+page-layout: custom
+section-divs: false
+html-math-method: plain
+listing:
+  - id: refs-ehr
+    contents: data/publications.yml
+    template: _templates/pubs.ejs
+    include: {area: ehr}
+    sort: "area-rank"
+  - id: refs-dose
+    contents: data/publications.yml
+    template: _templates/pubs.ejs
+    include: {area: dose}
+    sort: "area-rank"
+  - id: refs-trials
+    contents: data/publications.yml
+    template: _templates/pubs.ejs
+    include: {area: trials}
+    sort: "area-rank"
+  - id: refs-otr
+    contents: data/publications.yml
+    template: _templates/pubs.ejs
+    include: {area: otr}
+    sort: "area-rank"
 ---
 
-```{=html}
-<p>My research develops statistical methodology for clinical trials and healthcare data, organized around four connected areas.</p>
-<div class="research-grid">
-<div class="research-section a1">
-<div class="area-head">
-<span class="area-num">01</span>
-</div>
-<section id="methods-for-electronic-health-records" class="level3">
-<h3 class="anchored" data-anchor-id="methods-for-electronic-health-records">Methods for Electronic Health Records</h3>
-<p>Statistical methods for large-scale EHR data, where <em>whether</em> a patient is seen and <em>what</em> gets measured are themselves informative about health.</p>
-<ul>
-<li><strong>Informative presence</strong> — whether a patient is observed at a given time depends on their underlying condition.</li>
-<li><strong>Informative observation</strong> — conditional on a visit, the decision to measure a biomarker is not random.</li>
-</ul>
-<p>I build joint models that account for these mechanisms so that biomarker trajectories and associations can be estimated without bias.</p>
-<div class="pub-ref">
-<p>
-<strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes. <em>Biometrics</em> (revised &amp; resubmitted).
-</p>
-<div class="links">
-<a href="https://arxiv.org/abs/2602.15374">arXiv ↗</a>
-</div>
-</div>
-<div class="pub-ref">
-<p>
-J. Du, <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). A joint modeling approach to handle informative visits and observations. <em>JASA</em> (revised &amp; resubmitted).
-</p>
-</div>
-</section>
-</div>
-<div class="research-section a2">
-<div class="area-head">
-<span class="area-num">02</span>
-</div>
-<section id="adaptive-dose-finding-design" class="level3">
-<h3 class="anchored" data-anchor-id="adaptive-dose-finding-design">Adaptive Dose-Finding Design</h3>
-<p>Seamless phase I–II designs for modern oncology that use biological mediators and survival endpoints to optimize dose for targeted therapies and immunotherapies.</p>
-<p>This includes the <strong>DEMO</strong> design — a three-stage framework for dose exploration, monitoring, and optimization that selects a dose maximizing restricted mean survival time — and an analysis of the relative conservativeness of the <strong>Bayesian logistic regression method</strong>, with a dose-switching rule that improves performance while maintaining safety.</p>
-<div class="pub-ref">
-<p>
-<strong>C-H. Yang</strong>, P.F. Thall, R. Lin. (2025). Dose exploration, monitoring, and optimization using biological and clinical outcomes. <em>Annals of Applied Statistics</em>, 19(4), 2599–2617.
-</p>
-<div class="links">
-<a href="https://doi.org/10.1214/25-AOAS2099">Paper ↗</a> <a href="https://github.com/ruitaolin/DEMO">Code ↗</a>
-</div>
-</div>
-<div class="pub-ref">
-<p>
-<strong>C-H. Yang</strong>, G. Cheng, R. Lin. (2024). On the relative conservativeness of the Bayesian logistic regression method in oncology dose-finding studies. <em>Pharmaceutical Statistics</em>, 23(4), 585–594.
-</p>
-<div class="links">
-<a href="https://doi.org/10.1002/pst.2364">Paper ↗</a>
-</div>
-</div>
-</section>
-</div>
-<div class="research-section a3">
-<div class="area-head">
-<span class="area-num">03</span>
-</div>
-<section id="clinical-trial-methodology" class="level3">
-<h3 class="anchored" data-anchor-id="clinical-trial-methodology">Clinical Trial Methodology</h3>
-<p>Meta-analytic and model-assisted methods that synthesize evidence and sharpen inference across early-phase trials.</p>
-<p><strong>REDOMA</strong> performs random-effects dose-optimization meta-analysis with spike-and-slab priors, allowing plateau or non-monotonic dose-efficacy curves across small studies. <strong>MCP-ModX</strong> adds covariate adjustment to the MCP-Mod framework through g-computation, giving valid and more precise dose-response inference even under model misspecification.</p>
-<div class="pub-ref">
-<p>
-<strong>C-H. Yang</strong>, E. Kwiatkowski, J.J. Lee, R. Lin. (2024). REDOMA: Bayesian random-effects dose-optimization meta-analysis using spike-and-slab priors. <em>Statistics in Medicine</em>, 43(18), 3484–3502.
-</p>
-<div class="links">
-<a href="https://doi.org/10.1002/sim.10107">Paper ↗</a>
-</div>
-</div>
-<div class="pub-ref">
-<p>
-<strong>C-H. Yang</strong>, R. Lin. MCP-ModX: covariate-adjusted MCP-Mod for dose-response analysis. <em>Working paper</em>.
-</p>
-<div class="links">
-<a href="https://github.com/cyang728/MCPModX">GitHub ↗</a>
-</div>
-</div>
-</section>
-</div>
-<div class="research-section a4">
-<div class="area-head">
-<span class="area-num">04</span>
-</div>
-<section id="optimal-treatment-regime" class="level3">
-<h3 class="anchored" data-anchor-id="optimal-treatment-regime">Optimal Treatment Regime</h3>
-<p>Model-free methods for individualized treatment decisions in precision medicine.</p>
-<p>I developed a <strong>variable screening</strong> method for optimal treatment regimes with high-dimensional survival data that requires no outcome model and no assumed form for the regime, stays valid for any prespecified subgroup, and lets flexible learners such as random forests and boosting be applied to the selected variables.</p>
-<div class="pub-ref">
-<p>
-<strong>C-H. Yang</strong>, Y-J. Cheng. (2024). A model-free variable screening method for optimal treatment regimes with high-dimensional survival data. <em>Biometrika</em>, 111(4), 1369–1386.
-</p>
-<div class="links">
-<a href="https://doi.org/10.1093/biomet/asae022">Paper ↗</a>
-</div>
-</div>
-</section>
-</div>
-</div>
-```
+::: {.page-head}
+# Research
+
+My research develops statistical methodology for clinical trials and healthcare data, organized around four connected areas.
+:::
+
+::: {.split .area}
+::: {.split-side}
+[01]{.area-num}
+
+![](images/research/ehr.svg){.illus fig-alt="Irregular clinic visits along a patient's timeline, with biomarker measurements clustered where latent health worsens"}
+:::
+
+::: {.area-body}
+## Methods for Electronic Health Records
+
+Statistical methods for large-scale EHR data, where *whether* a patient is seen and *what* gets measured are themselves informative about health.
+
+- **Informative presence** — whether a patient is observed at a given time depends on their underlying condition.
+- **Informative observation** — conditional on a visit, the decision to measure a biomarker is not random.
+
+I build joint models that account for these mechanisms so that biomarker trajectories and associations can be estimated without bias.
+
+### Key papers {.label}
+
+::: {#refs-ehr}
+:::
+:::
+:::
+
+::: {.split .area}
+::: {.split-side}
+[02]{.area-num}
+
+![](images/research/dose.svg){.illus fig-alt="A rising toxicity curve and a plateauing efficacy curve across five dose levels, with the target toxicity interval shaded and the selected dose marked"}
+:::
+
+::: {.area-body}
+## Adaptive Dose-Finding Design
+
+Seamless phase I–II designs for modern oncology that use biological mediators and survival endpoints to optimize dose for targeted therapies and immunotherapies.
+
+This includes the **DEMO** design — a three-stage framework for dose exploration, monitoring, and optimization that selects a dose maximizing restricted mean survival time — and an analysis of the relative conservativeness of the **Bayesian logistic regression method**, with a dose-switching rule that improves performance while maintaining safety.
+
+### Key papers {.label}
+
+::: {#refs-dose}
+:::
+:::
+:::
+
+::: {.split .area}
+::: {.split-side}
+[03]{.area-num}
+
+![](images/research/trials.svg){.illus fig-alt="A forest plot of five study estimates with confidence intervals and a narrower pooled estimate shown as a diamond"}
+:::
+
+::: {.area-body}
+## Clinical Trial Methodology
+
+Meta-analytic and model-assisted methods that synthesize evidence and sharpen inference across early-phase trials.
+
+**REDOMA** performs random-effects dose-optimization meta-analysis with spike-and-slab priors, allowing plateau or non-monotonic dose-efficacy curves across small studies. **MCP-ModX** adds covariate adjustment to the MCP-Mod framework through g-computation, giving valid and more precise dose-response inference even under model misspecification.
+
+### Key papers {.label}
+
+::: {#refs-trials}
+:::
+:::
+:::
+
+::: {.split .area}
+::: {.split-side}
+[04]{.area-num}
+
+![](images/research/otr.svg){.illus fig-alt="Bars showing screening statistics for many candidate covariates, with a threshold line and the four covariates above it highlighted"}
+:::
+
+::: {.area-body}
+## Optimal Treatment Regime
+
+Model-free methods for individualized treatment decisions in precision medicine.
+
+I developed a **variable screening** method for optimal treatment regimes with high-dimensional survival data that requires no outcome model and no assumed form for the regime, stays valid for any prespecified subgroup, and lets flexible learners such as random forests and boosting be applied to the selected variables.
+
+### Key papers {.label}
+
+::: {#refs-otr}
+:::
+:::
+:::

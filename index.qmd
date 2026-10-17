@@ -1,169 +1,184 @@
 ---
 pagetitle: "Cheng-Han Yang"
-toc: false
+page-layout: custom
+section-divs: false
+html-math-method: plain
+listing:
+  - id: selected-pubs
+    contents: data/publications.yml
+    template: _templates/pubs.ejs
+    include:
+      selected: true
+    sort: "rank"
+  - id: latest-writing
+    contents: posts
+    template: _templates/posts.ejs
+    sort: "date desc"
+    max-items: 3
+    date-format: "MMM D, YYYY"
+    fields: [title, date, description, categories, reading-time]
 ---
 
+::: {.masthead}
+::: {.masthead-text}
+[Biostatistics · Yale School of Public Health]{.label}
+
+# Cheng-Han Yang
+
+::: {.masthead-dek}
+Statistical methods for *electronic health records* and *clinical trials*.
+:::
+
+::: {.masthead-role}
+Associate Research Scientist (Research Faculty), Department of Biostatistics · Yale University
+:::
+
+::: {.masthead-links}
+- [Email](mailto:cheng-han.yang@yale.edu)
+- [CV (PDF)](files/ChengHan_Yang_CV.pdf)
+- [Google Scholar](https://scholar.google.com/citations?user=SOJu3GAAAAAJ&hl=zh-TW)
+- [GitHub](https://github.com/cyang728)
+- [ORCID](https://orcid.org/0000-0002-4161-3140)
+:::
+:::
+
+::: {.masthead-portrait}
+![](images/portrait.jpg){fig-alt="Portrait of Cheng-Han Yang" width="640" height="800"}
+:::
+:::
+
 ```{=html}
-<div class="home page-columns page-full">
-
-<!-- ===================== HERO ===================== -->
-<section class="hero bleed"><div class="wrap">
-<div class="hero-grid">
-
-<div class="hero-text">
-<div class="hero-eyebrow">Biostatistics · Yale School of Public Health</div>
-<h1 class="hero-name">Cheng-Han Yang</h1>
-<p class="hero-role">Associate Research Scientist, Department of Biostatistics · Yale University</p>
-<p class="hero-lede">Statistical methods for reliable clinical evidence from <em>selectively observed data</em>.</p>
-
-<div class="chips">
-<a class="chip" href="mailto:cheng-han.yang@yale.edu">Email</a>
-<a class="chip" href="files/ChengHan_Yang_CV.pdf">CV (PDF)</a>
-<a class="chip" href="https://scholar.google.com/citations?user=SOJu3GAAAAAJ&amp;hl=zh-TW">Google Scholar</a>
-<a class="chip" href="https://github.com/cyang728">GitHub</a>
-<a class="chip" href="https://orcid.org/0000-0002-4161-3140">ORCID</a>
-</div>
-</div>
-
-<div class="portrait-wrap">
-<img src="profile.jpg" class="portrait" alt="Portrait of Cheng-Han Yang">
-</div>
-
-</div>
-
-<svg class="axis" viewbox="0 0 1180 26" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<line x1="0" y1="24" x2="1180" y2="24" stroke="currentColor" stroke-width="1"></line>
-<g stroke="currentColor" stroke-width="1.5">
-<line x1="14" y1="24" x2="14" y2="8"></line><line x1="46" y1="24" x2="46" y2="16"></line>
-<line x1="93" y1="24" x2="93" y2="4"></line><line x1="128" y1="24" x2="128" y2="14"></line>
-<line x1="205" y1="24" x2="205" y2="10"></line><line x1="236" y1="24" x2="236" y2="18"></line>
-<line x1="331" y1="24" x2="331" y2="6"></line><line x1="392" y1="24" x2="392" y2="15"></line>
-<line x1="470" y1="24" x2="470" y2="9"></line><line x1="592" y1="24" x2="592" y2="3"></line>
-<line x1="631" y1="24" x2="631" y2="17"></line><line x1="704" y1="24" x2="704" y2="11"></line>
-<line x1="815" y1="24" x2="815" y2="7"></line><line x1="858" y1="24" x2="858" y2="16"></line>
-<line x1="946" y1="24" x2="946" y2="5"></line><line x1="1032" y1="24" x2="1032" y2="13"></line>
-<line x1="1067" y1="24" x2="1067" y2="19"></line><line x1="1150" y1="24" x2="1150" y2="8"></line>
+<svg class="rug" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true">
+<line class="axis" x1="0" y1="33" x2="1200" y2="33"/>
+<g class="visit">
+<line x1="18" y1="33" x2="18" y2="21"/><line x1="61" y1="33" x2="61" y2="21"/><line x1="140" y1="33" x2="140" y2="21"/>
+<line x1="175" y1="33" x2="175" y2="21"/><line x1="260" y1="33" x2="260" y2="21"/><line x1="330" y1="33" x2="330" y2="21"/>
+<line x1="410" y1="33" x2="410" y2="21"/><line x1="497" y1="33" x2="497" y2="21"/><line x1="520" y1="33" x2="520" y2="21"/>
+<line x1="610" y1="33" x2="610" y2="21"/><line x1="690" y1="33" x2="690" y2="21"/><line x1="742" y1="33" x2="742" y2="21"/>
+<line x1="830" y1="33" x2="830" y2="21"/><line x1="905" y1="33" x2="905" y2="21"/><line x1="990" y1="33" x2="990" y2="21"/>
+<line x1="1090" y1="33" x2="1090" y2="21"/>
+</g>
+<g class="obs">
+<line x1="52" y1="33" x2="52" y2="4"/><line x1="168" y1="33" x2="168" y2="4"/><line x1="182" y1="33" x2="182" y2="4"/>
+<line x1="344" y1="33" x2="344" y2="4"/><line x1="512" y1="33" x2="512" y2="4"/><line x1="528" y1="33" x2="528" y2="4"/>
+<line x1="751" y1="33" x2="751" y2="4"/><line x1="1004" y1="33" x2="1004" y2="4"/><line x1="1013" y1="33" x2="1013" y2="4"/>
+<line x1="1170" y1="33" x2="1170" y2="4"/>
 </g>
 </svg>
-
-</div></section>
-
-<!-- ===================== BODY: main + rail ===================== -->
-<section class="body bleed page-columns page-full"><div class="wrap page-columns page-full">
-<div class="cols page-columns page-full">
-
-<div class="main">
-
-<div class="prose">
-<span class="kicker">About</span>
-<p>I am an Associate Research Scientist (Research faculty) in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at the <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr. Bhramar Mukherjee</a>. My work bridges <span class="hl-ehr">EHR-derived real-world evidence</span> and <span class="hl-dose">early-phase drug development</span>, with methodological contributions in causal inference, survival and longitudinal data analysis, covariate adjustment, and Bayesian dose optimization.</p>
-<p>My first-author methodology has appeared in <em>Biometrika</em>, the <em>Annals of Applied Statistics</em>, and <em>Statistics in Medicine</em>, with related work revised and resubmitted at the <em>Journal of the American Statistical Association</em> and <em>Biometrics</em>. My current EHR research spans <em>All of Us</em>, the UK Biobank, Yale New Haven Health, the Michigan Genomics Initiative, and Epic Cosmos.</p>
-</div>
-
-<div class="focus">
-<span class="kicker">Research focus</span>
-<div class="themes">
-<div class="theme a1">
-<h3 class="anchored">Methods for Electronic Health Records</h3>
-<p>Joint models that correct the biases from informative visiting and observation in large-scale EHR data.</p>
-</div>
-<div class="theme a2">
-<h3 class="anchored">Adaptive Dose-Finding Design</h3>
-<p>Seamless phase I–II designs that use biological mediators and survival endpoints to optimize dose.</p>
-</div>
-<div class="theme a3">
-<h3 class="anchored">Clinical Trial Methodology</h3>
-<p>Meta-analytic and covariate-adjusted methods that sharpen inference across early-phase trials.</p>
-</div>
-<div class="theme a4">
-<h3 class="anchored">Optimal Treatment Regime</h3>
-<p>Model-free variable screening for individualized treatment decisions in high-dimensional survival data.</p>
-</div>
-</div>
-</div>
-
-</div>
-
-<aside class="rail">
-
-<div class="rail-block">
-<div class="rail-h">At a glance</div>
-<div class="fact"><span class="k">Position</span><span class="v">Assoc. Research Scientist<span class="sub">Yale School of Public Health</span></span></div>
-<div class="fact"><span class="k">Ph.D.</span><span class="v">Biostatistics &amp; Data Science, 2025<span class="sub">UTHealth Houston (MD Anderson)</span></span></div>
-<div class="fact"><span class="k">Based in</span><span class="v">New Haven, CT</span></div>
-</div>
-
-<div class="rail-block">
-<div class="rail-h">News</div>
-<ul class="news">
-<li><span class="date">Aug 2026</span><span class="what">Oral presentation at the Joint Statistical Meetings, Boston.</span></li>
-<li><span class="date">Mar 2026</span><span class="what">Invited seminar at Penn Medicine, University of Pennsylvania.</span></li>
-<li><span class="date">Jan 2026</span><span class="what">Invited talk at the Yale Public Health Data Science &amp; Data Equity Seminar.</span></li>
-<li><span class="date">Dec 2025</span><span class="what">DEMO published in <em>Annals of Applied Statistics</em>.</span></li>
-</ul>
-</div>
-
-</aside>
-
-</div>
-</div></section>
-
-<!-- ===================== SELECTED PUBLICATIONS ===================== -->
-<section class="pubs bleed"><div class="wrap">
-<span class="kicker">Selected publications</span>
-<h2 class="anchored">Selected work</h2>
-<p class="sublede">First-author methodology and lead collaborations. The full list is on the <a href="publications.html">Publications</a> page.</p>
-
-<ol class="publist">
-
-<li class="pub">
-<span class="num">01</span>
-<div>
-<div class="t">A model-free variable screening method for optimal treatment regimes with high-dimensional survival data</div>
-<div class="meta"><span class="venue">Biometrika</span> · 2024 · 111(4), 1369–1386 · with Y-J. Cheng</div>
-<div class="links"><a href="https://doi.org/10.1093/biomet/asae022">Paper ↗</a></div>
-</div>
-</li>
-
-<li class="pub">
-<span class="num">02</span>
-<div>
-<div class="t">Dose exploration, monitoring, and optimization using biological and clinical outcomes</div>
-<div class="meta"><span class="venue">Annals of Applied Statistics</span> · 2025 · 19(4), 2599–2617 · with P.F. Thall, R. Lin</div>
-<div class="links"><a href="https://doi.org/10.1214/25-AOAS2099">Paper ↗</a> <a href="https://github.com/ruitaolin/DEMO">Code ↗</a></div>
-</div>
-</li>
-
-<li class="pub">
-<span class="num">03</span>
-<div>
-<div class="t">BAR12: Bayesian autoregressive phase 1–2 design for cell therapy trials with manufacturing changes</div>
-<div class="meta"><span class="venue">Statistics in Medicine</span> · 2026 · 45(8–9), e70551 · with P.F. Thall, D. Marin, S.Y. Belay, R. Lin</div>
-<div class="links"><a href="https://doi.org/10.1002/sim.70551">Paper ↗</a> <a href="https://github.com/cyang728/BAR12">Code ↗</a></div>
-</div>
-</li>
-
-<li class="pub">
-<span class="num">04</span>
-<div>
-<div class="t">Analyzing longitudinal outcomes from electronic health records: a joint modeling approach to handle informative visits and observations</div>
-<div class="meta"><span class="venue">JASA</span> · Revised &amp; resubmitted · 2026 · with J. Du (equal contribution), X. Shi, B. Mukherjee</div>
-</div>
-</li>
-
-<li class="pub">
-<span class="num">05</span>
-<div>
-<div class="t">Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes</div>
-<div class="meta"><span class="venue">Biometrics</span> · Revised &amp; resubmitted · 2026 · with X. Shi, B. Mukherjee</div>
-<div class="links"><a href="https://arxiv.org/abs/2602.15374">arXiv ↗</a></div>
-</div>
-</li>
-
-</ol>
-
-<p class="allpubs"><a href="publications.html">All publications &amp; talks →</a></p>
-</div></section>
-
-</div>
+<p class="rug-caption">One patient’s record, read as data: every mark is a clinic visit; the tall ones are visits where a biomarker was measured.</p>
 ```
+
+::: {.split}
+::: {.split-side}
+## Research focus
+
+[All research](research.qmd){.more}
+:::
+
+::: {.threads}
+::: {.thread}
+![](images/research/ehr.svg){.illus fig-alt="Irregular clinic visits along a patient's timeline, with biomarker measurements clustered where latent health worsens"}
+
+[01]{.thread-num}
+
+### [Methods for Electronic Health Records](research.qmd#methods-for-electronic-health-records)
+
+::: {.thread-text}
+Joint models that correct the biases from informative visiting and observation in large-scale EHR data.
+:::
+:::
+
+::: {.thread}
+![](images/research/dose.svg){.illus fig-alt="A rising toxicity curve and a plateauing efficacy curve across five dose levels, with the target toxicity interval shaded and the selected dose marked"}
+
+[02]{.thread-num}
+
+### [Adaptive Dose-Finding Design](research.qmd#adaptive-dose-finding-design)
+
+::: {.thread-text}
+Seamless phase I–II designs that use biological mediators and survival endpoints to optimize dose.
+:::
+:::
+
+::: {.thread}
+![](images/research/trials.svg){.illus fig-alt="A forest plot of five study estimates with confidence intervals and a narrower pooled estimate shown as a diamond"}
+
+[03]{.thread-num}
+
+### [Clinical Trial Methodology](research.qmd#clinical-trial-methodology)
+
+::: {.thread-text}
+Meta-analytic and covariate-adjusted methods that sharpen inference across early-phase trials.
+:::
+:::
+
+::: {.thread}
+![](images/research/otr.svg){.illus fig-alt="Bars showing screening statistics for many candidate covariates, with a threshold line and the four covariates above it highlighted"}
+
+[04]{.thread-num}
+
+### [Optimal Treatment Regime](research.qmd#optimal-treatment-regime)
+
+::: {.thread-text}
+Model-free variable screening for individualized treatment decisions in high-dimensional survival data.
+:::
+:::
+:::
+:::
+
+::: {.split .about-news}
+::: {.split-side}
+## About
+
+::: {.facts}
+[At a glance]{.facts-h}
+
+[Position]{.k} [Associate Research Scientist (Research Faculty)<br>Yale School of Public Health]{.v}
+
+[Ph.D.]{.k} [Biostatistics & Data Science, 2025<br>UTHealth Houston (MD Anderson)]{.v}
+
+[Based in]{.k} [New Haven, CT]{.v}
+:::
+:::
+
+::: {.about}
+I am an Associate Research Scientist (Research Faculty) in the [Department of Biostatistics](https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/) at the [Yale School of Public Health](https://ysph.yale.edu/), working with [Dr. Bhramar Mukherjee](https://ysph.yale.edu/profile/bhramar-mukherjee/). My work bridges EHR-derived real-world evidence and early-phase drug development, with methodological contributions in causal inference, survival and longitudinal data analysis, covariate adjustment, and Bayesian dose optimization.
+
+My first-author methodology has appeared in *Biometrika*, the *Annals of Applied Statistics*, and *Statistics in Medicine*, with related work revised and resubmitted at the *Journal of the American Statistical Association* and *Biometrics*. My current EHR research spans *All of Us*, the UK Biobank, Yale New Haven Health, the Michigan Genomics Initiative, and Epic Cosmos.
+:::
+
+::: {.news}
+## News
+
+- [Aug 2026]{.date} [Oral presentation at the Joint Statistical Meetings, Boston.]{.what}
+- [Mar 2026]{.date} [Invited seminar at Penn Medicine, University of Pennsylvania.]{.what}
+- [Jan 2026]{.date} [Invited talk at the Yale Public Health Data Science & Data Equity Seminar.]{.what}
+- [Dec 2025]{.date} [DEMO published in *Annals of Applied Statistics*.]{.what}
+:::
+:::
+
+::: {.split .band}
+::: {.split-side}
+## Selected publications
+
+First-author methodology and lead collaborations. The full list is on the [Publications](publications.qmd) page.
+
+[\* Equal contribution.]{.pub-note}
+
+[All publications & talks](publications.qmd){.more}
+:::
+
+::: {#selected-pubs}
+:::
+:::
+
+::: {.split}
+::: {.split-side}
+## Latest writing
+
+[All posts](blog.qmd){.more}
+:::
+
+::: {#latest-writing}
+:::
+:::

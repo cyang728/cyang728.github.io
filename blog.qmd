@@ -1,11 +1,26 @@
 ---
-title: "Blog"
+pagetitle: "Blog"
+description: "I write about biostatistics methodology, R programming, and academic life."
+hide-description: true
+page-layout: custom
+section-divs: false
+html-math-method: plain
 listing:
+  id: posts
   contents: posts
   sort: "date desc"
-  type: default
+  template: _templates/blog.ejs
   categories: true
   feed: true
+  date-format: "MMM D, YYYY"
+  fields: [title, date, description, categories, reading-time, image]
 ---
 
+::: {.page-head}
+# Blog
+
 I write about biostatistics methodology, R programming, and academic life. My goal is to make statistical concepts accessible and share practical insights from my research experience.
+:::
+
+::: {#posts}
+:::

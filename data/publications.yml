@@ -1,0 +1,171 @@
+# Single source for every publication shown on the site (Home, Research,
+# Publications). Edit an entry here and every page updates.
+#
+#   group:     methodology | collaborative | preprint | working | software
+#   selected:  true puts the paper on the home page, ordered by `rank`
+#   area:      ehr | dose | trials | otr lists it under "Key papers" on the
+#              Research page, ordered by `area-rank`
+#   doi / url / code: links (url-label names the url link)
+
+# ---- Methodology papers (peer-reviewed) ----------------------------------
+
+- title: "Meta-analysis of median survival times with inverse-variance weighting"
+  authors: ["S. McGrath", "C-H. Yang", "J. Kimmelman", "O. Ozturk", "R. Steele", "A. Benedetti"]
+  venue: "Statistics in Medicine"
+  year: 2026
+  details: "45(8–9), e70533"
+  group: methodology
+
+- title: "BAR12: Bayesian autoregressive phase 1–2 design for cell therapy trials with manufacturing changes"
+  authors: ["C-H. Yang", "P.F. Thall", "D. Marin", "S.Y. Belay", "R. Lin"]
+  venue: "Statistics in Medicine"
+  year: 2026
+  details: "45(8–9), e70551"
+  doi: "10.1002/sim.70551"
+  code: "https://github.com/cyang728/BAR12"
+  group: methodology
+  selected: true
+  rank: 3
+
+- title: "Dose exploration, monitoring, and optimization using biological and clinical outcomes"
+  authors: ["C-H. Yang", "P.F. Thall", "R. Lin"]
+  venue: "The Annals of Applied Statistics"
+  year: 2025
+  details: "19(4), 2599–2617"
+  doi: "10.1214/25-AOAS2099"
+  code: "https://github.com/ruitaolin/DEMO"
+  group: methodology
+  selected: true
+  rank: 2
+  area: dose
+  area-rank: 1
+
+- title: "On the relative conservativeness of the Bayesian logistic regression method in oncology dose-finding studies"
+  authors: ["C-H. Yang", "G. Cheng", "R. Lin"]
+  venue: "Pharmaceutical Statistics"
+  year: 2024
+  details: "23(4), 585–594"
+  doi: "10.1002/pst.2364"
+  group: methodology
+  area: dose
+  area-rank: 2
+
+- title: "A model-free variable screening method for optimal treatment regimes with high-dimensional survival data"
+  authors: ["C-H. Yang", "Y-J. Cheng"]
+  venue: "Biometrika"
+  year: 2024
+  details: "111(4), 1369–1386"
+  doi: "10.1093/biomet/asae022"
+  group: methodology
+  selected: true
+  rank: 1
+  area: otr
+  area-rank: 1
+
+- title: "REDOMA: Bayesian random-effects dose-optimization meta-analysis using spike-and-slab priors"
+  authors: ["C-H. Yang", "E. Kwiatkowski", "J.J. Lee", "R. Lin"]
+  venue: "Statistics in Medicine"
+  year: 2024
+  details: "43(18), 3484–3502"
+  doi: "10.1002/sim.10107"
+  group: methodology
+  area: trials
+  area-rank: 1
+
+# ---- Collaborative papers (peer-reviewed) --------------------------------
+
+- title: "Assessing statistical practices of existing AI models for lung cancer detection, prognosis, and risk prediction: a cross-sectional meta-research study"
+  authors: ["Y. Hou", "T. Ward", "C-H. Yang", "E. Jernigan", "G. Caturegli", "D. Boffa", "B. Mukherjee"]
+  venue: "NEJM AI"
+  status: "Accepted"
+  year: 2026
+  details: "medRxiv 2025.12.23.25342849"
+  url: "https://doi.org/10.64898/2025.12.23.25342849v1"
+  url-label: "medRxiv"
+  group: collaborative
+
+- title: "Prospective phase II clinical trial of molecular glioblastoma (historical grade 2 and 3 IDH-wildtype gliomas): preliminary novel exploratory analyses"
+  authors: ["D.N. Yeboa", "B.T. Whitfield", "R. Lin", "…", "C-H. Yang", "…", "J.T. Huse"]
+  venue: "Journal of Neuro-Oncology"
+  year: 2026
+  details: "176(1), 1–11"
+  group: collaborative
+
+- title: "A virtual wellness program to enhance well-being for pediatric oncology staff during the COVID-19 pandemic"
+  authors: ["K.M. Moody", "M.C. Swartz", "Z. Gresham", "…", "C-H. Yang", "R. Robert"]
+  venue: "Advances in Cancer Education and Quality Improvement"
+  year: 2025
+  details: "1(1), a18"
+  url: "https://doi.org/10.52519/ACEQI.25.1.1.a18"
+  url-label: "DOI"
+  group: collaborative
+
+# ---- Preprints & under review ---------------------------------------------
+
+- title: "Prediction-based inference in electronic health record (EHR)-linked biobanks"
+  authors: ["X. Chen", "C-H. Yang", "Z. Wu", "B. Mukherjee"]
+  venue: "Statistics in Medicine"
+  status: "Revised & resubmitted"
+  year: 2026
+  details: "arXiv 2603.14356"
+  url: "https://arxiv.org/abs/2603.14356"
+  url-label: "arXiv"
+  group: preprint
+
+- title: "Analyzing longitudinal outcomes from electronic health records: a joint modeling approach to handle informative visits and observations"
+  authors: ["J. Du*", "C-H. Yang*", "X. Shi", "B. Mukherjee"]
+  venue: "Journal of the American Statistical Association"
+  status: "Revised & resubmitted"
+  year: 2026
+  group: preprint
+  selected: true
+  rank: 4
+  area: ehr
+  area-rank: 2
+
+- title: "Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes"
+  authors: ["C-H. Yang", "X. Shi", "B. Mukherjee"]
+  venue: "Biometrics"
+  status: "Revised & resubmitted"
+  year: 2026
+  url: "https://arxiv.org/abs/2602.15374"
+  url-label: "arXiv"
+  group: preprint
+  selected: true
+  rank: 5
+  area: ehr
+  area-rank: 1
+
+- title: "MCP-ModX: multiple comparison procedure and modeling with model-assisted covariate adjustment under missing outcomes"
+  authors: ["C-H. Yang", "R. Lin"]
+  venue: "Biometrical Journal"
+  status: "Submitted"
+  year: 2026
+  code: "https://github.com/cyang728/MCPModX"
+  group: preprint
+  area: trials
+  area-rank: 2
+
+# ---- Working papers (in preparation) --------------------------------------
+
+- title: "A test for missing at random in longitudinal biomarkers from EHR using visits without measurement"
+  authors: ["C-H. Yang", "S. McGrath", "R.D. Shah", "X. Shi", "B. Mukherjee"]
+  status: "In preparation"
+  year: 2026
+  group: working
+
+- title: "Who seeks care, and what gets measured? Understanding the distinct mechanisms behind visit and observation processes in multi-center EHR"
+  authors: ["C-H. Yang", "M. Salvatore", "H. Lu", "Z. Zhu", "P. Tennant", "X. Shi", "F. Li", "B. Mukherjee"]
+  status: "In preparation"
+  year: 2026
+  group: working
+
+# ---- Software ----------------------------------------------------------------
+
+- title: "CIMEHR: Gaussian clinically informative visiting and observation processes in EHR data"
+  authors: ["C-H. Yang", "Y. Hou"]
+  year: 2026
+  details: "R package v0.1.0"
+  url: "https://github.com/cyang728"
+  url-label: "GitHub"
+  group: software

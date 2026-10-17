@@ -1,0 +1,14 @@
+```{=html}
+<ol class="postlist">
+<% for (const item of items) { %>
+<li class="post-item" <%= metadataAttrs(item) %>>
+<span class="post-date"><%- item.date %></span>
+<div>
+<h3 class="post-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+<% if (item.description) { %><p class="post-dek"><%= item.description %></p><% } %>
+<p class="post-meta"><%- (item.categories || []).slice(0, 2).join(' · ') %><% if (item['reading-time']) { %> · <%- item['reading-time'] %> read<% } %></p>
+</div>
+</li>
+<% } %>
+</ol>
+```

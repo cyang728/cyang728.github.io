@@ -1,0 +1,15 @@
+```{=html}
+<ol class="publist">
+<% for (const item of items) { %>
+<li class="pub" <%= metadataAttrs(item) %>>
+<span class="pub-year"><%- item.year %></span>
+<div>
+<p class="pub-title"><%- item.title %></p>
+<p class="pub-authors"><%= item.authors.map((a, i, all) => { const e = _.escape(a); const name = a.replace(/\*$/, '') === 'C-H. Yang' ? `<span class="me">${e}</span>` : e; return (i === 0 ? '' : all[i - 1] === '…' ? ' ' : ', ') + name; }).join('') %></p>
+<p class="pub-venue"><% if (item.venue) { %><em><%- item.venue %></em><% } %><% if (item.details) { %><%- item.venue ? ' · ' : '' %><%- item.details %><% } %><% if (item.status) { %><span class="pub-status"><%- item.status %></span><% } %></p>
+<% if (item.doi || item.url || item.code) { %><p class="pub-links"><% if (item.doi) { %><a href="https://doi.org/<%- item.doi %>">Paper</a><% } %><% if (item.url) { %><a href="<%- item.url %>"><%- item['url-label'] || 'Link' %></a><% } %><% if (item.code) { %><a href="<%- item.code %>">Code</a><% } %></p><% } %>
+</div>
+</li>
+<% } %>
+</ol>
+```
