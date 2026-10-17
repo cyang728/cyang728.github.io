@@ -4,8 +4,7 @@ toc: false
 ---
 
 ```{=html}
-<p>I develop open-source R packages to make statistical methods accessible to applied researchers. All packages are available on GitHub.</p>
-<hr>
+<p>We develop open-source R packages to make statistical methods accessible to applied researchers. All packages are available on GitHub.</p>
 <section id="cimehr" class="level2">
 <h2 class="anchored" data-anchor-id="cimehr">CIMEHR</h2>
 <p><strong>Gaussian Clinically Informative Visiting and Observation Processes in EHR Data</strong></p>
@@ -33,7 +32,6 @@ remotes::install_github("cyang728/CIMEHR")
 <h3 class="anchored" data-anchor-id="reference">Reference</h3>
 <p>Yang CH, Hou Y. (2026). <em>CIMEHR: Gaussian Clinically Informative Visiting and Observation Processes in Electronic Health Record Data.</em> R package version 0.1.0.</p>
 <p><a href="https://github.com/cyang728" class="btn btn-primary">GitHub Repository</a></p>
-<hr>
 </section>
 </section>
 <section id="demodesign" class="level2">
@@ -63,7 +61,6 @@ remotes::install_github("cyang728/DEMOdesign")
 <h3 class="anchored" data-anchor-id="reference-1">Reference</h3>
 <p>Yang CH, Thall PF, Lin R. (2025). “Dose exploration, monitoring, and optimization using biological and clinical outcomes.” <em>Annals of Applied Statistics</em>, 19(4), 2599–2617.</p>
 <p><a href="https://github.com/cyang728/DEMOdesign" class="btn btn-primary">GitHub Repository</a></p>
-<hr>
 </section>
 </section>
 <section id="bar12" class="level2">
@@ -89,7 +86,6 @@ remotes::install_github("cyang728/BAR12")
 
 ```{=html}
 <p><a href="https://github.com/cyang728/BAR12" class="btn btn-primary">GitHub Repository</a></p>
-<hr>
 </section>
 </section>
 <section id="mcpmodx" class="level2">

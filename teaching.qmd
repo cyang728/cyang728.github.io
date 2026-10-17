@@ -5,7 +5,6 @@ toc: false
 
 ```{=html}
 <p>I am passionate about teaching statistics and helping students develop intuition for statistical thinking. My teaching philosophy emphasizes connecting theoretical concepts to real-world applications, particularly in biomedical research.</p>
-<hr>
 <section id="teaching-experience" class="level2">
 <h2 class="anchored" data-anchor-id="teaching-experience">Teaching Experience</h2>
 <section id="big-data-summer-immersion-at-yale-bdsy" class="level3">
@@ -44,7 +43,6 @@ toc: false
 <li>Topics: Probability, distributions, hypothesis testing, confidence intervals, regression</li>
 </ul></li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="teaching-interests" class="level2">

@@ -4,6 +4,7 @@ author: "Cheng-Han Yang"
 date: "2026-02-03"
 categories: [Survival Analysis, Statistics, Tutorial]
 image: "KM_curve.png"
+image-alt: "Kaplan–Meier Curve (log-transform 95% CI)"
 description: "A comprehensive introduction to the Kaplan-Meier estimator, the most fundamental tool in survival analysis for handling censored data."
 ---
 
@@ -60,8 +61,8 @@ For subject $i = 1, \dots, n$:
 Let $t_{(1)} < \cdots < t_{(J)}$ be the **distinct event times**. At each $t_{(j)}$:
 
 - $n_j = \#\{\text{at risk just before } t_{(j)}\}$
-- $d_j = \#\{\text{events at } t_{(j)}\} = \#\{i: \delta_i = 1, Y_i = t_{(j)}\}$
-- $c_j = \#\{\text{censored during the interval } [t_{(j)}, t_{(j+1)})\}$
+- $d_j = \#\{\text{events at } t_{(j)}\}$ $= \#\{i: \delta_i = 1, Y_i = t_{(j)}\}$
+- $c_j =$ $\#\{\text{censored during}$ $\text{the interval } [t_{(j)}, t_{(j+1)})\}$
 
 We take $S(t) = \Pr(T > t)$ (right-continuous) and $S(t^-) = \Pr(T \ge t)$ (left limit).
 

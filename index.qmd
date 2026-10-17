@@ -13,8 +13,8 @@ toc: false
 <div class="hero-text">
 <div class="hero-eyebrow">Biostatistics · Yale School of Public Health</div>
 <h1 class="hero-name">Cheng-Han Yang</h1>
-<p class="hero-role">Associate Research Scientist, Department of Biostatistics · Yale University</p>
-<p class="hero-lede">Statistical methods for reliable clinical evidence from <em>selectively observed data</em>.</p>
+<p class="hero-role">Associate Research Scientist (Research Faculty), Department of Biostatistics · Yale University</p>
+<p class="hero-lede">Statistical methods for <em>electronic health records</em> and <em>clinical trials</em>.</p>
 
 <div class="chips">
 <a class="chip" href="mailto:cheng-han.yang@yale.edu">Email</a>
@@ -26,7 +26,7 @@ toc: false
 </div>
 
 <div class="portrait-wrap">
-<img src="profile.jpg" class="portrait" alt="Portrait of Cheng-Han Yang">
+<img src="images/profile.jpg" class="portrait" alt="Portrait of Cheng-Han Yang" width="640" height="640">
 </div>
 
 </div>
@@ -55,13 +55,13 @@ toc: false
 <div class="main">
 
 <div class="prose">
-<span class="kicker">About</span>
-<p>I am an Associate Research Scientist (Research faculty) in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at the <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr. Bhramar Mukherjee</a>. My work bridges <span class="hl-ehr">EHR-derived real-world evidence</span> and <span class="hl-dose">early-phase drug development</span>, with methodological contributions in causal inference, survival and longitudinal data analysis, covariate adjustment, and Bayesian dose optimization.</p>
+<h2 class="kicker">About</h2>
+<p>I am an Associate Research Scientist (Research Faculty) in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at the <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr. Bhramar Mukherjee</a>. My research interests lie in <span class="hl-ehr">methodology development for electronic health record (EHR) data</span>, <span class="hl-dose">early-phase clinical trial design</span>, causal inference, and survival analysis.</p>
 <p>My first-author methodology has appeared in <em>Biometrika</em>, the <em>Annals of Applied Statistics</em>, and <em>Statistics in Medicine</em>, with related work revised and resubmitted at the <em>Journal of the American Statistical Association</em> and <em>Biometrics</em>. My current EHR research spans <em>All of Us</em>, the UK Biobank, Yale New Haven Health, the Michigan Genomics Initiative, and Epic Cosmos.</p>
 </div>
 
 <div class="focus">
-<span class="kicker">Research focus</span>
+<h2 class="kicker">Research focus</h2>
 <div class="themes">
 <div class="theme a1">
 <h3 class="anchored">Methods for Electronic Health Records</h3>
@@ -84,12 +84,13 @@ toc: false
 
 </div>
 
-<aside class="rail">
+<div class="rail">
 
 <div class="rail-block">
 <div class="rail-h">At a glance</div>
-<div class="fact"><span class="k">Position</span><span class="v">Assoc. Research Scientist<span class="sub">Yale School of Public Health</span></span></div>
-<div class="fact"><span class="k">Ph.D.</span><span class="v">Biostatistics &amp; Data Science, 2025<span class="sub">UTHealth Houston (MD Anderson)</span></span></div>
+<div class="fact"><span class="k">Position</span><span class="v">Associate Research Scientist (Research Faculty)<span class="sub">Yale School of Public Health</span></span></div>
+<div class="fact"><span class="k">Ph.D.</span><span class="v">Biostatistics &amp; Data Science, 2025<span class="sub">UTHealth Houston (MD Anderson)</span><span class="sub">Advisor: Ruitao Lin</span></span></div>
+<div class="fact"><span class="k">M.S.</span><span class="v">Statistics, 2017<span class="sub">National Tsing Hua University</span><span class="sub">Advisor: Yu-Jen Cheng</span></span></div>
 <div class="fact"><span class="k">Based in</span><span class="v">New Haven, CT</span></div>
 </div>
 
@@ -103,7 +104,7 @@ toc: false
 </ul>
 </div>
 
-</aside>
+</div>
 
 </div>
 </div></section>
@@ -147,7 +148,7 @@ toc: false
 <span class="num">04</span>
 <div>
 <div class="t">Analyzing longitudinal outcomes from electronic health records: a joint modeling approach to handle informative visits and observations</div>
-<div class="meta"><span class="venue">JASA</span> · Revised &amp; resubmitted · 2026 · with J. Du (equal contribution), X. Shi, B. Mukherjee</div>
+<div class="meta"><span class="venue">Journal of the American Statistical Association</span> · Revised &amp; resubmitted · 2026 · with J. Du (equal contribution), X. Shi, B. Mukherjee</div>
 </div>
 </li>
 

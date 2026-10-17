@@ -10,14 +10,21 @@ toc: false
 <div class="area-head">
 <span class="area-num">01</span>
 </div>
-<section id="methods-for-electronic-health-records" class="level3">
-<h3 class="anchored" data-anchor-id="methods-for-electronic-health-records">Methods for Electronic Health Records</h3>
+<section id="methods-for-electronic-health-records" class="level2">
+<h2 class="anchored" data-anchor-id="methods-for-electronic-health-records">Methods for Electronic Health Records</h2>
+<figure class="area-fig">
+<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-ehr"><title id="fig-ehr">Informative visits and observations</title><line class="axis" x1="44" y1="150" x2="384" y2="150"/><path class="ctx" d="M44,117.9 C45.7,117.9 46.3,117.9 49.7,117.8 C53.1,117.7 51.9,117.8 55.3,117.6 C58.7,117.5 57.6,117.6 61,117.3 C64.4,117 63.3,117.1 66.7,116.7 C70.1,116.2 68.9,116.4 72.3,115.6 C75.7,114.8 74.6,115.2 78,114 C81.4,112.8 80.3,113.3 83.7,111.6 C87.1,109.9 85.9,110.6 89.3,108.2 C92.7,105.8 91.6,106.7 95,103.7 C98.4,100.6 97.3,101.7 100.7,97.9 C104.1,94.2 102.9,95.4 106.3,91.2 C109.7,87 108.6,88.3 112,83.8 C115.4,79.4 114.3,80.6 117.7,76.4 C121.1,72.1 119.9,73.2 123.3,69.6 C126.7,65.9 125.6,66.8 129,64.2 C132.4,61.5 131.3,62.1 134.7,60.8 C138.1,59.6 136.9,59.7 140.3,60.1 C143.7,60.4 142.6,60.1 146,61.9 C149.4,63.7 148.3,63 151.7,66.1 C155.1,69.2 153.9,68.2 157.3,72.2 C160.7,76.1 159.6,74.9 163,79.3 C166.4,83.7 165.3,82.4 168.7,86.8 C172.1,91.2 170.9,89.9 174.3,94 C177.7,98.1 176.6,96.9 180,100.4 C183.4,103.8 182.3,102.8 185.7,105.6 C189.1,108.4 187.9,107.6 191.3,109.7 C194.7,111.8 193.6,111.2 197,112.7 C200.4,114.2 199.3,113.7 202.7,114.7 C206.1,115.8 204.9,115.4 208.3,116.1 C211.7,116.7 210.6,116.5 214,116.9 C217.4,117.2 216.3,117.1 219.7,117.3 C223.1,117.4 221.9,117.4 225.3,117.3 C228.7,117.2 227.6,117.4 231,117 C234.4,116.6 233.3,116.9 236.7,116.1 C240.1,115.3 238.9,115.8 242.3,114.4 C245.7,113 244.6,113.7 248,111.4 C251.4,109.1 250.3,110.2 253.7,106.7 C257.1,103.2 255.9,104.6 259.3,99.8 C262.7,95.1 261.6,96.8 265,90.8 C268.4,84.8 267.3,86.7 270.7,79.9 C274.1,73.1 272.9,75 276.3,68.2 C279.7,61.4 278.6,63.1 282,57.3 C285.4,51.4 284.3,52.7 287.7,48.8 C291.1,45 289.9,45.6 293.3,44.4 C296.7,43.2 295.6,43.2 299,44.9 C302.4,46.7 301.3,45.9 304.7,50.2 C308.1,54.5 306.9,53.2 310.3,59.3 C313.7,65.4 312.6,63.7 316,70.6 C319.4,77.4 318.3,75.5 321.7,82.2 C325.1,88.8 323.9,87 327.3,92.8 C330.7,98.5 329.6,96.9 333,101.4 C336.4,105.9 335.3,104.6 338.7,107.8 C342.1,111 340.9,110 344.3,112.1 C347.7,114.3 346.6,113.6 350,114.9 C353.4,116.1 352.3,115.7 355.7,116.4 C359.1,117.2 357.9,116.9 361.3,117.3 C364.7,117.6 363.6,117.5 367,117.7 C370.4,117.9 369.3,117.8 372.7,117.9 C376.1,118 374.9,117.9 378.3,118 C381.7,118 382.3,118 384,118"/><line class="drop" x1="115.4" y1="150" x2="115.4" y2="79.3"/><line class="drop" x1="146" y1="150" x2="146" y2="61.9"/><line class="drop" x1="159.6" y1="150" x2="159.6" y2="74.9"/><line class="drop" x1="271.8" y1="150" x2="271.8" y2="77.6"/><line class="drop" x1="297.3" y1="150" x2="297.3" y2="44.2"/><line class="drop" x1="310.9" y1="150" x2="310.9" y2="60.4"/><line class="drop" x1="326.2" y1="150" x2="326.2" y2="90.8"/><circle class="ring" cx="61" cy="117.3" r="5.2"/><circle class="ring" cx="91.6" cy="106.5" r="5.2"/><circle class="dot" cx="115.4" cy="79.3" r="5.2"/><circle class="ring" cx="127.3" cy="65.6" r="5.2"/><circle class="dot" cx="146" cy="61.9" r="5.2"/><circle class="dot" cx="159.6" cy="74.9" r="5.2"/><circle class="ring" cx="186.8" cy="106.5" r="5.2"/><circle class="ring" cx="224.2" cy="117.3" r="5.2"/><circle class="ring" cx="254.8" cy="105.5" r="5.2"/><circle class="dot" cx="271.8" cy="77.6" r="5.2"/><circle class="ring" cx="283.7" cy="54.4" r="5.2"/><circle class="dot" cx="297.3" cy="44.2" r="5.2"/><circle class="dot" cx="310.9" cy="60.4" r="5.2"/><circle class="dot" cx="326.2" cy="90.8" r="5.2"/><circle class="ring" cx="350" cy="114.9" r="5.2"/><circle class="ring" cx="373.8" cy="117.9" r="5.2"/><text x="384" y="174" text-anchor="end">time</text><text transform="translate(20 92) rotate(-90)" text-anchor="middle">biomarker</text></svg></div>
+<ul class="fig-key">
+<li><span class="key key-dot"></span>observations</li>
+<li><span class="key key-ring"></span>visits without measurement</li>
+</ul>
+</figure>
 <p>Statistical methods for large-scale EHR data, where <em>whether</em> a patient is seen and <em>what</em> gets measured are themselves informative about health.</p>
 <ul>
 <li><strong>Informative presence</strong> — whether a patient is observed at a given time depends on their underlying condition.</li>
 <li><strong>Informative observation</strong> — conditional on a visit, the decision to measure a biomarker is not random.</li>
 </ul>
-<p>I build joint models that account for these mechanisms so that biomarker trajectories and associations can be estimated without bias.</p>
+<p>We build joint models that account for these mechanisms so that biomarker trajectories and associations can be estimated without bias.</p>
 <div class="pub-ref">
 <p>
 <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes. <em>Biometrics</em> (revised &amp; resubmitted).
@@ -28,7 +35,7 @@ toc: false
 </div>
 <div class="pub-ref">
 <p>
-J. Du, <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). A joint modeling approach to handle informative visits and observations. <em>JASA</em> (revised &amp; resubmitted).
+J. Du<em>*</em>, <strong>C-H. Yang<em>*</em></strong>, X. Shi, B. Mukherjee. (2026). Analyzing longitudinal outcomes from electronic health records: a joint modeling approach to handle informative visits and observations. <em>Journal of the American Statistical Association</em> (revised &amp; resubmitted). <em>*</em>Co-first authors.
 </p>
 </div>
 </section>
@@ -37,8 +44,17 @@ J. Du, <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). A joint modelin
 <div class="area-head">
 <span class="area-num">02</span>
 </div>
-<section id="adaptive-dose-finding-design" class="level3">
-<h3 class="anchored" data-anchor-id="adaptive-dose-finding-design">Adaptive Dose-Finding Design</h3>
+<section id="adaptive-dose-finding-design" class="level2">
+<h2 class="anchored" data-anchor-id="adaptive-dose-finding-design">Adaptive Dose-Finding Design</h2>
+<figure class="area-fig">
+<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-dose"><title id="fig-dose">Dose exploration, monitoring, and optimization using biological and clinical outcomes; Bayesian autoregressive phase 1–2 design for cell therapy trials with manufacturing changes</title><rect class="wash" x="100" y="26" width="24" height="110" rx="4"/><line class="axis" x1="46" y1="136" x2="178" y2="136"/><text class="tick" x="56" y="152" text-anchor="middle">1</text><text class="tick" x="84" y="152" text-anchor="middle">2</text><text class="tick" x="112" y="152" text-anchor="middle">3</text><text class="tick" x="140" y="152" text-anchor="middle">4</text><text class="tick" x="168" y="152" text-anchor="middle">5</text><text x="112.0" y="176" text-anchor="middle">dose</text><text transform="translate(26 85.0) rotate(-90)" text-anchor="middle">RMST</text><text class="panel" x="16" y="16">DEMO</text><polyline class="em" points="56,105.4 84,79.9 112,52.4 140,68.7 168,87"/><circle class="dot" cx="56" cy="105.4" r="5.2"/><circle class="dot" cx="84" cy="79.9" r="5.2"/><circle class="dot" cx="112" cy="52.4" r="5.2"/><circle class="dot" cx="140" cy="68.7" r="5.2"/><circle class="dot" cx="168" cy="87" r="5.2"/><text x="112" y="41.4" text-anchor="middle">OTD</text><line class="axis" x1="246" y1="136" x2="378" y2="136"/><text class="tick" x="256" y="152" text-anchor="middle">1</text><text class="tick" x="284" y="152" text-anchor="middle">2</text><text class="tick" x="312" y="152" text-anchor="middle">3</text><text class="tick" x="340" y="152" text-anchor="middle">4</text><text class="tick" x="368" y="152" text-anchor="middle">5</text><text x="312.0" y="176" text-anchor="middle">dose</text><text transform="translate(226 85.0) rotate(-90)" text-anchor="middle">outcome</text><text class="panel" x="216" y="16">BAR12</text><polyline class="ctx" points="256,121.7 284,108.5 312,94.2 340,84 368,77.9"/><circle class="dot-ctx" cx="256" cy="121.7" r="5.2"/><circle class="dot-ctx" cx="284" cy="108.5" r="5.2"/><circle class="dot-ctx" cx="312" cy="94.2" r="5.2"/><circle class="dot-ctx" cx="340" cy="84" r="5.2"/><circle class="dot-ctx" cx="368" cy="77.9" r="5.2"/><polyline class="em" points="256,109.5 284,90.1 312,72.8 340,63.6 368,59.5"/><circle class="dot" cx="256" cy="109.5" r="5.2"/><circle class="dot" cx="284" cy="90.1" r="5.2"/><circle class="dot" cx="312" cy="72.8" r="5.2"/><circle class="dot" cx="340" cy="63.6" r="5.2"/><circle class="dot" cx="368" cy="59.5" r="5.2"/></svg></div>
+<ul class="fig-key">
+<li><span class="key key-otd"></span>Optimal Therapeutic Dose (OTD)</li>
+<li><span class="key key-line key-ctx"></span>pre-tweak</li>
+<li><span class="key key-line"></span>post-tweak</li>
+<li class="key-note">RMST: restricted mean survival time</li>
+</ul>
+</figure>
 <p>Seamless phase I–II designs for modern oncology that use biological mediators and survival endpoints to optimize dose for targeted therapies and immunotherapies.</p>
 <p>This includes the <strong>DEMO</strong> design — a three-stage framework for dose exploration, monitoring, and optimization that selects a dose maximizing restricted mean survival time — and an analysis of the relative conservativeness of the <strong>Bayesian logistic regression method</strong>, with a dose-switching rule that improves performance while maintaining safety.</p>
 <div class="pub-ref">
@@ -63,8 +79,15 @@ J. Du, <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). A joint modelin
 <div class="area-head">
 <span class="area-num">03</span>
 </div>
-<section id="clinical-trial-methodology" class="level3">
-<h3 class="anchored" data-anchor-id="clinical-trial-methodology">Clinical Trial Methodology</h3>
+<section id="clinical-trial-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="clinical-trial-methodology">Clinical Trial Methodology</h2>
+<figure class="area-fig">
+<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-trials"><title id="fig-trials">Bayesian random-effects dose-optimization meta-analysis</title><line class="axis" x1="120" y1="148" x2="380" y2="148"/><line class="axis" x1="257.8" y1="12" x2="257.8" y2="138"/><line class="ctx" x1="166.8" y1="22" x2="291.6" y2="22"/><rect class="sq" x="225.2" y="18" width="7.9" height="7.9"/><text x="8" y="22" dominant-baseline="central">study 1</text><line class="ctx" x1="218.8" y1="42" x2="307.2" y2="42"/><rect class="sq" x="257.4" y="36.4" width="11.2" height="11.2"/><text x="8" y="42" dominant-baseline="central">study 2</text><line class="ctx" x1="177.2" y1="62" x2="312.4" y2="62"/><rect class="sq" x="241.1" y="58.3" width="7.3" height="7.3"/><text x="8" y="62" dominant-baseline="central">study 3</text><line class="ctx" x1="242.2" y1="82" x2="320.2" y2="82"/><rect class="sq" x="274.9" y="75.7" width="12.7" height="12.7"/><text x="8" y="82" dominant-baseline="central">study 4</text><line class="ctx" x1="205.8" y1="102" x2="299.4" y2="102"/><rect class="sq" x="247.3" y="96.7" width="10.6" height="10.6"/><text x="8" y="102" dominant-baseline="central">study 5</text><polygon class="diamond" points="234.4,128 257.8,121 281.2,128 257.8,135"/><text class="panel" x="8" y="128" dominant-baseline="central">meta-analysis</text><text x="380" y="172" text-anchor="end">efficacy</text></svg></div>
+<ul class="fig-key">
+<li><span class="key key-sq"></span>small studies</li>
+<li><span class="key key-diamond"></span>meta-analysis</li>
+</ul>
+</figure>
 <p>Meta-analytic and model-assisted methods that synthesize evidence and sharpen inference across early-phase trials.</p>
 <p><strong>REDOMA</strong> performs random-effects dose-optimization meta-analysis with spike-and-slab priors, allowing plateau or non-monotonic dose-efficacy curves across small studies. <strong>MCP-ModX</strong> adds covariate adjustment to the MCP-Mod framework through g-computation, giving valid and more precise dose-response inference even under model misspecification.</p>
 <div class="pub-ref">
@@ -77,7 +100,7 @@ J. Du, <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). A joint modelin
 </div>
 <div class="pub-ref">
 <p>
-<strong>C-H. Yang</strong>, R. Lin. MCP-ModX: covariate-adjusted MCP-Mod for dose-response analysis. <em>Working paper</em>.
+<strong>C-H. Yang</strong>, R. Lin. (2026). MCP-ModX: multiple comparison procedure and modeling with model-assisted covariate adjustment under missing outcomes. <em>Biometrical Journal</em> (submitted).
 </p>
 <div class="links">
 <a href="https://github.com/cyang728/MCPModX">GitHub ↗</a>
@@ -89,10 +112,17 @@ J. Du, <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). A joint modelin
 <div class="area-head">
 <span class="area-num">04</span>
 </div>
-<section id="optimal-treatment-regime" class="level3">
-<h3 class="anchored" data-anchor-id="optimal-treatment-regime">Optimal Treatment Regime</h3>
+<section id="optimal-treatment-regime" class="level2">
+<h2 class="anchored" data-anchor-id="optimal-treatment-regime">Optimal Treatment Regime</h2>
+<figure class="area-fig">
+<div class="fig-plot"><svg viewBox="0 0 400 180" role="img" aria-labelledby="fig-otr"><title id="fig-otr">Optimal treatment regimes with high-dimensional survival data</title><line class="axis" x1="34" y1="136" x2="196" y2="136"/><line class="axis" x1="34" y1="28" x2="34" y2="136"/><polyline class="ctx" points="34,34 51.5,34 51.5,55.9 74.9,55.9 74.9,76.3 99.7,76.3 99.7,93.7 124.5,93.7 124.5,108.3 150.8,108.3 150.8,118.5 180,118.5"/><polyline class="em" points="34,34 51.5,34 51.5,44.2 74.9,44.2 74.9,54.4 99.7,54.4 99.7,64.6 124.5,64.6 124.5,74.8 150.8,74.8 150.8,83.5 180,83.5"/><text x="186" y="88">A</text><text x="186" y="123">B</text><text class="panel" x="34" y="16">subgroup 1</text><text x="196" y="160" text-anchor="end">time</text><line class="axis" x1="226" y1="136" x2="388" y2="136"/><line class="axis" x1="226" y1="28" x2="226" y2="136"/><polyline class="ctx" points="226,34 243.5,34 243.5,44.2 266.9,44.2 266.9,52.9 291.7,52.9 291.7,63.1 316.5,63.1 316.5,71.9 342.8,71.9 342.8,79.2 372,79.2"/><polyline class="em" points="226,34 243.5,34 243.5,57.3 266.9,57.3 266.9,79.2 291.7,79.2 291.7,98.1 316.5,98.1 316.5,112.7 342.8,112.7 342.8,122.9 372,122.9"/><text x="378" y="127.4">A</text><text x="378" y="83.7">B</text><text class="panel" x="226" y="16">subgroup 2</text><text x="388" y="160" text-anchor="end">time</text><text transform="translate(16 85.0) rotate(-90)" text-anchor="middle">survival</text></svg></div>
+<ul class="fig-key">
+<li><span class="key key-line"></span>treatment A</li>
+<li><span class="key key-line key-ctx"></span>treatment B</li>
+</ul>
+</figure>
 <p>Model-free methods for individualized treatment decisions in precision medicine.</p>
-<p>I developed a <strong>variable screening</strong> method for optimal treatment regimes with high-dimensional survival data that requires no outcome model and no assumed form for the regime, stays valid for any prespecified subgroup, and lets flexible learners such as random forests and boosting be applied to the selected variables.</p>
+<p>We developed a <strong>variable screening</strong> method for optimal treatment regimes with high-dimensional survival data that requires no outcome model and no assumed form for the regime, stays valid for any prespecified subgroup, and lets flexible learners such as random forests and boosting be applied to the selected variables.</p>
 <div class="pub-ref">
 <p>
 <strong>C-H. Yang</strong>, Y-J. Cheng. (2024). A model-free variable screening method for optimal treatment regimes with high-dimensional survival data. <em>Biometrika</em>, 111(4), 1369–1386.

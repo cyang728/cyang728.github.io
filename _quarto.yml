@@ -1,10 +1,16 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - profile.jpg
 
 website:
   title: "Cheng-Han Yang"
+  description: "Associate Research Scientist (Research Faculty), Department of Biostatistics, Yale University. Statistical methods for electronic health records and clinical trials."
   site-url: https://cyang728.github.io
+  image: images/social-card.png
+  open-graph: true
+  twitter-card: true
   navbar:
     background: light
     foreground: dark
@@ -24,14 +30,22 @@ website:
     left: "© 2026 Cheng-Han Yang"
     right: "Built with Quarto"
 
+filters:
+  - _filters/table-scroll.lua
+
 format:
   html:
-    theme: cosmo
+    theme: [cosmo, theme-overrides.scss]
     css: styles.css
     toc: false
     body-classes: fullcontent
     grid:
-      body-width: 1180px
+      body-width: 680px
+      margin-width: 260px
     include-in-header:
       text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
         <script data-goatcounter="https://cyang728.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    include-after-body: _includes/a11y.html

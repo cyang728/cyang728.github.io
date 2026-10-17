@@ -61,12 +61,19 @@ toc: false
 <div class="publist2">
 
 <div class="pub-item"><div class="n">7</div><div class="body">
+<div class="ttl">Assessing statistical practices of existing AI models for lung cancer detection, prognosis, and risk prediction: a cross-sectional meta-research study</div>
+<div class="auth">Y. Hou, T. Ward, <span class="me">C-H. Yang</span>, E. Jernigan, G. Caturegli, D. Boffa, B. Mukherjee</div>
+<div class="src"><em>New England Journal of Medicine Artificial Intelligence</em> <span class="tag">Accepted</span> · 2026 · medRxiv 2025.12.23.25342849</div>
+<div class="links"><a href="https://doi.org/10.64898/2025.12.23.25342849v1">medRxiv ↗</a></div>
+</div></div>
+
+<div class="pub-item"><div class="n">8</div><div class="body">
 <div class="ttl">Prospective phase II clinical trial of molecular glioblastoma (historical grade 2 and 3 IDH-wildtype gliomas): preliminary novel exploratory analyses</div>
 <div class="auth">D.N. Yeboa, B.T. Whitfield, R. Lin, … <span class="me">C-H. Yang</span>, … J.T. Huse</div>
 <div class="src"><em>Journal of Neuro-Oncology</em>, 2026 · 176(1), 1–11</div>
 </div></div>
 
-<div class="pub-item"><div class="n">8</div><div class="body">
+<div class="pub-item"><div class="n">9</div><div class="body">
 <div class="ttl">A virtual wellness program to enhance well-being for pediatric oncology staff during the COVID-19 pandemic</div>
 <div class="auth">K.M. Moody, M.C. Swartz, Z. Gresham, … <span class="me">C-H. Yang</span>, R. Robert</div>
 <div class="src"><em>Advances in Cancer Education and Quality Improvement</em>, 2025 · 1(1), a18</div>
@@ -82,31 +89,30 @@ toc: false
 <div class="pub-note"><em>*</em> Equal contribution.</div>
 <div class="publist2">
 
-<div class="pub-item"><div class="n">9</div><div class="body">
+<div class="pub-item"><div class="n">10</div><div class="body">
 <div class="ttl">Prediction-based inference in electronic health record (EHR)-linked biobanks</div>
 <div class="auth">X. Chen, <span class="me">C-H. Yang</span>, Z. Wu, B. Mukherjee</div>
-<div class="src"><em>Statistics in Medicine</em> <span class="tag">Submitted</span> · 2026 · arXiv 2603.14356</div>
+<div class="src"><em>Statistics in Medicine</em> <span class="tag">Revised &amp; resubmitted</span> · 2026 · arXiv 2603.14356</div>
 <div class="links"><a href="https://arxiv.org/abs/2603.14356">arXiv ↗</a></div>
 </div></div>
 
-<div class="pub-item"><div class="n">10</div><div class="body">
+<div class="pub-item"><div class="n">11</div><div class="body">
 <div class="ttl">Analyzing longitudinal outcomes from electronic health records: a joint modeling approach to handle informative visits and observations</div>
 <div class="auth">J. Du<em>*</em>, <span class="me">C-H. Yang<em>*</em></span>, X. Shi, B. Mukherjee</div>
-<div class="src"><em>JASA</em> <span class="tag">Revised &amp; resubmitted</span> · 2026</div>
+<div class="src"><em>Journal of the American Statistical Association</em> <span class="tag">Revised &amp; resubmitted</span> · 2026</div>
 </div></div>
 
-<div class="pub-item"><div class="n">11</div><div class="body">
+<div class="pub-item"><div class="n">12</div><div class="body">
 <div class="ttl">Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes</div>
 <div class="auth"><span class="me">C-H. Yang</span>, X. Shi, B. Mukherjee</div>
 <div class="src"><em>Biometrics</em> <span class="tag">Revised &amp; resubmitted</span> · 2026</div>
 <div class="links"><a href="https://arxiv.org/abs/2602.15374">arXiv ↗</a></div>
 </div></div>
 
-<div class="pub-item"><div class="n">12</div><div class="body">
-<div class="ttl">Assessing statistical practices of existing AI models for lung cancer detection, prognosis, and risk prediction: a cross-sectional meta-research study</div>
-<div class="auth">Y. Hou, T. Ward, <span class="me">C-H. Yang</span>, E. Jernigan, G. Caturegli, D. Boffa, B. Mukherjee</div>
-<div class="src">2025 · medRxiv 2025.12.23.25342849</div>
-<div class="links"><a href="https://doi.org/10.64898/2025.12.23.25342849v1">medRxiv ↗</a></div>
+<div class="pub-item"><div class="n">13</div><div class="body">
+<div class="ttl">MCP-ModX: multiple comparison procedure and modeling with model-assisted covariate adjustment under missing outcomes</div>
+<div class="auth"><span class="me">C-H. Yang</span>, R. Lin</div>
+<div class="src"><em>Biometrical Journal</em> <span class="tag">Submitted</span> · 2026</div>
 </div></div>
 
 </div>
@@ -118,18 +124,12 @@ toc: false
 <div class="publist2">
 
 <div class="pub-item"><div class="n">1</div><div class="body">
-<div class="ttl">MCP-ModX: multiple comparison procedure and modeling with model-assisted covariate adjustment under missing outcomes</div>
-<div class="auth"><span class="me">C-H. Yang</span>, R. Lin</div>
-<div class="src">In preparation · 2026</div>
-</div></div>
-
-<div class="pub-item"><div class="n">2</div><div class="body">
 <div class="ttl">A test for missing at random in longitudinal biomarkers from EHR using visits without measurement</div>
 <div class="auth"><span class="me">C-H. Yang</span>, S. McGrath, R.D. Shah, X. Shi, B. Mukherjee</div>
 <div class="src">In preparation · 2026</div>
 </div></div>
 
-<div class="pub-item"><div class="n">3</div><div class="body">
+<div class="pub-item"><div class="n">2</div><div class="body">
 <div class="ttl">Who seeks care, and what gets measured? Understanding the distinct mechanisms behind visit and observation processes in multi-center EHR</div>
 <div class="auth"><span class="me">C-H. Yang</span>, M. Salvatore, H. Lu, Z. Zhu, P. Tennant, X. Shi, F. Li, B. Mukherjee</div>
 <div class="src">In preparation · 2026</div>

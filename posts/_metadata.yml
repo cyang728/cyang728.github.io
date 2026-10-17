@@ -1,0 +1,7 @@
+# Every post: a readable text column with the table of contents in the
+# margin (and at the top of the post on small screens); figures open full size.
+body-classes: article
+toc: true
+toc-location: right-body
+toc-depth: 2
+lightbox: true
