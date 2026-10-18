@@ -1,0 +1,193 @@
+<script>
+// Contact button and Research figure motion (styles in styles.css).
+// Both are for desktop with a mouse. The figures draw once and never move
+// when the reader asks for reduced motion; without this script every page
+// and figure is already complete.
+(function () {
+  'use strict';
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var desktop = window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)').matches;
+  var motion = desktop && !reduce && 'animate' in Element.prototype && 'IntersectionObserver' in window;
+  var EMAIL = 'cheng-han.yang@yale.edu';
+  var NS = 'http://www.w3.org/2000/svg';
+  var EP = [0.42, 0, 0.58, 1], EASE_SWEEP = 'cubic-bezier(' + EP.join(',') + ')';   // ease-in-out
+
+  function $all(root, sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
+  function pop(node, delay, dur) {
+    return node.animate([{ opacity: 0, transform: 'scale(.35)' }, { opacity: 1, transform: 'scale(1)' }],
+      { duration: dur || 260, delay: delay, easing: 'cubic-bezier(.2,.7,.3,1.25)', fill: 'backwards' });
+  }
+  function fade(node, delay, dur) {
+    return node.animate([{ opacity: 0 }, { opacity: 1 }],
+      { duration: dur || 280, delay: delay, easing: 'ease-out', fill: 'backwards' });
+  }
+  function grow(node, delay, dur) {
+    return node.animate([{ opacity: 0, transform: 'scaleY(0)' }, { opacity: 1, transform: 'scaleY(1)' }],
+      { duration: dur || 360, delay: delay, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'backwards' });
+  }
+  // reveal the curves left to right: a clip rectangle that scales from its left edge
+  function sweeper(svg, id, x0, x1) {
+    var vb = svg.viewBox.baseVal;
+    var defs = document.createElementNS(NS, 'defs');
+    var clip = document.createElementNS(NS, 'clipPath');
+    var rect = document.createElementNS(NS, 'rect');
+    clip.setAttribute('id', id);
+    rect.setAttribute('x', x0); rect.setAttribute('y', vb.y - 60);
+    rect.setAttribute('width', x1 - x0); rect.setAttribute('height', vb.height + 120);
+    rect.style.transformBox = 'view-box';
+    rect.style.transformOrigin = x0 + 'px 0px';
+    clip.appendChild(rect); defs.appendChild(clip); svg.insertBefore(defs, svg.firstChild);
+    return rect;
+  }
+  function sweep(rect, delay, dur) {
+    return rect.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }],
+      { duration: dur, delay: delay, easing: EASE_SWEEP, fill: 'backwards' });
+  }
+  // fraction of the sweep's duration at which its edge reaches fraction f of
+  // its width (inverts EASE_SWEEP), so that marks appear as the edge passes them
+  function bez(a, b, s) { return 3 * a * s * (1 - s) * (1 - s) + 3 * b * s * s * (1 - s) + s * s * s; }
+  function reach(f) {
+    if (f <= 0) return 0;
+    if (f >= 1) return 1;
+    var lo = 0, hi = 1;
+    for (var k = 0; k < 24; k++) { var m = (lo + hi) / 2; if (bez(EP[1], EP[3], m) < f) lo = m; else hi = m; }
+    return bez(EP[0], EP[2], (lo + hi) / 2);
+  }
+  function once(el, threshold, fn) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); fn(); } });
+    }, { threshold: threshold });
+    io.observe(el);
+  }
+
+  /* ---------------- Contact ---------------- */
+  function contact() {
+    var dock = document.createElement('div');
+    dock.className = 'contact-dock';
+    dock.innerHTML =
+      '<div class="contact-card" id="contact-card" role="dialog" aria-labelledby="contact-title" hidden>' +
+        '<div class="cc-head"><h2 class="cc-title" id="contact-title">Contact</h2>' +
+        '<button type="button" class="cc-close" aria-label="Close">×</button></div>' +
+        '<div class="cc-row"><span class="cc-k">Email</span><div class="cc-v cc-email">' +
+          '<a href="mailto:' + EMAIL + '">' + EMAIL + '</a><button type="button" class="cc-copy">Copy</button></div></div>' +
+        '<div class="cc-row"><span class="cc-k">Department</span><div class="cc-v">Department of Biostatistics' +
+          '<span class="sub">Yale School of Public Health</span></div></div>' +
+        '<div class="cc-row"><span class="cc-k">Based in</span><div class="cc-v">New Haven, CT</div></div>' +
+        '<div class="cc-row"><span class="cc-k">Profiles</span><div class="cc-links">' +
+          '<a href="https://scholar.google.com/citations?user=SOJu3GAAAAAJ&amp;hl=zh-TW">Google Scholar</a>' +
+          '<a href="https://github.com/cyang728">GitHub</a>' +
+          '<a href="https://orcid.org/0000-0002-4161-3140">ORCID</a></div></div>' +
+      '</div>' +
+      '<button type="button" class="contact-pill" aria-expanded="false" aria-controls="contact-card">' +
+        '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5h14v9H3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>' +
+        '<path d="M3.6 6.2 10 11l6.4-4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>' +
+        '<span>Contact</span></button>';
+    document.body.appendChild(dock);
+
+    var pill = dock.querySelector('.contact-pill');
+    var card = dock.querySelector('.contact-card');
+    var copy = dock.querySelector('.cc-copy');
+    function open() { card.hidden = false; pill.setAttribute('aria-expanded', 'true'); card.querySelector('a').focus(); }
+    function close(refocus) { card.hidden = true; pill.setAttribute('aria-expanded', 'false'); copy.textContent = 'Copy'; if (refocus) pill.focus(); }
+    pill.addEventListener('click', function () { card.hidden ? open() : close(false); });
+    dock.querySelector('.cc-close').addEventListener('click', function () { close(true); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !card.hidden) close(true); });
+    document.addEventListener('click', function (e) { if (!card.hidden && !dock.contains(e.target)) close(false); });
+    copy.addEventListener('click', function () {
+      var done = function () { copy.textContent = 'Copied'; };
+      var fallback = function () {
+        var r = document.createRange(); r.selectNodeContents(card.querySelector('.cc-email a'));
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        copy.textContent = 'Selected';
+      };
+      try { navigator.clipboard.writeText(EMAIL).then(done, fallback); } catch (err) { fallback(); }
+    });
+
+    // The home page already shows Email in the hero; show the button once those links scroll away.
+    var chips = document.querySelector('.home .chips');
+    if (chips && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          var away = !e.isIntersecting && e.boundingClientRect.top < 0;
+          dock.classList.toggle('is-visible', away);
+          if (!away) close(false);
+        });
+      }).observe(chips);
+    } else {
+      dock.classList.add('is-visible');
+    }
+  }
+
+  /* ---------------- Research figures ---------------- */
+  // For each legend entry, in order, the marks it names. The EHR trajectory has
+  // no legend entry, so it stays visible with either entry.
+  var KEYS = {
+    'fig-ehr':    [['circle.dot', 'line.drop', 'path.ctx'], ['circle.ring', 'path.ctx']],
+    'fig-dose':   [['path.em', 'text[data-l="efficacy"]'], ['path.ctx', 'text[data-l="toxicity"]'],
+                   ['rect.wash', 'circle.dot', 'text[data-l="OTD"]'], ['circle.dot-ctx', 'text[data-l="MTD"]']],
+    'fig-trials': [['line.whisker', 'circle.dot-ctx'], ['path.em', 'path.band'], ['rect.wash', 'circle.dot', 'text[data-l="OBD"]']],
+    'fig-otr':    [['path.bar'], ['path.bar-ctx']]
+  };
+  var LABELS = { 'fig-dose': ['OTD', 'MTD', 'efficacy', 'toxicity'], 'fig-trials': ['OBD'] };
+  // drawn last, after the curves: the doses each figure is about, the active variables
+  var FINAL = { 'fig-dose': 'circle.dot, circle.dot-ctx', 'fig-trials': 'circle.dot', 'fig-otr': 'path.bar' };
+
+  function legend(fig, svg, key) {
+    var groups = KEYS[key] || [];
+    $all(fig, '.fig-key li').forEach(function (li, i) {
+      if (!groups[i]) return;
+      var targets = $all(svg, groups[i].join(','));
+      li.classList.add('key-link');
+      li.tabIndex = 0;
+      var on = function () { svg.classList.add('is-dimmed'); li.classList.add('is-active'); targets.forEach(function (t) { t.classList.add('is-hl'); }); };
+      var off = function () { svg.classList.remove('is-dimmed'); li.classList.remove('is-active'); targets.forEach(function (t) { t.classList.remove('is-hl'); }); };
+      li.addEventListener('mouseenter', on); li.addEventListener('mouseleave', off);
+      li.addEventListener('focus', on); li.addEventListener('blur', off);
+    });
+  }
+
+  function build(svg) {
+    var id = svg.getAttribute('aria-labelledby');
+    var W = svg.viewBox.baseVal.width;
+    var t0 = 60, dur = 900, end = t0 + dur;
+    var finals = FINAL[id] ? $all(svg, FINAL[id]) : [];
+    var at = function (n) {     // when the sweep's edge reaches the mark
+      var x = n.hasAttribute('cx') ? +n.getAttribute('cx') : n.hasAttribute('x1') ? +n.getAttribute('x1') : n.getBBox().x;
+      return Math.max(0, t0 + dur * reach((x + 10) / (W + 20)) - 40);
+    };
+    sweep(svg._sweep, t0, dur);
+    $all(svg, 'line.whisker, line.drop').forEach(function (n) { fade(n, at(n), 220); });
+    $all(svg, 'circle, path.bar, path.bar-ctx').forEach(function (n) {
+      if (finals.indexOf(n) >= 0) return;
+      (n.tagName === 'path' ? grow : pop)(n, at(n));
+    });
+    $all(svg, 'rect.wash').forEach(function (n) { fade(n, end, 320); });
+    finals.forEach(function (n, k) { (n.tagName === 'path' ? grow : pop)(n, end + 120 + k * 110, n.tagName === 'path' ? 420 : 300); });
+    $all(svg, '.mark-label').forEach(function (n) { fade(n, end + 260, 260); });
+    svg._sweep.style.transform = '';
+    svg.classList.remove('pre');
+  }
+
+  function research() {
+    $all(document, '.research-section .area-fig').forEach(function (fig) {
+      var svg = fig.querySelector('svg');
+      var id = svg.getAttribute('aria-labelledby');
+      $all(svg, 'text').forEach(function (t) {
+        var s = t.textContent.trim();
+        if (!t.getAttribute('transform') && (LABELS[id] || []).indexOf(s) >= 0) { t.classList.add('mark-label'); t.setAttribute('data-l', s); }
+      });
+      legend(fig, svg, id);
+      if (!motion) return;
+      svg._sweep = sweeper(svg, 'sweep-' + id, -10, svg.viewBox.baseVal.width + 10);
+      $all(svg, 'path.ctx, path.em, path.band').forEach(function (p) { p.setAttribute('clip-path', 'url(#sweep-' + id + ')'); });
+      svg._sweep.style.transform = 'scaleX(0)';
+      svg.classList.add('pre');
+      once(svg, 0.35, function () { build(svg); });
+    });
+  }
+
+  function init() { contact(); research(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>

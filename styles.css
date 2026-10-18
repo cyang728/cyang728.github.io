@@ -108,7 +108,7 @@ h4 {
 .kicker {
   display: inline-block;
   font-family: var(--mono) !important;
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 500;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -341,7 +341,7 @@ ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em;
 .home .rail-block { margin-bottom: 2.1rem; }
 .home .rail-h {
   font-family: var(--mono);
-  font-size: .72rem;
+  font-size: .8rem;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--yale);
@@ -353,7 +353,7 @@ ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em;
 .home .fact .k {
   display: block;
   font-family: var(--mono);
-  font-size: .68rem;
+  font-size: .74rem;
   letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--faint);
@@ -361,6 +361,7 @@ ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em;
 }
 .home .fact .v { font-size: .95rem; color: var(--ink); }
 .home .fact .v .sub { display:block; color: var(--muted); font-size: .88rem; }
+.home .fact .yrs { white-space: nowrap; }   /* a year range stays on one line */
 
 /* news feed */
 .home .news { list-style: none; padding: 0; margin: 0; }
@@ -375,7 +376,7 @@ ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em;
 .home .news li:first-child { border-top: 0; }
 .home .news .date {
   font-family: var(--mono);
-  font-size: .72rem;
+  font-size: .78rem;
   color: var(--yale);
   letter-spacing: .02em;
   white-space: nowrap;
@@ -821,7 +822,7 @@ body:not(.article) #quarto-margin-sidebar, #quarto-sidebar { display: none !impo
 .pub-group { margin: 0 0 2.4rem; }
 .pub-group-kicker {
   font-family: var(--mono);
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 500;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -1021,6 +1022,8 @@ body:not(.article) #quarto-document-content > #title-block-header {
 /* About: colored emphasis tying the two research pillars to their area hues */
 .home .prose .hl-ehr  { color: var(--area-1-text); font-weight: 600; }   /* EHR methods */
 .home .prose .hl-dose { color: var(--area-2-text); font-weight: 600; }   /* dose-finding */
+.home .prose .hl-meta { color: var(--area-3-text); font-weight: 600; }   /* meta-analysis */
+.home .prose .hl-otr  { color: var(--area-4-text); font-weight: 600; }   /* treatment regimes */
 
 /* ============================================================
    POSTS — tutorials keep Quarto's reading column and margin TOC
@@ -1047,3 +1050,118 @@ body.article #quarto-document-content { margin-inline: 0; min-width: 0; }
 /* long URLs and identifiers wrap instead of widening the page */
 .article #quarto-document-content p,
 .article #quarto-document-content li { overflow-wrap: break-word; }
+
+/* ============================================================
+   CONTACT — a button at the bottom right opens a card with the
+   contact details (desktop with a mouse; added by _includes/enhance.html)
+   ============================================================ */
+.contact-dock {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right, 0px));
+  bottom: max(24px, env(safe-area-inset-bottom, 0px));
+  z-index: 1040;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.contact-dock.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+@media (max-width: 767.98px), (hover: none) { .contact-dock { display: none; } }
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font: 500 .8rem/1 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--yale);
+  border: 0;
+  border-radius: 999px;
+  padding: .72rem 1.1rem;
+  box-shadow: 0 12px 28px -14px rgba(0, 34, 71, .7);
+  cursor: pointer;
+  transition: background-color .16s ease;
+}
+.contact-pill:hover { background: var(--yale-hover); }
+.contact-pill:focus-visible { outline: 2px solid var(--yale); outline-offset: 3px; }
+.contact-pill svg { width: 16px; height: 16px; flex: none; }
+.contact-card {
+  width: 320px;
+  background: #fff;
+  border: 1px solid var(--band-line);
+  border-radius: 12px;
+  box-shadow: 0 24px 48px -24px rgba(16, 32, 45, .5);
+  padding: .95rem 1.1rem 1rem;
+  font-family: var(--sans);
+  color: var(--ink);
+}
+.cc-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .35rem; }
+.contact-card h2.cc-title {
+  font: 500 .8rem/1 var(--mono) !important;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--yale) !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.cc-close {
+  border: 0;
+  background: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  padding: .1rem .35rem;
+  border-radius: 4px;
+}
+.cc-close:hover { color: var(--ink); }
+.cc-close:focus-visible, .cc-copy:focus-visible { outline: 2px solid var(--yale); outline-offset: 2px; }
+.cc-row { padding: .6rem 0; border-top: 1px solid var(--band-line); }
+.cc-k {
+  display: block;
+  font: 500 .74rem/1.2 var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: .18rem;
+}
+.cc-v { font-size: .95rem; line-height: 1.4; color: var(--ink); }
+.cc-v .sub { display: block; color: var(--muted); font-size: .88rem; }
+.cc-email { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
+.cc-email a { overflow-wrap: anywhere; }
+.cc-copy {
+  flex: none;
+  font: 500 .72rem/1 var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--yale);
+  background: #fff;
+  border: 1px solid var(--band-line);
+  border-radius: 999px;
+  padding: .38rem .7rem;
+  cursor: pointer;
+}
+.cc-copy:hover { border-color: var(--yale); }
+.cc-links { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font: 500 .8rem/1.5 var(--mono); }
+
+/* ============================================================
+   RESEARCH FIGURES — a legend entry picks out its marks, and each
+   figure draws once as it scrolls into view (desktop, not with
+   reduced motion; added by _includes/enhance.html)
+   ============================================================ */
+.fig-key li.key-link { border-radius: 4px; cursor: default; }
+.fig-key li.key-link:focus-visible { outline: 2px solid var(--yale); outline-offset: 3px; }
+.research-section .fig-key li.is-active { color: var(--ink) !important; }
+.fig-plot svg :is(.ctx, .em, .dot, .dot-ctx, .ring, .wash, .band, .whisker, .bar, .bar-ctx, .drop, .mark-label) { transition: opacity .16s ease; }
+.fig-plot svg.is-dimmed :is(.ctx, .em, .dot, .dot-ctx, .ring, .wash, .band, .whisker, .bar, .bar-ctx, .drop):not(.is-hl) { opacity: .14; }
+.fig-plot svg.is-dimmed .mark-label:not(.is-hl) { opacity: .2; }
+/* the build-up scales points from their centres and bars from the axis */
+.fig-plot svg circle, .fig-plot svg .whisker, .fig-plot svg .drop { transform-box: fill-box; transform-origin: 50% 50%; }
+.fig-plot svg .bar, .fig-plot svg .bar-ctx { transform-box: fill-box; transform-origin: 50% 100%; }
+.fig-plot svg.pre :is(circle, .wash, .whisker, .bar, .bar-ctx, .drop, .mark-label) { opacity: 0; }

@@ -45,8 +45,8 @@ toc: false
 
 <div class="prose">
 <h2 class="kicker">About</h2>
-<p>I am an Associate Research Scientist (Research Faculty) in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at the <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr. Bhramar Mukherjee</a>. My research interests lie in <span class="hl-ehr">methodology development for electronic health record (EHR) data</span>, <span class="hl-dose">early-phase clinical trial design</span>, causal inference, and survival analysis.</p>
-<p>My first-author methodology has appeared in <em>Biometrika</em>, the <em>Annals of Applied Statistics</em>, and <em>Statistics in Medicine</em>, with related work revised and resubmitted at the <em>Journal of the American Statistical Association</em> and <em>Biometrics</em>. My current EHR research spans <em>All of Us</em>, the UK Biobank, Yale New Haven Health, the Michigan Genomics Initiative, and Epic Cosmos.</p>
+<p>I am an Associate Research Scientist (Research Faculty) in the <a href="https://ysph.yale.edu/public-health-research-and-practice/department-research/biostatistics/">Department of Biostatistics</a> at the <a href="https://ysph.yale.edu/">Yale School of Public Health</a>, working with <a href="https://ysph.yale.edu/profile/bhramar-mukherjee/">Dr. Bhramar Mukherjee</a>. My research interests lie in <span class="hl-ehr">methods for electronic health records (EHRs)</span>, <span class="hl-dose">early-phase clinical trial design and analysis</span>, <span class="hl-meta">meta-analysis</span>, and <span class="hl-otr">optimal treatment regimes</span>.</p>
+<p>My research bridges the gap between real-world data and clinical trials. Our methods connect the design and analysis of clinical trials with the analysis of EHR data. Because early-phase trials are small, our designs and meta-analytic methods use more of the available information to identify the optimal dose. Because EHR data come from routine clinical care, our joint models correct the bias from informative presence and informative observation. With these models, we can extract reliable insights from EHR data. My current EHR research spans <em>All of Us</em>, the UK Biobank, Yale New Haven Health, the Michigan Genomics Initiative, and Epic Cosmos.</p>
 </div>
 
 <div class="focus">
@@ -77,9 +77,9 @@ toc: false
 
 <div class="rail-block">
 <div class="rail-h">At a glance</div>
-<div class="fact"><span class="k">Position</span><span class="v">Associate Research Scientist (Research Faculty)<span class="sub">Yale School of Public Health</span></span></div>
-<div class="fact"><span class="k">Ph.D.</span><span class="v">Biostatistics &amp; Data Science, 2025<span class="sub">UTHealth Houston (MD Anderson)</span><span class="sub">Advisor: Ruitao Lin</span></span></div>
-<div class="fact"><span class="k">M.S.</span><span class="v">Statistics, 2017<span class="sub">National Tsing Hua University</span><span class="sub">Advisor: Yu-Jen Cheng</span></span></div>
+<div class="fact"><span class="k">Position</span><span class="v">Associate Research Scientist (Research Faculty), <span class="yrs">2025–present</span><span class="sub">Yale School of Public Health</span></span></div>
+<div class="fact"><span class="k">Ph.D.</span><span class="v">Biostatistics &amp; Data Science, <span class="yrs">2021–2025</span><span class="sub">UTHealth Houston (MD Anderson)</span><span class="sub">Advisor: Ruitao Lin</span></span></div>
+<div class="fact"><span class="k">M.S.</span><span class="v">Statistics, <span class="yrs">2015–2017</span><span class="sub">National Tsing Hua University</span><span class="sub">Advisor: Yu-Jen Cheng</span></span></div>
 <div class="fact"><span class="k">Based in</span><span class="v">New Haven, CT</span></div>
 </div>
 
@@ -118,6 +118,23 @@ toc: false
 <li class="pub">
 <span class="num">02</span>
 <div>
+<div class="t">Analyzing longitudinal outcomes from electronic health records: a joint modeling approach to handle informative visits and observations</div>
+<div class="meta"><span class="venue">Journal of the American Statistical Association</span> · Revised &amp; resubmitted · 2026 · with J. Du (equal contribution), X. Shi, B. Mukherjee</div>
+</div>
+</li>
+
+<li class="pub">
+<span class="num">03</span>
+<div>
+<div class="t">Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes</div>
+<div class="meta"><span class="venue">Biometrics</span> · Revised &amp; resubmitted · 2026 · with X. Shi, B. Mukherjee</div>
+<div class="links"><a href="https://arxiv.org/abs/2602.15374">arXiv ↗</a></div>
+</div>
+</li>
+
+<li class="pub">
+<span class="num">04</span>
+<div>
 <div class="t">Dose exploration, monitoring, and optimization using biological and clinical outcomes</div>
 <div class="meta"><span class="venue">Annals of Applied Statistics</span> · 2025 · 19(4), 2599–2617 · with P.F. Thall, R. Lin</div>
 <div class="links"><a href="https://doi.org/10.1214/25-AOAS2099">Paper ↗</a> <a href="https://github.com/ruitaolin/DEMO">Code ↗</a></div>
@@ -125,28 +142,11 @@ toc: false
 </li>
 
 <li class="pub">
-<span class="num">03</span>
+<span class="num">05</span>
 <div>
 <div class="t">BAR12: Bayesian autoregressive phase 1–2 design for cell therapy trials with manufacturing changes</div>
 <div class="meta"><span class="venue">Statistics in Medicine</span> · 2026 · 45(8–9), e70551 · with P.F. Thall, D. Marin, S.Y. Belay, R. Lin</div>
 <div class="links"><a href="https://doi.org/10.1002/sim.70551">Paper ↗</a> <a href="https://github.com/cyang728/BAR12">Code ↗</a></div>
-</div>
-</li>
-
-<li class="pub">
-<span class="num">04</span>
-<div>
-<div class="t">Analyzing longitudinal outcomes from electronic health records: a joint modeling approach to handle informative visits and observations</div>
-<div class="meta"><span class="venue">Journal of the American Statistical Association</span> · Revised &amp; resubmitted · 2026 · with J. Du (equal contribution), X. Shi, B. Mukherjee</div>
-</div>
-</li>
-
-<li class="pub">
-<span class="num">05</span>
-<div>
-<div class="t">Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes</div>
-<div class="meta"><span class="venue">Biometrics</span> · Revised &amp; resubmitted · 2026 · with X. Shi, B. Mukherjee</div>
-<div class="links"><a href="https://arxiv.org/abs/2602.15374">arXiv ↗</a></div>
 </div>
 </li>
 

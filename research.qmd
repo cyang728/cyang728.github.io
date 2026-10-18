@@ -19,12 +19,12 @@ toc: false
 <li><span class="key key-ring"></span>visits without measurement</li>
 </ul>
 </figure>
-<p>Statistical methods for large-scale EHR data, where <em>whether</em> a patient is seen and <em>what</em> gets measured are themselves informative about health.</p>
+<p>EHRs record laboratory values as a byproduct of routine clinical care. We raise awareness that longitudinal biomarker data in EHRs arise through two stages:</p>
 <ul>
-<li><strong>Informative presence</strong> — whether a patient is observed at a given time depends on their underlying condition.</li>
-<li><strong>Informative observation</strong> — conditional on a visit, the decision to measure a biomarker is not random.</li>
+<li><strong>Visit process</strong> — determines whether and how often a patient has an outpatient visit, potentially inducing <em>informative presence</em> (IP).</li>
+<li><strong>Observation process</strong> — whether a biomarker is observed at an outpatient visit. When recording depends on the underlying biomarker or health process, selective measurement may induce <em>informative observation</em> (IO).</li>
 </ul>
-<p>We build joint models that account for these mechanisms so that biomarker trajectories and associations can be estimated without bias.</p>
+<p>Methods that account for visits alone may increase bias. We developed joint models of the biomarker, visit, and observation processes. Shared random effects link all three processes. In simulations, our models gave nearly unbiased estimates under both IP and IO, but existing methods failed.</p>
 <div class="pub-ref">
 <p>
 <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes. <em>Biometrics</em> (revised &amp; resubmitted).
@@ -55,9 +55,11 @@ J. Du<em>*</em>, <strong>C-H. Yang<em>*</em></strong>, X. Shi, B. Mukherjee. (20
 <li><span class="key key-dot key-ctx"></span>maximum tolerated dose (MTD)</li>
 </ul>
 </figure>
-<p>Seamless phase I–II designs for modern oncology that use biological mediators and survival endpoints to optimize dose for targeted therapies and immunotherapies.</p>
-<p>This includes the <strong>DEMO</strong> design — a three-stage framework for dose exploration, monitoring, and optimization that selects a dose maximizing restricted mean survival time — and an analysis of the relative conservativeness of the <strong>Bayesian logistic regression method</strong>, with a dose-switching rule that improves performance while maintaining safety.</p>
-<p><strong>MCP-ModX</strong> adds covariate adjustment to the MCP-Mod framework through g-computation, giving valid and more precise dose-response inference even under model misspecification.</p>
+<p>Phase 1–2 designs use both clinical response and toxicity for dose finding. However, a phase 1–2 trial may still fail to select a truly optimal dose.</p>
+<p><strong>DEMO</strong> adds an early biological measure, such as pharmacodynamic activity, between the dose and the clinical outcomes. It selects a dose that is safe, clinically effective, and biologically active, and that maximizes restricted mean survival time. In simulations, DEMO can provide substantial improvements over designs that ignore the biological variable.</p>
+<p>In cell therapy trials, a manufacturing change (a <em>tweak</em>) can alter the cell culture duration, the cytokine cocktail, or the donor criteria. <strong>BAR12</strong> uses the data before and after the tweak to find the optimal dose. We compared BAR12 with designs that assume that the tweak has no effect or that discard the pre-tweak data. BAR12 gave higher probabilities of correct dose selection and allocated more patients to optimal doses.</p>
+<p>Critics say that the standard <strong>Bayesian logistic regression method</strong> (BLRM) is too conservative because of its overdose control rule. We examined the relative conservativeness of the BLRM and proposed a dose-switching rule that improves its performance.</p>
+<p>Covariate adjustment can make dose-response analyses more robust and precise. <strong>MCP-ModX</strong> adds model-assisted covariate adjustment to the MCP-Mod framework when outcomes are missing. It gives valid inferences, even in the presence of model misspecification.</p>
 <div class="pub-ref">
 <p>
 <strong>C-H. Yang</strong>, P.F. Thall, R. Lin. (2025). Dose exploration, monitoring, and optimization using biological and clinical outcomes. <em>Annals of Applied Statistics</em>, 19(4), 2599–2617.
@@ -106,8 +108,9 @@ J. Du<em>*</em>, <strong>C-H. Yang<em>*</em></strong>, X. Shi, B. Mukherjee. (20
 <li><span class="key key-otd"></span>optimal biological dose (OBD)</li>
 </ul>
 </figure>
-<p>Meta-analytic methods that synthesize evidence and sharpen inference across early-phase trials.</p>
-<p><strong>REDOMA</strong> performs random-effects dose-optimization meta-analysis with spike-and-slab priors, allowing plateau or non-monotonic dose-efficacy curves across small studies.</p>
+<p>For novel therapies, the dose-efficacy curve may reach a plateau at a specific dose. Conventional methods assume a monotone relationship between efficacy and dose, so they can fail to identify the optimal biological dose (OBD) accurately.</p>
+<p><strong>REDOMA</strong> uses summary data from phase I and phase I/II trials to identify the OBD. It synthesizes the toxicity and efficacy data from each trial and allows a plateau in the dose-efficacy curve. Extensive simulation studies confirm the good performance of REDOMA.</p>
+<p>The standard inverse-variance method needs the within-study standard errors of median survival times, but studies typically do not report them. We estimate these standard errors from the reported confidence intervals. In simulations, this approach often performed comparably to a benchmark that uses the true within-study standard errors.</p>
 <div class="pub-ref">
 <p>
 <strong>C-H. Yang</strong>, E. Kwiatkowski, J.J. Lee, R. Lin. (2024). REDOMA: Bayesian random-effects dose-optimization meta-analysis using spike-and-slab priors. <em>Statistics in Medicine</em>, 43(18), 3484–3502.
@@ -136,8 +139,8 @@ S. McGrath, <strong>C-H. Yang</strong>, J. Kimmelman, O. Ozturk, R. Steele, A. B
 <li><span class="key key-bar key-ctx"></span>inactive variables</li>
 </ul>
 </figure>
-<p>Model-free methods for individualized treatment decisions in precision medicine.</p>
-<p>We developed a <strong>variable screening</strong> method for optimal treatment regimes with high-dimensional survival data that requires no outcome model and no assumed form for the regime, stays valid for any prespecified subgroup, and lets flexible learners such as random forests and boosting be applied to the selected variables.</p>
+<p>In high-dimensional survival data, only some variables are active in the optimal treatment regime. We developed a <strong>model-free variable screening method</strong> that selects the active variables in a prespecified target population.</p>
+<p>The method does not require any model for the survival outcome, and the form of the treatment regime can be left unspecified. Researchers can then apply nonparametric learners, such as random forests and boosting, to the selected variables.</p>
 <div class="pub-ref">
 <p>
 <strong>C-H. Yang</strong>, Y-J. Cheng. (2024). A model-free variable screening method for optimal treatment regimes with high-dimensional survival data. <em>Biometrika</em>, 111(4), 1369–1386.
