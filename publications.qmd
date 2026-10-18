@@ -128,8 +128,8 @@ toc: false
 </div></div>
 
 <div class="pub-item"><div class="n">2</div><div class="body">
-<div class="ttl">Who seeks care, and what gets measured? Understanding the distinct mechanisms behind visit and observation processes in multi-center EHR</div>
-<div class="auth"><span class="me">C-H. Yang</span>, M. Salvatore, H. Lu, Z. Zhu, P. Tennant, X. Shi, F. Li, B. Mukherjee</div>
+<div class="ttl">Silence in the chart: who and what are we observing in clinically informative longitudinal electronic health records data</div>
+<div class="auth"><span class="me">C-H. Yang</span>, M. Salvatore, H. Lu, Z. Zhu, P. Tennant, X. Shi, L. Ohno-Machado, R. Khera, C. Gross, F. Li, B. Mukherjee</div>
 <div class="src">In preparation · 2026</div>
 </div></div>
 
