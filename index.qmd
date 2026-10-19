@@ -102,7 +102,7 @@ toc: false
 <section class="pubs bleed"><div class="wrap">
 <span class="kicker">Selected publications</span>
 <h2 class="anchored">Selected work</h2>
-<p class="sublede">First-author methodology and lead collaborations. The full list is on the <a href="publications.html">Publications</a> page.</p>
+<p class="sublede">The full list is on the <a href="publications.html">Publications</a> page.</p>
 
 <ol class="publist">
 
