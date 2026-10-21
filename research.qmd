@@ -27,6 +27,11 @@ toc: false
 <p>Methods that account for visits alone may increase bias. We developed joint models of the biomarker, visit, and observation processes. Shared random effects link all three processes. In simulations, our models gave nearly unbiased estimates under both IP and IO, but existing methods failed.</p>
 <div class="pub-ref">
 <p>
+<strong>C-H. Yang</strong>, M. Salvatore, H. Lu, Z. Zhu, P. Tennant, X. Shi, L. Ohno-Machado, R. Khera, C. Gross, F. Li, B. Mukherjee. (2026). Silence in the chart: who and what are we observing in clinically informative longitudinal electronic health records data. <em>Annals of Epidemiology</em> (major revision).
+</p>
+</div>
+<div class="pub-ref">
+<p>
 <strong>C-H. Yang</strong>, X. Shi, B. Mukherjee. (2026). Joint modeling of longitudinal EHR data with shared random effects for informative visiting and observation processes. <em>Biometrics</em> (revised &amp; resubmitted).
 </p>
 <div class="links">

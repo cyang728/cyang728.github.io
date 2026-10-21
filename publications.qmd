@@ -108,6 +108,12 @@ toc: false
 </div></div>
 
 <div class="pub-item"><div class="n">13</div><div class="body">
+<div class="ttl">Silence in the chart: who and what are we observing in clinically informative longitudinal electronic health records data</div>
+<div class="auth"><span class="me">C-H. Yang</span>, M. Salvatore, H. Lu, Z. Zhu, P. Tennant, X. Shi, L. Ohno-Machado, R. Khera, C. Gross, F. Li, B. Mukherjee</div>
+<div class="src"><em>Annals of Epidemiology</em> <span class="tag">Major revision</span> · 2026</div>
+</div></div>
+
+<div class="pub-item"><div class="n">14</div><div class="body">
 <div class="ttl">MCP-ModX: multiple comparison procedure and modeling with model-assisted covariate adjustment under missing outcomes</div>
 <div class="auth"><span class="me">C-H. Yang</span>, R. Lin</div>
 <div class="src"><em>Biometrical Journal</em> <span class="tag">Submitted</span> · 2026</div>
@@ -124,12 +130,6 @@ toc: false
 <div class="pub-item"><div class="n">1</div><div class="body">
 <div class="ttl">A test for missing at random in longitudinal biomarkers from EHR using visits without measurement</div>
 <div class="auth"><span class="me">C-H. Yang</span>, S. McGrath, R.D. Shah, X. Shi, B. Mukherjee</div>
-<div class="src">In preparation · 2026</div>
-</div></div>
-
-<div class="pub-item"><div class="n">2</div><div class="body">
-<div class="ttl">Silence in the chart: who and what are we observing in clinically informative longitudinal electronic health records data</div>
-<div class="auth"><span class="me">C-H. Yang</span>, M. Salvatore, H. Lu, Z. Zhu, P. Tennant, X. Shi, L. Ohno-Machado, R. Khera, C. Gross, F. Li, B. Mukherjee</div>
 <div class="src">In preparation · 2026</div>
 </div></div>
 
