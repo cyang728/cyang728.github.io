@@ -8,7 +8,7 @@ toc: false
 <section id="cimehr" class="level2">
 <h2 class="anchored" data-anchor-id="cimehr">CIMEHR</h2>
 <div class="pkg-head">
-<img class="pkg-badge" src="images/cimehr-badge.svg" width="520" height="600" alt="CIMEHR badge: a biomarker trajectory over time. Ticks on the time axis mark visits at irregular times, close together while the biomarker is high. Points mark the visits where the biomarker is recorded.">
+<img class="pkg-badge" src="images/cimehr-badge.svg" width="520" height="600" alt="CIMEHR badge: a biomarker trajectory over time with visits on it at irregular times, bunched while the biomarker is high. Filled points are visits where the biomarker is recorded; open circles are visits without a measurement.">
 <div class="pkg-copy">
 <p><strong>Gaussian Clinically Informative Visiting and Observation Processes in EHR Data</strong></p>
 <p>An R package for analyzing longitudinal biomarkers from electronic health records when the visit and observation processes are themselves informative. CIMEHR fits joint models with shared random effects that link a patient’s latent health trajectory to when they are seen and what gets measured, yielding valid inference for biomarker trajectories under informative visiting and observation.</p>
