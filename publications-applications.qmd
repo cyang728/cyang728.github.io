@@ -1,0 +1,9 @@
+---
+title: "Publications"
+pagetitle: "Publications: Applications"
+pubs-view: applications
+body-classes: fullcontent pubs-view
+search: false
+---
+
+{{< include _publications.qmd >}}

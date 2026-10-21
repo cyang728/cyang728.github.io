@@ -736,38 +736,69 @@ pre code span.kw { color: #16202d !important; font-weight: 600; }
 }
 
 /* ------------------------------------------------------------
-   Blog listing
+   Blog listing: the post's figure on the left; title, date,
+   summary, topics and a link on the right (_blog-listing.ejs.md)
    ------------------------------------------------------------ */
-.listing-title, .listing-title a {
-  font-family: var(--serif) !important;
-  color: var(--ink) !important;
-  font-weight: 600;
+.blog-intro p { color: var(--muted); font-size: 1rem; line-height: 1.6; max-width: 72ch; margin: 0 0 2rem; }
+.blog-list { max-width: 66rem; border-top: 1px solid var(--band-line); }
+.blog-entry {
+  display: grid;
+  grid-template-columns: 242px minmax(0, 1fr);
+  column-gap: 3.5rem;
+  align-items: center;
+  padding: 1.8rem 0;
 }
-.listing-title a:hover { color: var(--yale) !important; }
-.listing-description, .listing-description a { color: var(--muted) !important; }
-.listing-description a { font-weight: 400; }
-.listing-description a:hover { color: var(--yale) !important; }
-div.quarto-post .listing-categories .listing-category {
-  color: var(--muted) !important;
-  border-color: var(--band-line) !important;
+.blog-entry + .blog-entry { border-top: 1px solid var(--band-line); }
+.blog-entry-no-image { grid-template-columns: minmax(0, 1fr); }
+.blog-thumbnail {
+  display: block;
+  width: 242px;
+  height: 170px;
+  padding: 8px;
+  background: var(--paper);
+  border: 1px solid var(--band-line);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color .16s ease;
 }
-.listing-date, .listing-author {
-  font-family: var(--mono) !important;
-  font-size: .8rem !important;
-  color: var(--faint) !important;
-}
-.quarto-listing-category .listing-category {
-  font-family: var(--mono) !important;
-  font-size: .72rem !important;
+.blog-thumbnail:hover { border-color: var(--yale); }
+.blog-thumbnail img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.blog-copy { min-width: 0; }
+.blog-copy h2 { font-size: 1.45rem; line-height: 1.22; margin: 0 0 .45rem; padding: 0; border: 0; }
+.blog-copy h2 a { color: var(--ink) !important; }
+.blog-copy h2 a:hover { color: var(--yale) !important; }
+.blog-date { font-family: var(--mono); font-size: .8rem; color: var(--faint); margin: 0 0 .8rem; }
+.blog-description { color: var(--muted); font-size: .98rem; line-height: 1.6; margin: 0 0 .75rem; }
+.blog-topics {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 .75rem;
+  font-family: var(--mono);
+  font-size: .74rem;
   letter-spacing: .04em;
-  background: transparent !important;
-  color: var(--muted) !important;
-  border: 1px solid var(--band-line) !important;
-  border-radius: 999px;
+  text-transform: uppercase;
+  color: var(--muted);
 }
-.quarto-listing-category .listing-category:hover {
-  color: var(--yale) !important;
-  border-color: var(--yale) !important;
+.blog-topics li { margin: 0; }
+.blog-topics li + li::before { content: "·"; padding: 0 .55rem; color: var(--faint); }
+.blog-read { font-size: .92rem; }
+@media (max-width: 1000px) {
+  .blog-entry { grid-template-columns: 210px minmax(0, 1fr); column-gap: 2.4rem; }
+  .blog-thumbnail { width: 210px; height: 155px; }
+  .blog-entry-no-image { grid-template-columns: minmax(0, 1fr); }
+  .blog-copy h2 { font-size: 1.35rem; }
+}
+@media (max-width: 760px) {
+  .blog-entry { grid-template-columns: 165px minmax(0, 1fr); column-gap: 1.6rem; padding: 1.5rem 0; }
+  .blog-thumbnail { width: 165px; height: 140px; }
+  .blog-entry-no-image { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .blog-intro p { margin-bottom: 1.5rem; }
+  .blog-entry { grid-template-columns: minmax(0, 1fr); row-gap: 1.1rem; }
+  .blog-thumbnail { width: 100%; height: auto; aspect-ratio: 242 / 170; }
 }
 
 /* ------------------------------------------------------------
@@ -1052,6 +1083,22 @@ body.article #quarto-document-content { margin-inline: 0; min-width: 0; }
 .article #quarto-document-content li { overflow-wrap: break-word; }
 
 /* ============================================================
+   SOFTWARE — a package's badge beside its name line and description
+   ============================================================ */
+.pkg-head {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  column-gap: 2.25rem;
+  align-items: center;
+}
+.pkg-badge { display: block; width: 100%; height: auto; }
+.pkg-copy > p:last-child { margin-bottom: 0; }
+@media (max-width: 560px) {
+  .pkg-head { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; }
+  .pkg-badge { width: 130px; }
+}
+
+/* ============================================================
    CONTACT — a button at the bottom right opens a card with the
    contact details (desktop with a mouse; added by _includes/enhance.html)
    ============================================================ */
@@ -1165,3 +1212,75 @@ body.article #quarto-document-content { margin-inline: 0; min-width: 0; }
 .fig-plot svg circle, .fig-plot svg .whisker, .fig-plot svg .drop { transform-box: fill-box; transform-origin: 50% 50%; }
 .fig-plot svg .bar, .fig-plot svg .bar-ctx { transform-box: fill-box; transform-origin: 50% 100%; }
 .fig-plot svg.pre :is(circle, .wash, .whisker, .bar, .bar-ctx, .drop, .mark-label) { opacity: 0; }
+
+/* ============================================================
+   PUBLICATIONS — All, Methods and Applications views by year, with
+   an "On this page" list that fills down to the section being read
+   (built by _filters/pubs-view.lua; marked by _includes/enhance.html)
+   ============================================================ */
+body.pubs-view .navbar .nav-link[href$="publications.html"] { color: var(--yale) !important; }
+body.pubs-view .navbar .nav-link[href$="publications.html"]::after { transform: scaleX(1); }
+
+.pub-tabs { display: flex; flex-wrap: wrap; gap: .35rem 1.75rem; margin: 0 0 1rem; }
+.pub-tabs a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink) !important;
+  padding: 0 0 .32rem;
+  border-bottom: 2px solid transparent;
+  background-image: none !important;
+  transition: color .16s ease, border-color .16s ease;
+}
+.pub-tabs a:hover { color: var(--yale-hover) !important; }
+.pub-tabs a[aria-current="page"] { color: var(--yale) !important; border-bottom-color: var(--yale); }
+.pub-tabs a:focus-visible { outline: 2px solid var(--yale); outline-offset: 3px; border-radius: 2px; }
+.pub-head .pub-note { margin: 0; }
+
+.pub-rail-h {
+  font-family: var(--mono);
+  font-size: .76rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--yale);
+  margin: 0 0 .55rem;
+}
+.pub-rail ul { list-style: none; margin: 0; padding: 0; }
+.pub-rail li { margin: 0; }
+.pub-rail a { background-image: none !important; font-variant-numeric: tabular-nums; }
+.pub-rail a:focus-visible { outline: 2px solid var(--yale); outline-offset: 2px; border-radius: 2px; }
+.pub-list > .pub-group:first-child > h2 { margin-top: 1.9rem; }
+
+/* phones and tablets: the list is a row of links above the publications */
+@media (max-width: 991.98px) {
+  .pub-rail { margin: 1.3rem 0 0; }
+  .pub-rail ul { display: flex; flex-wrap: wrap; gap: .3rem 1.25rem; }
+  .pub-rail a { font-size: .95rem; color: var(--ink) !important; }
+  .pub-rail a:hover { color: var(--yale-hover) !important; }
+}
+/* desktop: the list stays beside the publications, and a line fills down to
+   the section being read */
+@media (min-width: 992px) {
+  .pub-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    grid-template-areas: "head rail" "list rail";
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+  }
+  .pub-head { grid-area: head; }
+  .pub-list { grid-area: list; min-width: 0; }
+  .pub-rail { grid-area: rail; align-self: start; position: sticky; top: 5.5rem; }
+  .pub-rail a {
+    display: block;
+    padding: .34rem 0 .34rem .95rem;
+    border-left: 2px solid var(--band-line);
+    font-size: .88rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--muted) !important;
+    transition: color .16s ease, border-color .2s ease;
+  }
+  .pub-rail a:hover { color: var(--yale-hover) !important; }
+  .pub-rail li.is-read a { border-left-color: var(--yale); }
+  .pub-rail li.is-current a { border-left-color: var(--yale); color: var(--yale) !important; font-weight: 600; }
+}
