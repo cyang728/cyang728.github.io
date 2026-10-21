@@ -32,6 +32,7 @@ website:
 
 filters:
   - _filters/table-scroll.lua
+  - _filters/pubs-view.lua
 
 format:
   html:

@@ -1,12 +1,17 @@
 ---
 title: "Blog"
 listing:
+  id: blog-posts
   contents: posts
   sort: "date desc"
-  type: default
-  categories: true
+  template: _blog-listing.ejs.md
+  date-format: "MMMM D, YYYY"
   feed: true
-  fields: [image, date, title, subtitle, categories, description]
 ---
 
+::: {.blog-intro}
 This blog covers biostatistics methodology, R programming, and academic life. My goal is to make statistical concepts accessible and share practical insights from my research experience.
+:::
+
+::: {#blog-posts}
+:::

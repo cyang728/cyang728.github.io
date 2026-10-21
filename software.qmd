@@ -7,8 +7,13 @@ toc: false
 <p>We develop open-source R packages to make statistical methods accessible to applied researchers. All packages are available on GitHub.</p>
 <section id="cimehr" class="level2">
 <h2 class="anchored" data-anchor-id="cimehr">CIMEHR</h2>
+<div class="pkg-head">
+<img class="pkg-badge" src="images/cimehr-badge.svg" width="520" height="600" alt="CIMEHR badge: a biomarker trajectory over time, with filled points at visits where the biomarker is recorded and open circles at visits without a measurement.">
+<div class="pkg-copy">
 <p><strong>Gaussian Clinically Informative Visiting and Observation Processes in EHR Data</strong></p>
 <p>An R package for analyzing longitudinal biomarkers from electronic health records when the visit and observation processes are themselves informative. CIMEHR fits joint models with shared random effects that link a patient’s latent health trajectory to when they are seen and what gets measured, yielding valid inference for biomarker trajectories under informative visiting and observation.</p>
+</div>
+</div>
 <section id="features" class="level3">
 <h3 class="anchored" data-anchor-id="features">Features</h3>
 <ul>
