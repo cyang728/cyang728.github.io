@@ -128,6 +128,9 @@ J. Du<em>*</em>, <strong>C-H. Yang<em>*</em></strong>, X. Shi, B. Mukherjee. (20
 <p>
 S. McGrath, <strong>C-H. Yang</strong>, J. Kimmelman, O. Ozturk, R. Steele, A. Benedetti. (2026). Meta-analysis of median survival times with inverse-variance weighting. <em>Statistics in Medicine</em>, 45(8–9), e70533.
 </p>
+<div class="links">
+<a href="https://doi.org/10.1002/sim.70533">Paper ↗</a>
+</div>
 </div>
 </section>
 </div>

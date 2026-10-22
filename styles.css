@@ -453,6 +453,8 @@ ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em;
   text-align: center;
 }
 .home .visitor-map img, .home .visitor-map canvas { max-width: 100%; height: auto; }
+/* as wide as the main text column above it (same flex shares and gap as .home .cols) */
+@media (min-width: 861px) { .home .visitor-map { max-width: calc((100% - clamp(3rem, 5vw, 6rem)) * 1.7 / 2.7); } }
 /* the map's title line (the visitor count), in the site's heading style */
 #mapmyvisitors-widget > div > div:first-child {
   font-family: var(--serif) !important;
