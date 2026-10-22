@@ -440,6 +440,30 @@ ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em;
 .home .allpubs a { border-bottom: 1px solid var(--band-line); padding-bottom: 1px; }
 .home .allpubs a:hover { border-bottom-color: var(--yale); }
 
+/* ---- Visitors: the MapMyVisitors map (index.qmd). Hidden until the map
+   loads, so a blocked map leaves no empty box. ---- */
+.home .visitors:not(:has(#mapmyvisitors-widget)) { display: none; }
+.home .visitors .wrap { padding-top: clamp(2.4rem, 5vw, 3.6rem); padding-bottom: clamp(2.4rem, 5vw, 3.6rem); }
+.home .visitor-map {
+  border: 1px solid var(--band-line);
+  border-radius: 12px;
+  background: var(--paper);
+  overflow: hidden;
+  text-align: center;
+}
+.home .visitor-map img, .home .visitor-map canvas { max-width: 100%; height: auto; }
+/* the map's title line (the visitor count), in the site's heading style */
+#mapmyvisitors-widget > div > div:first-child {
+  font-family: var(--serif) !important;
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: var(--yale) !important;
+  text-transform: capitalize;
+  margin: 0 !important;
+  padding: 1.6rem 0 .4rem !important;
+}
+@media (max-width: 767.98px) { #mapmyvisitors-widget > div > div:first-child { padding-top: 1.1rem !important; } }
+
 /* ============================================================
    CONTENT PAGES (research / software / teaching / publications)
    Reworked: lighter, wider, mono kickers instead of heavy cards.
