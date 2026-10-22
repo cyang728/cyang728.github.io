@@ -440,9 +440,10 @@ ol li::marker { color: var(--faint); font-family: var(--mono); font-size: .85em;
 .home .allpubs a { border-bottom: 1px solid var(--band-line); padding-bottom: 1px; }
 .home .allpubs a:hover { border-bottom-color: var(--yale); }
 
-/* ---- Visitors: the MapMyVisitors map (index.qmd). Hidden until the map
-   loads, so a blocked map leaves no empty box. ---- */
-.home .visitors:not(:has(#mapmyvisitors-widget)) { display: none; }
+/* ---- Visitors: the MapMyVisitors map (index.qmd). Until the map loads,
+   the section takes no height and is not shown, so a blocked map leaves no
+   empty box; it keeps its width, which the map measures to size itself. ---- */
+.home .visitors:not(:has(#mapmyvisitors-widget)) { height: 0; overflow: hidden; visibility: hidden; }
 .home .visitors .wrap { padding-top: clamp(2.4rem, 5vw, 3.6rem); padding-bottom: clamp(2.4rem, 5vw, 3.6rem); }
 .home .visitor-map {
   border: 1px solid var(--band-line);

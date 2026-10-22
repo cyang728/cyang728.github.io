@@ -162,7 +162,7 @@ toc: false
 <section class="visitors bleed"><div class="wrap">
 <h2 class="kicker">Visitors</h2>
 <div class="visitor-map">
-<script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d=MAPMYVISITORS_CODE&amp;cl=00356b&amp;w=a&amp;co=ffffff&amp;ct=00356b&amp;t=tt&amp;cmn=d4af37&amp;cmo=d4af37"></script>
+<script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d=6zMIFghJPyxU8s20RCaBLaOqAaFKu-a6cCqU3ZggWHA&amp;cl=00356b&amp;w=a&amp;co=ffffff&amp;ct=00356b&amp;t=tt&amp;cmn=d4af37&amp;cmo=d4af37"></script>
 </div>
 </div></section>
 
