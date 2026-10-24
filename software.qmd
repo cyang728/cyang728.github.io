@@ -10,7 +10,7 @@ toc: false
 <div class="pkg-head">
 <img class="pkg-badge" src="images/cimehr-badge.svg" width="520" height="600" alt="CIMEHR badge: a biomarker trajectory over time with visits on it at irregular times, bunched while the biomarker is high. Filled points are visits where the biomarker is recorded; open circles are visits without a measurement.">
 <div class="pkg-copy">
-<p><strong>Gaussian Clinically Informative Visiting and Observation Processes in EHR Data</strong></p>
+<p><strong>Longitudinal EHR Analysis with Informative Visits and Recording</strong></p>
 <p>An R package for analyzing longitudinal biomarkers from electronic health records when the visit and observation processes are themselves informative. CIMEHR fits joint models with shared random effects that link a patient’s latent health trajectory to when they are seen and what gets measured, yielding valid inference for biomarker trajectories under informative visiting and observation.</p>
 </div>
 </div>
@@ -28,15 +28,15 @@ toc: false
 ```
 
 ```r
-remotes::install_github("cyang728/CIMEHR")
+install.packages("CIMEHR")
 ```
 
 ```{=html}
 </section>
 <section id="reference" class="level3">
 <h3 class="anchored" data-anchor-id="reference">Reference</h3>
-<p>Yang CH, Hou Y. (2026). <em>CIMEHR: Gaussian Clinically Informative Visiting and Observation Processes in Electronic Health Record Data.</em> R package version 0.1.0.</p>
-<p><a href="https://github.com/cyang728" class="btn btn-primary">GitHub Repository</a></p>
+<p>Yang CH, Hou Y. (2026). <em>CIMEHR: Longitudinal EHR Analysis with Informative Visits and Recording.</em> R package version 0.2.0.</p>
+<p><a href="https://cran.r-project.org/web/packages/CIMEHR/index.html" class="btn btn-primary">CRAN Package</a></p>
 </section>
 </section>
 <section id="demodesign" class="level2">
