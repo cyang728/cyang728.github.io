@@ -135,9 +135,9 @@ _filters/pubs-view.lua numbers the entries and builds the three pages.
 
 ```{=html}
 <div class="pub-item" data-kind="software" data-n="R">
-<div class="ttl">CIMEHR: Gaussian clinically informative visiting and observation processes in EHR data</div>
-<div class="auth"><span class="me">C-H. Yang</span>, Y. Hou · R package v0.1.0 · 2026</div>
-<div class="links"><a href="https://github.com/cyang728">GitHub ↗</a></div>
+<div class="ttl">CIMEHR: Longitudinal EHR analysis with informative visits and recording</div>
+<div class="auth"><span class="me">C-H. Yang</span>, Y. Hou · R package v0.2.0 · 2026</div>
+<div class="links"><a href="https://cran.r-project.org/web/packages/CIMEHR/index.html">CRAN ↗</a></div>
 </div>
 ```
 
