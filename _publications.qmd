@@ -76,6 +76,12 @@ _filters/pubs-view.lua numbers the entries and builds the three pages.
 <div class="src"><em>Biometrical Journal</em> <span class="tag">Submitted</span> · 2026</div>
 <div class="links"><a href="https://github.com/cyang728/MCPModX">Code ↗</a></div>
 </div>
+
+<div class="pub-item" data-kind="methods">
+<div class="ttl">Recommendations for variable inclusion in causal mediation analysis</div>
+<div class="auth">Z. Zhu, H. Lu, <span class="me">C-H. Yang</span>, B. Mukherjee, F. Li</div>
+<div class="src"><em>American Journal of Epidemiology</em> <span class="tag">Submitted</span> · 2026</div>
+</div>
 ```
 
 ## 2025 {#year-2025}
